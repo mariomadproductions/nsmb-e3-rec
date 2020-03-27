@@ -1,0 +1,262 @@
+    alloctrack 0x001F
+    opentrack 1, Label_0x000000B4
+    opentrack 2, Label_0x0000014E
+    opentrack 3, Label_0x00000184
+    opentrack 4, Label_0x000001F8
+    notewait_off
+    tempo 155
+    prg 1
+    volume 90
+    prio 27
+    pan 73
+    bendrange 12
+    pitchbend 0
+    mod_depth 0
+    cn5 84, 6
+    wait 32
+    bn4 62, 6
+    wait 16
+    as4 74, 9
+    wait 48
+    an4 82, 6
+    cs5 82, 6
+    wait 48
+    cs5 82, 12
+    an3 98, 9
+    wait 32
+    dn5 74, 9
+    dn3 108, 9
+    wait 64
+    tempo 105
+    cs3 80, 24
+    wait 29
+    cn3 80, 114
+    wait 3
+    tempo 90
+    wait 64
+    volume 90
+    wait 2
+    volume 89
+    wait 4
+    volume 88
+    wait 3
+    volume 87
+    wait 2
+    volume 85
+    wait 2
+    volume 83
+    wait 3
+    volume 81
+    wait 2
+    volume 79
+    wait 2
+    volume 76
+    wait 2
+    volume 72
+    wait 3
+    volume 69
+    wait 2
+    volume 65
+    wait 2
+    volume 61
+    wait 2
+    volume 56
+    wait 3
+    volume 51
+    wait 2
+    volume 46
+    wait 2
+    volume 40
+    wait 3
+    volume 35
+    wait 2
+    volume 28
+    wait 2
+    volume 24
+    wait 2
+    fin
+
+Label_0x000000B4:
+    notewait_off
+    prg 2
+    volume 108
+    prio 29
+    pan 52
+    bendrange 12
+    pitchbend 0
+    mod_depth 0
+    wait 96
+    cs5 80, 12
+    wait 32
+    an4 52, 6
+    wait 8
+    bn4 52, 6
+    wait 8
+    cs5 66, 15
+    wait 32
+    fn4 80, 9
+    wait 64
+    bn3 80, 24
+    wait 5
+    ds4 80, 24
+    wait 5
+    gs4 80, 24
+    wait 19
+    an3 80, 114
+    wait 6
+    dn4 80, 108
+    wait 6
+    gn4 80, 102
+    wait 55
+    volume 108
+    wait 2
+    volume 107
+    wait 4
+    volume 106
+    wait 3
+    volume 104
+    wait 2
+    volume 102
+    wait 2
+    volume 100
+    wait 3
+    volume 97
+    wait 2
+    volume 94
+    wait 2
+    volume 90
+    wait 2
+    volume 86
+    wait 3
+    volume 81
+    wait 2
+    volume 76
+    wait 2
+    volume 71
+    wait 2
+    volume 65
+    wait 3
+    volume 59
+    wait 2
+    volume 52
+    wait 2
+    volume 45
+    wait 3
+    volume 38
+    wait 2
+    volume 30
+    wait 2
+    volume 24
+    wait 2
+    fin
+
+Label_0x0000014E:
+    notewait_off
+    prg 3
+    main_volume 124
+    volume 100
+    prio 31
+    pan 98
+    bendrange 12
+    pitchbend 0
+    mod_depth 0
+    en5 90, 15
+    wait 32
+    cn5 68, 15
+    wait 16
+    gn4 80, 15
+    wait 32
+    as4 88, 15
+    wait 16
+    an4 80, 15
+    wait 48
+    bn5 88, 15
+    wait 32
+    an5 80, 15
+    wait 15
+    fin
+
+Label_0x00000184:
+    notewait_off
+    prg 4
+    volume 114
+    prio 19
+    pan 64
+    bendrange 12
+    pitchbend 0
+    mod_depth 0
+    wait 240
+    cs3 108, 24
+    cs2 108, 24
+    wait 29
+    cn3 94, 114
+    cn2 94, 114
+    wait 67
+    volume 112
+    wait 2
+    volume 111
+    wait 4
+    volume 109
+    wait 3
+    volume 108
+    wait 2
+    volume 106
+    wait 2
+    volume 103
+    wait 3
+    volume 100
+    wait 2
+    volume 97
+    wait 2
+    volume 93
+    wait 2
+    volume 89
+    wait 3
+    volume 84
+    wait 2
+    volume 79
+    wait 2
+    volume 73
+    wait 2
+    volume 67
+    wait 3
+    volume 61
+    wait 2
+    volume 53
+    wait 2
+    volume 46
+    wait 3
+    volume 38
+    wait 2
+    volume 30
+    wait 2
+    volume 24
+    wait 2
+    fin
+
+Label_0x000001F8:
+    notewait_off
+    prg 5
+    volume 84
+    prio 22
+    pan 30
+    bendrange 12
+    pitchbend 0
+    mod_depth 0
+    en5 90, 15
+    wait 32
+    cn5 68, 15
+    wait 16
+    gn4 80, 15
+    wait 32
+    as4 88, 15
+    wait 16
+    an4 80, 15
+    wait 48
+    bn5 88, 15
+    wait 32
+    an5 80, 15
+    wait 15
+    fin
+    fin
+    fin

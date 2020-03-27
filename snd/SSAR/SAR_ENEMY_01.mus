@@ -1,0 +1,44 @@
+#include "../nsmb.sbdl"
+
+@SEQ_TABLE
+SE_EMY_JUGEM_APP = 0:	Label_0x00000018,	BANK_ENEMY_01_SE,	127,	96,	80,	ENEMY_PLAYER_2
+SE_OBJ_PAIPO = 1:	Label_0x00000000,	BANK_ENEMY_01_SE,	48,	96,	80,	OBJECT_PLAYER_3
+
+@SEQ_DATA
+Label_0x00000000:
+    fin
+
+
+Label_0x00000018:
+    alloctrack 0x0002
+    opentrack 1, Label_0x00000053
+
+Label_0x00000020:
+    prg 1
+    sweep_pitch 384
+    mod_range 6
+    mod_depth 127
+    mod_delay 2
+    mod_speed 24
+    gn3 20, 30
+    gs3 30, 30
+    an3 40, 30
+    as3 50, 30
+    gs3 40, 27
+    an3 50, 27
+    as3 60, 27
+    bn3 70, 27
+    an3 60, 24
+    as3 70, 24
+    bn3 80, 24
+    cn4 90, 24
+    fin
+
+
+Label_0x00000053:
+    volume 60
+    wait 24
+    jump Label_0x00000020
+    fin
+
+

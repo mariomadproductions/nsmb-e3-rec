@@ -1,0 +1,7 @@
+#define SE_OBJ_STICK	0
+#define SE_OBJ_ITEM_SLOT	1
+#define SE_OBJ_CARD_SET	2
+#define SE_OBJ_BLOCK_SET	3
+#define SE_OBJ_BLOCK_SHUFFLE	4
+#define SE_EMY_KOOPA_LAUGH	5
+#define SE_SYS_KABE_CHG	6

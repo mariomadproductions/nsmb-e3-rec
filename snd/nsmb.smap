@@ -1,0 +1,1229 @@
+# GROUP:
+# label                     number      hsize  type    number      hsize
+  GROUP_MENU_SE                  0     267328
+                                               SEQARC       1       2208
+                                               BANK        35     265120
+  GROUP_ALL_SE                   1    2025472
+                                               SEQARC      11        704
+                                               BANK        45       6048
+                                               SEQARC      12        192
+                                               BANK        46      14816
+                                               SEQARC       9        192
+                                               BANK        64      17216
+                                               SEQARC      13        160
+                                               BANK        47       1152
+                                               SEQARC      14        608
+                                               BANK        48      49216
+                                               SEQARC      15        576
+                                               BANK        49      67648
+                                               SEQARC      16        320
+                                               BANK        50      29248
+                                               SEQARC      17        640
+                                               BANK        51      76480
+                                               SEQARC      18        224
+                                               BANK        52      23712
+                                               SEQARC      19        320
+                                               BANK        53      39136
+                                               SEQARC      26        128
+                                               BANK        54      41952
+                                               SEQARC       0        704
+                                               BANK        34      36480
+                                               SEQARC      27        224
+                                               BANK        55      26176
+                                               SEQARC      10        256
+                                               BANK        56      19616
+                                               SEQARC       1       2208
+                                               BANK        35     265120
+                                               SEQARC      25        480
+                                               BANK        66      35616
+                                               SEQARC       2        480
+                                               BANK        36      39776
+                                               SEQARC      34        512
+                                               BANK        37      52288
+                                               SEQARC       3        288
+                                               BANK        38      58880
+                                               SEQARC      29       1792
+                                               BANK        39      89088
+                                               SEQARC       4        320
+                                               BANK        40      50400
+                                               SEQARC      30        320
+                                               BANK        41      45024
+                                               SEQARC      22        704
+                                               BANK        62      76416
+                                               SEQARC      31       2368
+                                               BANK        61     180512
+                                               SEQARC      32        672
+                                               BANK        63      75136
+                                               SEQARC       5        608
+                                               BANK        60      24544
+                                               SEQARC       7        608
+                                               BANK        42      48800
+                                               SEQARC       8        192
+                                               BANK        43      67008
+                                               SEQARC       6        480
+                                               BANK        44      51168
+                                               SEQARC      20        416
+                                               BANK        57      46432
+                                               SEQARC      21        288
+                                               BANK        58      42624
+                                               SEQARC      23       1344
+                                               BANK        59      85568
+                                               SEQARC      33        320
+                                               BANK        68      45088
+                                               SEQARC      35        224
+                                               BANK        69      10656
+                                               SEQARC      36        256
+                                               BANK        70      19424
+                                               SEQARC      37        576
+                                               BANK        71      57728
+                                               SEQARC      38        640
+                                               BANK        72      67584
+                                               SEQARC      28       1280
+                                               BANK        67     210784
+                                               SEQARC      39        384
+                                               BANK        73      43968
+                                               SEQARC      40        256
+                                               BANK        74      10656
+  GROUP_01                       2     286048
+                                               SEQARC      40        256
+                                               BANK        74      10656
+                                               SEQARC      34        512
+                                               BANK        37      52288
+                                               SEQARC      31       2368
+                                               BANK        61     180512
+                                               SEQARC      38        640
+                                               BANK        72      67584
+  GROUP_02                       3       7008
+                                               SEQARC      24        224
+                                               BANK        65       6784
+  GROUP_REGI_SE                  4      36096
+                                               SEQARC      25        480
+                                               BANK        66      35616
+  GROUP_ENDING                   5     574720
+                                               SEQARC       2        480
+                                               BANK        36      39776
+                                               SEQARC      11        704
+                                               BANK        45       6048
+                                               SEQARC      28       1280
+                                               BANK        67     210784
+                                               SEQARC      29       1792
+                                               BANK        39      89088
+                                               SEQARC      31       2368
+                                               BANK        61     180512
+                                               SEQARC      34        512
+                                               BANK        37      52288
+                                               SEQARC      37        576
+                                               BANK        71      57728
+  GROUP_VS_SE                    6     713408
+                                               SEQARC      25        480
+                                               BANK        66      35616
+                                               SEQARC      11        704
+                                               BANK        45       6048
+                                               SEQARC      31       2368
+                                               BANK        61     180512
+                                               SEQARC      22        704
+                                               BANK        62      76416
+                                               SEQARC      32        672
+                                               BANK        63      75136
+                                               SEQARC       5        608
+                                               BANK        60      24544
+                                               SEQARC       9        192
+                                               BANK        64      17216
+                                               SEQ         31     180544
+                                               SEQ         33     179264
+                                               SEQ         34     179104
+                                               SEQ         32     182144
+                                               SEQ          4      53408
+                                               SEQ          8      53120
+                                               SEQ          2      84096
+                                               SEQ          5       1216
+                                               SEQ          0     185696
+                                               SEQ         30     184768
+  GROUP_M13                      7     268224
+                                               SEQARC       0        704
+                                               BANK        34      36480
+                                               SEQARC      11        704
+                                               BANK        45       6048
+                                               SEQARC      29       1792
+                                               BANK        39      89088
+                                               SEQARC      31       2368
+                                               BANK        61     180512
+  GROUP_M15                      8     285632
+                                               SEQARC       0        704
+                                               BANK        34      36480
+                                               SEQARC      11        704
+                                               BANK        45       6048
+                                               SEQARC      29       1792
+                                               BANK        39      89088
+                                               SEQARC      31       2368
+                                               BANK        61     180512
+                                               SEQARC       9        192
+                                               BANK        64      17216
+  GROUP_N04                      9     318048
+                                               SEQARC       0        704
+                                               BANK        34      36480
+                                               SEQARC      11        704
+                                               BANK        45       6048
+                                               SEQARC      29       1792
+                                               BANK        39      89088
+                                               SEQARC      31       2368
+                                               BANK        61     180512
+                                               SEQARC      14        608
+                                               BANK        48      49216
+  GROUP_N10                     10     268224
+                                               SEQARC       0        704
+                                               BANK        34      36480
+                                               SEQARC      11        704
+                                               BANK        45       6048
+                                               SEQARC      29       1792
+                                               BANK        39      89088
+                                               SEQARC      31       2368
+                                               BANK        61     180512
+  GROUP_N15                     11     327392
+                                               SEQARC       0        704
+                                               BANK        34      36480
+                                               SEQARC      11        704
+                                               BANK        45       6048
+                                               SEQARC      29       1792
+                                               BANK        39      89088
+                                               SEQARC      31       2368
+                                               BANK        61     180512
+                                               SEQARC       3        288
+                                               BANK        38      58880
+  GROUP_N21                     12     345344
+                                               SEQARC       0        704
+                                               BANK        34      36480
+                                               SEQARC      11        704
+                                               BANK        45       6048
+                                               SEQARC      29       1792
+                                               BANK        39      89088
+                                               SEQARC      31       2368
+                                               BANK        61     180512
+                                               SEQARC      17        640
+                                               BANK        51      76480
+  GROUP_N24                     13     363552
+                                               SEQARC      11        704
+                                               BANK        45       6048
+                                               SEQARC      29       1792
+                                               BANK        39      89088
+                                               SEQARC      31       2368
+                                               BANK        61     180512
+                                               SEQARC       2        480
+                                               BANK        36      39776
+                                               SEQARC      34        512
+                                               BANK        37      52288
+                                               SEQARC      38        640
+                                               BANK        72      67584
+  GROUP_P23_03                  14     409888
+                                               SEQARC       0        704
+                                               BANK        34      36480
+                                               SEQARC      11        704
+                                               BANK        45       6048
+                                               SEQARC      29       1792
+                                               BANK        39      89088
+                                               SEQARC      31       2368
+                                               BANK        61     180512
+                                               SEQARC       7        608
+                                               BANK        42      48800
+                                               SEQARC      34        512
+                                               BANK        37      52288
+                                               SEQARC      38        640
+                                               BANK        72      67584
+  GROUP_N20_02                  15     268224
+                                               SEQARC       0        704
+                                               BANK        34      36480
+                                               SEQARC      11        704
+                                               BANK        45       6048
+                                               SEQARC      29       1792
+                                               BANK        39      89088
+                                               SEQARC      31       2368
+                                               BANK        61     180512
+  GROUP_Q09_01                  16     336448
+                                               SEQARC       0        704
+                                               BANK        34      36480
+                                               SEQARC      11        704
+                                               BANK        45       6048
+                                               SEQARC      29       1792
+                                               BANK        39      89088
+                                               SEQARC      31       2368
+                                               BANK        61     180512
+                                               SEQARC      15        576
+                                               BANK        49      67648
+  GROUP_Q21_01                  17     297792
+                                               SEQARC       0        704
+                                               BANK        34      36480
+                                               SEQARC      11        704
+                                               BANK        45       6048
+                                               SEQARC      29       1792
+                                               BANK        39      89088
+                                               SEQARC      31       2368
+                                               BANK        61     180512
+                                               SEQARC      16        320
+                                               BANK        50      29248
+  GROUP_Q22_01                  18     339872
+                                               SEQARC       0        704
+                                               BANK        34      36480
+                                               SEQARC      11        704
+                                               BANK        45       6048
+                                               SEQARC      29       1792
+                                               BANK        39      89088
+                                               SEQARC      31       2368
+                                               BANK        61     180512
+                                               SEQARC      16        320
+                                               BANK        50      29248
+                                               SEQARC      26        128
+                                               BANK        54      41952
+  GROUP_Z03_04                  19     315072
+                                               SEQARC       0        704
+                                               BANK        34      36480
+                                               SEQARC      11        704
+                                               BANK        45       6048
+                                               SEQARC      29       1792
+                                               BANK        39      89088
+                                               SEQARC      31       2368
+                                               BANK        61     180512
+                                               SEQARC      20        416
+                                               BANK        57      46432
+  GROUP_N20_01                  20     269536
+                                               SEQARC       0        704
+                                               BANK        34      36480
+                                               SEQARC      11        704
+                                               BANK        45       6048
+                                               SEQARC      29       1792
+                                               BANK        39      89088
+                                               SEQARC      31       2368
+                                               BANK        61     180512
+                                               SEQARC      13        160
+                                               BANK        47       1152
+  GROUP_T01_02                  21     311136
+                                               SEQARC       0        704
+                                               BANK        34      36480
+                                               SEQARC      11        704
+                                               BANK        45       6048
+                                               SEQARC      29       1792
+                                               BANK        39      89088
+                                               SEQARC      31       2368
+                                               BANK        61     180512
+                                               SEQARC      21        288
+                                               BANK        58      42624
+  GROUP_N18                     22     307680
+                                               SEQARC       0        704
+                                               BANK        34      36480
+                                               SEQARC      11        704
+                                               BANK        45       6048
+                                               SEQARC      29       1792
+                                               BANK        39      89088
+                                               SEQARC      31       2368
+                                               BANK        61     180512
+                                               SEQARC      19        320
+                                               BANK        53      39136
+  GROUP_N20                     23     269536
+                                               SEQARC       0        704
+                                               BANK        34      36480
+                                               SEQARC      11        704
+                                               BANK        45       6048
+                                               SEQARC      29       1792
+                                               BANK        39      89088
+                                               SEQARC      31       2368
+                                               BANK        61     180512
+                                               SEQARC      13        160
+                                               BANK        47       1152
+  GROUP_N28                     24     362752
+                                               SEQARC       0        704
+                                               BANK        34      36480
+                                               SEQARC      11        704
+                                               BANK        45       6048
+                                               SEQARC      29       1792
+                                               BANK        39      89088
+                                               SEQARC      31       2368
+                                               BANK        61     180512
+                                               SEQARC       9        192
+                                               BANK        64      17216
+                                               SEQARC      17        640
+                                               BANK        51      76480
+  GROUP_N32_03                  25     383616
+                                               SEQARC      11        704
+                                               BANK        45       6048
+                                               SEQARC      29       1792
+                                               BANK        39      89088
+                                               SEQARC      31       2368
+                                               BANK        61     180512
+                                               SEQARC       9        192
+                                               BANK        64      17216
+                                               SEQARC      21        288
+                                               BANK        58      42624
+                                               SEQARC      34        512
+                                               BANK        37      52288
+                                               SEQARC      38        640
+                                               BANK        72      67584
+  GROUP_N35_02                  26     370144
+                                               SEQARC      11        704
+                                               BANK        45       6048
+                                               SEQARC      29       1792
+                                               BANK        39      89088
+                                               SEQARC      31       2368
+                                               BANK        61     180512
+                                               SEQARC      20        416
+                                               BANK        57      46432
+                                               SEQARC      34        512
+                                               BANK        37      52288
+                                               SEQARC      38        640
+                                               BANK        72      67584
+  GROUP_L10                     27     313248
+                                               SEQARC      11        704
+                                               BANK        45       6048
+                                               SEQARC      29       1792
+                                               BANK        39      89088
+                                               SEQARC      31       2368
+                                               BANK        61     180512
+                                               SEQARC       8        192
+                                               BANK        43      67008
+                                               SEQARC      12        192
+                                               BANK        46      14816
+  GROUP_M25_01                  28     335424
+                                               SEQARC       0        704
+                                               BANK        34      36480
+                                               SEQARC      11        704
+                                               BANK        45       6048
+                                               SEQARC      29       1792
+                                               BANK        39      89088
+                                               SEQARC      31       2368
+                                               BANK        61     180512
+                                               SEQARC       8        192
+                                               BANK        43      67008
+  GROUP_M31                     29     450560
+                                               SEQARC       0        704
+                                               BANK        34      36480
+                                               SEQARC      11        704
+                                               BANK        45       6048
+                                               SEQARC      29       1792
+                                               BANK        39      89088
+                                               SEQARC      31       2368
+                                               BANK        61     180512
+                                               SEQARC       2        480
+                                               BANK        36      39776
+                                               SEQARC      34        512
+                                               BANK        37      52288
+                                               SEQARC      14        608
+                                               BANK        48      49216
+                                               SEQARC      38        640
+                                               BANK        72      67584
+  GROUP_N31                     30     367456
+                                               SEQARC       0        704
+                                               BANK        34      36480
+                                               SEQARC      11        704
+                                               BANK        45       6048
+                                               SEQARC      29       1792
+                                               BANK        39      89088
+                                               SEQARC      31       2368
+                                               BANK        61     180512
+                                               SEQARC       7        608
+                                               BANK        42      48800
+                                               SEQARC      14        608
+                                               BANK        48      49216
+  GROUP_N33                     31     374944
+                                               SEQARC      11        704
+                                               BANK        45       6048
+                                               SEQARC      29       1792
+                                               BANK        39      89088
+                                               SEQARC      31       2368
+                                               BANK        61     180512
+                                               SEQARC       6        480
+                                               BANK        44      51168
+                                               SEQARC      34        512
+                                               BANK        37      52288
+                                               SEQARC      38        640
+                                               BANK        72      67584
+  GROUP_N34_02                  32     407936
+                                               SEQARC       0        704
+                                               BANK        34      36480
+                                               SEQARC      11        704
+                                               BANK        45       6048
+                                               SEQARC      29       1792
+                                               BANK        39      89088
+                                               SEQARC      31       2368
+                                               BANK        61     180512
+                                               SEQARC      23       1344
+                                               BANK        59      85568
+                                               SEQARC      34        512
+                                               BANK        37      52288
+  GROUP_N38_03                  33     519360
+                                               SEQARC       0        704
+                                               BANK        34      36480
+                                               SEQARC      11        704
+                                               BANK        45       6048
+                                               SEQARC      29       1792
+                                               BANK        39      89088
+                                               SEQARC      31       2368
+                                               BANK        61     180512
+                                               SEQARC       2        480
+                                               BANK        36      39776
+                                               SEQARC      34        512
+                                               BANK        37      52288
+                                               SEQARC      23       1344
+                                               BANK        59      85568
+                                               SEQARC      37        576
+                                               BANK        71      57728
+                                               SEQARC      38        640
+                                               BANK        72      67584
+  GROUP_M24                     34     283232
+                                               SEQARC       0        704
+                                               BANK        34      36480
+                                               SEQARC      11        704
+                                               BANK        45       6048
+                                               SEQARC      29       1792
+                                               BANK        39      89088
+                                               SEQARC      31       2368
+                                               BANK        61     180512
+                                               SEQARC      12        192
+                                               BANK        46      14816
+  GROUP_Q27                     35     318048
+                                               SEQARC       0        704
+                                               BANK        34      36480
+                                               SEQARC      11        704
+                                               BANK        45       6048
+                                               SEQARC      29       1792
+                                               BANK        39      89088
+                                               SEQARC      31       2368
+                                               BANK        61     180512
+                                               SEQARC      14        608
+                                               BANK        48      49216
+  GROUP_VS_PREDOWNLOAD          36       7008
+                                               SEQARC      24        224
+                                               BANK        65       6784
+  GROUP_Q18_01                  37     310304
+                                               SEQARC       0        704
+                                               BANK        34      36480
+                                               SEQARC      11        704
+                                               BANK        45       6048
+                                               SEQARC      29       1792
+                                               BANK        39      89088
+                                               SEQARC      31       2368
+                                               BANK        61     180512
+                                               SEQARC      26        128
+                                               BANK        54      41952
+  GROUP_N35_01                  38     318048
+                                               SEQARC       0        704
+                                               BANK        34      36480
+                                               SEQARC      11        704
+                                               BANK        45       6048
+                                               SEQARC      29       1792
+                                               BANK        39      89088
+                                               SEQARC      31       2368
+                                               BANK        61     180512
+                                               SEQARC      14        608
+                                               BANK        48      49216
+  GROUP_Q02_01                  39     344448
+                                               SEQARC       0        704
+                                               BANK        34      36480
+                                               SEQARC      11        704
+                                               BANK        45       6048
+                                               SEQARC      29       1792
+                                               BANK        39      89088
+                                               SEQARC      31       2368
+                                               BANK        61     180512
+                                               SEQARC      27        224
+                                               BANK        55      26176
+                                               SEQARC      14        608
+                                               BANK        48      49216
+  GROUP_N32_01                  40     288096
+                                               SEQARC       0        704
+                                               BANK        34      36480
+                                               SEQARC      11        704
+                                               BANK        45       6048
+                                               SEQARC      29       1792
+                                               BANK        39      89088
+                                               SEQARC      31       2368
+                                               BANK        61     180512
+                                               SEQARC      10        256
+                                               BANK        56      19616
+  GROUP_N32_02                  41     305504
+                                               SEQARC       0        704
+                                               BANK        34      36480
+                                               SEQARC      11        704
+                                               BANK        45       6048
+                                               SEQARC      29       1792
+                                               BANK        39      89088
+                                               SEQARC      31       2368
+                                               BANK        61     180512
+                                               SEQARC       9        192
+                                               BANK        64      17216
+                                               SEQARC      10        256
+                                               BANK        56      19616
+  GROUP_Q03_02                  42     337920
+                                               SEQARC       0        704
+                                               BANK        34      36480
+                                               SEQARC      11        704
+                                               BANK        45       6048
+                                               SEQARC      29       1792
+                                               BANK        39      89088
+                                               SEQARC      31       2368
+                                               BANK        61     180512
+                                               SEQARC      14        608
+                                               BANK        48      49216
+                                               SEQARC      10        256
+                                               BANK        56      19616
+  GROUP_M25_02                  43     292160
+                                               SEQARC       0        704
+                                               BANK        34      36480
+                                               SEQARC      11        704
+                                               BANK        45       6048
+                                               SEQARC      29       1792
+                                               BANK        39      89088
+                                               SEQARC      31       2368
+                                               BANK        61     180512
+                                               SEQARC      18        224
+                                               BANK        52      23712
+  GROUP_N37_02                  44     323296
+                                               SEQARC      11        704
+                                               BANK        45       6048
+                                               SEQARC      29       1792
+                                               BANK        39      89088
+                                               SEQARC      31       2368
+                                               BANK        61     180512
+                                               SEQARC      34        512
+                                               BANK        37      52288
+                                               SEQARC      38        640
+                                               BANK        72      67584
+  GROUP_M33_01                  45     344448
+                                               SEQARC       0        704
+                                               BANK        34      36480
+                                               SEQARC      11        704
+                                               BANK        45       6048
+                                               SEQARC      29       1792
+                                               BANK        39      89088
+                                               SEQARC      31       2368
+                                               BANK        61     180512
+                                               SEQARC      27        224
+                                               BANK        55      26176
+                                               SEQARC      14        608
+                                               BANK        48      49216
+  GROUP_TITLE_SE                46     212064
+                                               SEQARC      28       1280
+                                               BANK        67     210784
+  GROUP_MARIO_VOICE             47      50720
+                                               SEQARC       4        320
+                                               BANK        40      50400
+  GROUP_LUIGI_VOICE             48      45344
+                                               SEQARC      30        320
+                                               BANK        41      45024
+  GROUP_ITEM_HOUSE_SE           49     306880
+                                               SEQARC       0        704
+                                               BANK        34      36480
+                                               SEQARC      29       1792
+                                               BANK        39      89088
+                                               SEQARC      31       2368
+                                               BANK        61     180512
+                                               SEQARC      33        320
+                                               BANK        68      45088
+  GROUP_K22                     50     241920
+                                               SEQARC      29       1792
+                                               BANK        39      89088
+                                               SEQARC      31       2368
+                                               BANK        61     180512
+                                               SEQARC      35        224
+                                               BANK        69      10656
+                                               SEQARC      11        704
+                                               BANK        45       6048
+  GROUP_VS_COMMON_MARIO_VOICE     51      77120
+                                               SEQARC      22        704
+                                               BANK        62      76416
+  GROUP_VS_COMMON_LUIGI_VOICE     52      75808
+                                               SEQARC      32        672
+                                               BANK        63      75136
+  GROUP_N38_02                  53     300544
+                                               SEQARC      11        704
+                                               BANK        45       6048
+                                               SEQARC      29       1792
+                                               BANK        39      89088
+                                               SEQARC      31       2368
+                                               BANK        61     180512
+                                               SEQARC      14        608
+                                               BANK        48      49216
+                                               SEQARC      36        256
+                                               BANK        70      19424
+  GROUP_Q27_02                  54     368000
+                                               SEQARC      11        704
+                                               BANK        45       6048
+                                               SEQARC      29       1792
+                                               BANK        39      89088
+                                               SEQARC      31       2368
+                                               BANK        61     180512
+                                               SEQARC      34        512
+                                               BANK        37      52288
+                                               SEQARC      38        640
+                                               BANK        72      67584
+                                               SEQARC      39        384
+                                               BANK        73      43968
+                                               SEQARC       9        192
+                                               BANK        64      17216
+  GROUP_N22                     55     335456
+                                               SEQARC       0        704
+                                               BANK        34      36480
+                                               SEQARC      11        704
+                                               BANK        45       6048
+                                               SEQARC      29       1792
+                                               BANK        39      89088
+                                               SEQARC      31       2368
+                                               BANK        61     180512
+                                               SEQARC       9        192
+                                               BANK        64      17216
+                                               SEQARC      14        608
+                                               BANK        48      49216
+  GROUP_M23                     56     274240
+                                               SEQARC       0        704
+                                               BANK        34      36480
+                                               SEQARC      11        704
+                                               BANK        45       6048
+                                               SEQARC      29       1792
+                                               BANK        39      89088
+                                               SEQARC      31       2368
+                                               BANK        61     180512
+                                               SEQARC      40        256
+                                               BANK        74      10656
+
+# SEQ:
+# label                     number fileID bnk vol cpr ppr ply      hsize       size name
+  BGM_VS_CHIJOU                  0      0  19 127  64  50   0     185696       7120 SSEQ/BGM_VS_CHIJOU.sseq
+  BGM_TRIDE                      1      1   1 127  64  50   0      91584       4748 SSEQ/BGM_TRIDE.sseq
+  BGM_MUTEKI                     2      2   2 127  64  50   0      84096       2868 SSEQ/BGM_MUTEKI.sseq
+  BGM_HUGE                       3      3   3 127  64  50   0      41216       1780 SSEQ/BGM_HUGE.sseq
+  BGM_COURSE_CLEAR               4      4   8 120  64  50   0      53408        732 SSEQ/BGM_COURSE_CLEAR.sseq
+  BGM_DOWN                       5      5   5 127  64  50   0       1216        260 SSEQ/BGM_DOWN.sseq
+  BGM_SABAKU                     6      6   6 127  64  50   0     111008       5724 SSEQ/BGM_SABAKU.sseq
+  BGM_BOSS                       7      7   7 100  64  50   0      67520       8016 SSEQ/BGM_BOSS.sseq
+  BGM_VS_LOSE_FANFARE            8      8   8 120  64  50   0      53120        448 SSEQ/BGM_VS_LOSE_FANFARE.sseq
+  BGM_CHIKA                      9      9   9 127  64  50   0      73120       7452 SSEQ/BGM_CHIKA.sseq
+  BGM_MAME                      10     10  10 127  64  50   0      47456       3212 SSEQ/BGM_MAME.sseq
+  BGM_WATER3                    11     11  11 127  64  50   0      72832       6160 SSEQ/BGM_WATER3.sseq
+  BGM_KAZAN_SOTO                12     12  12 127  64  50   0      92832       6408 SSEQ/BGM_KAZAN_SOTO.sseq
+  BGM_SAMPLE                    13     13  13 127  64  50   0      86784       5208 SSEQ/BGM_SAMPLE.sseq
+  BGM_SANBASHI                  14     14  14 127  64  50   0      58016       7588 SSEQ/BGM_SANBASHI.sseq
+  BGM_KUPPAJR                   15     15  15 127  64  50   0      92320      10372 SSEQ/BGM_KUPPAJR.sseq
+  BGM_OBAKE                     16     16  16 127  64  50   0      66208      11752 SSEQ/BGM_OBAKE.sseq
+  BGM_SHIRO                     17     17  17 127  64  50   0     112416       6080 SSEQ/BGM_SHIRO.sseq
+  BGM_SWITCH                    18     18  18 127  64  50   0       7296       1280 SSEQ/BGM_SWITCH.sseq
+  BGM_FINAL_CLEAR               19     19  24 127  64  50   0      83584       1512 SSEQ/BGM_FINAL_CLEAR.sseq
+  BGM_GAMEOVER                  20     20  21 127  64  50   0      35168        588 SSEQ/BGM_GAMEOVER.sseq
+  BGM_FINAL_KUPPA               21     21  23 127  64  50   0     107232       7524 SSEQ/BGM_FINAL_KUPPA.sseq
+  BGM_BOSS_CLEAR                22      4   8 120  64  50   0      53408        732 SSEQ/BGM_COURSE_CLEAR.sseq
+  BGM_ATHLETIC                  24     22  30 120  64  50   0      70144       8528 SSEQ/BGM_ATHLETIC.sseq
+  BGM_MINIGAME                  25     23  26  96  64  50   0       8416       2532 SSEQ/BGM_MINIGAME.sseq
+  BGM_CHIJOU_CONT               26     24  27 120  64  50   0     113248       7108 SSEQ/BGM_CHIJOU_CONT.sseq
+  BGM_SELECT                    27     25  20 127  64  50   0      46080       1968 SSEQ/BGM_SELECT.sseq
+  BGM_GOAL_FANFARE2             28     26  28 127  64  50   0       2208        504 SSEQ/BGM_GOAL_FANFARE2.sseq
+  BGM_FANFARE_KINO              29     27  29 127  64  50   0      45856        408 SSEQ/BGM_FANFARE_KINO.sseq
+  BGM_VS_STAGE                  30     28  19 127  64  50   0     184768       6192 SSEQ/BGM_VS_STAGE.sseq
+  BGM_VS_SELECT                 31     29  19 127  64  50   0     180544       1968 SSEQ/BGM_VS_SELECT.sseq
+  BGM_VS_FAN_LOOP               32     30  19 127  64  50   0     182144       3572 SSEQ/BGM_VS_FAN_LOOP.sseq
+  BGM_VS_WIN                    33     31  19 127  64  50   0     179264        704 SSEQ/BGM_VS_WIN.sseq
+  BGM_VS_LOSE                   34     32  19 127  64  50   0     179104        524 SSEQ/BGM_VS_LOSE.sseq
+  BGM_AMB_YOUGAN                80     33  75 127  64  80   0      45824        116 SSEQ/BGM_AMB_YOUGAN.sseq
+  BGM_AMB_SABAKU                81     34  76 127  64  80   0      19136        160 SSEQ/BGM_AMB_SABAKU.sseq
+  BGM_AMB_WATER                 82     35  77 127  64  80   0      36800         52 SSEQ/BGM_AMB_WATER.sseq
+  BGM_AMB_CHIKA                 83     36  78 127  64  80   0       8448         72 SSEQ/BGM_AMB_CHIKA.sseq
+  BGM_AMB_SKY                   86     37  79 127  64  80   0      29888        160 SSEQ/BGM_AMB_SKY.sseq
+  BGM_CHIJO                     99     38   0 127  64  50   0     123904       7028 SSEQ/BGM_CHIJO.sseq
+  BGM_WORLD1                   100     39  25 127  64  50   0     302816       1804 SSEQ/BGM_WORLD1.sseq
+  BGM_WORLD2                   101     40  25 127  64  50   0     302720       1712 SSEQ/BGM_WORLD2.sseq
+  BGM_WORLD3                   102     41  25 127  64  50   0     304800       3796 SSEQ/BGM_WORLD3.sseq
+  BGM_WORLD4                   103     42  25 127  64  50   0     303328       2308 SSEQ/BGM_WORLD4.sseq
+  BGM_WORLD5                   104     43  25 127  64  50   0     305184       4172 SSEQ/BGM_WORLD5.sseq
+  BGM_WORLD6                   105     44  25 127  64  50   0     304576       3564 SSEQ/BGM_WORLD6.sseq
+  BGM_WORLD7                   106     45  25 127  64  50   0     305504       4504 SSEQ/BGM_WORLD7.sseq
+  BGM_WORLD8                   107     46  25 127  64  50   0     305504       4496 SSEQ/BGM_WORLD8.sseq
+  BGM_ENDING                   108     47  31 127  64  50   0     144064      20324 SSEQ/BGM_ENDING.sseq
+  BGM_OPENING_DEMO1            109     48  32 127  64  50   0     102880       1044 SSEQ/BGM_OPENING_DEMO1.sseq
+  BGM_OPENING_DEMO2            110     49  32 127  64  50   0     104320       2476 SSEQ/BGM_OPENING_DEMO2.sseq
+  BGM_KUPPACLEAR_DEMO          111     50  33 127  64  50   0      35392       1844 SSEQ/BGM_KUPPACLEAR_DEMO.sseq
+
+# SEQARC:
+# label                     number fileID                                      size name
+  SAR_COURSE                     0     51                                       620 SSAR/SAR_COURSE.ssar
+  SAR_MENU                       1     52                                      2136 SSAR/SAR_MENU.ssar
+  SAR_KOOPAJR                    2     53                                       416 SSAR/SAR_KOOPAJR.ssar
+  SAR_VOLCANO                    3     54                                       220 SSAR/SAR_VOLCANO.ssar
+  SAR_MARIO_BASE                 4     55                                       248 SSAR/SAR_MARIO_BASE.ssar
+  SAR_VS                         5     56                                       540 SSAR/SAR_VS.ssar
+  SAR_THUNDER                    6     57                                       404 SSAR/SAR_THUNDER.ssar
+  SAR_HUGE_KURIBO                7     58                                       544 SSAR/SAR_HUGE_KURIBO.ssar
+  SAR_TORNADO                    8     59                                       128 SSAR/SAR_TORNADO.ssar
+  SAR_VS_COMMON_ENEMY_01         9     60                                       104 SSAR/SAR_VS_COMMON_ENEMY_01.ssar
+  SAR_OBJ_TEKKYU                10     61                                       184 SSAR/SAR_OBJ_TEKKYU.ssar
+  SAR_ENEMY_BASE                11     62                                       616 SSAR/SAR_ENEMY_BASE.ssar
+  SAR_ENEMY_01                  12     63                                       128 SSAR/SAR_ENEMY_01.ssar
+  SAR_ENEMY_02                  13     64                                        80 SSAR/SAR_ENEMY_02.ssar
+  SAR_ENEMY_03                  14     65                                       536 SSAR/SAR_ENEMY_03.ssar
+  SAR_ENEMY_04                  15     66                                       492 SSAR/SAR_ENEMY_04.ssar
+  SAR_ENEMY_05                  16     67                                       232 SSAR/SAR_ENEMY_05.ssar
+  SAR_ENEMY_06                  17     68                                       572 SSAR/SAR_ENEMY_06.ssar
+  SAR_ENEMY_GOREM               18     69                                       136 SSAR/SAR_ENEMY_GOREM.ssar
+  SAR_ENEMY_GABON               19     70                                       244 SSAR/SAR_ENEMY_GABON.ssar
+  SAR_BOSS_PAKKUN               20     71                                       344 SSAR/SAR_BOSS_PAKKUN.ssar
+  SAR_SABAKU_BOSS               21     72                                       204 SSAR/SAR_SABAKU_BOSS.ssar
+  SAR_VS_COMMON_MARIO_BASE      22     73                                       612 SSAR/SAR_VS_COMMON_MARIO_BASE.ssar
+  SAR_OLD_KOOPA                 23     74                                      1276 SSAR/SAR_OLD_KOOPA.ssar
+  SAR_VS_PREDOWNLOAD            24     75                                       152 SSAR/SAR_VS_PREDOWNLOAD.ssar
+  SAR_VS_COMMON_MENU            25     76                                       416 SSAR/SAR_VS_COMMON_MENU.ssar
+  SAR_ENEMY_DOSSY               26     77                                        60 SSAR/SAR_ENEMY_DOSSY.ssar
+  SAR_OBJ_FENCE                 27     78                                       132 SSAR/SAR_OBJ_FENCE.ssar
+  SAR_OPENING_DEMO              28     79                                      1204 SSAR/SAR_OPENING_DEMO.ssar
+  SAR_PLAYER_BASE               29     80                                      1708 SSAR/SAR_PLAYER_BASE.ssar
+  SAR_LUIGI_BASE                30     81                                       248 SSAR/SAR_LUIGI_BASE.ssar
+  SAR_VS_COMMON_PLAYER_BASE     31     82                                      2292 SSAR/SAR_VS_COMMON_PLAYER_BASE.ssar
+  SAR_VS_COMMON_LUIGI_BASE      32     83                                       604 SSAR/SAR_VS_COMMON_LUIGI_BASE.ssar
+  SAR_ITEM_HOUSE                33     84                                       232 SSAR/SAR_ITEM_HOUSE.ssar
+  SAR_KOOPAJR_COMMON            34     85                                       428 SSAR/SAR_KOOPAJR_COMMON.ssar
+  SAR_PIPE_CANNON               35     86                                       144 SSAR/SAR_PIPE_CANNON.ssar
+  SAR_LAST_KOOPA_DOOR           36     87                                       176 SSAR/SAR_LAST_KOOPA_DOOR.ssar
+  SAR_LAST_KOOPA_DEMO           37     88                                       512 SSAR/SAR_LAST_KOOPA_DEMO.ssar
+  SAR_BOSS_COMMON               38     89                                       560 SSAR/SAR_BOSS_COMMON.ssar
+  SAR_BOSS_CHOROPU              39     90                                       300 SSAR/SAR_BOSS_CHOROPU.ssar
+  SAR_OBJ_CORK                  40     91                                       172 SSAR/SAR_OBJ_CORK.ssar
+
+# BANK:
+# label                     number fileID wa0 wa1 wa2 wa3          hsize       size name
+  BANK_CHIJO_BGM                 0     92   0                     116800       1872 SBNK/BANK_CHIJO_BGM.sbnk
+  BANK_TORIDE_BGM                1     93   1                      86752       1780 SBNK/BANK_TORIDE_BGM.sbnk
+  BANK_MUTEKI_BGM                2     94   2                      81152       1764 SBNK/BANK_MUTEKI_BGM.sbnk
+  BANK_HUGE_BGM                  3     95   3                      39360       1656 SBNK/BANK_HUGE_BGM.sbnk
+  BANK_COURSE_CLEAR_BGM          4     96   4                      23584        260 SBNK/BANK_COURSE_CLEAR_BGM.sbnk
+  BANK_DOWN_BGM                  5     97   5                        864        108 SBNK/BANK_DOWN_BGM.sbnk
+  BANK_SABAKU_BGM                6     98   6                     105216       1764 SBNK/BANK_SABAKU_BGM.sbnk
+  BANK_BOSS_BGM                  7     99   7   9                  59424        372 SBNK/BANK_BOSS_BGM.sbnk
+  BANK_GOAL_FANFARE_BGM          8    100   8   9                  52608        348 SBNK/BANK_GOAL_FANFARE_BGM.sbnk
+  BANK_CHIKA_BGM                 9    101  10                      65600       1756 SBNK/BANK_CHIKA_BGM.sbnk
+  BANK_MAME_BGM                 10    102  11                      44160        208 SBNK/BANK_MAME_BGM.sbnk
+  BANK_WATER3_BGM               11    103  12                      66592        240 SBNK/BANK_WATER3_BGM.sbnk
+  BANK_KAZAN_SOTO               12    104  13                      86336        356 SBNK/BANK_KAZAN_SOTO.sbnk
+  BANK_SAMPLE                   13    105  14                      81504       1740 SBNK/BANK_SAMPLE.sbnk
+  BANK_SANBASHI                 14    106  15                      50336        292 SBNK/BANK_SANBASHI.sbnk
+  BANK_KUPPAJR                  15    107  16                      81856        276 SBNK/BANK_KUPPAJR.sbnk
+  BANK_OBAKE                    16    108  17                      54368        228 SBNK/BANK_OBAKE.sbnk
+  BANK_SHIRO                    17    109  18                     106272        284 SBNK/BANK_SHIRO.sbnk
+  BANK_SWITCH                   18    110  19                       5952        128 SBNK/BANK_SWITCH.sbnk
+  BANK_VS                       19    111  20                     178496       1000 SBNK/BANK_VS.sbnk
+  BANK_SELECT                   20    112  21                      44032        200 SBNK/BANK_SELECT.sbnk
+  BANK_GAMEOVER                 21    113  22                      34496        136 SBNK/BANK_GAMEOVER.sbnk
+  BANK_BOSS_CLEAR               22    114  23                      64096        204 SBNK/BANK_BOSS_CLEAR.sbnk
+  BANK_FINAL_KUPPA              23    115  24                      99616       1072 SBNK/BANK_FINAL_KUPPA.sbnk
+  BANK_FINAL_CLEAR              24    116  25                      81984        268 SBNK/BANK_FINAL_CLEAR.sbnk
+  BANK_WORLD_ALL                25    117  26                     300928       1268 SBNK/BANK_WORLD_ALL.sbnk
+  BANK_MINIGAME_BGM             26    118  27                       5792        156 SBNK/BANK_MINIGAME_BGM.sbnk
+  BANK_CHIJOU_CONT              27    119  28                     106048        316 SBNK/BANK_CHIJOU_CONT.sbnk
+  BANK_GOAL_FANFARE2            28    120  29                       1632        108 SBNK/BANK_GOAL_FANFARE2.sbnk
+  BANK_FANFARE_KINO             29    121  30                      45376        156 SBNK/BANK_FANFARE_KINO.sbnk
+  BANK_ATHLETIC                 30    122  31                      61536        268 SBNK/BANK_ATHLETIC.sbnk
+  BANK_ENDING                   31    123  32                     123648       1936 SBNK/BANK_ENDING.sbnk
+  BANK_OPENING_DEMO             32    124  33                     101760        252 SBNK/BANK_OPENING_DEMO.sbnk
+  BANK_KUPPACLEAR_DEMO          33    125  34                      33472        164 SBNK/BANK_KUPPACLEAR_DEMO.sbnk
+  BANK_COURSE_SE                34    126  35  84                  36480        272 SBNK/BANK_COURSE_SE.sbnk
+  BANK_MENU_SE                  35    127  36  47                 265120        628 SBNK/BANK_MENU_SE.sbnk
+  BANK_KOOPAJR_SE               36    128  37                      39776        284 SBNK/BANK_KOOPAJR_SE.sbnk
+  BANK_KOOPAJR_COMMON_SE        37    129  38  85                  52288        496 SBNK/BANK_KOOPAJR_COMMON_SE.sbnk
+  BANK_VOLCANO_SE               38    130  39                      58880        144 SBNK/BANK_VOLCANO_SE.sbnk
+  BANK_PLAYER_BASE_SE           39    131  40  45  46  47          89088        396 SBNK/BANK_PLAYER_BASE_SE.sbnk
+  BANK_MARIO_BASE_SE            40    132  41  47  42              50400        300 SBNK/BANK_MARIO_BASE_SE.sbnk
+  BANK_LUIGI_BASE_SE            41    133  43  47  44              45024        284 SBNK/BANK_LUIGI_BASE_SE.sbnk
+  BANK_HUGE_KURIBO_SE           42    134  48                      48800        188 SBNK/BANK_HUGE_KURIBO_SE.sbnk
+  BANK_TORNADO_SE               43    135  49                      67008         88 SBNK/BANK_TORNADO_SE.sbnk
+  BANK_THUNDER_SE               44    136  50                      51168        172 SBNK/BANK_THUNDER_SE.sbnk
+  BANK_ENEMY_BASE_SE            45    137  51                       6048        132 SBNK/BANK_ENEMY_BASE_SE.sbnk
+  BANK_ENEMY_01_SE              46    138  52                      14816         88 SBNK/BANK_ENEMY_01_SE.sbnk
+  BANK_ENEMY_02_SE              47    139  53                       1152         76 SBNK/BANK_ENEMY_02_SE.sbnk
+  BANK_ENEMY_03_SE              48    140  54  78                  49216        216 SBNK/BANK_ENEMY_03_SE.sbnk
+  BANK_ENEMY_04_SE              49    141  55                      67648        204 SBNK/BANK_ENEMY_04_SE.sbnk
+  BANK_ENEMY_05_SE              50    142  56                      29248        144 SBNK/BANK_ENEMY_05_SE.sbnk
+  BANK_ENEMY_06_SE              51    143  57                      76480        200 SBNK/BANK_ENEMY_06_SE.sbnk
+  BANK_ENEMY_GOREM_SE           52    144  58                      23712        104 SBNK/BANK_ENEMY_GOREM_SE.sbnk
+  BANK_ENEMY_GABON_SE           53    145  59                      39136        160 SBNK/BANK_ENEMY_GABON_SE.sbnk
+  BANK_ENEMY_DOSSY_SE           54    146  60                      41952         76 SBNK/BANK_ENEMY_DOSSY_SE.sbnk
+  BANK_OBJ_FENCE_SE             55    147  61                      26176        132 SBNK/BANK_OBJ_FENCE_SE.sbnk
+  BANK_OBJ_TEKKYU_SE            56    148  62                      19616        116 SBNK/BANK_OBJ_TEKKYU_SE.sbnk
+  BANK_BOSS_PAKKUN_SE           57    149  63                      46432        308 SBNK/BANK_BOSS_PAKKUN_SE.sbnk
+  BANK_SABAKU_BOSS_SE           58    150  64                      42624        132 SBNK/BANK_SABAKU_BOSS_SE.sbnk
+  BANK_OLD_KOOPA_SE             59    151  65  78  80              85568        300 SBNK/BANK_OLD_KOOPA_SE.sbnk
+  BANK_VS_SE                    60    152  66                      24544        180 SBNK/BANK_VS_SE.sbnk
+  BANK_VS_COMMON_PLAYER_BASE_SE     61    153  67  45  46  47         180512        720 SBNK/BANK_VS_COMMON_PLAYER_BASE_SE.sbnk
+  BANK_VS_COMMON_MARIO_BASE_SE     62    154  68  45  42  70          76416        316 SBNK/BANK_VS_COMMON_MARIO_BASE_SE.sbnk
+  BANK_VS_COMMON_LUIGI_BASE_SE     63    155  69  45  44  70          75136        316 SBNK/BANK_VS_COMMON_LUIGI_BASE_SE.sbnk
+  BANK_VS_COMMON_ENEMY_01_SE     64    156  71                      17216         88 SBNK/BANK_VS_COMMON_ENEMY_01_SE.sbnk
+  BANK_VS_PREDOWNLOAD_SE        65    157  72                       6784         76 SBNK/BANK_VS_PREDOWNLOAD_SE.sbnk
+  BANK_VS_COMMON_MENU_SE        66    158  73                      35616        200 SBNK/BANK_VS_COMMON_MENU_SE.sbnk
+  BANK_OPENING_DEMO_SE          67    159  74  85                 210784        752 SBNK/BANK_OPENING_DEMO_SE.sbnk
+  BANK_ITEM_HOUSE_SE            68    160  75                      45088        144 SBNK/BANK_ITEM_HOUSE_SE.sbnk
+  BANK_PIPE_CANNON_SE           69    161  76                      10656        132 SBNK/BANK_PIPE_CANNON_SE.sbnk
+  BANK_LAST_KOOPA_DOOR_SE       70    162  77                      19424        104 SBNK/BANK_LAST_KOOPA_DOOR_SE.sbnk
+  BANK_LAST_KOOPA_DEMO_SE       71    163  79  78  80              57728        244 SBNK/BANK_LAST_KOOPA_DEMO_SE.sbnk
+  BANK_BOSS_COMMON_SE           72    164  81  45  47              67584        200 SBNK/BANK_BOSS_COMMON_SE.sbnk
+  BANK_BOSS_CHOROPU_SE          73    165  82  71                  43968        172 SBNK/BANK_BOSS_CHOROPU_SE.sbnk
+  BANK_OBJ_CORK_SE              74    166  83  84                  10656        132 SBNK/BANK_OBJ_CORK_SE.sbnk
+  BANK_AMB_YOUGAN_SE            75    167  86                      45632        104 SBNK/BANK_AMB_YOUGAN_SE.sbnk
+  BANK_AMB_SABAKU_SE            76    168  87                      18912         76 SBNK/BANK_AMB_SABAKU_SE.sbnk
+  BANK_AMB_WATER_SE             77    169  88                      36672         76 SBNK/BANK_AMB_WATER_SE.sbnk
+  BANK_AMB_CHIKA_SE             78    170  89                       8288         76 SBNK/BANK_AMB_CHIKA_SE.sbnk
+  BANK_AMB_SKY_SE               79    171  90                      29664         76 SBNK/BANK_AMB_SKY_SE.sbnk
+
+# WAVEARC:
+# label                     number fileID                                      size name
+  WAVE_CHIJO_BGM                 0    172                                    114756 SWAR/WAVE_CHIJO_BGM.swar
+  WAVE_TORIDE_BGM                1    173                                     84828 SWAR/WAVE_TORIDE_BGM.swar
+  WAVE_MUTEKI_BGM                2    174                                     79220 SWAR/WAVE_MUTEKI_BGM.swar
+  WAVE_HUGE_BGM                  3    175                                     37540 SWAR/WAVE_HUGE_BGM.swar
+  WAVE_COURSE_CLEAR_BGM          4    176                                     23164 SWAR/WAVE_COURSE_CLEAR_BGM.swar
+  WAVE_DOWN_BGM                  5    177                                       580 SWAR/WAVE_DOWN_BGM.swar
+  WAVE_SABAKU_BGM                6    178                                    103268 SWAR/WAVE_SABAKU_BGM.swar
+  WAVE_BOSS_BGM                  7    179                                     23028 SWAR/WAVE_BOSS_BGM.swar
+  WAVE_GOAL_FANFARE_BGM          8    180                                     16240 SWAR/WAVE_GOAL_FANFARE_BGM.swar
+  WAVE_WAKAI_SHARE               9    181                                     35792 SWAR/WAVE_WAKAI_SHARE.swar
+  WAVE_CHIKA_BGM                10    182                                     63712 SWAR/WAVE_CHIKA_BGM.swar
+  WAVE_MAME_BGM                 11    183                                     43780 SWAR/WAVE_MAME_BGM.swar
+  WAVE_WATER3_BGM               12    184                                     66204 SWAR/WAVE_WATER3_BGM.swar
+  WAVE_KAZAN_SOTO               13    185                                     85808 SWAR/WAVE_KAZAN_SOTO.swar
+  WAVE_SAMPLE                   14    186                                     79596 SWAR/WAVE_SAMPLE.swar
+  WAVE_SANBASHI                 15    187                                     49860 SWAR/WAVE_SANBASHI.swar
+  WAVE_KUPPAJR                  16    188                                     81416 SWAR/WAVE_KUPPAJR.swar
+  WAVE_OBAKE                    17    189                                     53984 SWAR/WAVE_OBAKE.swar
+  WAVE_SHIRO                    18    190                                    105828 SWAR/WAVE_SHIRO.swar
+  WAVE_SWITCH                   19    191                                      5668 SWAR/WAVE_SWITCH.swar
+  WAVE_VS                       20    192                                    177344 SWAR/WAVE_VS.swar
+  WAVE_SELECT                   21    193                                     43656 SWAR/WAVE_SELECT.swar
+  WAVE_GAMEOVER                 22    194                                     34208 SWAR/WAVE_GAMEOVER.swar
+  WAVE_BOSS_CLEAR               23    195                                     63716 SWAR/WAVE_BOSS_CLEAR.swar
+  WAVE_FINAL_KUPPA              24    196                                     98380 SWAR/WAVE_FINAL_KUPPA.swar
+  WAVE_FINAL_CLEAR              25    197                                     81548 SWAR/WAVE_FINAL_CLEAR.swar
+  WAVE_WORLD_ALL                26    198                                    299492 SWAR/WAVE_WORLD_ALL.swar
+  WAVE_MINIGAME_BGM             27    199                                      5484 SWAR/WAVE_MINIGAME_BGM.swar
+  WAVE_CHIJOU_CONT              28    200                                    105584 SWAR/WAVE_CHIJOU_CONT.swar
+  WAVE_GOAL_FANFARE2            29    201                                      1372 SWAR/WAVE_GOAL_FANFARE2.swar
+  WAVE_FANFARE_KINO             30    202                                     45068 SWAR/WAVE_FANFARE_KINO.swar
+  WAVE_ATHLETIC                 31    203                                     61120 SWAR/WAVE_ATHLETIC.swar
+  WAVE_ENDING                   32    204                                    121556 SWAR/WAVE_ENDING.swar
+  WAVE_OPENING_DEMO             33    205                                    101368 SWAR/WAVE_OPENING_DEMO.swar
+  WAVE_KUPPACLEAR_DEMO          34    206                                     33140 SWAR/WAVE_KUPPACLEAR_DEMO.swar
+  WAVE_COURSE_SE                35    207                                     31164 SWAR/WAVE_COURSE_SE.swar
+  WAVE_MENU_SE                  36    208                                    254780 SWAR/WAVE_MENU_SE.swar
+  WAVE_KOOPAJR_SE               37    209                                     39356 SWAR/WAVE_KOOPAJR_SE.swar
+  WAVE_KOOPAJR_COMMON_SE        38    210                                     31896 SWAR/WAVE_KOOPAJR_COMMON_SE.swar
+  WAVE_VOLCANO_SE               39    211                                     58568 SWAR/WAVE_VOLCANO_SE.swar
+  WAVE_PLAYER_BASE_SE           40    212                                     39044 SWAR/WAVE_PLAYER_BASE_SE.swar
+  WAVE_MARIO_BASE_SE            41    213                                     36248 SWAR/WAVE_MARIO_BASE_SE.swar
+  WAVE_MARIO_V_COMMON           42    214                                      4064 SWAR/WAVE_MARIO_V_COMMON.swar
+  WAVE_LUIGI_BASE_SE            43    215                                     29960 SWAR/WAVE_LUIGI_BASE_SE.swar
+  WAVE_LUIGI_V_COMMON           44    216                                      4988 SWAR/WAVE_LUIGI_V_COMMON.swar
+  WAVE_PLAYER_COMMON1           45    217                                     19128 SWAR/WAVE_PLAYER_COMMON1.swar
+  WAVE_PLAYER_COMMON2           46    218                                     20616 SWAR/WAVE_PLAYER_COMMON2.swar
+  WAVE_CANNON                   47    219                                      9488 SWAR/WAVE_CANNON.swar
+  WAVE_HUGE_COMMON_SE           48    220                                     47892 SWAR/WAVE_HUGE_COMMON_SE.swar
+  WAVE_TORNADO_SE               49    221                                     66760 SWAR/WAVE_TORNADO_SE.swar
+  WAVE_THUNDER_SE               50    222                                     50824 SWAR/WAVE_THUNDER_SE.swar
+  WAVE_ENEMY_BASE_SE            51    223                                      5732 SWAR/WAVE_ENEMY_BASE_SE.swar
+  WAVE_ENEMY_01_SE              52    224                                     14572 SWAR/WAVE_ENEMY_01_SE.swar
+  WAVE_ENEMY_02_SE              53    225                                       900 SWAR/WAVE_ENEMY_02_SE.swar
+  WAVE_ENEMY_03_SE              54    226                                     32360 SWAR/WAVE_ENEMY_03_SE.swar
+  WAVE_ENEMY_04_SE              55    227                                     67268 SWAR/WAVE_ENEMY_04_SE.swar
+  WAVE_ENEMY_05_SE              56    228                                     28936 SWAR/WAVE_ENEMY_05_SE.swar
+  WAVE_ENEMY_06_SE              57    229                                     76128 SWAR/WAVE_ENEMY_06_SE.swar
+  WAVE_ENEMY_GOREM_SE           58    230                                     23428 SWAR/WAVE_ENEMY_GOREM_SE.swar
+  WAVE_ENEMY_GABON_SE           59    231                                     38844 SWAR/WAVE_ENEMY_GABON_SE.swar
+  WAVE_ENEMY_DOSSY_SE           60    232                                     41704 SWAR/WAVE_ENEMY_DOSSY_SE.swar
+  WAVE_OBJ_FENCE_SE             61    233                                     25868 SWAR/WAVE_OBJ_FENCE_SE.swar
+  WAVE_OBJ_TEKKYU_SE            62    234                                     19356 SWAR/WAVE_OBJ_TEKKYU_SE.swar
+  WAVE_BOSS_PAKKUN_SE           63    235                                     45956 SWAR/WAVE_BOSS_PAKKUN_SE.swar
+  WAVE_SABAKU_BOSS_SE           64    236                                     42336 SWAR/WAVE_SABAKU_BOSS_SE.swar
+  WAVE_OLD_KOOPA_SE             65    237                                     58508 SWAR/WAVE_OLD_KOOPA_SE.swar
+  WAVE_VS_SE                    66    238                                     24208 SWAR/WAVE_VS_SE.swar
+  WAVE_VS_COMMON_PLAYER_BASE_SE     67    239                                    130152 SWAR/WAVE_VS_COMMON_PLAYER_BASE_SE.swar
+  WAVE_VS_COMMON_MARIO_BASE_SE     68    240                                     44940 SWAR/WAVE_VS_COMMON_MARIO_BASE_SE.swar
+  WAVE_VS_COMMON_LUIGI_BASE_SE     69    241                                     42732 SWAR/WAVE_VS_COMMON_LUIGI_BASE_SE.swar
+  WAVE_VS_PLAYER_COMMON         70    242                                      7588 SWAR/WAVE_VS_PLAYER_COMMON.swar
+  WAVE_VS_COMMON_ENEMY_01_SE     71    243                                     16972 SWAR/WAVE_VS_COMMON_ENEMY_01_SE.swar
+  WAVE_VS_PREDOWNLOAD_SE        72    244                                      6532 SWAR/WAVE_VS_PREDOWNLOAD_SE.swar
+  WAVE_VS_COMMON_MENU_SE        73    245                                     35264 SWAR/WAVE_VS_COMMON_MENU_SE.swar
+  WAVE_OPENING_DEMO_SE          74    246                                    190124 SWAR/WAVE_OPENING_DEMO_SE.swar
+  WAVE_ITEM_HOUSE_SE            75    247                                     44800 SWAR/WAVE_ITEM_HOUSE_SE.swar
+  WAVE_PIPE_CANNON_SE           76    248                                     10368 SWAR/WAVE_PIPE_CANNON_SE.swar
+  WAVE_LAST_KOOPA_DOOR_SE       77    249                                     19152 SWAR/WAVE_LAST_KOOPA_DOOR_SE.swar
+  WAVE_SHIRO_COMMON             78    250                                     16396 SWAR/WAVE_SHIRO_COMMON.swar
+  WAVE_LAST_KOOPA_DEMO_SE       79    251                                     30728 SWAR/WAVE_LAST_KOOPA_DEMO_SE.swar
+  WAVE_LAST_KOOPA_COMMON        80    252                                     10044 SWAR/WAVE_LAST_KOOPA_COMMON.swar
+  WAVE_BOSS_COMMON_SE           81    253                                     38460 SWAR/WAVE_BOSS_COMMON_SE.swar
+  WAVE_BOSS_CHOROPU_SE          82    254                                     26580 SWAR/WAVE_BOSS_CHOROPU_SE.swar
+  WAVE_OBJ_CORK_SE              83    255                                      5464 SWAR/WAVE_OBJ_CORK_SE.swar
+  WAVE_PON                      84    256                                      4832 SWAR/WAVE_PON.swar
+  WAVE_DEMO_COMMON              85    257                                     19672 SWAR/WAVE_DEMO_COMMON.swar
+  WAVE_AMB_YOUGAN_SE            86    258                                     45368 SWAR/WAVE_AMB_YOUGAN_SE.swar
+  WAVE_AMB_SABAKU_SE            87    259                                     18672 SWAR/WAVE_AMB_SABAKU_SE.swar
+  WAVE_AMB_WATER_SE             88    260                                     36436 SWAR/WAVE_AMB_WATER_SE.swar
+  WAVE_AMB_CHIKA_SE             89    261                                      8048 SWAR/WAVE_AMB_CHIKA_SE.swar
+  WAVE_AMB_SKY_SE               90    262                                     29412 SWAR/WAVE_AMB_SKY_SE.swar
+
+# STRM:
+# label                     number fileID vol pri ply                          size name
+
+# FAT:
+# fileID     offset       size name
+       0 0x00007a00       7120 SSEQ/BGM_VS_CHIJOU.sseq
+       1 0x000095e0       4748 SSEQ/BGM_TRIDE.sseq
+       2 0x0000a880       2868 SSEQ/BGM_MUTEKI.sseq
+       3 0x0000b3c0       1780 SSEQ/BGM_HUGE.sseq
+       4 0x0000bac0        732 SSEQ/BGM_COURSE_CLEAR.sseq
+       5 0x0000bda0        260 SSEQ/BGM_DOWN.sseq
+       6 0x0000bec0       5724 SSEQ/BGM_SABAKU.sseq
+       7 0x0000d520       8016 SSEQ/BGM_BOSS.sseq
+       8 0x0000f480        448 SSEQ/BGM_VS_LOSE_FANFARE.sseq
+       9 0x0000f640       7452 SSEQ/BGM_CHIKA.sseq
+      10 0x00011360       3212 SSEQ/BGM_MAME.sseq
+      11 0x00012000       6160 SSEQ/BGM_WATER3.sseq
+      12 0x00013820       6408 SSEQ/BGM_KAZAN_SOTO.sseq
+      13 0x00015140       5208 SSEQ/BGM_SAMPLE.sseq
+      14 0x000165a0       7588 SSEQ/BGM_SANBASHI.sseq
+      15 0x00018360      10372 SSEQ/BGM_KUPPAJR.sseq
+      16 0x0001ac00      11752 SSEQ/BGM_OBAKE.sseq
+      17 0x0001da00       6080 SSEQ/BGM_SHIRO.sseq
+      18 0x0001f1c0       1280 SSEQ/BGM_SWITCH.sseq
+      19 0x0001f6c0       1512 SSEQ/BGM_FINAL_CLEAR.sseq
+      20 0x0001fcc0        588 SSEQ/BGM_GAMEOVER.sseq
+      21 0x0001ff20       7524 SSEQ/BGM_FINAL_KUPPA.sseq
+      22 0x00021ca0       8528 SSEQ/BGM_ATHLETIC.sseq
+      23 0x00023e00       2532 SSEQ/BGM_MINIGAME.sseq
+      24 0x00024800       7108 SSEQ/BGM_CHIJOU_CONT.sseq
+      25 0x000263e0       1968 SSEQ/BGM_SELECT.sseq
+      26 0x00026ba0        504 SSEQ/BGM_GOAL_FANFARE2.sseq
+      27 0x00026da0        408 SSEQ/BGM_FANFARE_KINO.sseq
+      28 0x00026f40       6192 SSEQ/BGM_VS_STAGE.sseq
+      29 0x00028780       1968 SSEQ/BGM_VS_SELECT.sseq
+      30 0x00028f40       3572 SSEQ/BGM_VS_FAN_LOOP.sseq
+      31 0x00029d40        704 SSEQ/BGM_VS_WIN.sseq
+      32 0x0002a000        524 SSEQ/BGM_VS_LOSE.sseq
+      33 0x0002a220        116 SSEQ/BGM_AMB_YOUGAN.sseq
+      34 0x0002a2a0        160 SSEQ/BGM_AMB_SABAKU.sseq
+      35 0x0002a340         52 SSEQ/BGM_AMB_WATER.sseq
+      36 0x0002a380         72 SSEQ/BGM_AMB_CHIKA.sseq
+      37 0x0002a3e0        160 SSEQ/BGM_AMB_SKY.sseq
+      38 0x0002a480       7028 SSEQ/BGM_CHIJO.sseq
+      39 0x0002c000       1804 SSEQ/BGM_WORLD1.sseq
+      40 0x0002c720       1712 SSEQ/BGM_WORLD2.sseq
+      41 0x0002cde0       3796 SSEQ/BGM_WORLD3.sseq
+      42 0x0002dcc0       2308 SSEQ/BGM_WORLD4.sseq
+      43 0x0002e5e0       4172 SSEQ/BGM_WORLD5.sseq
+      44 0x0002f640       3564 SSEQ/BGM_WORLD6.sseq
+      45 0x00030440       4504 SSEQ/BGM_WORLD7.sseq
+      46 0x000315e0       4496 SSEQ/BGM_WORLD8.sseq
+      47 0x00032780      20324 SSEQ/BGM_ENDING.sseq
+      48 0x00037700       1044 SSEQ/BGM_OPENING_DEMO1.sseq
+      49 0x00037b20       2476 SSEQ/BGM_OPENING_DEMO2.sseq
+      50 0x000384e0       1844 SSEQ/BGM_KUPPACLEAR_DEMO.sseq
+      51 0x00038c20        620 SSAR/SAR_COURSE.ssar
+      52 0x00038ea0       2136 SSAR/SAR_MENU.ssar
+      53 0x00039700        416 SSAR/SAR_KOOPAJR.ssar
+      54 0x000398a0        220 SSAR/SAR_VOLCANO.ssar
+      55 0x00039980        248 SSAR/SAR_MARIO_BASE.ssar
+      56 0x00039a80        540 SSAR/SAR_VS.ssar
+      57 0x00039ca0        404 SSAR/SAR_THUNDER.ssar
+      58 0x00039e40        544 SSAR/SAR_HUGE_KURIBO.ssar
+      59 0x0003a060        128 SSAR/SAR_TORNADO.ssar
+      60 0x0003a0e0        104 SSAR/SAR_VS_COMMON_ENEMY_01.ssar
+      61 0x0003a160        184 SSAR/SAR_OBJ_TEKKYU.ssar
+      62 0x0003a220        616 SSAR/SAR_ENEMY_BASE.ssar
+      63 0x0003a4a0        128 SSAR/SAR_ENEMY_01.ssar
+      64 0x0003a520         80 SSAR/SAR_ENEMY_02.ssar
+      65 0x0003a580        536 SSAR/SAR_ENEMY_03.ssar
+      66 0x0003a7a0        492 SSAR/SAR_ENEMY_04.ssar
+      67 0x0003a9a0        232 SSAR/SAR_ENEMY_05.ssar
+      68 0x0003aaa0        572 SSAR/SAR_ENEMY_06.ssar
+      69 0x0003ace0        136 SSAR/SAR_ENEMY_GOREM.ssar
+      70 0x0003ad80        244 SSAR/SAR_ENEMY_GABON.ssar
+      71 0x0003ae80        344 SSAR/SAR_BOSS_PAKKUN.ssar
+      72 0x0003afe0        204 SSAR/SAR_SABAKU_BOSS.ssar
+      73 0x0003b0c0        612 SSAR/SAR_VS_COMMON_MARIO_BASE.ssar
+      74 0x0003b340       1276 SSAR/SAR_OLD_KOOPA.ssar
+      75 0x0003b840        152 SSAR/SAR_VS_PREDOWNLOAD.ssar
+      76 0x0003b8e0        416 SSAR/SAR_VS_COMMON_MENU.ssar
+      77 0x0003ba80         60 SSAR/SAR_ENEMY_DOSSY.ssar
+      78 0x0003bac0        132 SSAR/SAR_OBJ_FENCE.ssar
+      79 0x0003bb60       1204 SSAR/SAR_OPENING_DEMO.ssar
+      80 0x0003c020       1708 SSAR/SAR_PLAYER_BASE.ssar
+      81 0x0003c6e0        248 SSAR/SAR_LUIGI_BASE.ssar
+      82 0x0003c7e0       2292 SSAR/SAR_VS_COMMON_PLAYER_BASE.ssar
+      83 0x0003d0e0        604 SSAR/SAR_VS_COMMON_LUIGI_BASE.ssar
+      84 0x0003d340        232 SSAR/SAR_ITEM_HOUSE.ssar
+      85 0x0003d440        428 SSAR/SAR_KOOPAJR_COMMON.ssar
+      86 0x0003d600        144 SSAR/SAR_PIPE_CANNON.ssar
+      87 0x0003d6a0        176 SSAR/SAR_LAST_KOOPA_DOOR.ssar
+      88 0x0003d760        512 SSAR/SAR_LAST_KOOPA_DEMO.ssar
+      89 0x0003d960        560 SSAR/SAR_BOSS_COMMON.ssar
+      90 0x0003dba0        300 SSAR/SAR_BOSS_CHOROPU.ssar
+      91 0x0003dce0        172 SSAR/SAR_OBJ_CORK.ssar
+      92 0x0003dda0       1872 SBNK/BANK_CHIJO_BGM.sbnk
+      93 0x0003e500       1780 SBNK/BANK_TORIDE_BGM.sbnk
+      94 0x0003ec00       1764 SBNK/BANK_MUTEKI_BGM.sbnk
+      95 0x0003f300       1656 SBNK/BANK_HUGE_BGM.sbnk
+      96 0x0003f980        260 SBNK/BANK_COURSE_CLEAR_BGM.sbnk
+      97 0x0003faa0        108 SBNK/BANK_DOWN_BGM.sbnk
+      98 0x0003fb20       1764 SBNK/BANK_SABAKU_BGM.sbnk
+      99 0x00040220        372 SBNK/BANK_BOSS_BGM.sbnk
+     100 0x000403a0        348 SBNK/BANK_GOAL_FANFARE_BGM.sbnk
+     101 0x00040500       1756 SBNK/BANK_CHIKA_BGM.sbnk
+     102 0x00040be0        208 SBNK/BANK_MAME_BGM.sbnk
+     103 0x00040cc0        240 SBNK/BANK_WATER3_BGM.sbnk
+     104 0x00040dc0        356 SBNK/BANK_KAZAN_SOTO.sbnk
+     105 0x00040f40       1740 SBNK/BANK_SAMPLE.sbnk
+     106 0x00041620        292 SBNK/BANK_SANBASHI.sbnk
+     107 0x00041760        276 SBNK/BANK_KUPPAJR.sbnk
+     108 0x00041880        228 SBNK/BANK_OBAKE.sbnk
+     109 0x00041980        284 SBNK/BANK_SHIRO.sbnk
+     110 0x00041aa0        128 SBNK/BANK_SWITCH.sbnk
+     111 0x00041b20       1000 SBNK/BANK_VS.sbnk
+     112 0x00041f20        200 SBNK/BANK_SELECT.sbnk
+     113 0x00042000        136 SBNK/BANK_GAMEOVER.sbnk
+     114 0x000420a0        204 SBNK/BANK_BOSS_CLEAR.sbnk
+     115 0x00042180       1072 SBNK/BANK_FINAL_KUPPA.sbnk
+     116 0x000425c0        268 SBNK/BANK_FINAL_CLEAR.sbnk
+     117 0x000426e0       1268 SBNK/BANK_WORLD_ALL.sbnk
+     118 0x00042be0        156 SBNK/BANK_MINIGAME_BGM.sbnk
+     119 0x00042c80        316 SBNK/BANK_CHIJOU_CONT.sbnk
+     120 0x00042dc0        108 SBNK/BANK_GOAL_FANFARE2.sbnk
+     121 0x00042e40        156 SBNK/BANK_FANFARE_KINO.sbnk
+     122 0x00042ee0        268 SBNK/BANK_ATHLETIC.sbnk
+     123 0x00043000       1936 SBNK/BANK_ENDING.sbnk
+     124 0x000437a0        252 SBNK/BANK_OPENING_DEMO.sbnk
+     125 0x000438a0        164 SBNK/BANK_KUPPACLEAR_DEMO.sbnk
+     126 0x00043960        272 SBNK/BANK_COURSE_SE.sbnk
+     127 0x00043a80        628 SBNK/BANK_MENU_SE.sbnk
+     128 0x00043d00        284 SBNK/BANK_KOOPAJR_SE.sbnk
+     129 0x00043e20        496 SBNK/BANK_KOOPAJR_COMMON_SE.sbnk
+     130 0x00044020        144 SBNK/BANK_VOLCANO_SE.sbnk
+     131 0x000440c0        396 SBNK/BANK_PLAYER_BASE_SE.sbnk
+     132 0x00044260        300 SBNK/BANK_MARIO_BASE_SE.sbnk
+     133 0x000443a0        284 SBNK/BANK_LUIGI_BASE_SE.sbnk
+     134 0x000444c0        188 SBNK/BANK_HUGE_KURIBO_SE.sbnk
+     135 0x00044580         88 SBNK/BANK_TORNADO_SE.sbnk
+     136 0x000445e0        172 SBNK/BANK_THUNDER_SE.sbnk
+     137 0x000446a0        132 SBNK/BANK_ENEMY_BASE_SE.sbnk
+     138 0x00044740         88 SBNK/BANK_ENEMY_01_SE.sbnk
+     139 0x000447a0         76 SBNK/BANK_ENEMY_02_SE.sbnk
+     140 0x00044800        216 SBNK/BANK_ENEMY_03_SE.sbnk
+     141 0x000448e0        204 SBNK/BANK_ENEMY_04_SE.sbnk
+     142 0x000449c0        144 SBNK/BANK_ENEMY_05_SE.sbnk
+     143 0x00044a60        200 SBNK/BANK_ENEMY_06_SE.sbnk
+     144 0x00044b40        104 SBNK/BANK_ENEMY_GOREM_SE.sbnk
+     145 0x00044bc0        160 SBNK/BANK_ENEMY_GABON_SE.sbnk
+     146 0x00044c60         76 SBNK/BANK_ENEMY_DOSSY_SE.sbnk
+     147 0x00044cc0        132 SBNK/BANK_OBJ_FENCE_SE.sbnk
+     148 0x00044d60        116 SBNK/BANK_OBJ_TEKKYU_SE.sbnk
+     149 0x00044de0        308 SBNK/BANK_BOSS_PAKKUN_SE.sbnk
+     150 0x00044f20        132 SBNK/BANK_SABAKU_BOSS_SE.sbnk
+     151 0x00044fc0        300 SBNK/BANK_OLD_KOOPA_SE.sbnk
+     152 0x00045100        180 SBNK/BANK_VS_SE.sbnk
+     153 0x000451c0        720 SBNK/BANK_VS_COMMON_PLAYER_BASE_SE.sbnk
+     154 0x000454a0        316 SBNK/BANK_VS_COMMON_MARIO_BASE_SE.sbnk
+     155 0x000455e0        316 SBNK/BANK_VS_COMMON_LUIGI_BASE_SE.sbnk
+     156 0x00045720         88 SBNK/BANK_VS_COMMON_ENEMY_01_SE.sbnk
+     157 0x00045780         76 SBNK/BANK_VS_PREDOWNLOAD_SE.sbnk
+     158 0x000457e0        200 SBNK/BANK_VS_COMMON_MENU_SE.sbnk
+     159 0x000458c0        752 SBNK/BANK_OPENING_DEMO_SE.sbnk
+     160 0x00045bc0        144 SBNK/BANK_ITEM_HOUSE_SE.sbnk
+     161 0x00045c60        132 SBNK/BANK_PIPE_CANNON_SE.sbnk
+     162 0x00045d00        104 SBNK/BANK_LAST_KOOPA_DOOR_SE.sbnk
+     163 0x00045d80        244 SBNK/BANK_LAST_KOOPA_DEMO_SE.sbnk
+     164 0x00045e80        200 SBNK/BANK_BOSS_COMMON_SE.sbnk
+     165 0x00045f60        172 SBNK/BANK_BOSS_CHOROPU_SE.sbnk
+     166 0x00046020        132 SBNK/BANK_OBJ_CORK_SE.sbnk
+     167 0x000460c0        104 SBNK/BANK_AMB_YOUGAN_SE.sbnk
+     168 0x00046140         76 SBNK/BANK_AMB_SABAKU_SE.sbnk
+     169 0x000461a0         76 SBNK/BANK_AMB_WATER_SE.sbnk
+     170 0x00046200         76 SBNK/BANK_AMB_CHIKA_SE.sbnk
+     171 0x00046260         76 SBNK/BANK_AMB_SKY_SE.sbnk
+     172 0x000462c0     114756 SWAR/WAVE_CHIJO_BGM.swar
+     173 0x00062320      84828 SWAR/WAVE_TORIDE_BGM.swar
+     174 0x00076e80      79220 SWAR/WAVE_MUTEKI_BGM.swar
+     175 0x0008a400      37540 SWAR/WAVE_HUGE_BGM.swar
+     176 0x000936c0      23164 SWAR/WAVE_COURSE_CLEAR_BGM.swar
+     177 0x00099140        580 SWAR/WAVE_DOWN_BGM.swar
+     178 0x000993a0     103268 SWAR/WAVE_SABAKU_BGM.swar
+     179 0x000b2720      23028 SWAR/WAVE_BOSS_BGM.swar
+     180 0x000b8120      16240 SWAR/WAVE_GOAL_FANFARE_BGM.swar
+     181 0x000bc0a0      35792 SWAR/WAVE_WAKAI_SHARE.swar
+     182 0x000c4c80      63712 SWAR/WAVE_CHIKA_BGM.swar
+     183 0x000d4560      43780 SWAR/WAVE_MAME_BGM.swar
+     184 0x000df080      66204 SWAR/WAVE_WATER3_BGM.swar
+     185 0x000ef320      85808 SWAR/WAVE_KAZAN_SOTO.swar
+     186 0x00104260      79596 SWAR/WAVE_SAMPLE.swar
+     187 0x00117960      49860 SWAR/WAVE_SANBASHI.swar
+     188 0x00123c40      81416 SWAR/WAVE_KUPPAJR.swar
+     189 0x00137a60      53984 SWAR/WAVE_OBAKE.swar
+     190 0x00144d40     105828 SWAR/WAVE_SHIRO.swar
+     191 0x0015eac0       5668 SWAR/WAVE_SWITCH.swar
+     192 0x00160100     177344 SWAR/WAVE_VS.swar
+     193 0x0018b5c0      43656 SWAR/WAVE_SELECT.swar
+     194 0x00196060      34208 SWAR/WAVE_GAMEOVER.swar
+     195 0x0019e600      63716 SWAR/WAVE_BOSS_CLEAR.swar
+     196 0x001adf00      98380 SWAR/WAVE_FINAL_KUPPA.swar
+     197 0x001c5f60      81548 SWAR/WAVE_FINAL_CLEAR.swar
+     198 0x001d9e00     299492 SWAR/WAVE_WORLD_ALL.swar
+     199 0x00223000       5484 SWAR/WAVE_MINIGAME_BGM.swar
+     200 0x00224580     105584 SWAR/WAVE_CHIJOU_CONT.swar
+     201 0x0023e200       1372 SWAR/WAVE_GOAL_FANFARE2.swar
+     202 0x0023e760      45068 SWAR/WAVE_FANFARE_KINO.swar
+     203 0x00249780      61120 SWAR/WAVE_ATHLETIC.swar
+     204 0x00258640     121556 SWAR/WAVE_ENDING.swar
+     205 0x00276120     101368 SWAR/WAVE_OPENING_DEMO.swar
+     206 0x0028ed20      33140 SWAR/WAVE_KUPPACLEAR_DEMO.swar
+     207 0x00296ea0      31164 SWAR/WAVE_COURSE_SE.swar
+     208 0x0029e860     254780 SWAR/WAVE_MENU_SE.swar
+     209 0x002dcba0      39356 SWAR/WAVE_KOOPAJR_SE.swar
+     210 0x002e6560      31896 SWAR/WAVE_KOOPAJR_COMMON_SE.swar
+     211 0x002ee200      58568 SWAR/WAVE_VOLCANO_SE.swar
+     212 0x002fc6e0      39044 SWAR/WAVE_PLAYER_BASE_SE.swar
+     213 0x00305f80      36248 SWAR/WAVE_MARIO_BASE_SE.swar
+     214 0x0030ed20       4064 SWAR/WAVE_MARIO_V_COMMON.swar
+     215 0x0030fd00      29960 SWAR/WAVE_LUIGI_BASE_SE.swar
+     216 0x00317220       4988 SWAR/WAVE_LUIGI_V_COMMON.swar
+     217 0x003185a0      19128 SWAR/WAVE_PLAYER_COMMON1.swar
+     218 0x0031d060      20616 SWAR/WAVE_PLAYER_COMMON2.swar
+     219 0x00322100       9488 SWAR/WAVE_CANNON.swar
+     220 0x00324620      47892 SWAR/WAVE_HUGE_COMMON_SE.swar
+     221 0x00330140      66760 SWAR/WAVE_TORNADO_SE.swar
+     222 0x00340620      50824 SWAR/WAVE_THUNDER_SE.swar
+     223 0x0034ccc0       5732 SWAR/WAVE_ENEMY_BASE_SE.swar
+     224 0x0034e340      14572 SWAR/WAVE_ENEMY_01_SE.swar
+     225 0x00351c40        900 SWAR/WAVE_ENEMY_02_SE.swar
+     226 0x00351fe0      32360 SWAR/WAVE_ENEMY_03_SE.swar
+     227 0x00359e60      67268 SWAR/WAVE_ENEMY_04_SE.swar
+     228 0x0036a540      28936 SWAR/WAVE_ENEMY_05_SE.swar
+     229 0x00371660      76128 SWAR/WAVE_ENEMY_06_SE.swar
+     230 0x00383fc0      23428 SWAR/WAVE_ENEMY_GOREM_SE.swar
+     231 0x00389b60      38844 SWAR/WAVE_ENEMY_GABON_SE.swar
+     232 0x00393320      41704 SWAR/WAVE_ENEMY_DOSSY_SE.swar
+     233 0x0039d620      25868 SWAR/WAVE_OBJ_FENCE_SE.swar
+     234 0x003a3b40      19356 SWAR/WAVE_OBJ_TEKKYU_SE.swar
+     235 0x003a86e0      45956 SWAR/WAVE_BOSS_PAKKUN_SE.swar
+     236 0x003b3a80      42336 SWAR/WAVE_SABAKU_BOSS_SE.swar
+     237 0x003bdfe0      58508 SWAR/WAVE_OLD_KOOPA_SE.swar
+     238 0x003cc480      24208 SWAR/WAVE_VS_SE.swar
+     239 0x003d2320     130152 SWAR/WAVE_VS_COMMON_PLAYER_BASE_SE.swar
+     240 0x003f1fa0      44940 SWAR/WAVE_VS_COMMON_MARIO_BASE_SE.swar
+     241 0x003fcf40      42732 SWAR/WAVE_VS_COMMON_LUIGI_BASE_SE.swar
+     242 0x00407640       7588 SWAR/WAVE_VS_PLAYER_COMMON.swar
+     243 0x00409400      16972 SWAR/WAVE_VS_COMMON_ENEMY_01_SE.swar
+     244 0x0040d660       6532 SWAR/WAVE_VS_PREDOWNLOAD_SE.swar
+     245 0x0040f000      35264 SWAR/WAVE_VS_COMMON_MENU_SE.swar
+     246 0x004179c0     190124 SWAR/WAVE_OPENING_DEMO_SE.swar
+     247 0x00446080      44800 SWAR/WAVE_ITEM_HOUSE_SE.swar
+     248 0x00450f80      10368 SWAR/WAVE_PIPE_CANNON_SE.swar
+     249 0x00453800      19152 SWAR/WAVE_LAST_KOOPA_DOOR_SE.swar
+     250 0x004582e0      16396 SWAR/WAVE_SHIRO_COMMON.swar
+     251 0x0045c300      30728 SWAR/WAVE_LAST_KOOPA_DEMO_SE.swar
+     252 0x00463b20      10044 SWAR/WAVE_LAST_KOOPA_COMMON.swar
+     253 0x00466260      38460 SWAR/WAVE_BOSS_COMMON_SE.swar
+     254 0x0046f8a0      26580 SWAR/WAVE_BOSS_CHOROPU_SE.swar
+     255 0x00476080       5464 SWAR/WAVE_OBJ_CORK_SE.swar
+     256 0x004775e0       4832 SWAR/WAVE_PON.swar
+     257 0x004788c0      19672 SWAR/WAVE_DEMO_COMMON.swar
+     258 0x0047d5a0      45368 SWAR/WAVE_AMB_YOUGAN_SE.swar
+     259 0x004886e0      18672 SWAR/WAVE_AMB_SABAKU_SE.swar
+     260 0x0048cfe0      36436 SWAR/WAVE_AMB_WATER_SE.swar
+     261 0x00495e40       8048 SWAR/WAVE_AMB_CHIKA_SE.swar
+     262 0x00497dc0      29412 SWAR/WAVE_AMB_SKY_SE.swar
+

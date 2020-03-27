@@ -1,0 +1,36 @@
+#include "../nsmb.sbdl"
+
+@SEQ_TABLE
+SE_PLY_JUMP_OUT = 0:	Label_0x00000000,	BANK_TORNADO_SE,	127,	96,	80,	PLAYER_PLAYER
+SE_AMB_TORNADO = 1:	Label_0x00000006,	BANK_TORNADO_SE,	127,	96,	110,	AMB_PLAYER
+
+@SEQ_DATA
+Label_0x00000000:
+    prg 1
+    cn4 127, 0
+    fin
+
+Label_0x00000006:
+    alloctrack 0x0002
+    opentrack 1, Label_0x0000002B
+    prg 0
+    tieon
+
+Label_0x00000012:
+    cn4_r 120, 240, 360
+    bn3_r 120, 240, 360
+    cn4_r 120, 120, 240
+    jump Label_0x00000012
+
+Label_0x0000002B:
+    volume 80
+    prg 0
+    tieon
+
+Label_0x00000031:
+    cn4_r 120, 240, 360
+    dn4_r 127, 240, 360
+    jump Label_0x00000031
+    fin
+    fin
+

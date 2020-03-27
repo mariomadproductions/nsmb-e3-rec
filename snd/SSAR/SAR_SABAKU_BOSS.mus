@@ -1,0 +1,74 @@
+#include "../nsmb.sbdl"
+
+@SEQ_TABLE
+SE_EMY_SB_PREAPP = 0:	Label_0x0000002F,	BANK_SABAKU_BOSS_SE,	127,	96,	80,	ENEMY_PLAYER_3
+SE_EMY_SB_APP = 1:	Label_0x0000001D,	BANK_SABAKU_BOSS_SE,	127,	96,	80,	ENEMY_PLAYER_3
+SE_EMY_SB_DISAPP = 2:	Label_0x0000000C,	BANK_SABAKU_BOSS_SE,	127,	96,	80,	ENEMY_PLAYER_3
+SE_EMY_SB_SHOOT = 3:	Label_0x00000006,	BANK_SABAKU_BOSS_SE,	127,	96,	80,	ENEMY_PLAYER_3
+SE_EMY_SB_DOWN = 4:	Label_0x00000000,	BANK_SABAKU_BOSS_SE,	127,	96,	80,	ENEMY_PLAYER_3
+
+@SEQ_DATA
+Label_0x00000000:
+    prg 3
+    cn4 127, 0
+    fin
+
+Label_0x00000006:
+    prg 2
+    cn4 127, 0
+    fin
+
+Label_0x0000000C:
+    prg 1
+    tieon
+    porta 60
+    en4 127, 6
+    porta 64
+    cn2 127, 66
+    tieoff
+    fin
+
+Label_0x0000001D:
+    alloctrack 0x0002
+    opentrack 1, Label_0x0000002B
+
+Label_0x00000025:
+    prg 1
+    cn4 127, 0
+    fin
+
+Label_0x0000002B:
+    jump Label_0x00000025
+
+Label_0x0000002F:
+    alloctrack 0x0006
+    opentrack 1, Label_0x00000044
+    opentrack 2, Label_0x0000004C
+    prg 0
+    pan 80
+    cn4 127, 96
+    fin
+
+Label_0x00000044:
+    prg 0
+    pan 48
+    cn4 127, 96
+    fin
+
+Label_0x0000004C:
+    prg 4
+    cn2 70, 12
+    wait 2
+    cn2 80, 12
+    wait 2
+    cn2 90, 12
+    wait 2
+    cn2 100, 12
+    wait 2
+    cn2 110, 12
+    wait 2
+    cn2 120, 12
+    fin
+    fin
+    fin
+

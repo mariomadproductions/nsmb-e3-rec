@@ -1,0 +1,13 @@
+    prg 0
+    tieon
+    wait_r 90, 180
+
+Label_0x0000000A:
+    pitchbend_r -64, 64
+    volume_r 96, 120
+    pan_r 32, 96
+    cn4 127, 0
+    wait_r 90, 270
+    jump Label_0x0000000A
+    fin
+    fin

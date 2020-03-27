@@ -1,0 +1,12 @@
+#define SE_SYS_CURSOR	0
+#define SE_SYS_WINDOW_OPEN	1
+#define SE_SYS_WINDOW_CLOSE	2
+#define SE_SYS_NINTENDO_LOGO	3
+#define SE_SYS_DECIDE	4
+#define SE_SYS_BACK	5
+#define SE_SYS_PAUSE	6
+#define SE_SYS_CAMERA_MOVE	7
+#define SE_SYS_STAR_COIN_DEC	8
+#define SE_SYS_WARNING	9
+#define SE_SYS_SLEEP_IN	10
+#define SE_SYS_SLEEP_OUT	11

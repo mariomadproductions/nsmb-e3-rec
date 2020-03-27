@@ -1,0 +1,9 @@
+#define SE_EMY_BOSS_DAMAGE	0
+#define SE_EMY_BOSS_FUMARE	1
+#define SE_EMY_ELCJ_DOWN_2	2
+#define SE_EMY_PUKU_HANE	3
+#define SE_EMY_BOSS_HIP	4
+#define SE_EMY_BOSS_DEATH	5
+#define SE_OBJ_HIT_KOURA	6
+#define SE_OBJ_KEY_APP	7
+#define SE_OBJ_KEY_DROP	8

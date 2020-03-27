@@ -1,0 +1,19 @@
+#Emulator files
+*.sav
+
+#IDA Pro temp files
+*.til
+*.nam
+*.id0
+*.id1
+
+#Generic source files
+include/
+symbols.x
+Makefile
+linker.x
+arenaoffs.txt
+
+#Original ROM data
+snd_orig/
+orig.nds

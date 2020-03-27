@@ -1,0 +1,79 @@
+#include "../nsmb.sbdl"
+
+@SEQ_TABLE
+SE_EMY_GAMA_FUMARE = 0:	Label_0x00000058,	BANK_ENEMY_05_SE,	127,	96,	80,	ENEMY_PLAYER
+SE_EMY_GAMA_LAST = 1:	Label_0x00000000,	BANK_ENEMY_05_SE,	127,	96,	80,	ENEMY_PLAYER
+SE_EMY_GAMA_JUMP = 2:	Label_0x00000082,	BANK_ENEMY_05_SE,	127,	96,	80,	ENEMY_PLAYER_3
+SE_EMY_GASA_APPEAR = 3:	Label_0x0000004E,	BANK_ENEMY_05_SE,	127,	96,	80,	ENEMY_PLAYER_5
+SE_EMY_GASA_FOOT = 4:	Label_0x00000073,	BANK_ENEMY_05_SE,	127,	96,	80,	ENEMY_PLAYER_6
+
+@SEQ_DATA
+Label_0x00000000:
+    alloctrack 0x0006
+    opentrack 1, Label_0x00000013
+    opentrack 2, Label_0x0000002F
+    prg 3
+    cn4 127, 0
+    fin
+
+Label_0x00000013:
+    prg 3
+    cn4 127, 10
+    prg 4
+    pan 48
+    bn5 64, 6
+    en6 64, 10
+    wait_r 6, 10
+    bn5 32, 6
+    en6 32, 10
+    fin
+
+Label_0x0000002F:
+    wait 12
+    prg 4
+    wait_r 6, 10
+    pan 80
+    bn5 48, 6
+    en6 48, 10
+    wait_r 6, 10
+    bn5 16, 6
+    en6 16, 20
+    fin
+
+Label_0x0000004E:
+    prg 2
+    transpose -1
+    porta 60
+    bn4 127, 48
+    fin
+
+Label_0x00000058:
+    prg 1
+    transpose 15
+    porta_on
+    tieon
+    porta 31
+    cn1 127, 5
+    cn2 127, 5
+    cn1 127, 5
+    cn3 127, 28
+    tieoff
+    porta_off
+    fin
+
+Label_0x00000073:
+    prg 5
+    porta 88
+    bn6 48, 6
+    wait 2
+    porta 89
+    cn7 48, 6
+    fin
+
+Label_0x00000082:
+    prg 0
+    cn4 127, 0
+    fin
+    fin
+    fin
+

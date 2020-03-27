@@ -1,0 +1,25 @@
+#include "../nsmb.sbdl"
+
+@SEQ_TABLE
+SE_EMY_WAKABA_APP = 0:	Label_0x00000000,	BANK_ENEMY_02_SE,	96,	96,	80,	ENEMY_PLAYER
+
+@SEQ_DATA
+Label_0x00000000:
+    prg 0
+    transpose -5
+    tieon
+    porta 76
+    cn4 127, 3
+    porta 60
+    gn5 127, 5
+    tieoff
+    tieon
+    porta 79
+    en4 127, 3
+    porta 64
+    bn5 127, 8
+    tieoff
+    fin
+    fin
+    fin
+

@@ -1,0 +1,512 @@
+#include "../nsmb.sbdl"
+
+@SEQ_TABLE
+SE_EMY_OLKP_FOOT = 0:	Label_0x0000034F,	BANK_OLD_KOOPA_SE,	127,	96,	80,	ENEMY_PLAYER_6
+SE_EMY_HNKP_FOOT = 1:	Label_0x00000376,	BANK_OLD_KOOPA_SE,	127,	96,	80,	ENEMY_PLAYER_6
+SE_EMY_OLKP_JITABATA = 2:	Label_0x0000027B,	BANK_OLD_KOOPA_SE,	96,	96,	80,	ENEMY_PLAYER_6
+SE_EMY_OLKP_FALL_DOWN = 3:	Label_0x00000266,	BANK_OLD_KOOPA_SE,	64,	96,	80,	ENEMY_PLAYER_6
+SE_EMY_OLKP_IN_LAVA = 4:	Label_0x0000017C,	BANK_OLD_KOOPA_SE,	127,	96,	80,	ENEMY_PLAYER_6
+SE_EMY_HNKP_DOWN = 5:	Label_0x00000025,	BANK_OLD_KOOPA_SE,	127,	96,	80,	ENEMY_PLAYER_6
+SE_EMY_OLKP_APP = 6:	Label_0x00000289,	BANK_OLD_KOOPA_SE,	127,	96,	80,	ENEMY_PLAYER_2
+SE_EMY_OLKP_LAND = 7:	Label_0x0000029B,	BANK_OLD_KOOPA_SE,	127,	96,	80,	ENEMY_PLAYER_2
+SE_EMY_HNKP_APP_LAND = 8:	Label_0x000002FE,	BANK_OLD_KOOPA_SE,	127,	96,	80,	ENEMY_PLAYER_2
+SE_EMY_HNKP_LAND = 9:	Label_0x000002C1,	BANK_OLD_KOOPA_SE,	127,	96,	80,	ENEMY_PLAYER_2
+SE_EMY_HNKP_UNITE = 10:	Label_0x0000006F,	BANK_OLD_KOOPA_SE,	127,	96,	80,	ENEMY_PLAYER_2
+SE_EMY_OLKP_BARK = 11:	Label_0x000003E2,	BANK_OLD_KOOPA_SE,	127,	96,	80,	ENEMY_PLAYER_2
+SE_EMY_OLKP_GOBOGOBO = 12:	Label_0x00000224,	BANK_OLD_KOOPA_SE,	127,	96,	80,	ENEMY_PLAYER_2
+SE_EMY_OLKP_DAMAGE = 13:	Label_0x00000167,	BANK_OLD_KOOPA_SE,	127,	96,	80,	ENEMY_PLAYER_2
+SE_EMY_OLKP_FUMARE = 14:	Label_0x0000010B,	BANK_OLD_KOOPA_SE,	127,	96,	80,	ENEMY_PLAYER_2
+SE_EMY_OLKP_FIRE = 15:	Label_0x000003C0,	BANK_OLD_KOOPA_SE,	56,	96,	80,	ENEMY_PLAYER_5
+SE_EMY_OLKP_CRY = 16:	Label_0x0000019E,	BANK_OLD_KOOPA_SE,	127,	96,	80,	ENEMY_PLAYER_5
+SE_EMY_OLKP_CRY_FO = 17:	Label_0x000001BD,	BANK_OLD_KOOPA_SE,	127,	96,	80,	ENEMY_PLAYER_5
+SE_OBJ_HONE_HIT_KOURA = 18:	Label_0x0000000A,	BANK_OLD_KOOPA_SE,	127,	96,	80,	OBJECT_PLAYER_3
+SE_EMY_OLKP_FIRE_SHOT = 19:	Label_0x00000004,	BANK_OLD_KOOPA_SE,	127,	96,	80,	OBJECT_PLAYER_4
+
+@SEQ_DATA    setvar 16, 0
+
+Label_0x00000004:
+    prg 8
+    cn4 127, 0
+    fin
+
+Label_0x0000000A:
+    alloctrack 0x0006
+    opentrack 1, Label_0x0000001D
+    opentrack 2, Label_0x00000021
+
+Label_0x00000017:
+    prg 12
+    cn4 127, 0
+    fin
+
+Label_0x0000001D:
+    jump Label_0x00000017
+
+Label_0x00000021:
+    jump Label_0x00000017
+
+Label_0x00000025:
+    alloctrack 0x001E
+    opentrack 1, Label_0x00000042
+    opentrack 2, Label_0x00000046
+    opentrack 3, Label_0x0000004C
+    opentrack 4, Label_0x00000067
+
+Label_0x0000003C:
+    prg 1
+    cn4 127, 0
+    fin
+
+Label_0x00000042:
+    jump Label_0x0000003C
+
+Label_0x00000046:
+    prg 6
+    cn4 127, 0
+    fin
+
+Label_0x0000004C:
+    wait 26
+    prg 11
+    cn4 96, 8
+    en4 70, 16
+    gn4 40, 12
+    tieon
+    cn5 40, 6
+    cn5 40, 6
+    cn5 40, 6
+    tieoff
+    fin
+
+Label_0x00000067:
+    volume 80
+    wait 18
+    jump Label_0x0000004C
+
+Label_0x0000006F:
+    alloctrack 0x0002
+    opentrack 1, Label_0x00000103
+
+Label_0x00000077:
+    tempo 64
+    prg 2
+    transpose 12
+    gs2 120, 2
+    cs3 120, 2
+    en3 120, 2
+    gs3 120, 2
+    en3 120, 2
+    gs3 120, 2
+    cs4 120, 2
+    en4 120, 2
+    tempo 80
+    dn3 120, 2
+    fn3 120, 2
+    an3 120, 2
+    dn4 120, 2
+    an3 120, 2
+    dn4 120, 2
+    fn4 120, 2
+    an4 120, 2
+    tempo 92
+    ds3 120, 2
+    fs3 120, 2
+    as3 120, 2
+    ds4 120, 2
+    as3 120, 2
+    ds4 120, 2
+    fs4 120, 2
+    as4 120, 2
+    tempo 96
+    en3 120, 2
+    gn3 120, 2
+    bn3 120, 2
+    en4 120, 2
+    bn3 120, 2
+    en4 120, 2
+    gn4 120, 2
+    bn4 120, 2
+    tempo 104
+    fn3 120, 2
+    gs3 120, 2
+    cn4 120, 2
+    fn4 120, 2
+    cn4 120, 2
+    fn4 120, 2
+    gs4 120, 2
+    cn5 120, 2
+    fin
+
+Label_0x00000103:
+    wait 8
+    volume 80
+    jump Label_0x00000077
+
+Label_0x0000010B:
+    alloctrack 0x000E
+    opentrack 1, Label_0x0000013D
+    opentrack 2, Label_0x0000015D
+    opentrack 3, Label_0x00000161
+
+Label_0x0000011D:
+    prg 0
+    transpose -6
+    mod_range 6
+    mod_depth 127
+    mod_delay 40
+    mod_speed 48
+    tieon
+    porta 71
+    fn3 127, 8
+    porta 53
+    bn5 127, 20
+    fn5 70, 4
+    cn6 40, 4
+    fin
+
+Label_0x0000013D:
+    prg 0
+    transpose -6
+    mod_range 6
+    mod_depth 127
+    mod_delay 40
+    mod_speed 48
+    tieon
+    porta 65
+    bn2 127, 8
+    porta 47
+    fn5 127, 20
+    bn4 70, 4
+    gn5 40, 4
+    fin
+
+Label_0x0000015D:
+    jump Label_0x0000011D
+
+Label_0x00000161:
+    prg 1
+    cn4 127, 36
+    fin
+
+Label_0x00000167:
+    alloctrack 0x0002
+    opentrack 1, Label_0x00000178
+
+Label_0x0000016F:
+    prg 10
+    cn3 127, 3
+    gs3 127, 0
+    fin
+
+Label_0x00000178:
+    jump Label_0x0000016F
+
+Label_0x0000017C:
+    alloctrack 0x0006
+    opentrack 1, Label_0x0000018F
+    opentrack 2, Label_0x00000198
+
+Label_0x00000189:
+    prg 6
+    cn4 127, 0
+    fin
+
+Label_0x0000018F:
+    prg 6
+    cn4 127, 36
+    cn4 64, 0
+    fin
+
+Label_0x00000198:
+    wait 18
+    jump Label_0x00000189
+
+Label_0x0000019E:
+    alloctrack 0x0002
+    opentrack 1, Label_0x000001AC
+
+Label_0x000001A6:
+    prg 15
+    cs2 127, 0
+    fin
+
+Label_0x000001AC:
+    volume 64
+    mod_depth 48
+    mod_range 2
+    mod_delay 32
+    mod_speed 12
+    wait 60
+    jump Label_0x000001A6
+
+Label_0x000001BD:
+    alloctrack 0x0006
+    opentrack 1, Label_0x00000201
+    opentrack 2, Label_0x00000212
+
+Label_0x000001CA:
+    prg 15
+    tieon
+    cs2 127, 10
+    cs2 127, 10
+    cs2 112, 10
+    cs2 112, 10
+    cs2 96, 10
+    cs2 96, 10
+    cs2 88, 10
+    cs2 88, 10
+    cs2 64, 10
+    cs2 64, 10
+    cs2 48, 10
+    cs2 48, 10
+    cs2 32, 10
+    cs2 32, 10
+    cs2 16, 10
+    cs2 16, 10
+    tieoff
+    fin
+
+Label_0x00000201:
+    volume 64
+    mod_depth 48
+    mod_range 2
+    mod_delay 32
+    mod_speed 12
+    wait 70
+    jump Label_0x000001CA
+
+Label_0x00000212:
+    volume 40
+    mod_depth 32
+    mod_range 2
+    mod_delay 48
+    mod_speed 10
+    wait 145
+    jump Label_0x000001CA
+
+Label_0x00000224:
+    alloctrack 0x0002
+    opentrack 1, Label_0x00000258
+    prg 7
+    transpose -6
+    bendrange 6
+    tieon
+    porta_on
+
+Label_0x00000236:
+    pitchbend_r -64, 64
+    cn4 127, 12
+    en4 127, 12
+    gn4 127, 12
+    dn4 127, 12
+    bn3 127, 12
+    en4 127, 12
+    fn4 127, 12
+    an4 127, 12
+    jump Label_0x00000236
+
+Label_0x00000258:
+    prg 7
+    transpose -8
+    bendrange 6
+    tieon
+    porta_on
+    jump Label_0x00000236
+
+Label_0x00000266:
+    prg 5
+    wait 8
+    transpose 18
+    tieon
+    porta 73
+    cs4 115, 32
+    porta 61
+    fs3 115, 16
+    tieoff
+    fin
+
+Label_0x0000027B:
+    prg 4
+
+Label_0x0000027D:
+    porta 62
+    an4 127, 0
+    wait 3
+    jump Label_0x0000027D
+    fin
+
+Label_0x00000289:
+    alloctrack 0x0002
+    opentrack 1, Label_0x00000297
+
+Label_0x00000291:
+    prg 9
+    cn4 127, 0
+    fin
+
+Label_0x00000297:
+    jump Label_0x00000291
+
+Label_0x0000029B:
+    alloctrack 0x000E
+    opentrack 1, Label_0x000002B3
+    opentrack 2, Label_0x000002B7
+    opentrack 3, Label_0x000002BD
+
+Label_0x000002AD:
+    prg 1
+    cn4 112, 0
+    fin
+
+Label_0x000002B3:
+    jump Label_0x000002AD
+
+Label_0x000002B7:
+    prg 3
+    cn4 127, 0
+    fin
+
+Label_0x000002BD:
+    jump Label_0x000002B7
+
+Label_0x000002C1:
+    alloctrack 0x000E
+    opentrack 1, Label_0x000002D9
+    opentrack 2, Label_0x000002DD
+    opentrack 3, Label_0x000002E3
+
+Label_0x000002D3:
+    prg 1
+    cn4 112, 0
+    fin
+
+Label_0x000002D9:
+    jump Label_0x000002D3
+
+Label_0x000002DD:
+    prg 3
+    cn4 127, 0
+    fin
+
+Label_0x000002E3:
+    wait 19
+    prg 11
+    cn4 106, 8
+    en4 76, 16
+    gn4 50, 12
+    tieon
+    cn5 50, 6
+    cn5 50, 6
+    cn5 50, 6
+    tieoff
+    fin
+
+Label_0x000002FE:
+    alloctrack 0x003E
+    opentrack 1, Label_0x00000320
+    opentrack 2, Label_0x00000324
+    opentrack 3, Label_0x0000032A
+    opentrack 4, Label_0x0000032E
+    opentrack 5, Label_0x00000347
+
+Label_0x0000031A:
+    prg 1
+    cn4 112, 0
+    fin
+
+Label_0x00000320:
+    jump Label_0x0000031A
+
+Label_0x00000324:
+    prg 3
+    cn4 127, 0
+    fin
+
+Label_0x0000032A:
+    jump Label_0x00000324
+
+Label_0x0000032E:
+    wait 32
+    prg 2
+    transpose -2
+    cn5 127, 10
+    as4 127, 8
+    gs4 127, 8
+    fs4 127, 8
+    en4 127, 8
+    dn4 127, 7
+    fin
+
+Label_0x00000347:
+    wait 15
+    volume 48
+    jump Label_0x0000032E
+
+Label_0x0000034F:
+    prg 3
+    cmp_eq 16, 0
+    jump_if Label_0x00000368
+    setvar 16, 0
+    pitchbend_r -64, 64
+    gs3 127, 0
+    fin
+
+Label_0x00000368:
+    pitchbend_r -64, 64
+    setvar 16, 1
+    bn3 127, 0
+    fin
+
+Label_0x00000376:
+    alloctrack 0x0002
+    opentrack 1, Label_0x000003A5
+    prg 3
+    cmp_eq 16, 0
+    jump_if Label_0x00000397
+    setvar 16, 0
+    pitchbend_r -64, 64
+    gs3 127, 0
+    fin
+
+Label_0x00000397:
+    pitchbend_r -64, 64
+    setvar 16, 1
+    bn3 127, 0
+    fin
+
+Label_0x000003A5:
+    wait 10
+    prg 11
+    cn4 106, 8
+    en4 76, 16
+    gn4 50, 12
+    tieon
+    cn5 50, 6
+    cn5 50, 6
+    cn5 50, 6
+    tieoff
+    fin
+
+Label_0x000003C0:
+    prg 13
+    setvar 4, 127
+    tieon
+
+Label_0x000003C8:
+    volume_v 4
+    cn3 127, 2
+    subvar 4, 1
+    cmp_gt 4, 96
+    jump_if Label_0x000003C8
+
+Label_0x000003DB:
+    cn3 96, 120
+    jump Label_0x000003DB
+
+Label_0x000003E2:
+    prg 15
+    cn2 127, 0
+    fin
+    fin
+    fin
+

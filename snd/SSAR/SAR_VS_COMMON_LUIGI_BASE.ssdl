@@ -1,0 +1,9 @@
+#define SE_PLY_SPIN_JUMP_L	0
+#define SE_PLY_KABE_KICK_L	1
+#define SE_PLY_KABE_KICK_L_1	2
+#define SE_PLY_KABE_KICK_L_2	3
+#define SE_PLY_CHANGE_BIGGEST_L	4
+#define SE_VOC_LU_JUMP_03	5
+#define SE_VOC_LU_WIN	6
+#define SE_VOC_LU_THROW	7
+#define SE_VOC_LU_THROW_1	8

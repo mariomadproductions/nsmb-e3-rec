@@ -1,0 +1,68 @@
+#include "../nsmb.sbdl"
+
+@SEQ_TABLE
+SE_OBJ_KPDOOR_OPEN = 0:	Label_0x00000000,	BANK_LAST_KOOPA_DOOR_SE,	127,	96,	80,	OBJECT_PLAYER
+SE_OBJ_KPDOOR_MOVE = 1:	Label_0x00000030,	BANK_LAST_KOOPA_DOOR_SE,	127,	96,	80,	OBJECT_PLAYER
+SE_OBJ_KPDOOR_CLOSE = 2:	Label_0x00000057,	BANK_LAST_KOOPA_DOOR_SE,	127,	96,	80,	OBJECT_PLAYER
+
+@SEQ_DATA
+Label_0x00000000:
+    alloctrack 0x000E
+    opentrack 1, Label_0x0000001E
+    opentrack 2, Label_0x00000024
+    opentrack 3, Label_0x0000002C
+    prg 1
+    tieon
+
+Label_0x00000016:
+    cn4 127, 180
+    jump Label_0x00000016
+
+Label_0x0000001E:
+    prg 0
+    cn4 112, 0
+    fin
+
+Label_0x00000024:
+    prg 1
+    tieon
+    jump Label_0x00000016
+
+Label_0x0000002C:
+    jump Label_0x0000001E
+
+Label_0x00000030:
+    alloctrack 0x0006
+    opentrack 1, Label_0x00000049
+    opentrack 2, Label_0x00000051
+    prg 1
+    tieon
+
+Label_0x00000041:
+    cn4 127, 180
+    jump Label_0x00000041
+
+Label_0x00000049:
+    prg 1
+    tieon
+    jump Label_0x00000041
+
+Label_0x00000051:
+    prg 2
+    cn5 96, 0
+    fin
+
+Label_0x00000057:
+    alloctrack 0x0002
+    opentrack 1, Label_0x00000065
+
+Label_0x0000005F:
+    prg 2
+    cn4 127, 0
+    fin
+
+Label_0x00000065:
+    jump Label_0x0000005F
+    fin
+    fin
+

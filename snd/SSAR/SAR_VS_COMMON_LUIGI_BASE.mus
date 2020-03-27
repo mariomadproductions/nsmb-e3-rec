@@ -1,0 +1,216 @@
+#include "../nsmb.sbdl"
+
+@SEQ_TABLE
+SE_PLY_SPIN_JUMP_L = 0:	Label_0x000001AD,	BANK_VS_COMMON_LUIGI_BASE_SE,	127,	96,	80,	PLAYER_PLAYER
+SE_PLY_KABE_KICK_L = 1:	Label_0x00000153,	BANK_VS_COMMON_LUIGI_BASE_SE,	127,	96,	80,	PLAYER_PLAYER
+SE_PLY_KABE_KICK_L_1 = 2:	Label_0x00000171,	BANK_VS_COMMON_LUIGI_BASE_SE,	127,	96,	80,	PLAYER_PLAYER
+SE_PLY_KABE_KICK_L_2 = 3:	Label_0x0000018F,	BANK_VS_COMMON_LUIGI_BASE_SE,	127,	96,	80,	PLAYER_PLAYER
+SE_PLY_CHANGE_BIGGEST_L = 4:	Label_0x00000000,	BANK_VS_COMMON_LUIGI_BASE_SE,	127,	96,	95,	PLAYER_PLAYER_2
+SE_VOC_LU_JUMP_03 = 5:	Label_0x000001C1,	BANK_VS_COMMON_LUIGI_BASE_SE,	127,	96,	80,	VOICE_PLAYER
+SE_VOC_LU_WIN = 6:	Label_0x000001C7,	BANK_VS_COMMON_LUIGI_BASE_SE,	127,	96,	80,	VOICE_PLAYER
+SE_VOC_LU_THROW = 7:	Label_0x00000147,	BANK_VS_COMMON_LUIGI_BASE_SE,	127,	96,	80,	VOICE_PLAYER
+SE_VOC_LU_THROW_1 = 8:	Label_0x0000014D,	BANK_VS_COMMON_LUIGI_BASE_SE,	127,	96,	80,	VOICE_PLAYER
+
+@SEQ_DATA
+Label_0x00000000:
+    alloctrack 0x001E
+    opentrack 1, Label_0x000000A1
+    opentrack 2, Label_0x0000012D
+    opentrack 3, Label_0x00000135
+    opentrack 4, Label_0x0000013F
+    tempo 56
+    prg 0
+    gs3 120, 2
+    cn3 120, 2
+    ds3 120, 2
+    gs3 120, 2
+    cn4 120, 2
+    ds4 120, 2
+    gs4 120, 2
+    cn5 120, 2
+    tempo 70
+    as3 120, 2
+    dn3 120, 2
+    fn3 120, 2
+    as3 120, 2
+    dn4 120, 2
+    fn4 120, 2
+    as4 120, 2
+    dn5 120, 2
+    tempo 80
+    cn4 120, 2
+    en3 120, 2
+    gn3 120, 2
+    cn4 120, 2
+    en4 120, 2
+    gn4 120, 2
+    cn5 120, 2
+    en5 120, 2
+    tempo 88
+    dn4 120, 2
+    fs3 120, 2
+    an3 120, 2
+    dn4 120, 2
+    fs4 120, 2
+    an4 120, 2
+    dn5 120, 2
+    fs5 120, 2
+    tempo 100
+    en4 120, 2
+    gs3 120, 2
+    bn3 120, 2
+    en4 120, 2
+    gs4 120, 2
+    bn4 120, 2
+    en5 120, 2
+    gs5 120, 2
+    fin
+
+Label_0x000000A1:
+    tempo 56
+    wait 8
+    prg 0
+    gs3 80, 2
+    cn3 80, 2
+    ds3 80, 2
+    gs3 80, 2
+    cn4 80, 2
+    ds4 80, 2
+    gs4 80, 2
+    cn5 80, 2
+    tempo 70
+    as3 80, 2
+    dn3 80, 2
+    fn3 80, 2
+    as3 80, 2
+    dn4 80, 2
+    fn4 80, 2
+    as4 80, 2
+    dn5 80, 2
+    tempo 80
+    cn4 80, 2
+    en3 80, 2
+    gn3 80, 2
+    cn4 80, 2
+    en4 80, 2
+    gn4 80, 2
+    cn5 80, 2
+    en5 80, 2
+    tempo 88
+    dn4 80, 2
+    fs3 80, 2
+    an3 80, 2
+    dn4 80, 2
+    fs4 80, 2
+    an4 80, 2
+    dn5 80, 2
+    fs5 80, 2
+    tempo 100
+    en4 80, 2
+    gs3 80, 2
+    bn3 80, 2
+    en4 80, 2
+    gs4 80, 2
+    bn4 80, 2
+    en5 80, 2
+    gs5 80, 2
+    fin
+
+Label_0x0000012D:
+    prg 1
+    pan 25
+    cn4 108, 0
+    fin
+
+Label_0x00000135:
+    prg 1
+    pan 102
+    wait 1
+    cn4 108, 0
+    fin
+
+Label_0x0000013F:
+    prg 4
+    wait 90
+    ds2 127, 0
+    fin
+
+Label_0x00000147:
+    prg 4
+    en3 127, 0
+    fin
+
+Label_0x0000014D:
+    prg 4
+    fn3 127, 0
+    fin
+
+Label_0x00000153:
+    alloctrack 0x0002
+    opentrack 1, Label_0x00000163
+    prg 4
+    wait 4
+    ds3 127, 0
+    fin
+
+Label_0x00000163:
+    prg 2
+    bendrange 4
+    pitchbend_r -128, 127
+    cn4 127, 0
+    fin
+
+Label_0x00000171:
+    alloctrack 0x0002
+    opentrack 1, Label_0x00000181
+    prg 4
+    wait 4
+    en3 127, 0
+    fin
+
+Label_0x00000181:
+    prg 2
+    bendrange 4
+    pitchbend_r -128, 127
+    cn4 127, 0
+    fin
+
+Label_0x0000018F:
+    alloctrack 0x0002
+    opentrack 1, Label_0x0000019F
+    prg 4
+    wait 4
+    fn3 127, 0
+    fin
+
+Label_0x0000019F:
+    prg 2
+    bendrange 4
+    pitchbend_r -128, 127
+    cn4 127, 0
+    fin
+
+Label_0x000001AD:
+    alloctrack 0x0002
+    opentrack 1, Label_0x000001BB
+    prg 3
+    cn4 127, 0
+    fin
+
+Label_0x000001BB:
+    prg 4
+    en2 127, 0
+    fin
+
+Label_0x000001C1:
+    prg 4
+    dn2 127, 0
+    fin
+
+Label_0x000001C7:
+    prg 4
+    gs2 127, 0
+    fin
+    fin
+    fin
+
