@@ -1,0 +1,8 @@
+#define SE_EMY_BP_UPSIDE_DOWN	0
+#define SE_EMY_BP_BREATHE_IN	1
+#define SE_EMY_BP_BREATHE_OUT	2
+#define SE_EMY_BP_FLAP	3
+#define SE_EMY_BP_SLIP	4
+#define SE_EMY_BP_PIYO	5
+#define SE_EMY_BP_DAMAGE	6
+#define SE_EMY_BP_ATTACK	7

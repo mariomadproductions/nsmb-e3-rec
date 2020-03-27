@@ -1,0 +1,3 @@
+#define SE_OBJ_CORK_PUSH	0
+#define SE_OBJ_CORK_PULL	1
+#define SE_OBJ_CORK_PON	2

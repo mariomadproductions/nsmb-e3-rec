@@ -1,0 +1,6 @@
+#define SE_EMY_HANABI_IGNITION	0
+#define SE_EMY_HANABI_TAME	1
+#define SE_OBJ_HANABI_HYU	2
+#define SE_OBJ_HANABI_DON	3
+#define SE_OBJ_ROCK	4
+#define SE_AMB_ERUPT	5

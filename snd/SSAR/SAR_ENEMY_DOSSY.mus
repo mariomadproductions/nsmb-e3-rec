@@ -1,0 +1,16 @@
+#include "../nsmb.sbdl"
+
+@SEQ_TABLE
+SE_OBJ_DOSSY_SWIM = 0:	Label_0x00000000,	BANK_ENEMY_DOSSY_SE,	70,	96,	80,	OBJECT_PLAYER_3
+
+@SEQ_DATA
+Label_0x00000000:
+    prg 0
+    tieon
+
+Label_0x00000004:
+    cn4 127, 127
+    jump Label_0x00000004
+    fin
+    fin
+

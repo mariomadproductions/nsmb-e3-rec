@@ -1,0 +1,298 @@
+    alloctrack 0x00FF
+    opentrack 1, Label_0x00000054
+    opentrack 2, Label_0x00000093
+    opentrack 3, Label_0x000000E9
+    opentrack 4, Label_0x00000150
+    opentrack 5, Label_0x00000201
+    opentrack 6, Label_0x00000254
+    opentrack 7, Label_0x0000029D
+    notewait_off
+    tempo 120
+    prg 0
+    prio 22
+    volume 100
+    pan 51
+    wait 40
+    gn3 109, 35
+    wait 36
+    an3 109, 47
+    wait 48
+    as3 109, 59
+    wait 60
+    bn3 109, 47
+    wait 48
+    cn4 109, 12
+    wait 12
+    cn3 109, 12
+    wait 12
+    fin
+
+Label_0x00000054:
+    notewait_off
+    prg 4
+    prio 10
+    volume 100
+    pan 82
+    wait 41
+    en6 116, 6
+    wait 12
+    en6 112, 3
+    wait 24
+    en6 112, 7
+    wait 23
+    cn6 117, 8
+    wait 22
+    en6 120, 6
+    wait 25
+    en6 104, 33
+    wait 38
+    gn6 122, 6
+    wait 24
+    gn6 122, 6
+    wait 22
+    cn7 124, 5
+    wait 11
+    cn7 124, 10
+    wait 11
+    fin
+
+Label_0x00000093:
+    notewait_off
+    prg 11
+    prio 26
+    volume 100
+    pan 56
+    wait 40
+    as4 87, 19
+    as5 91, 20
+    wait 24
+    gn5 93, 11
+    wait 12
+    en5 101, 20
+    an5 105, 19
+    wait 24
+    an4 95, 20
+    wait 24
+    as4 96, 20
+    as5 100, 20
+    wait 24
+    cn5 96, 20
+    wait 24
+    fn5 90, 12
+    wait 12
+    gn5 93, 20
+    bn5 92, 35
+    wait 24
+    dn5 96, 20
+    wait 24
+    en5 96, 11
+    cn6 99, 11
+    wait 12
+    en5 94, 11
+    cn6 90, 12
+    wait 12
+    fin
+
+Label_0x000000E9:
+    notewait_off
+    prg 10
+    prio 8
+    volume 100
+    pan 89
+    wait 40
+    as5 109, 12
+    wait 12
+    an5 65, 1
+    wait 12
+    an5 65, 1
+    wait 12
+    an5 65, 1
+    wait 12
+    as5 109, 12
+    wait 12
+    an5 65, 1
+    wait 12
+    an5 65, 1
+    wait 12
+    an5 65, 1
+    wait 12
+    as5 109, 12
+    wait 12
+    an5 65, 1
+    wait 12
+    an5 65, 1
+    wait 12
+    an5 65, 1
+    wait 12
+    as5 109, 12
+    wait 12
+    an5 65, 1
+    wait 12
+    an5 65, 1
+    wait 12
+    an5 65, 1
+    wait 12
+    as5 109, 12
+    wait 12
+    as5 88, 12
+    wait 12
+    fin
+
+Label_0x00000150:
+    notewait_off
+    prg 5
+    prio 31
+    volume 120
+    pan 76
+    dn4 70, 9
+    wait 8
+    en4 80, 9
+    wait 8
+    fn4 90, 9
+    wait 8
+    gn4 100, 9
+    wait 8
+    an4 110, 10
+    wait 9
+    en5 121, 10
+    wait 1
+    cn5 121, 9
+    gn4 121, 11
+    wait 11
+    cn5 97, 5
+    en5 112, 5
+    wait 1
+    gn4 88, 4
+    wait 23
+    en5 112, 7
+    wait 1
+    cn5 104, 6
+    gn4 105, 3
+    wait 22
+    cn5 117, 8
+    wait 1
+    gn4 106, 6
+    wait 21
+    en5 120, 6
+    wait 1
+    cn5 124, 6
+    an4 120, 6
+    wait 24
+    en5 104, 33
+    wait 1
+    fs4 98, 36
+    cn5 100, 36
+    wait 37
+    gn5 122, 6
+    cn5 123, 2
+    en5 118, 5
+    wait 24
+    gn5 122, 6
+    cn5 123, 2
+    en5 118, 5
+    wait 21
+    gn5 122, 6
+    en5 126, 6
+    wait 1
+    cn6 124, 5
+    wait 11
+    gn5 126, 10
+    en5 126, 10
+    cn6 124, 10
+    wait 5
+    as5 123, 2
+    wait 3
+    gn5 123, 2
+    wait 2
+    fn5 123, 2
+    wait 4
+    cn5 123, 2
+    wait 2
+    fin
+
+Label_0x00000201:
+    notewait_off
+    prg 9
+    prio 8
+    volume 100
+    pan 83
+    wait 40
+    an5 109, 23
+    wait 24
+    gs5 85, 1
+    wait 12
+    gs5 85, 1
+    wait 12
+    gs5 85, 1
+    wait 24
+    gs5 85, 1
+    wait 12
+    gs5 85, 1
+    wait 12
+    gs5 85, 1
+    wait 24
+    gs5 85, 1
+    wait 12
+    gs5 85, 1
+    wait 12
+    gs5 85, 1
+    wait 24
+    gs5 85, 1
+    wait 12
+    gs5 85, 1
+    wait 12
+    gs5 85, 1
+    wait 12
+    gs5 85, 1
+    wait 1
+    fin
+
+Label_0x00000254:
+    notewait_off
+    prg 8
+    prio 16
+    volume 100
+    pan 43
+    wait 40
+    cs5 109, 35
+    wait 36
+    cn5 109, 47
+    wait 48
+    dn5 109, 23
+    wait 24
+    dn5 109, 23
+    wait 24
+    dn5 109, 5
+    wait 6
+    dn5 109, 5
+    wait 6
+    cs5 109, 11
+    wait 12
+    cs5 109, 11
+    wait 12
+    cn5 109, 17
+    wait 18
+    dn5 84, 5
+    wait 6
+    dn5 109, 11
+    wait 12
+    dn5 109, 19
+    wait 19
+    fin
+
+Label_0x0000029D:
+    notewait_off
+    prg 2
+    prio 4
+    volume 127
+    pan 41
+    wait 40
+    gn6 109, 12
+    wait 168
+    gn6 109, 12
+    wait 24
+    fs6 127, 12
+    wait 12
+    fin
+    fin
+    fin

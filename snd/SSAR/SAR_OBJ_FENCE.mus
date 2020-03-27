@@ -1,0 +1,46 @@
+#include "../nsmb.sbdl"
+
+@SEQ_TABLE
+SE_PLY_WALK_METAL = 0:	Label_0x00000000,	BANK_OBJ_FENCE_SE,	127,	96,	70,	PLAYER_PLAYER
+SE_OBJ_FENCE_TURN_S = 1:	Label_0x0000000B,	BANK_OBJ_FENCE_SE,	127,	96,	80,	OBJECT_PLAYER_3
+SE_OBJ_FENCE_TURN_L = 2:	Label_0x00000021,	BANK_OBJ_FENCE_SE,	127,	96,	80,	OBJECT_PLAYER_3
+
+@SEQ_DATA
+Label_0x00000000:
+    prg 0
+    bn3 80, 1
+    prg 1
+    fn3 110, 5
+    fin
+
+Label_0x0000000B:
+    alloctrack 0x0002
+    opentrack 1, Label_0x00000019
+
+Label_0x00000013:
+    prg 4
+    cn4 120, 0
+    fin
+
+Label_0x00000019:
+    wait 16
+    volume 40
+    jump Label_0x00000013
+
+Label_0x00000021:
+    alloctrack 0x0002
+    opentrack 1, Label_0x00000031
+    wait 2
+    prg 3
+    cn4 48, 0
+    fin
+
+Label_0x00000031:
+    prg 4
+    cn4 127, 96
+    prg 2
+    cn4 115, 0
+    fin
+    fin
+    fin
+

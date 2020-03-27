@@ -1,0 +1,2 @@
+default tile widths
+its just the blocks in the main pallete and the door in its pallete that are changed

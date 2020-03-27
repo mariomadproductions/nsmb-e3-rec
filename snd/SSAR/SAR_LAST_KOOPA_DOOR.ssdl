@@ -1,0 +1,3 @@
+#define SE_OBJ_KPDOOR_OPEN	0
+#define SE_OBJ_KPDOOR_MOVE	1
+#define SE_OBJ_KPDOOR_CLOSE	2

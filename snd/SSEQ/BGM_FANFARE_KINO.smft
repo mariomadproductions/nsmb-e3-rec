@@ -1,0 +1,166 @@
+    alloctrack 0x001F
+    opentrack 1, Label_0x0000006E
+    opentrack 2, Label_0x000000D7
+    opentrack 3, Label_0x0000011C
+    opentrack 4, Label_0x00000142
+    notewait_off
+    tempo 134
+    prg 1
+    main_volume 125
+    volume 100
+    prio 20
+    pan 88
+    bendrange 12
+    mod_depth 0
+    pitchbend 0
+    wait 8
+    cn6 110, 6
+    wait 16
+    cn6 88, 6
+    wait 8
+    cn6 72, 6
+    wait 8
+    cn6 51, 6
+    wait 8
+    cn6 70, 5
+    en6 102, 5
+    wait 16
+    gn6 110, 5
+    wait 12
+    cn7 106, 5
+    wait 6
+    cn7 64, 5
+    wait 6
+    cn7 72, 5
+    wait 6
+    cn7 49, 5
+    wait 6
+    cn7 64, 5
+    wait 6
+    cn7 70, 5
+    wait 5
+    fin
+
+Label_0x0000006E:
+    notewait_off
+    prg 2
+    volume 110
+    prio 31
+    pan 106
+    bendrange 12
+    mod_depth 0
+    pitchbend 0
+    wait 8
+    cn6 110, 6
+    gn5 116, 6
+    wait 16
+    cn6 88, 4
+    gn5 94, 4
+    wait 8
+    cn6 72, 4
+    gn5 78, 4
+    wait 8
+    cn6 51, 4
+    gn5 57, 4
+    wait 8
+    en6 82, 5
+    cn6 88, 5
+    wait 16
+    gn6 100, 5
+    en6 106, 5
+    wait 12
+    cn7 110, 5
+    gn6 116, 5
+    wait 6
+    dn7 64, 5
+    wait 6
+    cn7 72, 5
+    wait 6
+    dn7 49, 5
+    wait 6
+    cn7 54, 5
+    wait 6
+    dn7 64, 5
+    wait 6
+    cn7 70, 5
+    wait 5
+    fin
+
+Label_0x000000D7:
+    notewait_off
+    prg 3
+    volume 90
+    prio 24
+    pan 42
+    bendrange 12
+    mod_depth 0
+    pitchbend 0
+    wait 8
+    cn5 110, 6
+    wait 16
+    cn5 88, 5
+    wait 8
+    cn5 72, 5
+    wait 8
+    cn5 51, 5
+    wait 8
+    cn5 102, 5
+    en5 102, 5
+    wait 28
+    cn4 110, 7
+    wait 4
+    en4 78, 7
+    wait 4
+    gn4 104, 7
+    wait 4
+    cn5 110, 8
+    wait 112
+    pitchbend 0
+    fin
+
+Label_0x0000011C:
+    notewait_off
+    prg 4
+    volume 100
+    prio 18
+    pan 64
+    bendrange 12
+    mod_depth 0
+    pitchbend 0
+    cs4 80, 3
+    wait 4
+    cs4 90, 3
+    wait 4
+    cn5 110, 18
+    cn4 110, 6
+    wait 192
+    pitchbend 0
+    fin
+
+Label_0x00000142:
+    notewait_off
+    prg 5
+    volume 100
+    prio 28
+    pan 24
+    bendrange 12
+    mod_depth 0
+    pitchbend 0
+    wait 76
+    cn7 106, 8
+    wait 6
+    dn7 64, 8
+    wait 6
+    cn7 72, 8
+    wait 6
+    dn7 49, 8
+    wait 6
+    cn7 54, 8
+    wait 6
+    dn7 64, 8
+    wait 6
+    cn7 70, 8
+    wait 8
+    fin
+    fin
+    fin

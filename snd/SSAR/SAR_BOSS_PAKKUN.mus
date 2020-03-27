@@ -1,0 +1,105 @@
+#include "../nsmb.sbdl"
+
+@SEQ_TABLE
+SE_EMY_BP_UPSIDE_DOWN = 0:	Label_0x0000009E,	BANK_BOSS_PAKKUN_SE,	127,	96,	80,	ENEMY_PLAYER_2
+SE_EMY_BP_BREATHE_IN = 1:	Label_0x000000BC,	BANK_BOSS_PAKKUN_SE,	127,	96,	80,	ENEMY_PLAYER_3
+SE_EMY_BP_BREATHE_OUT = 2:	Label_0x000000C8,	BANK_BOSS_PAKKUN_SE,	127,	96,	80,	ENEMY_PLAYER_3
+SE_EMY_BP_FLAP = 3:	Label_0x000000B0,	BANK_BOSS_PAKKUN_SE,	127,	96,	80,	ENEMY_PLAYER_3
+SE_EMY_BP_SLIP = 4:	Label_0x00000074,	BANK_BOSS_PAKKUN_SE,	127,	96,	80,	ENEMY_PLAYER_3
+SE_EMY_BP_PIYO = 5:	Label_0x00000000,	BANK_BOSS_PAKKUN_SE,	127,	96,	80,	ENEMY_PLAYER_3
+SE_EMY_BP_DAMAGE = 6:	Label_0x00000068,	BANK_BOSS_PAKKUN_SE,	127,	96,	80,	ENEMY_PLAYER_4
+SE_EMY_BP_ATTACK = 7:	Label_0x0000006E,	BANK_BOSS_PAKKUN_SE,	127,	96,	80,	ENEMY_PLAYER_4
+
+@SEQ_DATA
+Label_0x00000000:
+    prg 6
+    porta 62
+    pitchbend 0
+    an4 127, 0
+    wait 3
+    porta 62
+    an4 127, 0
+    wait 3
+    porta 62
+    an4 127, 0
+    wait 3
+    porta 62
+    an4 127, 0
+    wait 3
+    pitchbend_r -127, 127
+    porta 62
+    an4 127, 0
+    wait_r 7, 10
+    pitchbend_r -127, 127
+    porta 62
+    an4 127, 0
+    wait_r 7, 10
+    pitchbend_r -127, 127
+    porta 62
+    an4 127, 0
+    wait_r 7, 10
+    pitchbend_r -127, 127
+    porta 62
+    an4 127, 0
+    wait_r 7, 10
+    jump Label_0x00000000
+
+Label_0x00000068:
+    prg 3
+    cn1 127, 0
+    fin
+
+Label_0x0000006E:
+    prg 3
+    cn2 127, 0
+    fin
+
+Label_0x00000074:
+    prg 5
+    en5 127, 6
+    gn5 127, 7
+    en5 127, 6
+    gn5 127, 7
+    en5 127, 6
+    gn5 127, 7
+    en5 127, 6
+    gn5 127, 7
+    en5 127, 6
+    gn5 127, 7
+    en5 127, 6
+    gn5 127, 7
+    en5 127, 6
+    fin
+
+Label_0x0000009E:
+    alloctrack 0x0002
+    opentrack 1, Label_0x000000AC
+
+Label_0x000000A6:
+    prg 4
+    cn4 127, 0
+    fin
+
+Label_0x000000AC:
+    jump Label_0x000000A6
+
+Label_0x000000B0:
+    prg 2
+    pitchbend_r -32, 32
+    cn4 127, 0
+    fin
+
+Label_0x000000BC:
+    prg 0
+    pitchbend_r -32, 32
+    cn3 127, 0
+    fin
+
+Label_0x000000C8:
+    prg 1
+    pitchbend_r -32, 32
+    fs3 127, 0
+    fin
+    fin
+    fin
+

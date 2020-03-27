@@ -1,0 +1,51 @@
+#include "../nsmb.sbdl"
+
+@SEQ_TABLE
+SE_SYS_PREDOWNLOAD = 0:	Label_0x00000000,	BANK_VS_PREDOWNLOAD_SE,	48,	96,	100,	SYSTEM_PLAYER
+
+@SEQ_DATA
+Label_0x00000000:
+    alloctrack 0x0002
+    opentrack 1, Label_0x00000036
+
+Label_0x00000008:
+    prg 0
+    volume 96
+    en5 127, 10
+    gn5 127, 10
+    en6 127, 10
+    cn6 127, 10
+    dn6 127, 10
+    gn6 127, 16
+    volume 64
+    en5 127, 10
+    gn5 127, 10
+    en6 127, 10
+    cn6 127, 10
+    dn6 127, 10
+    gn6 127, 16
+    jump Label_0x00000008
+
+Label_0x00000036:
+    prg 0
+    wait 33
+
+Label_0x0000003A:
+    volume 64
+    en5 127, 10
+    gn5 127, 10
+    en6 127, 10
+    cn6 127, 10
+    dn6 127, 10
+    gn6 127, 16
+    volume 48
+    en5 127, 10
+    gn5 127, 10
+    en6 127, 10
+    cn6 127, 10
+    dn6 127, 10
+    gn6 127, 16
+    jump Label_0x0000003A
+    fin
+    fin
+

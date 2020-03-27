@@ -1,0 +1,8 @@
+#define SE_EMY_ELCJ_PRE_DIVE	0
+#define SE_EMY_ELCJ_DIVE	1
+#define SE_EMY_PIPO_BOUND	2
+#define SE_EMY_ELCJ_APP	3
+#define SE_EMY_ELCJ_CHARGE	4
+#define SE_EMY_ELCJ_THROW	5
+#define SE_EMY_ELCJ_DOWN	6
+#define SE_AMB_THUNDER	7

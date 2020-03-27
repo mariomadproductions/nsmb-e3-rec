@@ -1,0 +1,46 @@
+#include "../nsmb.sbdl"
+
+@SEQ_TABLE
+SE_EMY_GOREM_BLOCK = 0:	Label_0x00000010,	BANK_ENEMY_GOREM_SE,	127,	96,	80,	ENEMY_PLAYER
+SE_EMY_GOREM_FOOT = 1:	Label_0x0000000A,	BANK_ENEMY_GOREM_SE,	127,	96,	75,	ENEMY_PLAYER
+SE_EMY_GOREM_JUMP = 2:	Label_0x00000000,	BANK_ENEMY_GOREM_SE,	127,	96,	80,	ENEMY_PLAYER
+SE_EMY_GOREM_APP = 3:	Label_0x00000019,	BANK_ENEMY_GOREM_SE,	32,	96,	80,	ENEMY_PLAYER_2
+
+@SEQ_DATA
+Label_0x00000000:
+    prg 2
+    transpose 2
+    porta 55
+    dn4 127, 64
+    fin
+
+Label_0x0000000A:
+    prg 1
+    cn4 127, 0
+    fin
+
+Label_0x00000010:
+    prg 0
+    gn3 127, 8
+    gn4 127, 18
+    fin
+
+Label_0x00000019:
+    alloctrack 0x0002
+    opentrack 1, Label_0x0000002A
+
+Label_0x00000021:
+    prg 0
+    cs5 127, 14
+    jump Label_0x00000021
+
+Label_0x0000002A:
+    prg 0
+    wait 7
+
+Label_0x0000002E:
+    fs4 127, 14
+    jump Label_0x0000002E
+    fin
+    fin
+

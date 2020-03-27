@@ -1,0 +1,199 @@
+#include "../nsmb.sbdl"
+
+@SEQ_TABLE
+SE_PLY_KISS = 0:	Label_0x00000016,	BANK_LAST_KOOPA_DEMO_SE,	127,	96,	80,	PLAYER_PLAYER
+SE_EMY_KPJR_THROW = 1:	Label_0x0000015D,	BANK_LAST_KOOPA_DEMO_SE,	88,	96,	80,	ENEMY_PLAYER_2
+SE_OBJ_HONE_IN_TSUBO = 2:	Label_0x00000135,	BANK_LAST_KOOPA_DEMO_SE,	104,	96,	80,	OBJECT_PLAYER
+SE_OBJ_TSUBO_GOTOGOTO = 3:	Label_0x00000060,	BANK_LAST_KOOPA_DEMO_SE,	127,	96,	80,	OBJECT_PLAYER_2
+SE_OBJ_TSUBO_BREAK = 4:	Label_0x0000001C,	BANK_LAST_KOOPA_DEMO_SE,	127,	96,	80,	OBJECT_PLAYER_2
+SE_OBJ_TSUBO_EXPAND = 5:	Label_0x00000048,	BANK_LAST_KOOPA_DEMO_SE,	127,	96,	80,	OBJECT_PLAYER_3
+SE_VOC_M_HOEE = 6:	Label_0x00000004,	BANK_LAST_KOOPA_DEMO_SE,	127,	96,	80,	VOICE_PLAYER
+SE_VOC_L_HOEE = 7:	Label_0x0000000A,	BANK_LAST_KOOPA_DEMO_SE,	104,	96,	80,	VOICE_PLAYER
+SE_VOC_P_THANK_YOU = 8:	Label_0x00000010,	BANK_LAST_KOOPA_DEMO_SE,	127,	96,	80,	VOICE_PLAYER_2
+
+@SEQ_DATA    setvar 18, 0
+
+Label_0x00000004:
+    prg 0
+    cn4 127, 0
+    fin
+
+Label_0x0000000A:
+    prg 1
+    cn4 127, 0
+    fin
+
+Label_0x00000010:
+    prg 6
+    cn4 127, 0
+    fin
+
+Label_0x00000016:
+    prg 7
+    cn4 127, 0
+    fin
+
+Label_0x0000001C:
+    alloctrack 0x000E
+    opentrack 1, Label_0x00000036
+    opentrack 2, Label_0x0000003C
+    opentrack 3, Label_0x00000040
+    wait 16
+
+Label_0x00000030:
+    prg 5
+    cn4 127, 0
+    fin
+
+Label_0x00000036:
+    prg 12
+    cn4 127, 0
+    fin
+
+Label_0x0000003C:
+    jump Label_0x00000036
+
+Label_0x00000040:
+    wait 50
+    volume 48
+    jump Label_0x00000030
+
+Label_0x00000048:
+    alloctrack 0x0002
+    opentrack 1, Label_0x00000058
+    prg 2
+
+Label_0x00000052:
+    porta 53
+    fn6 127, 64
+    fin
+
+Label_0x00000058:
+    prg 2
+    transpose -1
+    jump Label_0x00000052
+
+Label_0x00000060:
+    alloctrack 0x007E
+    opentrack 1, Label_0x000000A5
+    opentrack 2, Label_0x000000B3
+    opentrack 3, Label_0x000000C1
+    opentrack 4, Label_0x0000010D
+    opentrack 5, Label_0x00000123
+    opentrack 6, Label_0x0000012C
+    prg 4
+    cn4 127, 0
+    cn4 80, 14
+    prg 4
+    setvar 18, 80
+
+Label_0x0000008F:
+    volume_v 18
+    cn4 127, 8
+    en4 127, 8
+    cmp_lt 18, 128
+    addvar_if 18, 1
+    jump Label_0x0000008F
+
+Label_0x000000A5:
+    prg 4
+    cn4 127, 0
+    cn4 80, 14
+    prg 4
+    jump Label_0x0000008F
+
+Label_0x000000B3:
+    prg 4
+    cn4 127, 0
+    cn4 80, 14
+    prg 4
+    jump Label_0x0000008F
+
+Label_0x000000C1:
+    prg 4
+    cn4 127, 0
+    cn4 80, 14
+    prg 11
+    transpose -6
+    bendrange 6
+    tieon
+    porta_on
+
+Label_0x000000D3:
+    pitchbend_r -64, 64
+    volume_v 18
+    cn4 127, 12
+    volume_v 18
+    en4 127, 12
+    volume_v 18
+    gn4 127, 12
+    volume_v 18
+    dn4 127, 12
+    volume_v 18
+    bn3 127, 12
+    volume_v 18
+    en4 127, 12
+    volume_v 18
+    fn4 127, 12
+    volume_v 18
+    an4 127, 12
+    jump Label_0x000000D3
+
+Label_0x0000010D:
+    prg 4
+    cn4 127, 0
+    cn4 80, 14
+    prg 11
+    transpose -8
+    bendrange 6
+    tieon
+    porta_on
+    jump Label_0x000000D3
+
+Label_0x00000123:
+    prg 4
+    cn4 127, 0
+    cn4 80, 14
+    fin
+
+Label_0x0000012C:
+    prg 4
+    cn4 127, 0
+    cn4 80, 14
+    fin
+
+Label_0x00000135:
+    alloctrack 0x0002
+    opentrack 1, Label_0x00000143
+
+Label_0x0000013D:
+    prg 3
+    cn4 127, 0
+    fin
+
+Label_0x00000143:
+    jump Label_0x0000013D
+    prg 4
+    cn4 127, 0
+    cn4 70, 0
+    cn4 40, 0
+    fin
+    prg 10
+    transpose 6
+    porta 54
+    cs5 64, 18
+    fin
+
+Label_0x0000015D:
+    prg 9
+    transpose 6
+    porta 54
+    cs5 115, 20
+    porta 54
+    cs5 60, 18
+    porta 54
+    cs5 30, 17
+    fin
+    fin
+    fin
+

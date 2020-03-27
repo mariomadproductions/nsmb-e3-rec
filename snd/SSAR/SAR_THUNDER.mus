@@ -1,0 +1,157 @@
+#include "../nsmb.sbdl"
+
+@SEQ_TABLE
+SE_EMY_ELCJ_PRE_DIVE = 0:	Label_0x000000A7,	BANK_THUNDER_SE,	80,	96,	80,	ENEMY_PLAYER
+SE_EMY_ELCJ_DIVE = 1:	Label_0x000000CB,	BANK_THUNDER_SE,	127,	96,	80,	ENEMY_PLAYER
+SE_EMY_PIPO_BOUND = 2:	Label_0x00000000,	BANK_THUNDER_SE,	127,	96,	80,	ENEMY_PLAYER_2
+SE_EMY_ELCJ_APP = 3:	Label_0x00000053,	BANK_THUNDER_SE,	127,	96,	80,	ENEMY_PLAYER_3
+SE_EMY_ELCJ_CHARGE = 4:	Label_0x000000A1,	BANK_THUNDER_SE,	127,	96,	80,	ENEMY_PLAYER_3
+SE_EMY_ELCJ_THROW = 5:	Label_0x00000006,	BANK_THUNDER_SE,	127,	96,	80,	ENEMY_PLAYER_3
+SE_EMY_ELCJ_DOWN = 6:	Label_0x0000001E,	BANK_THUNDER_SE,	127,	96,	80,	ENEMY_PLAYER_3
+SE_AMB_THUNDER = 7:	Label_0x00000109,	BANK_THUNDER_SE,	127,	96,	120,	AMB_PLAYER
+
+@SEQ_DATA
+Label_0x00000000:
+    prg 4
+    cn4 127, 0
+    fin
+
+Label_0x00000006:
+    prg 1
+    transpose 12
+    tieon
+    porta 70
+    cs5 127, 4
+    porta 73
+    bn4 127, 10
+    porta 71
+    fs4 127, 30
+    tieoff
+    fin
+
+Label_0x0000001E:
+    alloctrack 0x0002
+    opentrack 1, Label_0x0000004F
+
+Label_0x00000026:
+    prg 7
+    sweep_pitch 384
+    mod_range 6
+    mod_depth 127
+    mod_delay 2
+    mod_speed 24
+    transpose -5
+    tieon
+    porta 76
+    en3 127, 42
+    porta 75
+    ds3 112, 36
+    porta 74
+    dn3 96, 24
+    porta 73
+    cs3 80, 16
+    tieoff
+    fin
+
+Label_0x0000004F:
+    jump Label_0x00000026
+
+Label_0x00000053:
+    alloctrack 0x0006
+    opentrack 1, Label_0x00000093
+    opentrack 2, Label_0x0000009B
+
+Label_0x00000060:
+    prg 5
+    sweep_pitch 384
+    mod_range 6
+    mod_depth 127
+    mod_delay 2
+    mod_speed 24
+    gn3 30, 24
+    gs3 40, 24
+    an3 50, 24
+    as3 60, 24
+    gs3 55, 20
+    an3 65, 20
+    as3 75, 20
+    bn3 85, 20
+    an3 90, 18
+    as3 100, 18
+    bn3 110, 18
+    cn4 120, 18
+    fin
+
+Label_0x00000093:
+    volume 60
+    wait 20
+    jump Label_0x00000060
+
+Label_0x0000009B:
+    transpose 3
+    jump Label_0x00000060
+
+Label_0x000000A1:
+    prg 3
+    cn4 127, 0
+    fin
+
+Label_0x000000A7:
+    alloctrack 0x0002
+    opentrack 1, Label_0x000000C5
+
+Label_0x000000AF:
+    prg 2
+    porta 88
+    gn6 80, 4
+    wait 4
+    porta 88
+    gn6 80, 4
+    wait 4
+    porta 88
+    gn6 80, 4
+    fin
+
+Label_0x000000C5:
+    transpose -6
+    jump Label_0x000000AF
+
+Label_0x000000CB:
+    alloctrack 0x0002
+    opentrack 1, Label_0x00000103
+
+Label_0x000000D3:
+    tieon
+    prg 6
+    porta 76
+    en3 127, 45
+    porta 52
+    gn2 127, 45
+    tieoff
+    tieon
+    porta_on
+    prg 6
+    porta 43
+    as2 64, 15
+    cs3 72, 15
+    en3 80, 15
+    porta 52
+    en5 88, 45
+    porta_off
+    tieoff
+
+Label_0x000000FD:
+    wait 1
+    jump Label_0x000000FD
+
+Label_0x00000103:
+    transpose -6
+    jump Label_0x000000D3
+
+Label_0x00000109:
+    prg 0
+    cn4 127, 240
+    fin
+    fin
+    fin
+
