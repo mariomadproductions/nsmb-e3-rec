@@ -2,9 +2,8 @@ repl_02153110_ov_36:
 	LDRH	R0, [R4, #0xC]
 	CMP	R0, #0x97
 	BNE	.Return
-	LDR	R0, [R4, #8]
-	AND	R0, R0, #3
-	ADD	R0, R0, #1
+	LDR	R0, =RedRingColor
+	LDR	R0, [R0]
 	LDR	R1, =RedRingStack
 	STRB	R0, [R1]
 .Return:
@@ -32,5 +31,8 @@ repl_0205A6E0:
 	
 .data
 .balign 1
+.global RedRingColor
+RedRingColor:
+	.byte 0x0
 RedRingStack:
 	.byte 0x0

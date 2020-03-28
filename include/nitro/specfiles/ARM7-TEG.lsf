@@ -1,0 +1,60 @@
+#----------------------------------------------------------------------------
+# Project:  NitroSDK - include
+# File:     ARM7-TEG.lsf
+#
+# Copyright 2003,2004 Nintendo.  All rights reserved.
+#
+# These coded insructions, statements, and computer programs contain
+# proprietary information of Nintendo of America Inc. and/or Nintendo
+# Company Ltd., and are protected by Federal copyright law.  They may
+# not be disclosed to third parties or copied or duplicated in any form,
+# in whole or in part, without the prior written consent of Nintendo.
+#
+# $Log: ARM7-TEG.lsf,v $
+# Revision 1.10  2004/07/10 12:17:51  yasu
+# delete GROUP(ROOT)
+#
+# Revision 1.9  2004/07/10 04:11:17  yasu
+# Add GROUP(xxx) as object group
+#
+# Revision 1.8  2004/07/02 08:33:49  yasu
+# Add .wram
+#
+# Revision 1.7  2004/07/02 01:12:11  yasu
+# clean up comments
+#
+# Revision 1.6  2004/07/01 10:41:46  yasu
+# support autoload
+#
+# Revision 1.5  2004/06/28 10:46:45  yasu
+# avoid to use '*' as wildcard
+#
+# Revision 1.4  2004/04/19 04:27:30  yasu
+# support WRAM overflow check
+#
+# Revision 1.3  2004/04/14 10:25:09  yasu
+# delete LIBRARIES group
+#
+# Revision 1.2  2004/03/26 13:16:17  yasu
+# use variables
+#
+# Revision 1.1  2004/03/26 06:04:32  yasu
+# move spec files
+#
+# Revision 1.2  2004/03/18 12:43:38  yasu
+# set top address for static segment
+#
+# $NoKeywords: $
+#----------------------------------------------------------------------------
+#
+#  Nitro LCF SPEC FILE
+#
+
+Static $(TARGET_NAME)
+{
+	Address		0x037f8000
+	Object		$(OBJS_STATIC)
+	Library		$(LLIBS) $(GLIBS) $(CW_LIBS)
+	Object		* (.wram)
+	StackSize	1024 512
+}

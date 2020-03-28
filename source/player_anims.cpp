@@ -46,3 +46,8 @@ void repl_02116698_ov_0A(PlayerActor* player, int animationNo, int startFrame, i
 }
 void nsub_02116A14_ov_0A() { asm("CMP R0, #1"); asm("B 0x02116A18"); }
 void repl_02116A2C_ov_0A() { asm("MOV R1, #1"); }
+
+void repl_02116B90_ov_0A(PlayerActor* player, int animationNo, int startFrame, int unk1, int updateSpeed, int unk2)
+{
+	PlayerActor_SetAnimation(player, animationNo, startFrame, unk1, updateSpeed, unk2);
+}

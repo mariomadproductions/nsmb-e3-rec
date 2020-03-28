@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="source\misc.cpp" />
+    <ClCompile Include="source\multiplayer.cpp" />
+    <ClCompile Include="source\beta_pipe_cannon.cpp" />
+    <ClCompile Include="source\player_anims.cpp" />
+    <ClCompile Include="source\player_start.cpp" />
+    <ClCompile Include="source\nsmb\ostream.cpp" />
+    <ClCompile Include="source\main_menu_scene.cpp" />
+    <ClCompile Include="source\ramviewer.cpp" />
+    <ClCompile Include="source\red_ring.cpp" />
+    <ClCompile Include="source\stage_inv_items.cpp" />
+    <ClCompile Include="source\stage_oam_bg.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\nsmb.h" />
+    <ClInclude Include="include\nsmb\actor\actor.h" />
+    <ClInclude Include="include\nsmb\actor\collider.h" />
+    <ClInclude Include="include\nsmb\actor\nsmbtypes.h" />
+    <ClInclude Include="include\nsmb\actor\physics.h" />
+    <ClInclude Include="include\nsmb\actor\solidcollision.h" />
+    <ClInclude Include="include\nsmb\bnbl.h" />
+    <ClInclude Include="include\nsmb\bncl.h" />
+    <ClInclude Include="include\nsmb\fxmath.h" />
+    <ClInclude Include="include\nsmb\heap.h" />
+    <ClInclude Include="include\nsmb\misc.h" />
+    <ClInclude Include="include\nsmb\model.h" />
+    <ClInclude Include="include\nsmb\nfs.h" />
+    <ClInclude Include="include\nsmb\oam.h" />
+    <ClInclude Include="include\nsmb\ostream.hpp" />
+    <ClInclude Include="include\nsmb\actor\player.h" />
+    <ClInclude Include="include\nsmb\nocashPrint.h" />
+    <ClInclude Include="include\nsmb\sound.h" />
+    <ClInclude Include="include\nsmb\vector.h" />
+    <ClInclude Include="include\nsmb\vector\s16vec3.hpp" />
+    <ClInclude Include="include\nsmb\vector\vec2.hpp" />
+    <ClInclude Include="include\nsmb\vector\vec3.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="linker.x" />
+    <None Include="Makefile">
+      <FileType>Makefile</FileType>
+    </None>
+    <None Include="replaces.x" />
+    <None Include="source\BossLoad.s" />
+    <None Include="source\debugscreen.s" />
+    <None Include="source\nofreeze.s" />
+    <None Include="source\nsmb\model3d_draw.s" />
+    <None Include="source\nsmb\ostreambuffer.s" />
+    <None Include="source\nsmb\printf.s" />
+    <None Include="source\pipe_cannon_mod.s.bak" />
+    <None Include="source\ramviewer_asm.s" />
+    <None Include="source\red_ring_color.s" />
+    <None Include="symbols.x" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="arenaoffs.txt" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <ProjectGuid>{70624755-B3AE-4713-853B-2EAEC508F532}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <NMakeBuildCommandLine>make</NMakeBuildCommandLine>
+    <NMakeCleanCommandLine>make clean</NMakeCleanCommandLine>
+    <NMakePreprocessorDefinitions>SDK_GCC;SDK_CW;SDK_ARM9</NMakePreprocessorDefinitions>
+    <NMakeIncludeSearchPath>C:\devkitPro\libnds\include;.\include;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <NMakeBuildCommandLine>make</NMakeBuildCommandLine>
+    <NMakeCleanCommandLine>make clean</NMakeCleanCommandLine>
+    <NMakePreprocessorDefinitions>SDK_GCC;SDK_CW;SDK_ARM9</NMakePreprocessorDefinitions>
+    <NMakeIncludeSearchPath>C:\devkitPro\libnds\include;.\include;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

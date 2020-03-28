@@ -1,41 +1,35 @@
 #include "nsmb.h"
 
+// ============================================= CORE RESPAWN =============================================
+
+int repl_0212B2DC_ov_0B() { return 1; } //Do not decrement player lives
 void repl_02119CB8_ov_0A() {} //Do not freeze timer on player death
-//Do not allow player to respawn so we can control it ourselves
-int repl_0212B318_ov_0B() { return 1; }
-void repl_0212B334_ov_0B() { asm("MOV R0, R6"); asm("MOV R1, R4"); }
-bool repl_0212B338_ov_0B(int playerNo, int lives)
+void nsub_0212B314_ov_0B() //Take total control of death/respawn check system and set arguments
 {
-	if (GetPlayerCount() == 1)
+	asm("MOV R0, R6");
+	asm("MOV R1, R4");
+	asm("B 0x0212B338");
+}
+bool repl_0212B338_ov_0B(int playerNo, int lives) //Implement new system
+{
+	fx32 fx32_timeLeft = *(fx32*)0x020CA8B4;
+	if (fx32_timeLeft == 0)
 	{
-		fx32 fx32_timeLeft = *(fx32*)0x020CA8B4;
-		if (lives == 0 || fx32_timeLeft == 0)
-		{
-			ExitLevel(false);
-			return false; //Do not respawn
-		}
-		else
-		{
-			return true;
-		}
+		ExitLevel(false);
+		return false; //Do not respawn
 	}
 	else
 	{
-		if ((lives == 0 && GetLivesForPlayer(!playerNo) == 0) || GetPlayerDeathState(!playerNo))
-		{
-			ExitLevel(false);
-			return false; //Do not respawn
-		}
-		else
-		{
-			return true;
-		}
+		return true; //Respawn
 	}
 }
 
 void nsub_0211C470_ov_0A() { asm("B 0x0211C580"); } //No pipe entrance on respawn
 
-extern "C" void SetRespawnEntranceForRing(EnemyActor* ring, int playerNo)
+// ============================================= RING RESPAWN =============================================
+
+extern "C"
+void SetRespawnEntranceForRing(EnemyActor* ring, int playerNo)
 {
 	u32 ringData = ring->actor.base.spriteData;
 	u32 entranceId = (ringData >> 8) & 0xFF;
@@ -49,21 +43,39 @@ extern "C" void SetRespawnEntranceForRing(EnemyActor* ring, int playerNo)
 
 void nsub_021536A8_ov_36()
 {
-	asm("MOV R0, R4");
-	asm("MOV R1, R5");
-	asm("BL  SetRespawnEntranceForRing");
+	asm("MOV R0, R4"); //Pass actor as first argument
+	asm("MOV R1, R5"); //Pass player number as second argument
+	asm("BL  SetRespawnEntranceForRing"); //Execute the respawn set
 	asm("LDR R0, [R6,#0x60]"); //Keep replaced instruction
 	asm("B   0x021536AC"); //Return to code
 }
 
-//Only freeze timer and pause menu on toad houses
-void nsub_0212B908_ov_0B(u8* player)
+// ============================================= RING ANIMATIONS AND BEHAVIOUR =============================================
+
+extern u8 RedRingColor;
+extern "C"
 {
-	if (*(int*)0x02085A18 == 8 || GetPlayerCount() == 1)
-	{
-		*(int*)0x020CA898 |= 0x40;
-		*(int*)0x020CA880 |= 0x10;
-		player[1968] = 1;
-		player[454] |= 1;
-	}
+	void RedCoinRing_setExecuteState(void* ring, int func, int thumb);
+	void RedCoinRing_slowDownRotation(void* ring, s16* rotX_inc, s16 rotX_max, s16 rotX_dec);
+}
+
+void hook_02153198_ov_36() { RedRingColor = 1; }
+void repl_021536B4_ov_36() {} //Ring doesn't get set as not respawn between areas
+//Ring doesn't get deleted permanently, but change color
+void repl_021534E4_ov_36()
+{
+	asm("MOV     R1, #2");
+	asm("PUSH    {R0}");
+	asm("LDR     R0, =RedRingColor");
+	asm("STR     R1, [R0]");
+	asm("POP     {R0}");
+	asm("MOV     R1, #0");
+}
+void repl_021535B4_ov_36(EnemyActor* ring, s16* rotX_inc, s16 rotX_max, s16 rotX_dec) //Ring can stop rotation
+{
+	s8 direction = ((s8*)0x20C4EC4)[ring->info.direction];
+	if (ring->actor.rotation.y == (0x2000 * direction))
+		RedCoinRing_setExecuteState(ring, 0x2153604, 0);
+	else
+		RedCoinRing_slowDownRotation(ring, rotX_inc, rotX_max, rotX_dec);
 }
