@@ -146,6 +146,11 @@ int nsub_020D339C_ov_09()
 
 		s32* fadeColor = &SCENE_INFO[361];
 		*fadeColor = -16; //Set fade color to black (forces black fade out)
+
+		//Restore amount of screens to fade out
+		u8* screensToFade = (u8*)SCENE_INFO + 1468;
+		*screensToFade = 1 | 2;
+
 		isFirstExecute = true;
 	}
 
@@ -181,7 +186,8 @@ int nsub_020D339C_ov_09()
 	}
 	if (nkeysDown[0] & PAD_BUTTON_B)
 	{
-		ChangeToScene(MvsL_MAIN_MENU_SCENE, 0);
+		if(GetConsoleCount() == 1)
+			ChangeToScene(MvsL_MAIN_MENU_SCENE, 0);
 	}
 
 	return 1;

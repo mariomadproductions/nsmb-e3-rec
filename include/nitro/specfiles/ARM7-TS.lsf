@@ -1,0 +1,76 @@
+#----------------------------------------------------------------------------
+# Project:  NitroSDK - include
+# File:     ARM7-TS.lsf
+#
+# Copyright 2003-2005 Nintendo.  All rights reserved.
+#
+# These coded insructions, statements, and computer programs contain
+# proprietary information of Nintendo of America Inc. and/or Nintendo
+# Company Ltd., and are protected by Federal copyright law.  They may
+# not be disclosed to third parties or copied or duplicated in any form,
+# in whole or in part, without the prior written consent of Nintendo.
+#
+# $Log: ARM7-TS.lsf,v $
+# Revision 1.12  2005/04/14 00:04:17  terui
+# Update copyright.
+#
+# Revision 1.11  2005/04/13 12:49:24  terui
+# Change Autoload MAIN Address 0x027c0000 -> 0x027e0000
+#
+# Revision 1.10  2004/08/18 01:51:02  yasu
+# Rename autoload section name
+#
+# Revision 1.9  2004/07/26 02:21:48  yasu
+# Add comment for autoload on 0x027c0000
+#
+# Revision 1.8  2004/07/12 12:23:14  yasu
+# Delete GROUP(ROOT)
+#
+# Revision 1.7  2004/07/10 04:11:17  yasu
+# Add GROUP(xxx) as object group
+#
+# Revision 1.6  2004/07/02 01:12:11  yasu
+# clean up comments
+#
+# Revision 1.5  2004/07/01 12:54:38  yasu
+# support ITCM/DTCM/WRAM autoload
+#
+# Revision 1.4  2004/07/01 10:41:46  yasu
+# support autoload
+#
+# Revision 1.3  2004/06/28 10:46:45  yasu
+# avoid to use '*' as wildcard
+#
+# Revision 1.2  2004/04/14 10:25:09  yasu
+# delete LIBRARIES group
+#
+# Revision 1.1  2004/04/06 01:59:54  yasu
+# newly added
+#
+# $NoKeywords: $
+#----------------------------------------------------------------------------
+#
+#  Nitro LCF SPEC FILE
+#
+
+Static $(TARGET_NAME)
+{
+	Address		0x02380000
+	Library		crt0.o
+	StackSize	1024 512
+}
+
+#Objects on MAIN RAM	# nothing for elf2bin
+#Autoload MAIN
+#{
+#	Address		0x027e0000
+#	Library		
+#}
+
+Autoload WRAM
+{
+	Address		0x037f8000
+	Object		$(OBJS_STATIC)
+	Library		$(LLIBS) $(GLIBS) $(CW_LIBS)
+	Object		* (.wram)
+}

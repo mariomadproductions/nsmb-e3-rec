@@ -4,20 +4,45 @@
 
 /* REPLACES.X
 
-@ POLE BOTTOM SOLID COLLISION CHANGE
+@ FLAG POLE SOLID COLLISION SIZE CHANGE
 021320AC_ov_0C: 0xFFFF8000		@LEFT
 021320B4_ov_0C: 0x8000			@RIGHT
 
 */
 
+// Shift flag 8 pixels to the right
 void hook_0212FDCC_ov_0C(EnemyActor* pole)
 {
 	pole->actor.position.x += 0x8000;
 }
 
+// Move the flag model
+void nsub_0212FE28_ov_0C()
+{
+	asm("ADD     R0, R0, #0x2000");
+	asm("B       0x0212FE2C");
+}
+
+// Rotate the flag model
+void nsub_0212FF30_ov_0C()
+{
+	//RotX
+	asm("MOV     R0, #0x8000"); //90º
+	asm("STRH    R0, [R4,#0xA0]");
+	//RotY
+	asm("MOV     R0, #0x4000"); //-0xC000 (-180º)
+	asm("STRH    R0, [R4,#0xA2]");
+	//Return to code
+	asm("B       0x0212FF3C");
+}
+
 // BAHP ==================================
 
 void nsub_02012584() { asm("B 0x0201258C"); } //Disable baphs
+
+// NO SOFT RESET ==================================
+
+void repl_0201364C_main() { asm("B 0x201368C"); }
 
 // MULTIPLAYER ===================================
 
@@ -41,4 +66,17 @@ void nsub_020FBF60_ov_0A() {} //Fix end of level for player that "lost the race"
 void nsub_0209AAD0_ov_00() {} //Disable MvsL coin score
 void repl_020D3350_ov_0A() {} //Disable MvsL coin score for coin actor
 
+//Only freeze timer and pause menu on toad houses
+void nsub_0212B908_ov_0B(u8* player)
+{
+	if (*(int*)0x02085A18 == 8 || GetPlayerCount() == 1)
+	{
+		*(int*)0x020CA898 |= 0x40;
+		*(int*)0x020CA880 |= 0x10;
+		player[1968] = 1;
+		player[454] |= 1;
+	}
+}
+
+void nsub_0200E874() {} //No wireless strenght icon bitmap
 void nsub_0200E944() {} //No wireless strenght icon palette
