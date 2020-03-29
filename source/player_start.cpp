@@ -1,6 +1,6 @@
 #include "nsmb.h"
 
-static u8& isLuigi = *(u8*)0x2085A50;
+static int& playerNo = *(int*)0x2085A7C;
 
 static int animState = 0;
 
@@ -10,7 +10,8 @@ void hook_0215E630_ov_36()
 	u8 isLevelStart = *(u8*)0x02085A5C;
 	if (isLevelStart)
 	{
-		int fileId = isLuigi ? 1811 - 131 : 1816 - 131;
+		int charForPlayer = GetCharacterForPlayer(playerNo);
+		int fileId = charForPlayer ? 1811 - 131 : 1816 - 131;
 		nFS_LoadLZ77FileByIDToDest(fileId, (u16*)HW_OBJ_VRAM); //Overwrite VRAM StageBigOAM slot
 		animState = 1; //Set animation as loaded
 	}
@@ -52,7 +53,8 @@ void hook_020A2E50_ov_00()
 			oam_scale.x = animEndScale;
 			oam_scale.y = animEndScale;
 
-			oam_palette = isLuigi ? 3 : 1;
+			int charForPlayer = GetCharacterForPlayer(playerNo);
+			oam_palette = charForPlayer ? 3 : 1;
 		}
 
 		OAM_DrawHUD(oam, 128, 96, 0, oam_palette, 0, &oam_scale, 0, 0, 0);

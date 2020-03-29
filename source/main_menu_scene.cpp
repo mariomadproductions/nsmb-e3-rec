@@ -91,6 +91,9 @@ int nsub_020D3570_ov_09()
 	BNBLFilePtr = (BNBLFile*)nFS_LoadFileByIDToCache(2083 - 131, false);
 	BNCLFilePtr = (BNCLFile*)nFS_LoadFileByIDToCache(2084 - 131, false);
 
+	if (lastSceneId == 3)
+		SelectedButton = *(int*)0x02085A14;
+
 	return 1;
 }
 
@@ -124,7 +127,7 @@ static void buttonClicked()
 		0,
 		1,
 		0,
-		0,
+		0xFF,
 		1,
 		1,
 		0xFF,
