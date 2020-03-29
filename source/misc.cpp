@@ -66,6 +66,9 @@ void nsub_020FBF60_ov_0A() {} //Fix end of level for player that "lost the race"
 void nsub_0209AAD0_ov_00() {} //Disable MvsL coin score
 void repl_020D3350_ov_0A() {} //Disable MvsL coin score for coin actor
 
+int repl_0209AC1C_ov_00() { return 1; } //Allow score incrementation
+int repl_0209ABA8_ov_00() { return 1; } //Allow score incrementation from actors
+
 //Only freeze timer and pause menu on toad houses
 void nsub_0212B908_ov_0B(u8* player)
 {
@@ -80,3 +83,13 @@ void nsub_0212B908_ov_0B(u8* player)
 
 void nsub_0200E874() {} //No wireless strenght icon bitmap
 void nsub_0200E944() {} //No wireless strenght icon palette
+
+//Fix desyncs on pause menu
+u16* repl_020A20E8_ov_00(u8* stageScene) { asm("MOV R0, R5"); return &((u16*)0x2087648)[stageScene[25640]]; }
+u8 repl_020A21A4_ov_00(u8* stageScene) { asm("MOV R0, R5"); return stageScene[25640]; }
+u8 repl_020A22D8_ov_00(u8* stageScene) { return repl_020A21A4_ov_00(stageScene); }
+//Disable options on pause menu
+void repl_020A2230_ov_00() {
+	if (GetPlayerCount() == 1)
+		asm("BL 0x20C1F14");
+}

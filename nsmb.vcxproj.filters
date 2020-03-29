@@ -39,9 +39,6 @@
     <ClCompile Include="source\player_anims.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\multiplayer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="source\misc.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -134,6 +131,45 @@
     <None Include="source\pipe_cannon_mod.s.bak" />
     <None Include="source\red_ring_color.s" />
     <None Include="linker.x" />
+    <None Include="bak\0.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="bak\1.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="bak\9.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="bak\10.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="bak\11.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="bak\12.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="bak\42.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="bak\52.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="bak\54.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="bak\68.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="bak\118.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="bak\main.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="bak_safe\main.bin">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Text Include="arenaoffs.txt" />

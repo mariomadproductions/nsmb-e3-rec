@@ -595,9 +595,9 @@ extern "C"
 
 	// Sets the respawning position for player
 	inline void SetRespawnPositionForPlayer(int playerNo, fx32 x, fx32 y) {
-		fx32* respawnPos = (fx32*)0x0208B0B8;
-		respawnPos[3 * playerNo] = x;
-		respawnPos[3 * playerNo + 1] = y;
+		VecFx32* respawnPos = (VecFx32*)0x0208B0B8;
+		respawnPos[playerNo].x = x;
+		respawnPos[playerNo].y = y;
 	}
 
 #ifdef __cplusplus

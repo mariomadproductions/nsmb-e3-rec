@@ -12,7 +12,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\misc.cpp" />
-    <ClCompile Include="source\multiplayer.cpp" />
     <ClCompile Include="source\beta_pipe_cannon.cpp" />
     <ClCompile Include="source\player_anims.cpp" />
     <ClCompile Include="source\player_start.cpp" />
@@ -48,6 +47,19 @@
     <ClInclude Include="include\nsmb\vector\vec3.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="bak\0.bin" />
+    <None Include="bak\1.bin" />
+    <None Include="bak\10.bin" />
+    <None Include="bak\11.bin" />
+    <None Include="bak\118.bin" />
+    <None Include="bak\12.bin" />
+    <None Include="bak\42.bin" />
+    <None Include="bak\52.bin" />
+    <None Include="bak\54.bin" />
+    <None Include="bak\68.bin" />
+    <None Include="bak\9.bin" />
+    <None Include="bak\main.bin" />
+    <None Include="bak_safe\main.bin" />
     <None Include="linker.x" />
     <None Include="Makefile">
       <FileType>Makefile</FileType>

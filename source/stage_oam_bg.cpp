@@ -283,30 +283,31 @@ static void MyDrawBottomScreenScore(int playerNo)
 	}
 }
 
-extern "C" {
-	void MvsLDrawBottomScreenProgressPathIcons(int* stageScene, int x_shift, int y_shift);
+extern "C"
+{
+	void MvsLDrawBottomScreenProgressPathIcons(void* stageScene, int x_shift, int y_shift);
 
 	OAMEntry oam_marioHead[] = {
-	{
-		OBJ_Y(0) | ATTR0_SQUARE | ATTR0_COLOR_256,
-		OBJ_X(0) | ATTR1_SIZE_16,
-		(0x3C * 2)
-	},
-	{
-		OBJ_Y(0) | ATTR0_TALL | ATTR0_COLOR_256,
-		OBJ_X(16) | ATTR1_SIZE_8,
-		(0x40 * 2)
-	},
-	{
-		OBJ_Y(16) | ATTR0_WIDE | ATTR0_COLOR_256,
-		OBJ_X(0) | ATTR1_SIZE_8,
-		(0x42 * 2)
-	},
-	{
-		OBJ_Y(16) | ATTR0_SQUARE | ATTR0_COLOR_256,
-		OBJ_X(16) | ATTR1_SIZE_8,
-		(0x44 * 2) | ATTR2_DATA_END
-	}
+		{
+			OBJ_Y(0) | ATTR0_SQUARE | ATTR0_COLOR_256,
+			OBJ_X(0) | ATTR1_SIZE_16,
+			(0x3C * 2)
+		},
+		{
+			OBJ_Y(0) | ATTR0_TALL | ATTR0_COLOR_256,
+			OBJ_X(16) | ATTR1_SIZE_8,
+			(0x40 * 2)
+		},
+		{
+			OBJ_Y(16) | ATTR0_WIDE | ATTR0_COLOR_256,
+			OBJ_X(0) | ATTR1_SIZE_8,
+			(0x42 * 2)
+		},
+		{
+			OBJ_Y(16) | ATTR0_SQUARE | ATTR0_COLOR_256,
+			OBJ_X(16) | ATTR1_SIZE_8,
+			(0x44 * 2) | ATTR2_DATA_END
+		}
 	};
 
 	OAMEntry oam_luigiHead[] = {
@@ -335,9 +336,8 @@ extern "C" {
 
 int repl_020BE5E8_ov_00() { return 240-24; } //Progress bar pixel scale
 void repl_020BE60C_ov_00() { asm("MOV R8, #0"); } //MvsL progress bar uses singleplayer OAM y_shift
-void repl_020BE64C_ov_00() { asm("LDR R1, =0x020CA104"); } //MvsL progress bar uses singleplayer OAM addresses
-int repl_020BE658_ov_00() { return 9; } //MvsL progress bar uses singleplayer BNCL rectangle index
-void nsub_020BE658_ov_00() { asm("ADD R0, R0, #9"); asm("B 0x020BE65C"); }
+void repl_020BE64C_ov_00() { asm("LDR R1, =0x020CA104"); } //MvsL progress bar uses singleplayer OAM addresses (which are replaced with mine)
+void repl_020BE658_ov_00() { asm("ADD R0, R0, #9"); } //MvsL progress bar uses my BNCL rectangle index
 
 //Sub OAM Draw
 void nsub_020BFE5C_ov_00(int* stageScene, int playerNo)
