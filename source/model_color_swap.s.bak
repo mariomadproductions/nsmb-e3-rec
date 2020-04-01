@@ -1,0 +1,75 @@
+@ RED RING ===========================
+
+repl_02153110_ov_36:
+	LDRH    R0, [R4, #0xC]
+	CMP     R0, #0x97
+	BNE     .Return
+	LDR     R0, =RedRingColor
+	LDR     R0, [R0]
+	LDR     R1, =ColorStack
+	STRB    R0, [R1]
+.Return:
+	ADD     R0, R4, #0x3F4
+	BX      LR
+	
+repl_02153124_ov_36:
+	MOV     R0, #0
+	LDR     R1, =ColorStack
+	STRB    R0, [R1]
+	LDR     R1, =0x20391F8
+	BX      LR
+
+@ MUSHROOM PLATFORM ===========================
+
+repl_0217F23C_ov_5A:
+	LDR     R2, [R4,#8]
+	ANDS    R2, R2, #0x1000000
+	MOVNE   R2, #0
+	MOVEQ   R2, #1
+	PUSH    {R1}
+	LDR     R1, =ColorStack
+	STRB    R2, [R1]
+	POP     {R1}
+	MOV     R2, #1
+	BX      LR
+
+repl_0217F28C_ov_5A:
+	MOV     R0, #0
+	LDR     R1, =ColorStack
+	STRB    R0, [R1]
+	MOV     R0, #1
+	BX      LR
+
+@ NSBTP DRAW HOOK ===========================
+	
+repl_0205A6E0:
+	LDR     R4, =ColorStack
+	LDRB    R5, [R4]
+	CMP     R5, #0
+	BEQ     .Return2
+	SUB     R2, R5, #1
+	MOV     R5, #0
+	STRB    R5, [R4]
+.Return2:
+	ADD     R0, R3, R2, LSL #2
+	BX      LR
+
+@ NSBTX DRAW HOOK ===========================
+	
+repl_02019AA8:
+	PUSH    {R0}
+	LDR     R0, =ColorStack
+	LDRB    R0, [R0]
+	CMP     R0, #0
+	MOVNE   R1, R0
+	MUL     R1, R3, R1
+	POP     {R0}
+	BX      LR
+	
+.data
+.balign 1
+.global RedRingColor
+RedRingColor:
+	.byte 0x0
+ColorStack:
+	.byte 0x0

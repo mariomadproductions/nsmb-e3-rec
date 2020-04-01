@@ -51,6 +51,7 @@ BUILD		:=	build
 SOURCES		:=	source libfat_source
 SOURCES     +=  source/nitro
 SOURCES     +=  source/nsmb
+SOURCES     +=  source/actors
 INCLUDES	:=	include
 DATA		:=	data  
 GRAPHICS	:=	gfx  
