@@ -346,5 +346,6 @@ healthchecksdb
 
 # Original ROM data
 snd_orig
-orig.nds
-/ROM.nds
+
+# ROM files
+*.nds
