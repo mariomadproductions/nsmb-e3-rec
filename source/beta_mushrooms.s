@@ -31,17 +31,21 @@ repl_0217F504_ov_5A:
 repl_0217DD88_ov_5A:
 	BX      LR
 repl_0217DD94_ov_5A:
+	@Get actor to R0
 	LDR     R0, =0x548
 	SUB     R0, R4, R0
+	@Class Check
 	LDR     R3, [R0,#0xC]
 	CMP     R3, #195
 	MOVEQ   R3, #0
 	BEQ     .SkipClass1
+	@Palette Check
 	LDR     R3, [R0,#8]
 	ANDS    R3, R3, #0x1000000
 	MOVEQ   R3, #0
 	MOVNE   R3, #1
 .SkipClass1:
+	@Set values and return
 	STR     R3, [SP]  @Pal Number
 	MOV     R3, #0    @Tex Number
 	MOV     R0, R4
