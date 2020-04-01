@@ -6,7 +6,7 @@
 extern "C" {
 #endif
 
-	// Loads a file by ID and returns it's heap
+	// Loads a file by ID and returns it's heap block
 	void* nFS_LoadFileByID(u32 id);
 
 	// Writes a file by ID to the destination
@@ -18,7 +18,7 @@ extern "C" {
 	// Writes a file by path to the destination (only writes the specified size)
 	void nFS_LoadFileByNameToDestWithSize(const char* path, void* dest, u32 size);
 
-	// Loads a compressed file by ID and returns it's heap
+	// Loads a compressed file by ID and returns it's heap block
 	void* nFS_LoadLZ77FileByID(u32 id);
 
 	// Writes a compressed file by ID to the destination
@@ -33,7 +33,7 @@ extern "C" {
 	// Gets pointer to cached file entry
 	void* nFS_GetPtrToCachedFileEntry(u32 id);
 
-	// Loads a file by ID into cache and returns the loaded file
+	// Loads a file by ID into cache and returns the loaded file heap block
 	void* nFS_LoadFileByIDToCache(u32 id, BOOL isHeaderLessLZ77);
 
 	// Loads a file by ID into cache to spriteset 16 var address (used by final boss)

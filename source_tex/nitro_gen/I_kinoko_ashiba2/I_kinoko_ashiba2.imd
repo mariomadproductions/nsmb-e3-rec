@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<imd xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" version="1.6.0">
+  <head>
+    <create user="tiago" host="LAPTOP-94V6G4NN" date="2020-03-29T21:32:42.8338476+01:00" source="temp.obj" />
+    <title>Model Data for NINTENDO NITRO-System</title>
+    <generator name="ASS to IMD (Made by Ermelber and Gericom)" version="0.3.0" />
+  </head>
+  <body>
+    <original_create user="tiago" host="LAPTOP-94V6G4NN" date="2020-03-29T21:32:42.8338476+01:00" source="temp.obj" />
+    <original_generator name="ASS to IMD (Made by Ermelber and Gericom)" version="0.3.0" />
+    <model_info pos_scale="0" scaling_rule="standard" vertex_style="direct" magnify="1" tool_start_frame="1" tex_matrix_mode="maya" compress_node="unite_combine" node_size="1 1" compress_material="on" material_size="2 2" output_texture="used" force_full_weight="on" use_primitive_strip="on" />
+    <box_test pos_scale="0" xyz="-1 0 -1" whd="2 0 2" />
+    <tex_image_array size="1">
+      <tex_image index="0" name="I_kinoko_ashiba2" width="64" height="32" original_width="64" original_height="32" format="palette256" color0_mode="transparency" palette_name="I_kinoko_ashi_pl" path="C:\Users\tiago\Documents\QtProjects\build-NitroModel_ConverterGUI-Desktop_Static_Qt_5_13_0_MinGW_32bit-Release\release\temp\I_kinoko_ashi.png">
+        <bitmap size="1024">0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0100 0101 0202 0202 0101 0101 0101 0101 0101 0101 0202 0202 0101 0101 0101 0101 0101 0101 0202 0202 0101 0101 0101 0101 0101 0101 0202 0202 0101 0101 0101 0000 0301 0504 0505 0505 0405 0404 0404 0404 0404 0504 0505 0505 0405 0404 0404 0404 0404 0504 0505 0505 0405 0404 0404 0404 0404 0504 0505 0505 0405 0404 0404 0100 0403 0604 0606 0606 0706 0707 0707 0707 0707 0607 0606 0606 0706 0707 0707 0707 0707 0607 0606 0606 0706 0707 0707 0707 0707 0607 0606 0606 0706 0707 0707 0301 0404 0807 0909 0909 0a09 0a0a 0a0a 0a0a 0a0a 090a 0909 0909 0a09 0a0a 0a0a 0a0a 0a0a 090a 0909 0909 0a09 0a0a 0a0a 0a0a 0a0a 090a 0909 0909 0a09 0a0a 0a0a 0301 0704 0707 0808 0808 0707 0707 0707 0707 0707 0707 0808 0808 0707 0707 0707 0707 0707 0707 0808 0808 0707 0707 0707 0707 0707 0707 0808 0808 0707 0707 0707 0805 0707 0707 0707 0707 0707 0707 0808 0808 0707 0707 0707 0707 0707 0707 0808 0808 0707 0707 0707 0707 0707 0707 0808 0808 0707 0707 0707 0707 0707 0707 0808 0605 0406 0404 0404 0404 0404 0604 0606 0606 0406 0404 0404 0404 0404 0604 0606 0606 0406 0404 0404 0404 0404 0604 0606 0606 0406 0404 0404 0404 0404 0604 0606 0605 0406 0404 0404 0404 0404 0604 0606 0606 0406 0404 0404 0404 0404 0604 0606 0606 0406 0404 0404 0404 0404 0604 0606 0606 0406 0404 0404 0404 0404 0604 0606 0605 0406 0404 0404 0404 0404 0604 0606 0606 0406 0404 0404 0404 0404 0604 0606 0606 0406 0404 0404 0404 0404 0604 0606 0606 0406 0404 0404 0404 0404 0604 0606 0605 0405 0404 0404 0404 0404 0504 0606 0606 0405 0404 0404 0404 0404 0504 0606 0606 0405 0404 0404 0404 0404 0504 0606 0606 0405 0404 0404 0404 0404 0504 0606 0502 0303 0303 0303 0303 0303 0303 0505 0505 0303 0303 0303 0303 0303 0303 0505 0505 0303 0303 0303 0303 0303 0303 0505 0505 0303 0303 0303 0303 0303 0303 0505 030b 0303 0303 0505 0505 0303 0303 0303 0303 0303 0303 0505 0505 0303 0303 0303 0303 0303 0303 0505 0505 0303 0303 0303 0303 0303 0303 0505 0505 0303 0303 0303 010b 0303 0503 0505 0505 0305 0303 0303 0303 0303 0503 0505 0505 0305 0303 0303 0303 0303 0503 0505 0505 0305 0303 0303 0303 0303 0503 0505 0505 0305 0303 0303 010b 0101 0201 0202 0202 0102 0101 0101 0101 0101 0201 0202 0202 0102 0101 0101 0101 0101 0201 0202 0202 0102 0101 0101 0101 0101 0201 0202 0202 0102 0101 0101 010b 0101 0201 0202 0202 0102 0101 0101 0101 0101 0201 0202 0202 0102 0101 0101 0101 0101 0201 0202 0202 0102 0101 0101 0101 0101 0201 0202 0202 0102 0101 0101 0b00 0b0b 030b 0303 0303 0b03 0b0b 0b0b 0b0b 0b0b 030b 0303 0303 0b03 0b0b 0b0b 0b0b 0b0b 030b 0303 0303 0b03 0b0b 0b0b 0b0b 0b0b 030b 0303 0303 0b03 0b0b 0b0b 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 </bitmap>
+      </tex_image>
+    </tex_image_array>
+    <tex_palette_array size="2">
+      <tex_palette index="0" name="I_kinoko_red" color_size="16">0000 0053 0199 0076 0099 02dc 03ff 053a 47ff 7fff 065d 000c 0000 0000 0000 0000 </tex_palette>
+      <tex_palette index="1" name="I_kinoko_green" color_size="16">0000 0182 0a90 0605 1685 1b35 3fbc 2f6b 47fc 7fff 53f3 00e0 0000 0000 0000 0000 </tex_palette>
+    </tex_palette_array>
+    <material_array size="2">
+      <material index="0" name="Material1" light0="off" light1="off" light2="off" light3="off" face="front" alpha="31" wire_mode="off" polygon_mode="modulate" polygon_id="0" fog_flag="off" depth_test_decal="off" translucent_update_depth="off" render_1_pixel="off" far_clipping="off" diffuse="18 18 18" ambient="0 0 0" specular="0 0 0" emission="0 0 0" shininess_table_flag="off" tex_image_idx="0" tex_palette_idx="0" tex_tiling="repeat repeat" tex_scale="1.0000 1.0000" tex_rotate="0.0000" tex_translate="0.0000 0.0000" tex_gen_mode="none" />
+      <material index="1" name="Material2" light0="off" light1="off" light2="off" light3="off" face="front" alpha="31" wire_mode="off" polygon_mode="modulate" polygon_id="0" fog_flag="off" depth_test_decal="off" translucent_update_depth="off" render_1_pixel="off" far_clipping="off" diffuse="18 18 18" ambient="0 0 0" specular="0 0 0" emission="0 0 0" shininess_table_flag="off" tex_image_idx="1" tex_palette_idx="1" tex_tiling="repeat repeat" tex_scale="1.0000 1.0000" tex_rotate="0.0000" tex_translate="0.0000 0.0000" tex_gen_mode="none" />
+    </material_array>
+    <matrix_array size="1">
+      <matrix index="0" mtx_weight="1" node_idx="0" />
+    </matrix_array>
+    <polygon_array size="2">
+      <polygon index="0" name="polygon0" vertex_size="4" polygon_size="1" triangle_size="0" quad_size="1" volume_r="0" nrm_flag="off" clr_flag="off" tex_flag="on" mtx_prim_size="1">
+        <mtx_prim index="0">
+          <mtx_list size="1">0</mtx_list>
+          <primitive_array size="1">
+            <primitive index="0" type="quads" vertex_size="4">
+              <mtx idx="0" />
+              <tex st="0 32" />
+              <pos_s xyz="-1 0 1" />
+              <tex st="64 32" />
+              <pos_xz xz="1 1" />
+              <tex st="64 0" />
+              <pos_yz yz="0 -1" />
+              <tex st="0 0" />
+              <pos_xz xz="-1 -1" />
+            </primitive>
+          </primitive_array>
+        </mtx_prim>
+      </polygon>
+      <polygon index="1" name="polygon1" vertex_size="4" polygon_size="1" triangle_size="0" quad_size="1" volume_r="0" nrm_flag="off" clr_flag="off" tex_flag="on" mtx_prim_size="1">
+        <mtx_prim index="0">
+          <mtx_list size="1">0</mtx_list>
+          <primitive_array size="1">
+            <primitive index="0" type="quads" vertex_size="4">
+              <mtx idx="0" />
+              <tex st="0 32" />
+              <pos_s xyz="-1 0 1" />
+              <tex st="64 32" />
+              <pos_xz xz="1 1" />
+              <tex st="64 0" />
+              <pos_yz yz="0 -1" />
+              <tex st="0 0" />
+              <pos_xz xz="-1 -1" />
+            </primitive>
+          </primitive_array>
+        </mtx_prim>
+      </polygon>
+    </polygon_array>
+    <node_array size="1">
+      <node index="0" name="world_root" kind="mesh" parent="-1" child="-1" brother_next="-1" brother_prev="-1" draw_mtx="on" billboard="off" scale="1.000000 1.000000 1.000000" rotate="0.000000 0.000000 0.000000" translate="0.000000 0.000000 0.000000" visibility="on" vertex_size="8" polygon_size="2" triangle_size="0" quad_size="2" volume_r="0" display_size="2">
+        <display index="0" material="0" polygon="0" priority="0" />
+        <display index="1" material="1" polygon="1" priority="0" />
+      </node>
+    </node_array>
+    <output_info vertex_size="8" polygon_size="2" triangle_size="0" quad_size="2" />
+  </body>
+</imd>

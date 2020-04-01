@@ -45,6 +45,9 @@
     <ClCompile Include="source\beta_pipe_cannon.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="source\actors\BackgroundSwapper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\nsmb.h">
@@ -116,6 +119,9 @@
     <ClInclude Include="include\nsmb\actor\solidcollision.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="source\actors\BackgroundSwapper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Makefile" />
@@ -129,7 +135,6 @@
     <None Include="source\debugscreen.s" />
     <None Include="source\nofreeze.s" />
     <None Include="source\pipe_cannon_mod.s.bak" />
-    <None Include="source\red_ring_color.s" />
     <None Include="linker.x" />
     <None Include="bak\0.bin">
       <Filter>Resource Files</Filter>
@@ -170,6 +175,10 @@
     <None Include="bak_safe\main.bin">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="source\nsbtx_color_swap.s" />
+    <None Include="source\beta_mushrooms.s" />
+    <None Include="source\model_color_swap.s" />
+    <None Include="source\actors\BackgroundSwapper_asm.s" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="arenaoffs.txt" />
