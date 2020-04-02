@@ -339,7 +339,7 @@ ASALocalRun/
 # BeatPulse healthcheck temp database
 healthchecksdb
 
-## Stuff added for by/for mariomadproduction
+## Stuff added for by/for mariomadproductions
 
 # DS emulator files
 *.sav
@@ -349,3 +349,9 @@ snd_orig
 
 # ROM files
 *.nds
+
+# Built code
+/build/
+newcode.bin
+newcode.elf
+newcode.sym
