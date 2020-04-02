@@ -355,3 +355,6 @@ snd_orig
 newcode.bin
 newcode.elf
 newcode.sym
+
+# Despite visual studio rules about build results, don't ignore this "obj" folder
+!/source_nitrofs/obj/
