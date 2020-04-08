@@ -48,6 +48,9 @@
     <ClCompile Include="source\actors\BackgroundSwapper.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="source\player_collide.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\nsmb.h">
@@ -179,6 +182,7 @@
     <None Include="source\beta_mushrooms.s" />
     <None Include="source\model_color_swap.s" />
     <None Include="source\actors\BackgroundSwapper_asm.s" />
+    <None Include="source\player_collide_asm.s" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="arenaoffs.txt" />
