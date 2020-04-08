@@ -136,8 +136,8 @@ typedef struct {
 	u32* execState3;
 	u32* execState4;
 	u32* execState5;
-	u32* execState6;
-	u32* execState7;
+	u32 (*execState6)(...);
+	u32 (*execState7)(...);
 	u32* execState8;
 	u32* execState9;
 	u32* virt31;

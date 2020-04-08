@@ -15,6 +15,7 @@
     <ClCompile Include="source\misc.cpp" />
     <ClCompile Include="source\beta_pipe_cannon.cpp" />
     <ClCompile Include="source\player_anims.cpp" />
+    <ClCompile Include="source\player_collide.cpp" />
     <ClCompile Include="source\player_start.cpp" />
     <ClCompile Include="source\nsmb\ostream.cpp" />
     <ClCompile Include="source\main_menu_scene.cpp" />
@@ -77,6 +78,7 @@
     <None Include="source\nsmb\ostreambuffer.s" />
     <None Include="source\nsmb\printf.s" />
     <None Include="source\pipe_cannon_mod.s.bak" />
+    <None Include="source\player_collide_asm.s" />
     <None Include="source\ramviewer_asm.s" />
     <None Include="source\nsbtx_color_swap.s" />
     <None Include="symbols.x" />
