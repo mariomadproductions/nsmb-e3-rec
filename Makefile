@@ -70,7 +70,7 @@ CFLAGS	+=	$(INCLUDE) -DSDK_GCC -DSDK_CW -DSDK_ARM9 -nodefaultlibs -I. -fno-built
 CXXFLAGS	:= $(CFLAGS) -fno-rtti -fno-exceptions
 
 ASFLAGS	:=	-g -march=armv5te -mtune=arm946e-s
-LDFLAGS	=	-T $(CURDIR)/../symbols.x -T $(CURDIR)/../linker.x -g $(ARCH) -Map newcode.map
+LDFLAGS	=	-T "C:\Users\david\Documents\nsmb-e3-rec\symbols.x" -T $(CURDIR)/../linker.x -g $(ARCH) -Map newcode.map
 
 ifdef CODEADDR
   LDFLAGS += -Ttext $(CODEADDR)
