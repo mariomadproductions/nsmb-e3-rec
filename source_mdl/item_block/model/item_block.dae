@@ -1,0 +1,239 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--SM64DS Editor v2.3.5 2017-07-05-->
+<COLLADA version="1.4.1" xmlns="http://www.collada.org/2005/11/COLLADASchema">
+	<asset>
+		<contributor>
+			<author>Fiachra</author>
+			<authoring_tool>SM64DS Editor v2.3.5 2017-07-05</authoring_tool>
+		</contributor>
+		<created>2020-04-04T18:21:35</created>
+		<modified>2020-04-04T18:21:35</modified>
+		<unit name="meter" meter="1" />
+		<up_axis>Y_UP</up_axis>
+	</asset>
+	<library_images>
+		<image id="item_block_y-img" name="item_block_y-img">
+			<init_from>item_block_y.png</init_from>
+		</image>
+	</library_images>
+	<library_effects>
+		<effect id="item_block-effect">
+			<profile_COMMON>
+				<newparam sid="item_block_y-img-surface">
+					<surface type="2D">
+						<init_from>item_block_y-img</init_from>
+					</surface>
+				</newparam>
+				<newparam sid="item_block_y-img-sampler">
+					<sampler2D>
+						<source>item_block_y-img-surface</source>
+					</sampler2D>
+				</newparam>
+				<technique sid="common">
+					<phong>
+						<emission>
+							<color sid="emission">0 0 0 1.0</color>
+						</emission>
+						<ambient>
+							<color sid="ambient">0.5176471 0.5176471 0.5176471 1.0</color>
+						</ambient>
+						<diffuse>
+							<texture texture="item_block_y-img-sampler" texcoord="UVMap" />
+						</diffuse>
+						<specular>
+							<color sid="specular">0 0 0 1.0</color>
+						</specular>
+						<transparency>
+							<float sid="transparency">1</float>
+						</transparency>
+					</phong>
+				</technique>
+				<extra>
+					<technique profile="SM64DSe">
+						<lights>1 0 0 0</lights>
+						<environment_mapping>0</environment_mapping>
+						<double_sided>0</double_sided>
+						<tex_tiling>repeat repeat</tex_tiling>
+						<tex_scale>1 1</tex_scale>
+						<tex_rotate>0</tex_rotate>
+						<tex_translate>0 0</tex_translate>
+						<fog_enable>0</fog_enable>
+					</technique>
+				</extra>
+			</profile_COMMON>
+		</effect>
+	</library_effects>
+	<library_materials>
+		<material id="item_block-material" name="item_block">
+			<instance_effect url="#item_block-effect" />
+		</material>
+	</library_materials>
+	<library_geometries>
+		<geometry id="broken_block_s-mesh" name="broken_block_s-mesh">
+			<mesh>
+				<source id="broken_block_s-mesh-positions">
+					<float_array id="broken_block_s-mesh-positions-array" count="72">9.375 18.75 9.375 9.375 18.75 -9.375 -9.375 18.75 9.375 -9.375 18.75 -9.375 -9.375 0 -9.375 -9.375 18.75 -9.375 9.375 0 -9.375 9.375 18.75 -9.375 -9.375 18.75 9.375 -9.375 0 9.375 9.375 18.75 9.375 9.375 0 9.375 9.375 0 -9.375 9.375 18.75 -9.375 9.375 0 9.375 9.375 18.75 9.375 -9.375 18.75 -9.375 -9.375 0 -9.375 -9.375 18.75 9.375 -9.375 0 9.375 -9.375 0 9.375 -9.375 0 -9.375 9.375 0 9.375 9.375 0 -9.375</float_array>
+					<technique_common>
+						<accessor source="#broken_block_s-mesh-positions-array" count="24" stride="3">
+							<param name="X" type="float" />
+							<param name="Y" type="float" />
+							<param name="Z" type="float" />
+						</accessor>
+					</technique_common>
+				</source>
+				<source id="broken_block_s-mesh-normals">
+					<float_array id="broken_block_s-mesh-normals-array" count="72">0 0.9980469 0 0 0.9980469 0 0 0.9980469 0 0 0.9980469 0 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 0.9980469 0 0 0.9980469 0 0 0.9980469 0 0 0.9980469 0.9980469 0 0 0.9980469 0 0 0.9980469 0 0 0.9980469 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0</float_array>
+					<technique_common>
+						<accessor source="#broken_block_s-mesh-normals-array" count="24" stride="3">
+							<param name="X" type="float" />
+							<param name="Y" type="float" />
+							<param name="Z" type="float" />
+						</accessor>
+					</technique_common>
+				</source>
+				<source id="broken_block_s-mesh-map-0">
+					<float_array id="broken_block_s-mesh-map-0-array" count="48">1 0 1 -0.5 0 0 0 -0.5 1 -1.5 1 -2 0 -1.5 0 -2 0 0 0 0.5 1 0 1 0.5 2 0.5 2 0 1 0.5 1 0 -1 0 -1 0.5 0 0 0 0.5 0 -2.5 0 -2 1 -2.5 1 -2</float_array>
+					<technique_common>
+						<accessor source="#broken_block_s-mesh-map-0-array" count="24" stride="2">
+							<param name="S" type="float" />
+							<param name="T" type="float" />
+						</accessor>
+					</technique_common>
+				</source>
+				<source id="broken_block_s-mesh-colors">
+					<float_array id="broken_block_s-mesh-colors-array" count="72">0.972549 0.972549 0.972549 0.972549 0.972549 0.972549 0.972549 0.972549 0.972549 0.972549 0.972549 0.972549 0.972549 0.972549 0.972549 0.972549 0.972549 0.972549 0.972549 0.972549 0.972549 0.972549 0.972549 0.972549 0.972549 0.972549 0.972549 0.972549 0.972549 0.972549 0.972549 0.972549 0.972549 0.972549 0.972549 0.972549 0.972549 0.972549 0.972549 0.972549 0.972549 0.972549 0.972549 0.972549 0.972549 0.972549 0.972549 0.972549 0.972549 0.972549 0.972549 0.972549 0.972549 0.972549 0.972549 0.972549 0.972549 0.972549 0.972549 0.972549 0.972549 0.972549 0.972549 0.972549 0.972549 0.972549 0.972549 0.972549 0.972549 0.972549 0.972549 0.972549</float_array>
+					<technique_common>
+						<accessor source="#broken_block_s-mesh-colors-array" count="24" stride="3">
+							<param name="R" type="float" />
+							<param name="G" type="float" />
+							<param name="B" type="float" />
+						</accessor>
+					</technique_common>
+				</source>
+				<vertices id="broken_block_s-mesh-vertices">
+					<input semantic="POSITION" source="#broken_block_s-mesh-positions" />
+				</vertices>
+				<polylist material="item_block-material" count="2">
+					<input semantic="VERTEX" source="#broken_block_s-mesh-vertices" offset="0" />
+					<input semantic="NORMAL" source="#broken_block_s-mesh-normals" offset="1" />
+					<input semantic="TEXCOORD" source="#broken_block_s-mesh-map-0" offset="2" set="0" />
+					<input semantic="COLOR" source="#broken_block_s-mesh-colors" offset="3" />
+					<vcount>3 3</vcount>
+					<p>0 0 0 0 1 0 1 0 2 0 2 0 3 0 3 0 2 0 2 0 1 0 1 0</p>
+				</polylist>
+				<polylist material="item_block-material" count="2">
+					<input semantic="VERTEX" source="#broken_block_s-mesh-vertices" offset="0" />
+					<input semantic="NORMAL" source="#broken_block_s-mesh-normals" offset="1" />
+					<input semantic="TEXCOORD" source="#broken_block_s-mesh-map-0" offset="2" set="0" />
+					<input semantic="COLOR" source="#broken_block_s-mesh-colors" offset="3" />
+					<vcount>3 3</vcount>
+					<p>4 4 4 0 3 4 5 0 6 4 6 0 1 4 7 0 6 4 6 0 3 4 5 0</p>
+				</polylist>
+				<polylist material="item_block-material" count="2">
+					<input semantic="VERTEX" source="#broken_block_s-mesh-vertices" offset="0" />
+					<input semantic="NORMAL" source="#broken_block_s-mesh-normals" offset="1" />
+					<input semantic="TEXCOORD" source="#broken_block_s-mesh-map-0" offset="2" set="0" />
+					<input semantic="COLOR" source="#broken_block_s-mesh-colors" offset="3" />
+					<vcount>3 3</vcount>
+					<p>2 8 2 0 9 8 9 0 0 8 0 0 11 8 11 0 0 8 0 0 9 8 9 0</p>
+				</polylist>
+				<polylist material="item_block-material" count="2">
+					<input semantic="VERTEX" source="#broken_block_s-mesh-vertices" offset="0" />
+					<input semantic="NORMAL" source="#broken_block_s-mesh-normals" offset="1" />
+					<input semantic="TEXCOORD" source="#broken_block_s-mesh-map-0" offset="2" set="0" />
+					<input semantic="COLOR" source="#broken_block_s-mesh-colors" offset="3" />
+					<vcount>3 3</vcount>
+					<p>6 12 12 0 1 12 13 0 11 12 11 0 0 12 0 0 11 12 11 0 1 12 13 0</p>
+				</polylist>
+				<polylist material="item_block-material" count="2">
+					<input semantic="VERTEX" source="#broken_block_s-mesh-vertices" offset="0" />
+					<input semantic="NORMAL" source="#broken_block_s-mesh-normals" offset="1" />
+					<input semantic="TEXCOORD" source="#broken_block_s-mesh-map-0" offset="2" set="0" />
+					<input semantic="COLOR" source="#broken_block_s-mesh-colors" offset="3" />
+					<vcount>3 3</vcount>
+					<p>3 16 16 0 4 16 17 0 2 16 2 0 9 16 9 0 2 16 2 0 4 16 17 0</p>
+				</polylist>
+				<polylist material="item_block-material" count="2">
+					<input semantic="VERTEX" source="#broken_block_s-mesh-vertices" offset="0" />
+					<input semantic="NORMAL" source="#broken_block_s-mesh-normals" offset="1" />
+					<input semantic="TEXCOORD" source="#broken_block_s-mesh-map-0" offset="2" set="0" />
+					<input semantic="COLOR" source="#broken_block_s-mesh-colors" offset="3" />
+					<vcount>3 3</vcount>
+					<p>9 20 20 0 4 20 7 0 11 20 22 0 6 20 5 0 11 20 22 0 4 20 7 0</p>
+				</polylist>
+			</mesh>
+		</geometry>
+	</library_geometries>
+	<library_controllers>
+		<controller id="broken_block_s-skin" name="skinCluster_broken_block_s">
+			<skin source="#broken_block_s-mesh">
+				<bind_shape_matrix>1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</bind_shape_matrix>
+				<source id="broken_block_s-skin-joints">
+					<IDREF_array id="broken_block_s-skin-joints-array" count="1">broken_block_s</IDREF_array>
+					<technique_common>
+						<accessor source="#broken_block_s-skin-joints-array" count="1" stride="1">
+							<param name="JOINT" type="Name" />
+						</accessor>
+					</technique_common>
+				</source>
+				<!--The inverse bind pose for a joint is given by the inverse bind pose of the parent joint (where present) multiplied by the inverse of the current joint's transformation matrix.-->
+				<source id="broken_block_s-skin-bind_poses">
+					<float_array id="broken_block_s-skin-bind_poses-array" count="16">1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</float_array>
+					<technique_common>
+						<accessor source="#broken_block_s-skin-bind_poses-array" count="1" stride="16">
+							<param name="TRANSFORM" type="float4x4" />
+						</accessor>
+					</technique_common>
+				</source>
+				<source id="broken_block_s-skin-weights">
+					<!--The BMD format does not have any concept of 'weights', instead each vertex is assigned to one bone-->
+					<float_array id="broken_block_s-skin-weights-array" count="1">1</float_array>
+					<technique_common>
+						<accessor source="#broken_block_s-skin-weights-array" count="1" stride="1">
+							<param name="WEIGHT" type="float" />
+						</accessor>
+					</technique_common>
+				</source>
+				<joints>
+					<input semantic="JOINT" source="#broken_block_s-skin-joints" />
+					<input semantic="INV_BIND_MATRIX" source="#broken_block_s-skin-bind_poses" />
+				</joints>
+				<!--Each vertex will be assigned to only one bone with a weight of 1-->
+				<vertex_weights count="24">
+					<input semantic="JOINT" source="#broken_block_s-skin-joints" offset="0" />
+					<input semantic="WEIGHT" source="#broken_block_s-skin-weights" offset="1" />
+					<vcount>1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1</vcount>
+					<!--This list contains two values for each vertex, the first is the bone ID and the second is the index of the vertex weight '1' (0)-->
+					<v>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</v>
+				</vertex_weights>
+			</skin>
+		</controller>
+	</library_controllers>
+	<library_visual_scenes>
+		<visual_scene id="Scene" name="Scene">
+			<!--This lists each of the 'bones' in the BMD model, listing each bone's individual Scale, Rotation, Translation transformation in the reverse of the order in which they should be multiplied to form an SRT  matrix. This will then be multiplied recursively by the parents' transformations to get the final transformation for this joint.-->
+			<node id="broken_block_s" name="broken_block_s" sid="broken_block_s" type="JOINT">
+				<translate sid="translate">0 0 0</translate>
+				<rotate sid="rotationZ">0 0 1 0</rotate>
+				<rotate sid="rotationY">0 1 0 0</rotate>
+				<rotate sid="rotationX">1 0 0 0</rotate>
+				<scale sid="scale">1 1 1</scale>
+			</node>
+			<node id="broken_block_s-node" name="broken_block_s-node" type="NODE">
+				<instance_controller url="#broken_block_s-skin">
+					<skeleton>#broken_block_s</skeleton>
+					<bind_material>
+						<technique_common>
+							<instance_material symbol="item_block-material" target="#item_block-material">
+								<bind_vertex_input semantic="UVMap" input_semantic="TEXCOORD" input_set="0" />
+							</instance_material>
+						</technique_common>
+					</bind_material>
+				</instance_controller>
+			</node>
+		</visual_scene>
+	</library_visual_scenes>
+	<scene>
+		<instance_visual_scene url="#Scene" />
+	</scene>
+</COLLADA>
