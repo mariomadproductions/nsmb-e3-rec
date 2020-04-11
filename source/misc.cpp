@@ -95,4 +95,4 @@ void repl_020A2230_ov_00() {
 }
 
 //Mega Mario
-void nsub_0209E038_ov_00() { asm("B 0x021121F0"); } //Disable goomba/coin drop on ground-pound
+void nsub_0209E038_ov_00() //Disable goomba/coin drop on ground-pound
