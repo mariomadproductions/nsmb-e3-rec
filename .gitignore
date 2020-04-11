@@ -358,3 +358,9 @@ newcode.sym
 
 # Despite visual studio rules about build results, don't ignore this "obj" folder
 !/source_nitrofs/obj/
+
+# IDA Pro temporary files
+*.id0
+*.id1
+*.nam
+*.til
