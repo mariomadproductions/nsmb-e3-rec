@@ -1,5 +1,0 @@
-#define SE_EMY_SB_PREAPP	0
-#define SE_EMY_SB_APP	1
-#define SE_EMY_SB_DISAPP	2
-#define SE_EMY_SB_SHOOT	3
-#define SE_EMY_SB_DOWN	4

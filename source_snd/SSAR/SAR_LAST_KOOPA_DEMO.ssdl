@@ -1,9 +1,0 @@
-#define SE_PLY_KISS	0
-#define SE_EMY_KPJR_THROW	1
-#define SE_OBJ_HONE_IN_TSUBO	2
-#define SE_OBJ_TSUBO_GOTOGOTO	3
-#define SE_OBJ_TSUBO_BREAK	4
-#define SE_OBJ_TSUBO_EXPAND	5
-#define SE_VOC_M_HOEE	6
-#define SE_VOC_L_HOEE	7
-#define SE_VOC_P_THANK_YOU	8

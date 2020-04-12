@@ -1,5 +1,0 @@
-#define SE_EMY_GAMA_FUMARE	0
-#define SE_EMY_GAMA_LAST	1
-#define SE_EMY_GAMA_JUMP	2
-#define SE_EMY_GASA_APPEAR	3
-#define SE_EMY_GASA_FOOT	4
