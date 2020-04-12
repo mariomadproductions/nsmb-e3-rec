@@ -93,6 +93,3 @@ void repl_020A2230_ov_00() {
 	if (GetPlayerCount() == 1)
 		asm("BL 0x20C1F14");
 }
-
-//Mega Mario
-void nsub_0209E038_ov_00() {} //Disable goomba/coin drop on ground-pound
