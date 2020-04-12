@@ -1,4 +1,0 @@
-#define SE_EMY_GOREM_BLOCK	0
-#define SE_EMY_GOREM_FOOT	1
-#define SE_EMY_GOREM_JUMP	2
-#define SE_EMY_GOREM_APP	3
