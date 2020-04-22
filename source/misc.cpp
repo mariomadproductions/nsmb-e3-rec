@@ -94,9 +94,6 @@ void repl_020A2230_ov_00() {
 		asm("BL 0x20C1F14");
 }
 
-//Disable Fire Flower coin drop for most enemies
-void nsub_0209D694_ov_00() {}
-
 //Disable goomba/coin drop on Mega Mario ground-pound
 void nsub_0209E038_ov_00() {}
 
