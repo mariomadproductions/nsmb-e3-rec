@@ -97,11 +97,24 @@ void repl_021536B4_ov_36() {} //Ring doesn't get set as not respawn between area
 void repl_021534E4_ov_36() { asm("MOV R1, #0"); } //Ring doesn't get deleted permanently
 void repl_021535B4_ov_36(EnemyActor* ring, s16* rotX_inc, s16 rotX_max, s16 rotX_dec) //Ring can stop rotation
 {
-	s8 direction = ((s8*)0x20C4EC4)[ring->info.direction];
-	s16 endRotY = (0x2000 * direction);
+	static u8 ring_frames = 0;
+	s8 direction = ((s8*)0x20C4EC4)[ring->info.direction ^ 1];
 
-	if (ring->actor.rotation.y == endRotY)
-		RedCoinRing_setExecuteState(ring, 0x2153604, 0);
-	else
+	if (ring_frames == 0)
+	{
 		RedCoinRing_slowDownRotation(ring, rotX_inc, rotX_max, rotX_dec);
+		ring_frames++;
+	}
+	else if (ring_frames == 0x40)
+	{
+		ring->actor.rotation.y = -0x2000 * direction;
+		ring_frames = 0;
+		RedCoinRing_setExecuteState(ring, 0x2153604, 0);
+	}
+	else
+	{
+		u16& ring_rotY_inc = ((u16*)ring)[0x274];
+		ring_rotY_inc -= (0x30 * direction);
+		ring_frames++;
+	}
 }

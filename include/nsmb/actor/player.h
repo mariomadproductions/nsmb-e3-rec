@@ -299,12 +299,12 @@ typedef struct PlayerActorOnly
 	Vec2				Vec2_1;
 	Vec2				Vec2_2;
 	Vec2				Vec2_3;
-	u32					unk980;
-	u32					unk984;
+	void*				movementStateFunc;
+	u32					movementStateThumb;
 	u32					unk988;
 	u32					unk98C;
-	u32					DeathState;
-	u32					unk994;
+	void*				entranceStateFunc;
+	u32					entranceStateThumb;
 	u32					unk998;
 	u32					unk99C;
 	u32					unk9A0;
@@ -437,7 +437,7 @@ typedef struct PlayerActorOnly
 	u32					unkB98;
 	u8					unkB9C;
 	u8					unkB9D;
-	u8					movementRelated; 			//Set to 1 when idle, 2 when moving (walking/running, falling, crounching), 3 when landing	
+	u8					movementStateStep; 			//Set to 1 when idle, 2 when moving (walking/running, falling, crounching), 3 when landing	
 	u8					notInPipeCannon;
 	u8					consecutiveJumps;
 	u8					field_0x705;
@@ -448,7 +448,7 @@ typedef struct PlayerActorOnly
 	u8					field_0x70b;				//Amount of frames that a powerup/damage transformation takes. Game sets it to 0x2805, and negates until 0	
 	u32					unkBA8; 				 	//Set to 0x20000 on level begin, last digit is set to 7 when powerup is gained, and 3rd last digit is set to 1 when damage is taken.	
 	u8					field_0x710;
-	u8					cases;
+	u8					entranceStateStep;
 	u8					field_0x712;
 	u8					currentModel;
 	u8					field_0x714;
@@ -490,11 +490,14 @@ extern "C"
 {
 #endif
 
-	//Sets the player animation
+	// Sets the player animation
 	void PlayerActor_SetAnimation(PlayerActor* player, int animationNo, int startFrame, int unk1, int updateSpeed, int unk2);
 
-	//Sets the player animation speed
+	// Sets the player animation speed
 	void PlayerActor_SetAnimationSpeed(PlayerActor* player, int updateSpeed);
+
+	// Updates the player animation
+	void PlayerActor_updateAnimation(PlayerActor* player);
 
 	// Makes the player unable to move
 	void PlayerActor_freeze(PlayerActor* player, BOOL isLookingAtBoss);
@@ -513,6 +516,18 @@ extern "C"
 
 	// Spawns the starman particles from the player.
 	void PlayerActor_SpawnStarmanParticles(PlayerActor* player);
+
+	// Sets the player actor movement state.
+	void PlayerActor_setMovementState(PlayerActor* player, int function_ptr, int thumb, int args);
+
+	// Sets the player actor entrance state.
+	void PlayerActor_setEntranceState(PlayerActor* player, int function_ptr, int thumb, int args);
+
+	// Sets the player actor states as just respawned.
+	void PlayerActor_setRespawnedState(PlayerActor* player);
+
+	// Stops music to prepare death sequence
+	void PlayerActor_stopMusicOnDeath(PlayerActor* player, int fadeFrame);
 
 	// Gets the pointer to the local player.
 	// WARNING: Causes desyncs in multiplayer if used incorrectly!

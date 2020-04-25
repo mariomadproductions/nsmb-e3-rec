@@ -335,9 +335,20 @@ extern "C"
 }
 
 int repl_020BE5E8_ov_00() { return 240-24; } //Progress bar pixel scale
-void repl_020BE60C_ov_00() { asm("MOV R8, #0"); } //MvsL progress bar uses singleplayer OAM y_shift
 void repl_020BE64C_ov_00() { asm("LDR R1, =0x020CA104"); } //MvsL progress bar uses singleplayer OAM addresses (which are replaced with mine)
-void repl_020BE658_ov_00() { asm("ADD R0, R0, #9"); } //MvsL progress bar uses my BNCL rectangle index
+void repl_020BE658_ov_00() { asm("MOV R0, #9"); } //MvsL progress bar uses my BNCL rectangle index
+void nsub_020BE600_ov_00() //Shift progress bar OAM
+{
+	asm("BL      GetPlayerCount");
+	asm("CMP     R0, #1");
+	asm("MOVNE   R0, R6");
+	asm("BLNE    GetCharacterForPlayer");
+	asm("BNE     0x020BE604");
+	asm("MOV     R8, #0");
+	asm("B       0x020BE610");
+}
+void repl_020BE608_ov_00() { asm("MOVEQ R8, #-2"); } //Mario head OAM shift
+void repl_020BE60C_ov_00() { asm("MOVNE R8, #0"); } //Luigi head OAM shift
 
 //Sub OAM Draw
 void nsub_020BFE5C_ov_00(int* stageScene, int playerNo)

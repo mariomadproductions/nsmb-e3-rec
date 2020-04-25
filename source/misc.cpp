@@ -42,7 +42,7 @@ void nsub_02012584() { asm("B 0x0201258C"); } //Disable baphs
 
 // NO SOFT RESET ==================================
 
-void repl_0201364C_main() { asm("B 0x201368C"); }
+void nsub_0201364C_main() { asm("B 0x201368C"); }
 
 // MULTIPLAYER ===================================
 
@@ -80,6 +80,8 @@ void nsub_0212B908_ov_0B(u8* player)
 		player[454] |= 1;
 	}
 }
+
+void repl_020D13B4_ov_0A() {} //Powerups don't despawn
 
 void nsub_0200E874() {} //No wireless strenght icon bitmap
 void nsub_0200E944() {} //No wireless strenght icon palette

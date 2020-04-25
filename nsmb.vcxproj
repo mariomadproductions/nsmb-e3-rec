@@ -12,6 +12,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\actors\BackgroundSwapper.cpp" />
+    <ClCompile Include="source\actors\ItemBlock.cpp" />
     <ClCompile Include="source\misc.cpp" />
     <ClCompile Include="source\beta_pipe_cannon.cpp" />
     <ClCompile Include="source\player_anims.cpp" />
@@ -48,6 +49,7 @@
     <ClInclude Include="include\nsmb\vector\vec2.hpp" />
     <ClInclude Include="include\nsmb\vector\vec3.hpp" />
     <ClInclude Include="source\actors\BackgroundSwapper.h" />
+    <ClInclude Include="source\actors\ItemBlock.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="bak\0.bin" />
@@ -69,6 +71,7 @@
     </None>
     <None Include="replaces.x" />
     <None Include="source\actors\BackgroundSwapper_asm.s" />
+    <None Include="source\actors\ItemBlock_asm.s" />
     <None Include="source\beta_mushrooms.s" />
     <None Include="source\BossLoad.s" />
     <None Include="source\debugscreen.s" />

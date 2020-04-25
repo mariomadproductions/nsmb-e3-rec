@@ -51,6 +51,9 @@
     <ClCompile Include="source\player_collide.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="source\actors\ItemBlock.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\nsmb.h">
@@ -125,6 +128,9 @@
     <ClInclude Include="source\actors\BackgroundSwapper.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="source\actors\ItemBlock.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Makefile" />
@@ -183,6 +189,7 @@
     <None Include="source\model_color_swap.s" />
     <None Include="source\actors\BackgroundSwapper_asm.s" />
     <None Include="source\player_collide_asm.s" />
+    <None Include="source\actors\ItemBlock_asm.s" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="arenaoffs.txt" />

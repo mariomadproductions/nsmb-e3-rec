@@ -2625,6 +2625,7 @@ SetStarmanTimeForPlayer = 0x202018C;
 SpawnCoinParticle = 0x20222EC;
 RedCoinRing_setExecuteState = 0x02153860;
 RedCoinRing_slowDownRotation = 0x021535CC;
+NSMB_LoadOrUnloadSpriteSetOverlays = 0x0200DEE0;
 
 DrawBottomScreenPowerups = 0x020BE828;
 DrawBottomScreenLevelNumbers = 0x020BEEF0;
@@ -2717,6 +2718,11 @@ PlayerActor_removeHeldActor = 0x212bde0;
 PlayerActor_removeHeldItem = 0x02104C9C;
 PlayerActor_SetAnimationSpeed = 0x021209E0;
 PlayerActor_SpawnStarmanParticles = 0x020FDAD0;
+PlayerActor_setMovementState = 0x021006AC;
+PlayerActor_setEntranceState = 0x0211EDA0;
+PlayerActor_setRespawnedState = 0x0211EFB0;
+PlayerActor_stopMusicOnDeath = 0x0212B7F0;
+PlayerActor_updateAnimation = 0x02115BC8;
 
 base_ctor = 0x204d2ac;
 
