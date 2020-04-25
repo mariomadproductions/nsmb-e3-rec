@@ -129,7 +129,7 @@ typedef struct {
 	u32* dtorFree;
 	u32* getSomething;
 	u32* incrementSomething;
-	u32* execState0;
+	u32 (*execState0)(...);
 	u32* isInvisible;
 	u32* execState1;
 	u32* execState2;
@@ -164,7 +164,7 @@ typedef struct {
 	u32* virt52;
 	u32* virt53;
 	u32* virt54;
-	u32* virt55;
+	u32 (*virt55)(...);
 	u32* virt56;
 	u32* virt57;
 	u32* virt58;

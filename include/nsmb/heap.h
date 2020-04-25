@@ -43,6 +43,9 @@ extern "C" {
 	// Gets the pointer to overlay 53 heap
 	void* NSMB_GetPtrToOv53Heap();
 
+	// Loads a spriteset overlay
+	void NSMB_LoadOrUnloadSpriteSetOverlays(u8* overlays, bool load);
+
 #ifdef __cplusplus
 }
 

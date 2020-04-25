@@ -8,3 +8,9 @@
 
 @ ACTORS (0x203997C + (classID * 4))
 02039D68: BackgroundSwapper_Profile
+02039D70: ItemBlock_Profile
+
+@ PLAYER IDLE ANIMATION
+02122750_ov_0A: 0x6E2
+0212274C_ov_0A: 0x23
+

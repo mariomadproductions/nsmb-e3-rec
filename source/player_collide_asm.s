@@ -1,21 +1,3 @@
-@ RUNNING HIT =========================================
-	
-/*@Lower side collision impact
-repl_02109FE8_ov_0A:
-	MOV     R1, #0
-	MOV     R2, #0x1800
-	BX      LR
-repl_02109D50_ov_0A:
-	MOV     R1, #0
-	MOV     R3, #0x1800
-	BX      LR
-
-@No forward force the other player hit fast
-repl_0210A014_ov_0A:
-repl_02109D78_ov_0A:
-	MOV     R1, #0
-	BX      LR*/
-
 @ JUMP HIT =========================================
 
 @Mario can not make Luigi fall

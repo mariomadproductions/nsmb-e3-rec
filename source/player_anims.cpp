@@ -48,3 +48,7 @@ void nsub_02116A14_ov_0A() { asm("CMP R0, #1"); asm("B 0x02116A18"); }
 void repl_02116A2C_ov_0A() { asm("MOV R1, #1"); }
 
 //void nsub_0210B06C() { nocashPrint("%lr%\n"); }
+
+//int repl_020D83D8_ov_08() { return 0; }
+
+//void repl_02116B78_ov_0A()
