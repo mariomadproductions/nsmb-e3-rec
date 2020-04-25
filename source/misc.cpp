@@ -95,3 +95,9 @@ void repl_020A2230_ov_00() {
 	if (GetPlayerCount() == 1)
 		asm("BL 0x20C1F14");
 }
+
+//Disable goomba/coin drop on Mega Mario ground-pound
+void nsub_0209E038_ov_00() {}
+
+//Do not spawn Mega Mario destruction counter
+void repl_0215ED54_ov_36() {}

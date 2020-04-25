@@ -1,7 +1,0 @@
-#define SE_PLY_WDOKAN_SHOT	0
-#define SE_PLY_CANNON_SHOT	1
-#define SE_VOC_MA_OTOTO	2
-#define SE_VOC_MA_WOOO	3
-#define SE_VOC_MA_CLIMB	4
-#define SE_VOC_MA_HOH	5
-#define SE_VOC_MA_DANGLE	6
