@@ -1,0 +1,11 @@
+=======================
+Jyotyu Palette Indexes
+=======================
+Line 1 = Coin
+Line 2 = Brick Block
+...
+Line 5 = Question Block
+=======================
+
+Jyotyu is a hell of a mess.
+- TheGameratorT

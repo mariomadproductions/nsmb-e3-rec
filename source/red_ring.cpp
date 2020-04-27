@@ -1,5 +1,7 @@
 #include "nsmb.h"
 
+int repl_0215395C_ov_36() { return 0x4EE; } //Increase ring allocation size
+
 // ============================================= CORE RESPAWN =============================================
 
 int repl_0212B2DC_ov_0B() { return 1; } //Do not decrement player lives
@@ -30,11 +32,30 @@ void nsub_0211C470_ov_0A() { asm("B 0x0211C580"); } //No pipe entrance on respaw
 
 static u32 ringCollected[2];
 
-extern u8 RedRingColor;
+extern "C"
+bool GetRingCollectedForPlayer(EnemyActor * ring, int playerNo)
+{
+	u32 ringData = ring->actor.base.spriteData;
+	u8 ringId = ringData & 0xF;
+	return (ringCollected[playerNo] >> ringId) & 1;
+}
+
+void RedCoinRing_updateColor(EnemyActor* ring)
+{
+	u8& ring_color = ((u8*)ring)[0x4ED];
+
+	bool collected_m = GetRingCollectedForPlayer(ring, 0);
+	bool collected_l = GetRingCollectedForPlayer(ring, 1);
+
+	ring_color = 1 + (collected_m | (collected_l << 1));
+}
+
 extern "C"
 {
 	void RedCoinRing_setExecuteState(void* ring, int func, int thumb);
 	void RedCoinRing_slowDownRotation(void* ring, s16* rotX_inc, s16 rotX_max, s16 rotX_dec);
+	void RedCoinRing_checkAgainstPosition(void* ring, int playerNo);
+	bool RedCoinRing_checkIfTouched(void* ring, int playerNo);
 
 	void RedRing_OnCollided(EnemyActor* ring, int playerNo)
 	{
@@ -45,20 +66,11 @@ extern "C"
 		ringCollected[playerNo] |= (1 << ringId);
 		Entrance* entrance = GetPtrToEntranceById(entranceId, entranceId);
 
-		int localPlayerNo = *(int*)0x2085A7C;
-		if (localPlayerNo == playerNo)
-			RedRingColor = 2;
+		RedCoinRing_updateColor(ring);
 
 		int x = (entrance->x + 8) << 12;
 		int y = -(entrance->y + 16) << 12;
 		SetRespawnPositionForPlayer(playerNo, x, y);
-	}
-
-	bool GetRingCollectedForPlayer(EnemyActor* ring, int playerNo)
-	{
-		u32 ringData = ring->actor.base.spriteData;
-		u8 ringId = ringData & 0xF;
-		return (ringCollected[playerNo] >> ringId) & 1;
 	}
 }
 
@@ -88,27 +100,29 @@ void nsub_021536A8_ov_36()
 
 void hook_02153198_ov_36(EnemyActor* ring) //Color on create
 {
-	int localPlayerNo = *(int*)0x2085A7C;
-	bool collected = GetRingCollectedForPlayer(ring, localPlayerNo);
-	RedRingColor = 1 + collected;
+	RedCoinRing_updateColor(ring);
 }
 
 void repl_021536B4_ov_36() {} //Ring doesn't get set as not respawn between areas
-void repl_021534E4_ov_36() { asm("MOV R1, #0"); } //Ring doesn't get deleted permanently
-void repl_021535B4_ov_36(EnemyActor* ring, s16* rotX_inc, s16 rotX_max, s16 rotX_dec) //Ring can stop rotation
+void repl_021534E4_ov_36() //Set some ring variables on collected state enter
 {
-	static u8 ring_frames = 0;
+	asm("MOV     R1, #0");
+	asm("STRB    R1, [R0,#0x4EC]"); //ring_frames = 0;
+	asm("MOV     R1, #0"); //Ring doesn't get deleted permanently
+}
+void repl_021535B4_ov_36(EnemyActor* ring, s16* rotX_inc, s16 rotX_extreme, s16 rotX_dec) //Ring can stop rotation
+{
 	s8 direction = ((s8*)0x20C4EC4)[ring->info.direction ^ 1];
+	u8& ring_frames = ((u8*)ring)[0x4EC];
 
 	if (ring_frames == 0)
 	{
-		RedCoinRing_slowDownRotation(ring, rotX_inc, rotX_max, rotX_dec);
+		RedCoinRing_slowDownRotation(ring, rotX_inc, rotX_extreme, rotX_dec);
 		ring_frames++;
 	}
 	else if (ring_frames == 0x40)
 	{
 		ring->actor.rotation.y = -0x2000 * direction;
-		ring_frames = 0;
 		RedCoinRing_setExecuteState(ring, 0x2153604, 0);
 	}
 	else

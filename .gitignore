@@ -359,3 +359,4 @@ newcode.sym
 # Despite visual studio rules about build results, don't ignore this "obj" folder
 !/source_nitrofs/obj/
 /source/overlay
+/source/actors/BackgroundSwapper.cpp.bak

@@ -12,7 +12,7 @@ void hook_020BCFCC_ov_00()
 	LastTS = PointerToBlock1[12];
 }
 
-void BackgroundSwapper_Rewrite_BG(BackgroundSwapper* bgSwapper)
+void BackgroundSwapper_LoadBG(BackgroundSwapper* bgSwapper)
 {
 	if (bgSwapper->BG_ID != 0xFF)
 	{
@@ -58,7 +58,7 @@ void BackgroundSwapper_Rewrite_BG(BackgroundSwapper* bgSwapper)
 	}
 }
 
-void BackgroundSwapper_Rewrite_FG(BackgroundSwapper* bgSwapper)
+void BackgroundSwapper_LoadFG(BackgroundSwapper* bgSwapper)
 {
 	if (bgSwapper->FG_ID != 0xFF)
 	{
@@ -93,7 +93,7 @@ void BackgroundSwapper_Rewrite_FG(BackgroundSwapper* bgSwapper)
 	}
 }
 
-void BackgroundSwapper_Rewrite_TS(BackgroundSwapper* bgSwapper)
+void BackgroundSwapper_LoadTS(BackgroundSwapper* bgSwapper)
 {
 	if (bgSwapper->TS_ID != 0xFF)
 	{
@@ -123,30 +123,33 @@ void BackgroundSwapper_Rewrite_TS(BackgroundSwapper* bgSwapper)
 
 void BackgroundSwapper_DoSwapping(BackgroundSwapper* bgSwapper)
 {
-	int visiblePlane = GX_GetVisiblePlane();
+	bool swapBG = LastBG != bgSwapper->BG_ID;
+	bool swapFG = LastFG != bgSwapper->FG_ID;
+	bool swapTS = LastTS != bgSwapper->TS_ID;
+	if (!swapBG && !swapFG && !swapTS)
+		return;
 
+	int visiblePlane = GX_GetVisiblePlane();
 	GX_SetVisiblePlane(
-		(visiblePlane & ~(GX_PLANEMASK_BG1 | GX_PLANEMASK_BG2 | GX_PLANEMASK_BG3)) |
-		GX_PLANEMASK_BG1 * (LastBG != bgSwapper->BG_ID) |
-		GX_PLANEMASK_BG2 * (LastBG != bgSwapper->TS_ID) |
-		GX_PLANEMASK_BG3 * (LastBG != bgSwapper->FG_ID)
+		(visiblePlane & ~(GX_PLANEMASK_BG0 | GX_PLANEMASK_BG1 | GX_PLANEMASK_BG2)) &
+		((GX_PLANEMASK_BG0 * swapTS) | (GX_PLANEMASK_BG1 * swapBG) | (GX_PLANEMASK_BG2 * swapFG))
 	);
 
-	if (LastBG != bgSwapper->BG_ID)
+	if (swapBG)
 	{
-		BackgroundSwapper_Rewrite_BG(bgSwapper);
+		BackgroundSwapper_LoadBG(bgSwapper);
 		LastBG = bgSwapper->BG_ID;
 	}
 
-	if (LastFG != bgSwapper->FG_ID)
+	if (swapFG)
 	{
-		BackgroundSwapper_Rewrite_FG(bgSwapper);
+		BackgroundSwapper_LoadFG(bgSwapper);
 		LastFG = bgSwapper->FG_ID;
 	}
 
-	if (LastTS != bgSwapper->TS_ID)
+	if (swapTS)
 	{
-		BackgroundSwapper_Rewrite_TS(bgSwapper);
+		BackgroundSwapper_LoadTS(bgSwapper);
 		LastTS = bgSwapper->TS_ID;
 	}
 

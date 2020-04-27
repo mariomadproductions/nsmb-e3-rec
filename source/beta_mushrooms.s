@@ -36,9 +36,9 @@ repl_0217DD94_ov_5A:
 	SUB     R0, R4, R0
 	@Class Check
 	LDR     R3, [R0,#0xC]
-	CMP     R3, #195
-	MOVEQ   R3, #0
-	BEQ     .SkipClass1
+	CMP     R3, #189
+	MOVNE   R3, #0
+	BNE     .SkipClass1
 	@Palette Check
 	LDR     R3, [R0,#8]
 	ANDS    R3, R3, #0x1000000
@@ -73,3 +73,5 @@ repl_0217F5EC_ov_5A: @Do not setup corner 2
 repl_0217F6CC_ov_5A: @Do not register corner 1
 repl_0217F6D4_ov_5A: @Do not register corner 2
 	BX      LR
+nsub_0217F3E0_ov_5A: @Do not execute corner collision updates
+	B       0x0217F400

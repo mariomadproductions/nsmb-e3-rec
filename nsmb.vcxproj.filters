@@ -186,10 +186,10 @@
     </None>
     <None Include="source\nsbtx_color_swap.s" />
     <None Include="source\beta_mushrooms.s" />
-    <None Include="source\model_color_swap.s" />
     <None Include="source\actors\BackgroundSwapper_asm.s" />
     <None Include="source\player_collide_asm.s" />
     <None Include="source\actors\ItemBlock_asm.s" />
+    <None Include="source\red_ring_asm.s" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="arenaoffs.txt" />
