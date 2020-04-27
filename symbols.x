@@ -2625,6 +2625,8 @@ SetStarmanTimeForPlayer = 0x202018C;
 SpawnCoinParticle = 0x20222EC;
 RedCoinRing_setExecuteState = 0x02153860;
 RedCoinRing_slowDownRotation = 0x021535CC;
+RedCoinRing_checkAgainstPosition = 0x021532BC;
+RedCoinRing_checkIfTouched = 0x02153370;
 NSMB_LoadOrUnloadSpriteSetOverlays = 0x0200DEE0;
 
 DrawBottomScreenPowerups = 0x020BE828;

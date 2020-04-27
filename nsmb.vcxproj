@@ -76,7 +76,7 @@
     <None Include="source\BossLoad.s" />
     <None Include="source\debugscreen.s" />
     <None Include="source\nofreeze.s" />
-    <None Include="source\model_color_swap.s" />
+    <None Include="source\red_ring_asm.s" />
     <None Include="source\nsmb\model3d_draw.s" />
     <None Include="source\nsmb\ostreambuffer.s" />
     <None Include="source\nsmb\printf.s" />

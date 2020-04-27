@@ -1,0 +1,7 @@
+The generated NSBTX has a wrong palette,
+this was done this way so we could have
+16 colors with 1 bitmap and 2 palettes.
+
+Opening the NSBTX file in NSMB Editor 5
+and importing "nsmbe.png" with all bitmaps
+and all palettes fixes the problem.
