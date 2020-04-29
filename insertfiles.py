@@ -21,4 +21,5 @@ for path in Path('source_nitrofs').rglob('*.*'):
             rom.files[path_overrides[path_formatted]] = extracted_file.read()
         else:
             rom.setFileByName(path_formatted, extracted_file.read())
+        print('Inserted external file ' + path_formatted)
 rom.saveToFile(rom_filename)
