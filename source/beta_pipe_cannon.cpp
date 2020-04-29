@@ -21,23 +21,30 @@ void nsub_020F87A0_ov_0A() { asm("B 0x020F87B4"); } //Do not spawn pipe cannon p
 
 // =================== INVENCIBILITY ===================
 
-extern "C" bool EnemyInvecibility_check(int playerNo, PlayerActor* player)
+extern "C"
+bool EnemyInvecibility_check(EnemyActor* enemy, int playerNo, PlayerActor* player)
 {
 	u16* StarmanTimeForPlayer = (u16*)0x0208B350;
-	if ((StarmanTimeForPlayer[playerNo] > 1) || (player->P.miscActionsBitfield & BEING_SHOOT))
+	bool beingShoot = (player->P.miscActionsBitfield & BEING_SHOOT);
+	if ((StarmanTimeForPlayer[playerNo] > 1) || beingShoot)
+	{
+		if (beingShoot)
+		{
+			enemyActor_dropCoin(enemy);
+		}
 		return true;
+	}
 	return false;
 }
 
-void nsub_02098B00_ov_00()
+void nsub_02098B08_ov_00()
 {
-	asm("PUSH    {R0-R3}");
-	asm("MOV     R1, R4");
+	asm("MOV     R0, R7");
+	asm("MOV     R2, R4");
 	asm("BL      EnemyInvecibility_check");
 	asm("CMP     R0, #0");
-	asm("POP     {R0-R3}");
 	asm("BEQ     0x2098B38");
-	asm("B       0x02098B1C");
+	asm("B       0x2098B1C");
 }
 
 // Fix pipe cannon desync

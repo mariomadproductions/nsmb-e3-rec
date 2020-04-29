@@ -155,6 +155,7 @@ extern "C"
 	void enemyActor_anotherTileBehavior(void* actor);
 	void enemyActor_shellReboundRelated(void* actor);
 	BOOL enemyActor_deleteIfOutOfRange(void* actor, u8 unk);
+	void enemyActor_dropCoin(void* actor);
 
 	// EnemyActor Virts
 	void enemyActor_virt31(void* actor, int, int, int, int, int);

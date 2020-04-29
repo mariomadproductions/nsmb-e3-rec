@@ -114,6 +114,16 @@ extern "C" {
 	// Fades the scene to a level (SceneID: 13 = Singleplayer, 15 = Mario Vs Luigi)
 	void ChangeSceneToLevel(u16 SceneID, u32 MvsLMode, u32 World, u32 Level, u8 Area, u8 PlayerNumber, u8 SpawnBitmask, u8 P1Character, u8 P2Character, u8 StartingPowerup, u8 EntranceID, u8 a12, u32 a13, u32 a14, u32 a15, u32 a16, u32 a17);
 
+	// Reloads the level into a new area.
+	void ChangeSceneForEntrance();
+
+	// Reloads the level into a new area.
+	inline void ChangeLevelArea(int destEntrance, int destArea) {
+		*(int*)0x0208B084 = destEntrance;
+		*(int*)0x0208B09C = destArea;
+		ChangeSceneForEntrance();
+	}
+
 	// Leaves the level and goes to the worldmap or the mvsl menu
 	void ExitLevel(BOOL Completed);
 
@@ -136,9 +146,6 @@ extern "C" {
 	void DC_FlushRangeOrAll(const void* startAddr, u32 nBytes);
 
 	void InitEntranceData(Vec3* entranceData, u32 entranceId, u32 playerNo);
-
-	// Spawns a particle at a position
-	void SpawnParticle(int particleId, Vec3* pos);
 
 	// Gets the tile behavior at the position
 	u32 GetTileBehaviorAtPos(int x, int y);
@@ -179,6 +186,12 @@ extern "C" {
 
 	// Updates the touched position
 	void UpdatePenTouchPositions();
+
+	// Spawns a particle at a position
+	void SpawnParticle(int particleId, Vec3* pos);
+
+	// Spawns a particle at a position for a duration
+	void SpawnAndEndParticle(int frames, int particleId, Vec3* pos, int a4, int a5, int a6, int a7);
 
 	// Spawns a coin particle at a position
 	void SpawnCoinParticle(fx32 x, fx32 y, fx32 z);

@@ -1,3 +1,4 @@
 demo/boot_sub_bg_ncg.bin,1209
 demo/boot_sub_bg_ncl.bin,1210
 demo/boot_sub_bg_nsc.bin,1211
+demo/item_block.nsbmd,1212

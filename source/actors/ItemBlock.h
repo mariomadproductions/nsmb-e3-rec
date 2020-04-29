@@ -4,6 +4,13 @@
 
 struct ItemBlock
 {
+	enum type : u8
+	{
+		DROP_RAND_COINS,
+		MUSHROOM_SPAWNER,
+		GREEN_UNK
+	};
+
 	// 0 -- Actor
 	Actor actor;
 
@@ -21,10 +28,19 @@ struct ItemBlock
 
 	SolidCollision sollid_collision;
 
+	void (*exec_func)(ItemBlock*);
+	s8 exec_step;
+
+	Vec3 start_pos;
+
 	u8 small; //If block is small
 	u8 color; //Block color
 	u8 type; //What happens on hit
+	s8 direction; //The rotation direction
+
+	u8 top_pounded;
 
 	u8 rot_timer;
+	u8 hit_timer;
 
 };

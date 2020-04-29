@@ -15,6 +15,7 @@
     <ClCompile Include="source\actors\ItemBlock.cpp" />
     <ClCompile Include="source\misc.cpp" />
     <ClCompile Include="source\beta_pipe_cannon.cpp" />
+    <ClCompile Include="source\nsmb\events.cpp" />
     <ClCompile Include="source\player_anims.cpp" />
     <ClCompile Include="source\player_collide.cpp" />
     <ClCompile Include="source\player_start.cpp" />
@@ -26,6 +27,7 @@
     <ClCompile Include="source\stage_oam_bg.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\nsmb-coop\include\nsmb\events.h" />
     <ClInclude Include="include\nsmb.h" />
     <ClInclude Include="include\nsmb\actor\actor.h" />
     <ClInclude Include="include\nsmb\actor\collider.h" />
@@ -34,6 +36,7 @@
     <ClInclude Include="include\nsmb\actor\solidcollision.h" />
     <ClInclude Include="include\nsmb\bnbl.h" />
     <ClInclude Include="include\nsmb\bncl.h" />
+    <ClInclude Include="include\nsmb\events.h" />
     <ClInclude Include="include\nsmb\fxmath.h" />
     <ClInclude Include="include\nsmb\heap.h" />
     <ClInclude Include="include\nsmb\misc.h" />

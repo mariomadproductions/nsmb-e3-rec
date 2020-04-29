@@ -22,6 +22,12 @@ typedef struct collider_V
 
 } collider_V;
 
+struct ColliderPoint {
+	u32 flags;
+	u32 x;
+	u32 y;
+};
+
 typedef struct AnotherClass
 {
 	// size : 0x34
