@@ -54,6 +54,9 @@
     <ClCompile Include="source\actors\ItemBlock.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="source\nsmb\events.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\nsmb.h">
@@ -129,6 +132,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="source\actors\ItemBlock.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\nsmb-coop\include\nsmb\events.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\nsmb\events.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

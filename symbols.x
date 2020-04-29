@@ -352,7 +352,7 @@ getEntranceBlockPtr = 0x201E450;
 getEntranceUnk3ById = 0x201E460;
 getStartingEntranceType = 0x201E4A8;
 InitEntranceData = 0x201E64C;
-causeSceneChangeForEntrance = 0x201E744;
+ChangeSceneForEntrance = 0x201E744;
 isPosInView = 0x201EE60;
 getViewAtPos = 0x201F000;
 getHeightForView = 0x201F06C;
@@ -2628,6 +2628,7 @@ RedCoinRing_slowDownRotation = 0x021535CC;
 RedCoinRing_checkAgainstPosition = 0x021532BC;
 RedCoinRing_checkIfTouched = 0x02153370;
 NSMB_LoadOrUnloadSpriteSetOverlays = 0x0200DEE0;
+SpawnAndEndParticle = 0x02022890;
 
 DrawBottomScreenPowerups = 0x020BE828;
 DrawBottomScreenLevelNumbers = 0x020BEEF0;
@@ -2790,6 +2791,7 @@ enemyActor_tileCollisionUpdate = 0x020991f8;
 enemyActor_anotherTileBehavior = 0x020990D4;
 enemyActor_shellReboundRelated = 0x02099040;
 enemyActor_deleteIfOutOfRange = 0x0209ADB0;
+enemyActor_dropCoin = 0x0209D694;
 
 NSBTXsetup = 0x020f5f90;
 

@@ -10,6 +10,7 @@
 #include "nsmb/actor/solidcollision.h"
 #include "nsmb/bnbl.h"
 #include "nsmb/bncl.h"
+#include "nsmb/events.h"
 #include "nsmb/fxmath.h"
 #include "nsmb/heap.h"
 #include "nsmb/misc.h"

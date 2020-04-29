@@ -101,3 +101,9 @@ void nsub_0209E038_ov_00() {}
 
 //Do not spawn Mega Mario destruction counter
 void repl_0215ED54_ov_36() {}
+
+//Enemies don't drop coins when burned
+void repl_0209D86C_ov_00() {}
+
+//Mario doesn't look at enemies
+void nsub_020FD544_ov_0A() { asm("B 0x020FD568"); }
