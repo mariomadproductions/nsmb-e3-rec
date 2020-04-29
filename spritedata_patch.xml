@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- You may place here your custom ActorID values to be used instead as this overwrites the loaded spritedata.xml values -->
+<database>
+  <sprites>
+    <sprite id="189">
+      <name>E3 2005 Mushroom Platform</name>
+      <flags known="1" complete="1" />
+      <category id="2" />
+      <notes></notes>
+      <files>
+        /enemy/I_kinoko_ashiba.nsbtx
+        /enemy/I_kinoko_ashiba2.nsbtx
+        /enemy/I_kinoko_kuki_l.nsbtx
+      </files>
+      <field id="20" type="checkbox" name="Fat Stalk" values="1" notes="" />
+      <field id="24" type="list" name="Color" values="0=Red,1=Green" notes="" />
+      <field id="27" type="checkbox" name="Bobbing" values="1" notes="" />
+      <field id="25" type="checkbox" name="Slim Platform" values="1" notes="" />
+      <field id="30-32" type="value" name="Stalk height" values="" notes="Max 7. Add tiles under it." />
+      <field id="34-36" type="value" name="Length" values="" notes="" />
+      <field id="37-40" type="value" name="Tilt angle" values="" notes="" />
+      <field id="41-48" type="value" name="Speed" values="" notes="" />
+    </sprite>
+	<sprite id="251">
+      <name>Background Swapper</name>
+      <flags known="1" complete="1" />
+      <category id="1" />
+      <notes></notes>
+      <files></files>
+      <field id="25-32" type="value" name="Tileset ID" values="" notes="" />
+      <field id="33-40" type="value" name="Foreground ID" values="" notes="" />
+      <field id="41-48" type="value" name="Background ID" values="" notes="" />
+    </sprite>
+	<sprite id="253">
+      <name>SM64 Item Block</name>
+      <flags known="1" complete="1" />
+      <category id="1" />
+      <notes></notes>
+      <files></files>
+      <field id="1-8" type="value" name="Target ID" values="" notes="" />
+      <field id="48" type="checkbox" name="Small" values="" notes="" />
+      <field id="47" type="checkbox" name="Shift ½ block down" values="1" notes="" />
+      <field id="46" type="checkbox" name="Shift ½ block left" values="1" notes="" />
+      <field id="45" type="list" name="Rotation Direction" values="0=Left To Right, 1=Right To Left" notes="" />
+      <field id="41-44" type="list" name="Color" values="0=Blue, 1=Green, 2=Yellow" notes="" />
+      <field id="37-40" type="list" name="Behavior" values="0=Drops random coins, 1=Spawns mushrooms, 2=UNK" notes="" />
+    </sprite>
+  </sprites>
+</database>
