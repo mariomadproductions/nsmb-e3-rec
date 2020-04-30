@@ -82,13 +82,12 @@ extern "C"
 	// Functions for Models without animation
 	void model3d_ctor(Model3d* model);
 	BOOL model3d_setup(Model3d* model, void* modelFile, u32 modelId);
-	void model3d_init(Model3d* model);
 
 	// Functions for Models with character animation
 	// These functions call all above functions (model3d)
 	void modelAnim3d_ctor(ModelAnim3d* model);
 	BOOL modelAnim3d_setup(ModelAnim3d* model, void* modelFile, void* animationFile, u32 modelId, u32 animationId);
-	void modelAnim3d_init(ModelAnim3d* model, u32 animationId, u32 settings, u32 animationSpeed, u32 startFrame);
+	void modelAnim3d_setAnimation(ModelAnim3d* model, u32 animationId, u32 settings, u32 animationSpeed, u32 startFrame);
 
 	void anim3d_update(Anim3d* animation);
 
