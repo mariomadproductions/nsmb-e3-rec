@@ -38,12 +38,12 @@
       <notes></notes>
       <files></files>
       <field id="1-8" type="value" name="Target ID" values="" notes="" />
-      <field id="25-32" type="value" name="Size" values="" notes="" />
-      <field id="45-48" type="value" name="Down shift" values="" notes="" />
-      <field id="41-44" type="value" name="Right shift" values="" notes="" />
-      <field id="33-34" type="list" name="Rotation Direction" values="0=Left To Right, 1=Right To Left" notes="" />
-      <field id="35-36" type="list" name="Color" values="0=Blue, 1=Green, 2=Yellow" notes="" />
-      <field id="37-40" type="list" name="Behavior" values="0=Activates event, 1=Spawns mushrooms, 2=UNK" notes="" />
+      <field id="48" type="checkbox" name="Small" values="" notes="" />
+      <field id="47" type="checkbox" name="Shift ½ block down" values="1" notes="" />
+      <field id="46" type="checkbox" name="Shift ½ block left" values="1" notes="" />
+      <field id="45" type="list" name="Rotation Direction" values="0=Left To Right, 1=Right To Left" notes="" />
+      <field id="41-44" type="list" name="Color" values="0=Blue, 1=Green, 2=Yellow" notes="" />
+      <field id="37-40" type="list" name="Behavior" values="0=Drops random coins, 1=Spawns mushrooms, 2=UNK" notes="" />
     </sprite>
   </sprites>
 </database>

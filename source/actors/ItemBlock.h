@@ -6,7 +6,7 @@ struct ItemBlock
 {
 	enum type : u8
 	{
-		ACTIVATE_EVENT,
+		DROP_RAND_COINS,
 		MUSHROOM_SPAWNER,
 		GREEN_UNK
 	};
@@ -33,8 +33,7 @@ struct ItemBlock
 
 	Vec3 start_pos;
 
-	u8 size; //Block size
-	fx32 half_size;
+	u8 small; //If block is small
 	u8 color; //Block color
 	u8 type; //What happens on hit
 	s8 direction; //The rotation direction

@@ -48,7 +48,7 @@ void ItemBlock_HitBehavior(ItemBlock* block)
 {
 	switch (block->type)
 	{
-	case ItemBlock::ACTIVATE_EVENT:
+	case ItemBlock::DROP_RAND_COINS:
 		activateEvent(block->info.eventIDs.targetID);
 		SpawnParticle(81, &block->actor.position);
 		Base_deleteIt(block);
@@ -60,11 +60,17 @@ void ItemBlock_HitBehavior(ItemBlock* block)
 		if (block->top_pounded)
 		{
 			spriteData |= 0x60;
-			spawnPos.y -= block->half_size;
 		}
 		else
 		{
-			spawnPos.y += block->half_size - 0x10000;
+			if (block->small)
+			{
+				spawnPos.y += 0x4000;
+			}
+			else
+			{
+				spawnPos.y += 0xC000;
+			}
 		}
 		CreateActor(31, spriteData, &spawnPos, 0, 0, 0);
 		break;
@@ -82,7 +88,7 @@ void ItemBlock_HitExecuteState(ItemBlock* block)
 	}
 	else if (block->exec_step)
 	{
-		bool is_drop_rand = block->type == ItemBlock::ACTIVATE_EVENT;
+		bool is_drop_rand = block->type == ItemBlock::DROP_RAND_COINS;
 		int direction = block->top_pounded ? -1 : 1;
 		if (block->hit_timer < 10 + (is_drop_rand))
 		{
@@ -151,20 +157,32 @@ void ItemBlock_HitFromSide(ItemBlock* block, EnemyActor* collider)
 	}
 }
 
-static SCInput ItemBlock_solidCollisionInput =
+void ItemBlock_SetupCollision(ItemBlock* block)
 {
-	-0x10000, //left
-	0x10000, //top
-	0x10000, //right
-	-0x10000, //bottom
-	(u32*)ItemBlock_HitFromTop, //callbackTop
-	(u32*)ItemBlock_HitFromBottom, //callbackBottom
-	(u32*)ItemBlock_HitFromSide, //callbackSide
-	0, //unk1
-	0, //unk2
-	0, //unk3
-	0 //padding
-};
+	SCInput solid_collision =
+	{
+		solid_collision.left = -0x12000,
+		solid_collision.top = 0x1A000,
+		solid_collision.right = 0x11000,
+		solid_collision.bottom = 0,
+		solid_collision.callbackTop = (u32*)ItemBlock_HitFromTop,
+		solid_collision.callbackBottom = (u32*)ItemBlock_HitFromBottom,
+		solid_collision.callbackSide = (u32*)ItemBlock_HitFromSide,
+		solid_collision.unk1 = 0,
+		solid_collision.unk2 = 0,
+		solid_collision.unk3 = 0,
+		solid_collision.padding = 0
+	};
+	if (block->small)
+	{
+		solid_collision.left = -0xC000;
+		solid_collision.top = 0x13000;
+		solid_collision.right = 0xB000;
+	}
+
+	solidCollisions_init(&block->sollid_collision, block, &solid_collision, 0, 0, 0);
+	solidCollisions_register(&block->sollid_collision);
+}
 
 //MAIN ACTOR START ---------------------------------------------
 
@@ -183,36 +201,36 @@ extern "C"
 		void* model_file = nFS_GetPtrToCachedFile(ModelFileID);
 		model3d_ctor(&block->model);
 		model3d_setup(&block->model, model_file, 0);
+		model3d_init(&block->model);
 		return 1;
 	}
 
 	int ItemBlock_OnCreate(ItemBlock* block)
 	{
-		int tile_size = 0x20 * ((block->size + 9) / 16);
-		block->info.DrawDist.x = tile_size;
-		block->info.DrawDist.y = tile_size;
-
 		u32 sprite_data = block->actor.base.spriteData;
+		block->small = sprite_data & 1;
+		block->direction = (sprite_data & 8) ? 1 : -1;
+		block->color = (sprite_data >> 4) & 0xF;
 		block->type = (sprite_data >> 8) & 0xF;
-		block->color = (sprite_data >> 12) & 0x3;
-		block->direction = ((sprite_data >> 14) & 1) ? 1 : -1;
-		//(sprite_data >> 15) is free for a bool
-		block->size = (sprite_data >> 16) & 0xFF;
-		block->half_size = (block->size * 0x1000) / 2;
 
-		block->actor.scale = (block->size * 0x1000) / 32;
+		bool shift_down = sprite_data & 2;
+		bool shift_right = sprite_data & 4;
+		int shift = block->small ? 0x8000 : 0xC000;
+		if (shift_down)
+		{
+			block->actor.position.y -= shift;
+		}
+		if (shift_right)
+		{
+			block->actor.position.x += shift;
+		}
 
-		fx32 down_shift = sprite_data & 0xF;
-		fx32 right_shift = (sprite_data >> 4) & 0xF;
-		block->actor.position.y -= 0x1000 * down_shift;
-		block->actor.position.x += 0x1000 * right_shift;
-
+		block->info.DrawDist.x = 0x20;
 		block->start_pos = block->actor.position;
-
-		solidCollisions_init(&block->sollid_collision, block, &ItemBlock_solidCollisionInput, 0, 0, &block->actor.scale);
-		solidCollisions_register(&block->sollid_collision);
-
+		block->actor.scale = block->small ? 0x900 : 0xD00;
 		block->rot_timer = 0;
+
+		ItemBlock_SetupCollision(block);
 		ItemBlock_SetExecuteState(block, ItemBlock_RotateExecuteState);
 
 		return 1;
@@ -230,9 +248,7 @@ extern "C"
 
 	int ItemBlock_OnDraw(ItemBlock* block)
 	{
-		Vec3 model_pos = block->actor.position;
-		model_pos.y -= block->half_size;
-		model3d_draw(&block->model, &model_pos, &block->actor.rotation, &block->actor.scale);
+		model3d_draw(&block->model, &block->actor.position, &block->actor.rotation, &block->actor.scale);
 		return 1;
 	}
 
