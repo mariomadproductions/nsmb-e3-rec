@@ -40,6 +40,7 @@ struct ItemBlock
 	s8 direction; //The rotation direction
 
 	u8 top_pounded;
+	u8 being_hit;
 
 	u8 rot_timer;
 	u8 hit_timer;

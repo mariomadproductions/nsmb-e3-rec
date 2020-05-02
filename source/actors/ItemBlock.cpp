@@ -78,6 +78,7 @@ void ItemBlock_HitExecuteState(ItemBlock* block)
 {
 	if (block->exec_step == -1)
 	{
+		block->being_hit = false;
 		block->top_pounded = false;
 	}
 	else if (block->exec_step)
@@ -112,6 +113,7 @@ void ItemBlock_HitExecuteState(ItemBlock* block)
 	else
 	{
 		block->exec_step = 1;
+		block->being_hit = true;
 		block->hit_timer = 0;
 		block->actor.position = block->start_pos;
 	}
@@ -120,7 +122,7 @@ void ItemBlock_HitExecuteState(ItemBlock* block)
 void ItemBlock_HitFromTop(ItemBlock* block, PlayerActor* player)
 {
 	//If not hit by player
-	if (player->actor.actorType != T_PLAYER)
+	if (player->actor.actorType != T_PLAYER || block->being_hit)
 		return;
 
 	if ((player->P.jumpBitfield & GROUNDPOUNDING) && (player->P.currentAnim != 0x15))
@@ -132,8 +134,8 @@ void ItemBlock_HitFromTop(ItemBlock* block, PlayerActor* player)
 
 void ItemBlock_HitFromBottom(ItemBlock* block, PlayerActor* player)
 {
-	//If not hit by player
-	if (player->actor.actorType != T_PLAYER)
+	//If not hit by player or if being hit already
+	if (player->actor.actorType != T_PLAYER || block->being_hit)
 		return;
 
 	ItemBlock_SetExecuteState(block, ItemBlock_HitExecuteState);
@@ -141,6 +143,9 @@ void ItemBlock_HitFromBottom(ItemBlock* block, PlayerActor* player)
 
 void ItemBlock_HitFromSide(ItemBlock* block, EnemyActor* collider)
 {
+	if (block->being_hit)
+		return;
+
 	if ((collider->actor.base.classID == 94) ||
 		(collider->actor.base.classID == 95) ||
 		(collider->actor.base.classID == 54) ||
@@ -212,6 +217,7 @@ extern "C"
 		solidCollisions_init(&block->sollid_collision, block, &ItemBlock_solidCollisionInput, 0, 0, &block->actor.scale);
 		solidCollisions_register(&block->sollid_collision);
 
+		block->being_hit = false;
 		block->rot_timer = 0;
 		ItemBlock_SetExecuteState(block, ItemBlock_RotateExecuteState);
 

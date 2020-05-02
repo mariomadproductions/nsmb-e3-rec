@@ -118,3 +118,6 @@ void repl_020203D0()
 	asm("LDR     R1, =0x0208B37C"); //Restore R1
 }
 void nsub_020203E4() { asm("B 0x020203FC"); }
+
+//Door doesn't play animation
+int repl_021002F0_ov_0A() { return 1; }
