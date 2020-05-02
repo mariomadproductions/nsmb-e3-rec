@@ -209,56 +209,44 @@ static OAMEntry* OAM_GetNumber(bool small, int number)
 	}
 }
 
-static void MyDrawBottomScreenCoinCounter(int playerNo)
+static void OAM_DrawInvCounterDigits(int rect, int value)
 {
-	s32 coinCount = GetCoinsForPlayer(playerNo);
-
 	OAMEntry* digit;
-	if (coinCount < 10)
+	if (value < 10)
 	{
-		OAMEntry* num1 = OAM_GetNumber(false, coinCount);
-		OAM_DrawHUDSubFromLoadedBNCL(6, num1, 0, 0, 0, 0, 0, 0, 0, 6, 1);
+		digit = OAM_GetNumber(false, value);
+		OAM_DrawHUDSubFromLoadedBNCL(rect, digit, 0, 0, 0, 0, 0, 0, 0, 14, 2);
+	}
+	else if (value < 100)
+	{
+		digit = OAM_GetNumber(false, (value % 10));
+		OAM_DrawHUDSubFromLoadedBNCL(rect, digit, 0, 0, 0, 0, 0, 0, 0, 21, 1);
+		digit = OAM_GetNumber(false, (value / 10));
+		OAM_DrawHUDSubFromLoadedBNCL(rect, digit, 0, 0, 0, 0, 0, 0, 0, 7, 3);
 	}
 	else
 	{
-		digit = OAM_GetNumber(false, (coinCount % 10));
-		OAM_DrawHUDSubFromLoadedBNCL(6, digit, 0, 0, 0, 0, 0, 0, 0, 14, 0);
-		digit = OAM_GetNumber(false, (coinCount / 10));
-		OAM_DrawHUDSubFromLoadedBNCL(6, digit, 0, 0, 0, 0, 0, 0, 0, 0, 2);
+		digit = OAM_GetNumber(false, (value % 10));
+		OAM_DrawHUDSubFromLoadedBNCL(rect, digit, 0, 0, 0, 0, 0, 0, 0, 28, 0);
+		digit = OAM_GetNumber(false, ((value / 10) % 10));
+		OAM_DrawHUDSubFromLoadedBNCL(rect, digit, 0, 0, 0, 0, 0, 0, 0, 14, 2);
+		digit = OAM_GetNumber(false, (value / 100));
+		OAM_DrawHUDSubFromLoadedBNCL(rect, digit, 0, 0, 0, 0, 0, 0, 0, 0, 4);
 	}
 }
 
-static void MyDrawBottomScreenTimer()
+static void MyDrawBottomScreenCounters(int playerNo)
 {
+	//Coins
+	s32 coinCount = GetCoinsForPlayer(playerNo);
+	OAM_DrawInvCounterDigits(6, coinCount);
+
+	//Timer
 	fx32 fx32_timeLeft = *(fx32*)0x020CA8B4;
 	u32 timeLeft = FX_Whole(FX_Ceil(fx32_timeLeft));
+	OAM_DrawInvCounterDigits(7, timeLeft);
 
-	OAMEntry* digit;
-	if (timeLeft < 10)
-	{
-		digit = OAM_GetNumber(false, timeLeft);
-		OAM_DrawHUDSubFromLoadedBNCL(7, digit, 0, 0, 0, 0, 0, 0, 0, 14, 2);
-	}
-	else if (timeLeft < 100)
-	{
-		digit = OAM_GetNumber(false, (timeLeft % 10));
-		OAM_DrawHUDSubFromLoadedBNCL(7, digit, 0, 0, 0, 0, 0, 0, 0, 21, 1);
-		digit = OAM_GetNumber(false, (timeLeft / 10));
-		OAM_DrawHUDSubFromLoadedBNCL(7, digit, 0, 0, 0, 0, 0, 0, 0, 7, 3);
-	}
-	else
-	{
-		digit = OAM_GetNumber(false, (timeLeft % 10));
-		OAM_DrawHUDSubFromLoadedBNCL(7, digit, 0, 0, 0, 0, 0, 0, 0, 28, 0);
-		digit = OAM_GetNumber(false, ((timeLeft / 10) % 10));
-		OAM_DrawHUDSubFromLoadedBNCL(7, digit, 0, 0, 0, 0, 0, 0, 0, 14, 2);
-		digit = OAM_GetNumber(false, (timeLeft / 100));
-		OAM_DrawHUDSubFromLoadedBNCL(7, digit, 0, 0, 0, 0, 0, 0, 0, 0, 4);
-	}
-}
-
-static void MyDrawBottomScreenScore(int playerNo)
-{
+	//Score
 	u32 score = GetScoreForPlayer(playerNo);
 
 	int digitCount = 0;
@@ -354,9 +342,7 @@ void repl_020BE60C_ov_00() { asm("MOVNE R8, #0"); } //Luigi head OAM shift
 void nsub_020BFE5C_ov_00(int* stageScene, int playerNo)
 {
 	MyDrawBottomScreenPowerups(stageScene, playerNo);
-	MyDrawBottomScreenCoinCounter(playerNo);
-	MyDrawBottomScreenTimer();
-	MyDrawBottomScreenScore(playerNo);
+	MyDrawBottomScreenCounters(playerNo);
 	MvsLDrawBottomScreenProgressPathIcons(
 		stageScene,
 		stageScene[3 * playerNo + 31] >> 12,

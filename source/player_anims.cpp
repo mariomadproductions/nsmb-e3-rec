@@ -10,7 +10,7 @@
 	nocashPrint1("call: %lr%, anim: %r0%\n", animNo);
 }*/
 
-void repl_02114DFC_ov_0A() { asm("MOV R5, #0x800"); } //Slow down rotation speed
+void repl_02114DFC_ov_0A() { asm("MOV R5, #0xC00"); } //Slow down rotation speed
 
 //Walking transition delay
 void repl_0211667C_ov_0A() {}
