@@ -96,6 +96,8 @@ void repl_020A2230_ov_00() {
 		asm("BL 0x20C1F14");
 }
 
+// MISC 
+
 //Disable goomba/coin drop on Mega Mario ground-pound
 void nsub_0209E038_ov_00() {}
 
@@ -107,3 +109,12 @@ void repl_0209D86C_ov_00() {}
 
 //Mario doesn't look at enemies
 void nsub_020FD544_ov_0A() { asm("B 0x020FD568"); }
+
+//Coins keep incrementing until 999
+void repl_020203D0()
+{
+	asm("LDR     R1, =999");
+	asm("CMP     R0, R1");
+	asm("LDR     R1, =0x0208B37C"); //Restore R1
+}
+void nsub_020203E4() { asm("B 0x020203FC"); }
