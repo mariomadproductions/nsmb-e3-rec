@@ -1,4 +1,5 @@
 #include "nsmb.h"
+#include <cstddef>
 
 // FLAG POLE SHIFT ==================================
 
@@ -43,6 +44,36 @@ void nsub_02012584() { asm("B 0x0201258C"); } //Disable baphs
 // NO SOFT RESET ==================================
 
 void nsub_0201364C_main() { asm("B 0x201368C"); }
+
+// MEGA GOOMBA ===================================
+
+//Instant growth
+/*void nsub_02131468_ov_0E()
+{
+	asm("MOV     R1, #1");
+	asm("STRH    R1, [R0,#0xA8]");
+	asm("B       0x213146C");
+}*/
+
+void hook_021315C4_ov_0E()
+{
+	if (!isEventActive(48))
+		return;
+
+	for (int i = 0; i < GetPlayerCount(); i++)
+	{
+		PlayerActor* player = GetPtrToPlayerActorByID(i);
+		player->P.miscActionsBitfield |= 0x80;
+		player->actor.collisionBitfield = 0;
+	}
+}
+void hook_02131604_ov_0E()
+{
+	for (int i = 0; i < GetPlayerCount(); i++)
+	{
+		PlayerActor_freeze(GetPtrToPlayerActorByID(i), true);
+	}
+}
 
 // MULTIPLAYER ===================================
 
@@ -96,7 +127,7 @@ void repl_020A2230_ov_00() {
 		asm("BL 0x20C1F14");
 }
 
-// MISC 
+// MISC ===================================
 
 //Disable goomba/coin drop on Mega Mario ground-pound
 void nsub_0209E038_ov_00() {}
@@ -119,5 +150,5 @@ void repl_020203D0()
 }
 void nsub_020203E4() { asm("B 0x020203FC"); }
 
-//Door doesn't play animation
-int repl_021002F0_ov_0A() { return 1; }
+void repl_0215E850_ov_36() {} //Do not load doors
+int repl_021002F0_ov_0A() { return 1; } //Door doesn't play animation

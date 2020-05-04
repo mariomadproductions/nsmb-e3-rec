@@ -363,7 +363,7 @@ getUnk3ForView = 0x201F0F4;
 getUnk2ForView = 0x201F118;
 getUnk1ForView = 0x201F13C;
 getCameraIdForView = 0x201F160;
-getPtrToViewById = 0x201F184;
+GetPtrToViewByID = 0x201F184;
 getBlock4PointerById = 0x201F220;
 getBlock3PointerById = 0x201F280;
 getBlock2PointerById = 0x201F2E0;
@@ -2629,6 +2629,7 @@ RedCoinRing_checkAgainstPosition = 0x021532BC;
 RedCoinRing_checkIfTouched = 0x02153370;
 NSMB_LoadOrUnloadSpriteSetOverlays = 0x0200DEE0;
 SpawnAndEndParticle = 0x02022890;
+GetPtrToZoneByID = 0x0201EEF8;
 
 DrawBottomScreenPowerups = 0x020BE828;
 DrawBottomScreenLevelNumbers = 0x020BEEF0;

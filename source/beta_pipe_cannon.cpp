@@ -49,3 +49,16 @@ void nsub_02098B08_ov_00()
 
 // Fix pipe cannon desync
 void nsub_020F8230_ov_0A() { asm("B 0x020F823C"); }
+
+/*void hook_020FD1DC_ov_0A(PlayerActor* player)
+{
+	//cout << "player->P.movementStateFunc: " << player->P.movementStateFunc << "\n";
+	//cout << "player->P.movementStateStep: " << player->P.movementStateStep << "\n";
+
+	if (player->P.ButtonsPressed & PAD_BUTTON_B)
+	{
+		//*(int*)0x0208B334 = 60;
+		player->P.powerupStateCurrent = 4;
+		player->P.powerupStateOld = 4;
+	}
+}*/

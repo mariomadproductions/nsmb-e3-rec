@@ -143,7 +143,8 @@ static void MyDrawBottomScreenPowerups(int* stageScene, int playerNo)
 		}
 		else
 		{
-			if (stageScene[playerNo + 8] && somePlayerDropStateCondition)
+			bool showTouch = !(((u8*)0x0208B098)[playerNo] & 1);
+			if (stageScene[playerNo + 8] && somePlayerDropStateCondition && showTouch)
 				OAM_DrawHUDSubFromLoadedBNCL(3 + i, oam_touchI, 0, 0, 0, 0, 0, 0, 0, xOff, yOff);
 
 			scale = &((Vec2*)0x020CC14C)[playerNo];
