@@ -100,6 +100,42 @@ typedef struct Entrance {
 	u8 destWorldMapNode; // on current world map; destWorld value is ignored
 } Entrance;
 
+typedef struct View
+{
+	u16 x;
+	u16 y;
+	u16 width;
+	u16 height;
+	u8 id;
+	u8 camID;
+	u8 musicID;
+	u8 unk1;
+	u8 unk2;
+	u8 unk3;
+	u8 lightingID;
+	u8 progressPathID;
+} View;
+
+typedef struct Zone
+{
+	u16 x;
+	u16 y;
+	u16 width;
+	u16 height;
+	u8 id;
+	u8 field_9;
+	u8 field_A;
+	u8 field_B;
+} Zone;
+
+typedef struct FxRectangle
+{
+	fx32 x;
+	fx32 y;
+	fx32 width;
+	fx32 height;
+} FxZone;
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -195,6 +231,12 @@ extern "C" {
 
 	// Spawns a coin particle at a position
 	void SpawnCoinParticle(fx32 x, fx32 y, fx32 z);
+
+	// Gets the pointer to a view (also gets the area if not null)
+	View* GetPtrToViewByID(u8 id, FxRectangle* area);
+
+	// Gets the pointer to a zone (also gets the area if not null)
+	Zone* GetPtrToZoneByID(u8 id, FxRectangle* area);
 
 	// Returns a random number
 	int RNG();

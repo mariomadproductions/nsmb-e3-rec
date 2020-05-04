@@ -242,24 +242,9 @@ typedef struct PlayerActorOnly
 	u8					enteringAnEntrance;
 	u8					virt64switch;
 	u8					unk7AA;
-#ifdef __cplusplus
-	Powerup
-#else
-	u8
-#endif
-		powerupStateCurrent;
-#ifdef __cplusplus
-	Powerup
-#else
-	u8
-#endif
-		powerupStateOld;
-#ifdef __cplusplus
-	Powerup
-#else
-	u8
-#endif
-		powerupStateStart;
+	u8					powerupStateCurrent;
+	u8					powerupStateOld;
+	u8					powerupStateStart;
 	u8					unk7AE;
 	u8					unk7AF;
 	u8					virt64thing;
