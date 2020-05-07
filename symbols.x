@@ -2630,6 +2630,8 @@ RedCoinRing_checkIfTouched = 0x02153370;
 NSMB_LoadOrUnloadSpriteSetOverlays = 0x0200DEE0;
 SpawnAndEndParticle = 0x02022890;
 GetPtrToZoneByID = 0x0201EEF8;
+SetSpriteAtPosUsed = 0x020CDB80;
+GetSpriteAtPosUsed = 0x020CDC4C;
 
 DrawBottomScreenPowerups = 0x020BE828;
 DrawBottomScreenLevelNumbers = 0x020BEEF0;
@@ -2698,6 +2700,7 @@ getSelectedMvsLLevel = 0x222A2A0;
 enterEntrance = 0x021195E8;
 model3d_ctor = 0x2019A30;
 model3d_setup = 0x2019948;
+model3d_dtor = 0x02019A10;
 modelAnim3d_ctor = 0x2019644;
 modelAnim3d_setup = 0x2019530;
 modelAnim3d_setAnimation = 0x2019440;
@@ -2792,6 +2795,7 @@ enemyActor_anotherTileBehavior = 0x020990D4;
 enemyActor_shellReboundRelated = 0x02099040;
 enemyActor_deleteIfOutOfRange = 0x0209ADB0;
 enemyActor_dropCoin = 0x0209D694;
+enemyActor_delete = 0x02099884;
 
 NSBTXsetup = 0x020f5f90;
 

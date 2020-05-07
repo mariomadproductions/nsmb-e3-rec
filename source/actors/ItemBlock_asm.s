@@ -59,7 +59,7 @@ ItemBlock_vtable:
 	.long base_willBeDeleted
 	.long base_moreHeapShit
 	.long base_createHeap
-	.long ItemBlock_heapCreated
+	.long base_heapCreated @ItemBlock_heapCreated
 	.long unknown_dtor
 	.long unknown_dtorFree
 	.long actor_getSomething
@@ -114,8 +114,8 @@ ItemBlock_vtable:
 	
 ItemBlock_Profile:
 	.int   ItemBlock_ctor
-	.short 0xFB
-	.short 0x69
+	.short 0xFD
+	.short 0x6C
 	.int   ItemBlock_loadFiles
 	.int   0
 	.int   0

@@ -82,6 +82,7 @@ extern "C"
 	// Functions for Models without animation
 	void model3d_ctor(Model3d* model);
 	BOOL model3d_setup(Model3d* model, void* modelFile, u32 modelId);
+	void model3d_dtor(Model3d* model);
 
 	// Functions for Models with character animation
 	// These functions call all above functions (model3d)

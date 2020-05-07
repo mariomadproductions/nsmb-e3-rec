@@ -1,19 +1,32 @@
 #include "ItemBlock.h"
-#include <stdarg.h>
 
-const u32 ModelFileID = 1212 - 131;
+const u32 ModelFileID[] = { 1212 - 131, 1213 - 131, 1214 - 131 };
 
 void ItemBlock_SetExecuteState(ItemBlock* block, void (*exec_func)(ItemBlock*))
 {
 	if (block->exec_func != exec_func)
 	{
-		block->exec_step = -1;
-		block->exec_func(block);
+		if (block->exec_func)
+		{
+			block->exec_step = -1;
+			block->exec_func(block);
+		}
 
 		block->exec_func = exec_func;
 
 		block->exec_step = 0;
 		block->exec_func(block);
+	}
+}
+
+void ItemBlock_SetColor(ItemBlock* block, int color, bool setup = false)
+{
+	if (block->color != color || setup)
+	{
+		block->color = color;
+		void* model_file = nFS_GetPtrToCachedFile(ModelFileID[block->color]);
+		model3d_ctor(&block->model);
+		model3d_setup(&block->model, model_file, 0);
 	}
 }
 
@@ -50,27 +63,48 @@ void ItemBlock_HitBehavior(ItemBlock* block)
 	{
 	case ItemBlock::ACTIVATE_EVENT:
 		activateEvent(block->info.eventIDs.targetID);
-		SpawnParticle(81, &block->actor.position);
-		Base_deleteIt(block);
 		break;
-	case ItemBlock::MUSHROOM_SPAWNER:
+	case ItemBlock::ITEM_SPAWNER:
 	{
 		Vec3 spawnPos = block->actor.position;
-		int spriteData = 3;
+		int spriteData = block->item;
 		if (block->top_pounded)
 		{
-			spriteData |= 0x60;
+			if (!block->puffs)
+			{
+				spriteData |= 0x60;
+			}
 			spawnPos.y -= block->half_size;
 		}
 		else
 		{
 			spawnPos.y += block->half_size - 0x10000;
 		}
+		if (block->puffs)
+		{
+			spriteData |= 0x1000000;
+			spawnPos.y += 192 << 12;
+		}
 		CreateActor(31, spriteData, &spawnPos, 0, 0, 0);
 		break;
 	}
-	case ItemBlock::GREEN_UNK:
+	default:
 		break;
+	}
+
+	if (block->single_use)
+	{
+		if (block->puffs)
+		{
+			SpawnParticle(81, &block->actor.position);
+			enemyActor_delete(block, 1);
+		}
+		else
+		{
+			block->type = ItemBlock::DOES_NOTHING;
+			ItemBlock_SetColor(block, ItemBlock::GREEN);
+			SetSpriteAtPosUsed(block->init_pos.x, block->init_pos.y, 1);
+		}
 	}
 }
 
@@ -83,12 +117,11 @@ void ItemBlock_HitExecuteState(ItemBlock* block)
 	}
 	else if (block->exec_step)
 	{
-		bool is_drop_rand = block->type == ItemBlock::ACTIVATE_EVENT;
 		int direction = block->top_pounded ? -1 : 1;
-		if (block->hit_timer < 10 + (is_drop_rand))
+		if ((block->hit_timer < 10) + (block->puffs))
 		{
 			block->actor.position.y += 0x1000 * direction;
-			if (block->hit_timer == 10 && is_drop_rand)
+			if ((block->hit_timer == 10) && block->puffs)
 			{
 				goto hit_behavior;
 			}
@@ -179,40 +212,44 @@ extern "C"
 
 	int ItemBlock_loadFiles()
 	{
-		nFS_LoadFileByIDToCache(ModelFileID, false);
-		return 1;
-	}
-
-	int ItemBlock_heapCreated(ItemBlock* block)
-	{
-		void* model_file = nFS_GetPtrToCachedFile(ModelFileID);
-		model3d_ctor(&block->model);
-		model3d_setup(&block->model, model_file, 0);
+		nFS_LoadFileByIDToCache(ModelFileID[0], false);
+		nFS_LoadFileByIDToCache(ModelFileID[1], false);
+		nFS_LoadFileByIDToCache(ModelFileID[2], false);
 		return 1;
 	}
 
 	int ItemBlock_OnCreate(ItemBlock* block)
 	{
+		ItemBlock::sprite_data* sprite_data = (ItemBlock::sprite_data*)&block->actor.base.spriteData;
+		block->type = sprite_data->type;
+		block->color = sprite_data->color;
+		block->direction = sprite_data->direction ? 1 : -1;
+		block->size = sprite_data->size;
+		block->item = sprite_data->item;
+		block->single_use = sprite_data->single_use;
+		block->puffs = sprite_data->puffs;
+		block->half_size = (block->size * 0x1000) / 2;
+
 		int tile_size = 0x20 * ((block->size + 9) / 16);
 		block->info.DrawDist.x = tile_size;
 		block->info.DrawDist.y = tile_size;
 
-		u32 sprite_data = block->actor.base.spriteData;
-		block->type = (sprite_data >> 8) & 0xF;
-		block->color = (sprite_data >> 12) & 0x3;
-		block->direction = ((sprite_data >> 14) & 1) ? 1 : -1;
-		//(sprite_data >> 15) is free for a bool
-		block->size = (sprite_data >> 16) & 0xFF;
-		block->half_size = (block->size * 0x1000) / 2;
-
+		block->init_pos = block->actor.position;
+		if (GetSpriteAtPosUsed(block->init_pos.x, block->init_pos.y))
+		{
+			block->color = ItemBlock::GREEN;
+			block->type = ItemBlock::DOES_NOTHING;
+		}
 		block->actor.scale = (block->size * 0x1000) / 32;
 
-		fx32 down_shift = sprite_data & 0xF;
-		fx32 right_shift = (sprite_data >> 4) & 0xF;
+		fx32 down_shift = sprite_data->down_shift;
+		fx32 right_shift = sprite_data->right_shift;
 		block->actor.position.y -= 0x1000 * down_shift;
 		block->actor.position.x += 0x1000 * right_shift;
 
 		block->start_pos = block->actor.position;
+
+		ItemBlock_SetColor(block, block->color, true);
 
 		solidCollisions_init(&block->sollid_collision, block, &ItemBlock_solidCollisionInput, 0, 0, &block->actor.scale);
 		solidCollisions_register(&block->sollid_collision);
@@ -226,11 +263,11 @@ extern "C"
 
 	int ItemBlock_OnExecute(ItemBlock* block)
 	{
-		if (enemyActor_deleteIfOutOfRange(block, 0))
-			return 1;
-
-		block->exec_func(block);
-
+		if (!block->info.executeThisState)
+		{
+			block->exec_func(block);
+		}
+		enemyActor_deleteIfOutOfRange(block, 0);
 		return 1;
 	}
 

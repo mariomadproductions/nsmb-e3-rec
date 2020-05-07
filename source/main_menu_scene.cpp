@@ -5,8 +5,13 @@ static u8& SelectedButton = *(u8*)0x020DBB84;
 static u8& ButtonClicked = *(u8*)0x020DBB85;
 static BOOL& isFirstExecute = *(BOOL*)0x020DBBA0;
 
-static void InitTopScreen()
+void MainMenuScene_InitTopScreen()
 {
+	GX_ResetBankForSubBG();
+	GX_ResetBankForSubOBJ();
+	GX_ResetBankForSubBGExtPltt();
+	GX_ResetBankForSubOBJExtPltt();
+
 	GXS_SetGraphicsMode(GX_BGMODE_0);
 	GX_SetBankForSubBG(GX_VRAM_SUB_BG_128_C);
 
@@ -30,8 +35,16 @@ static void InitTopScreen()
 	GXS_SetVisiblePlane(GX_PLANEMASK_BG2);
 }
 
-static void InitBottomScreen()
+void MainMenuScene_InitBottomScreen()
 {
+	GX_ResetBankForBG();
+	GX_ResetBankForOBJ();
+	GX_ResetBankForBGExtPltt();
+	GX_ResetBankForOBJExtPltt();
+	GX_ResetBankForTex();
+	GX_ResetBankForTexPltt();
+	GX_ResetBankForClearImage();
+
 	//INIT
 	GX_SetGraphicsMode(GX_DISPMODE_GRAPHICS, GX_BGMODE_0, GX_BG0_AS_2D);
 	GX_SetBankForBG(GX_VRAM_BG_128_D);
@@ -66,15 +79,14 @@ static void InitBottomScreen()
 //OnCreate
 int nsub_020D3570_ov_09()
 {
-	WiFi_Init();
-
 	int lastSceneId = *(int*)0x0203BD2C;
 	SetSceneFadingArguments(SCENE_INFO, 0, lastSceneId == 0, 0);
 
+	cout << lastSceneId << "\n";
 	if (lastSceneId != 0)
 	{
 		GX_SetDispSelect(GX_DISP_SELECT_SUB_MAIN);
-		InitTopScreen();
+		MainMenuScene_InitTopScreen();
 	}
 	else
 	{
@@ -82,7 +94,7 @@ int nsub_020D3570_ov_09()
 		*screensToFade = 1;
 	}
 
-	InitBottomScreen();
+	MainMenuScene_InitBottomScreen();
 
 	//Music_ClearAndLoadSeqWithSoundset(99, 0);
 	//Music_PlaySeq(99, 0);
@@ -99,7 +111,7 @@ int nsub_020D3570_ov_09()
 
 extern "C" void SetInventoryPowerupForPlayerSlot(int playerNo, int slot, u8 value);
 
-static void buttonClicked()
+void MainMenuScene_onButtonClicked()
 {
 	ButtonClicked = true;
 
@@ -180,12 +192,12 @@ int nsub_020D339C_ov_09()
 	if (rect != -1)
 	{
 		SelectedButton = rect;
-		buttonClicked();
+		MainMenuScene_onButtonClicked();
 	}
 
 	if (nkeysDown[0] & PAD_BUTTON_A)
 	{
-		buttonClicked();
+		MainMenuScene_onButtonClicked();
 	}
 	if (nkeysDown[0] & PAD_BUTTON_B)
 	{
@@ -227,8 +239,10 @@ void nsub_020CC730_ov_01() { asm("B 0x020CC738"); } //Boot scene fades out to wh
 void nsub_020CCBF0_ov_01() { asm("B 0x020CCD8C"); }
 void repl_020CCD8C_ov_01()
 {
+	WiFi_Init();
+
 	GX_SetDispSelect(GX_DISP_SELECT_SUB_MAIN);
-	InitTopScreen();
+	MainMenuScene_InitTopScreen();
 
 	G2_SetBG2ControlText(GX_BG_SCRSIZE_TEXT_256x256, GX_BG_COLORMODE_16, GX_BG_SCRBASE_0x0000, GX_BG_CHARBASE_0x04000);
 	nFS_LoadLZ77FileByIDToDest(1209, (u8*)G2_GetBG2CharPtr());
@@ -261,7 +275,11 @@ void repl_020CC720_ov_01()
 	{
 		u8* screensToFade = (u8*)SCENE_INFO + 1468;
 		*screensToFade = 1;
-		ChangeToScene(4, 0);
+		ChangeToScene(MAIN_MENU_SCENE, 0);
+	}
+	else if (*nkeysDown & PAD_BUTTON_B)
+	{
+		ChangeToScene(MvsL_MAIN_MENU_SCENE, 0);
 	}
 }
 
