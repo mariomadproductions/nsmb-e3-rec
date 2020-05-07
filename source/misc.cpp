@@ -152,3 +152,6 @@ void nsub_020203E4() { asm("B 0x020203FC"); }
 
 void repl_0215E850_ov_36() {} //Do not load doors
 int repl_021002F0_ov_0A() { return 1; } //Door doesn't play animation
+
+//Disable shoulder buttons
+void nsub_020BA038_ov_00() { asm("LDMFD SP!, {R4-R8,PC}"); }

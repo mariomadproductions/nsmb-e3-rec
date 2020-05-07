@@ -12,21 +12,21 @@
 ///////////////////////////////////////////////////
 ///////////////////////////////////////////////////
 
-#define RED		(0xFF0000)
-#define GREEN	(0x00FF00)
-#define BLUE	(0x0000FF)
+#define RGB_RED		(0xFF0000)
+#define RGB_GREEN	(0x00FF00)
+#define RGB_BLUE	(0x0000FF)
 
-#define YELLOW	(0xFFFF00)
-#define CYAN	(0x00FFFF)
-#define MAGENTA	(0xFF00FF)
+#define RGB_YELLOW	(0xFFFF00)
+#define RGB_CYAN	(0x00FFFF)
+#define RGB_MAGENTA	(0xFF00FF)
 
-#define BLACK	(0x000000)
-#define GREY	(0x7F7F7F)
-#define WHITE	(0xFFFFFF)
+#define RGB_BLACK	(0x000000)
+#define RGB_GREY	(0x7F7F7F)
+#define RGB_WHITE	(0xFFFFFF)
 
-#define ORANGE	(0xFF7F00)
-#define PINK	(0xFF7FFF)
-#define AQUA	(0x7FFFFF)
+#define RGB_ORANGE	(0xFF7F00)
+#define RGB_PINK	(0xFF7FFF)
+#define RGB_AQUA	(0x7FFFFF)
 
 ///////////////////////////////////////////////////
 ///////////////////////////////////////////////////

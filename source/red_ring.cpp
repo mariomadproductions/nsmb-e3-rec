@@ -25,6 +25,15 @@ bool repl_0212B338_ov_0B(int playerNo, int lives) //Implement new system
 		return true; //Respawn
 	}
 }
+void repl_021188C4_ov_0A()
+{
+	if (GetPlayerCount() == 1)
+	{
+		u16* block1ptr = *(u16**)0x0208B168;
+		int* timeLeft = (int*)0x020CA8B4;
+		*timeLeft = block1ptr[2] << 12;
+	}
+}
 
 void nsub_0211C470_ov_0A() { asm("B 0x0211C580"); } //No pipe entrance on respawn
 

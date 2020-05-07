@@ -238,6 +238,12 @@ extern "C" {
 	// Gets the pointer to a zone (also gets the area if not null)
 	Zone* GetPtrToZoneByID(u8 id, FxRectangle* area);
 
+	// Gets the sprite respawn argument
+	u16 GetSpriteAtPosUsed(fx32 x, fx32 y);
+
+	// Sets the sprite respawn argument
+	void SetSpriteAtPosUsed(fx32 x, fx32 y, u16 used);
+
 	// Returns a random number
 	int RNG();
 
