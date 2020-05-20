@@ -145,8 +145,8 @@ typedef struct {
 	u32* virt33;
 	u32* virt34;
 	u32* virt35;
-	u32* virt36;
-	u32(*virt37)(...);
+	u32 (*virt36)(...);
+	u32 (*virt37)(...);
 	u32* virt38;
 	u32* virt39;
 	u32* execAllStates;

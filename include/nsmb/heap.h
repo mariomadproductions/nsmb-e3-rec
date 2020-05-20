@@ -2,7 +2,7 @@
 
 #include "nitro/types.h"
 
-#define CURRENT_HEAP ((void*)0x0208B72C)
+#define CURRENT_HEAP ((void**)0x0208B72C)
 #define TEMPFILE_HEAP ((void*)0x0208B730)
 
 #ifdef __cplusplus

@@ -96,7 +96,7 @@ void ItemBlock_HitBehavior(ItemBlock* block)
 	{
 		if (block->puffs)
 		{
-			SpawnParticle(81, &block->actor.position);
+			SpawnParticle(202, &block->actor.position);
 			enemyActor_delete(block, 1);
 		}
 		else
@@ -240,7 +240,7 @@ extern "C"
 			block->color = ItemBlock::GREEN;
 			block->type = ItemBlock::DOES_NOTHING;
 		}
-		block->actor.scale = (block->size * 0x1000) / 32;
+		block->actor.scale = /*(block->size * 0x1000) / 32*/(block->size << 7);
 
 		fx32 down_shift = sprite_data->down_shift;
 		fx32 right_shift = sprite_data->right_shift;
@@ -273,9 +273,7 @@ extern "C"
 
 	int ItemBlock_OnDraw(ItemBlock* block)
 	{
-		Vec3 model_pos = block->actor.position;
-		model_pos.y -= block->half_size;
-		model3d_draw(&block->model, &model_pos, &block->actor.rotation, &block->actor.scale);
+		model3d_draw(&block->model, &block->actor.position, &block->actor.rotation, &block->actor.scale);
 		return 1;
 	}
 

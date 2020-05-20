@@ -2047,6 +2047,8 @@ BGActor_animateTiles = 0x20B67A8;
 animateGhostHouseTileset = 0x20B6ECC;
 animateDesertTileset = 0x20B7264;
 animateCastleTileset = 0x20B76C4;
+BGActor_animateBrickBlocks = 0x20B807C;
+BGActor_animateQuestionBlocks = 0x20B7FE4;
 BGActor_animateCoins = 0x20B8364;
 doSomeBgCameraThings = 0x20B88BC;
 computeTopBgScrolling = 0x20B9158;
@@ -2632,6 +2634,8 @@ SpawnAndEndParticle = 0x02022890;
 GetPtrToZoneByID = 0x0201EEF8;
 SetSpriteAtPosUsed = 0x020CDB80;
 GetSpriteAtPosUsed = 0x020CDC4C;
+InitBGDat = 0x020B3924;
+GetStartEntranceIDForPlayer = 0x0201F518;
 
 DrawBottomScreenPowerups = 0x020BE828;
 DrawBottomScreenLevelNumbers = 0x020BEEF0;

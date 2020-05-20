@@ -82,7 +82,6 @@ int nsub_020D3570_ov_09()
 	int lastSceneId = *(int*)0x0203BD2C;
 	SetSceneFadingArguments(SCENE_INFO, 0, lastSceneId == 0, 0);
 
-	cout << lastSceneId << "\n";
 	if (lastSceneId != 0)
 	{
 		GX_SetDispSelect(GX_DISP_SELECT_SUB_MAIN);

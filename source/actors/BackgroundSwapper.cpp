@@ -131,7 +131,7 @@ void BackgroundSwapper_DoSwapping(BackgroundSwapper* bgSwapper)
 
 	int visiblePlane = GX_GetVisiblePlane();
 	GX_SetVisiblePlane(
-		(visiblePlane & ~(GX_PLANEMASK_BG0 | GX_PLANEMASK_BG1 | GX_PLANEMASK_BG2)) &
+		(visiblePlane & ~(GX_PLANEMASK_BG0 | GX_PLANEMASK_BG1 | GX_PLANEMASK_BG2)) |
 		((GX_PLANEMASK_BG0 * swapTS) | (GX_PLANEMASK_BG1 * swapBG) | (GX_PLANEMASK_BG2 * swapFG))
 	);
 

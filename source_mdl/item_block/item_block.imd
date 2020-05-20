@@ -5,10 +5,10 @@
       <generator name="Nitro plugin for Blender 2.8" version="0.0.1"/>
    </head>
    <body>
-      <model_info compress_material="off" compress_node="unite_combine" force_full_weight="on" magnify="1.000000" material_size="1 1" node_size="2 1" output_texture="used" pos_scale="3" scaling_rule="standard" tex_matrix_mode="maya" tool_start_frame="1" use_primitive_strip="on" vertex_style="direct"/>
-      <box_test pos_scale="3" whd="4.0 4.0 4.0" xyz="-2.0 0.0 -2.0"/>
+      <model_info compress_material="off" compress_node="unite_combine" force_full_weight="on" magnify="1.000000" material_size="1 1" node_size="2 1" output_texture="used" pos_scale="2" scaling_rule="standard" tex_matrix_mode="maya" tool_start_frame="1" use_primitive_strip="on" vertex_style="direct"/>
+      <box_test pos_scale="3" whd="4.0 4.0 4.0" xyz="-2.0 -2.0 -2.0"/>
       <tex_image_array size="1">
-         <tex_image format="a3i5" height="64" index="0" name="item_block" original_height="64" original_width="32" palette_name="item_block_b_pl" path="C:\Users\tiago\source\repos\nsmb-SDK\source_mdl\item_block\nitro_tga\item_block_b_pl.tga" width="32">
+         <tex_image format="a3i5" height="64" index="0" name="item_block_b_pl" original_height="64" original_width="32" palette_name="item_block_b_pl" path="C:\Users\tiago\source\repos\nsmb-SDK\source_mdl\item_block\nitro_tga\item_block_b_pl.tga" width="32">
             <bitmap size="1024">e0e0 e0e0 e1e1 e1e1 e0e1 e0e0 e0e0 e1e1 e1e1 e0e0 e0e0 e1e0 e1e1 e1e1 e0e0 e0e0 e0e0 e0e0 e1e1 e1e1 e0e1 e0e0 e0e0 e1e1 e1e1 e0e0 e0e0 e1e0 e1e1 e1e1 e0e0 e0e0 e0e0 e0e0 e1e1 e1e1 e0e1 e0e0 e0e0 e1e1 e1e1 e0e0 e0e0 e1e0 e1e1 e1e1 e0e0 e0e0 e0e0 e0e0 e1e1 e1e1 e0e1 e0e0 e0e0 e1e1 e1e1 e0e0 e0e0 e1e0 e1e1 e1e1 e0e0 e0e0 e1e1 e1e1 fee4 e4e4 e4e4 e4e4 e4e4 e4e4 e4e4 e4e4 e4e4 e4e4 e4e4 f4e4 e1e1 e1e1 e1e1 e1e1 fdfe e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 f4e0 e1e3 e1e1 e1e1 e1e1 fdfe e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 f4e0 e1e3 e1e1 e1e1 e1e1 fdfe e0e0 e0e0 e0e0 e0e0 e1f8 f0e1 e0e0 e0e0 e0e0 e0e0 f4e0 e1e3 e1e1 e1e1 e1e1 fdfe e0e0 e0e0 e0e0 e1e0 e1e1 e1e1 e0e7 e0e0 e0e0 e0e0 f4e0 e1e3 e1e1 e0e0 e0e0 fdfe e0e0 e0e0 e0e0 e1e1 e1e1 e1e1 e0e1 e0e0 e0e0 e0e0 f4e0 e0fd e0e0 e0e0 e0e0 fdfe e0e0 e0e0 e0e0 e1e1 e1e1 e1e1 e7e1 e0e0 e0e0 e0e0 f4e0 e0fd e0e0 e0e0 e0e0 fdfe e0e0 e0e0 e0e0 e1e1 e1e1 e1e1 e7e1 e0e0 e0e0 e0e0 f4e0 e0fd e0e0 e0e0 e0e0 fdfe e0e0 e0e0 e0e0 e1e1 e1e1 e1e1 e7e1 e0e0 e0e0 e0e0 f4e0 e0fd e0e0 e0e0 e0e0 fdfe e0e0 e0e0 e0e0 e1e3 e1e1 e1e1 e0e1 e0e0 e0e0 e0e0 f4e0 e0fd e0e0 e1e1 e1e1 fdfe e0e0 e0e0 e0e0 e1ef e1e1 e1e1 e0e1 e0e0 e0e0 e0e0 f4e0 e1e3 e1e1 e1e1 e1e1 fdfe e0e0 e0e0 e0e0 e1e0 e1e1 e1e1 e0f8 e0e0 e0e0 e0e0 f4e0 e1e3 e1e1 e1e1 e1e1 fdfe e0e0 e0e0 e0e0 e1e0 e1e1 e1e1 e0e7 e0e0 e0e0 e0e0 f4e0 e1e3 e1e1 e1e1 e1e1 fdfe e0e0 e0e0 e0e0 f8e0 e1e1 e1e1 e0e0 e0e0 e0e0 e0e0 f4e0 e1e3 e1e1 e0e0 e0e0 fdfe e0e0 e0e0 e0e0 efe0 e1e1 e1e1 e0e0 e0e0 e0e0 e0e0 f4e0 e0fd e0e0 e0e0 e0e0 fdfe e0e0 e0e0 e0e0 e0e0 e1ef efe1 e0e0 e0e0 e0e0 e0e0 f4e0 e0fd e0e0 e0e0 e0e0 fdfe e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 f4e0 e0fd e0e0 e0e0 e0e0 fdfe e0e0 e0e0 e0e0 e0e0 e1e0 e0f7 e0e0 e0e0 e0e0 e0e0 f4e0 e0fd e0e0 e0e0 e0e0 fdfe e0e0 e0e0 e0e0 e0e0 e1e1 eee1 e0e0 e0e0 e0e0 e0e0 f4e0 e0fd e0e0 e1e1 e1e1 fdfe e0e0 e0e0 e0e0 f7e0 e1e1 e1e1 e0e0 e0e0 e0e0 e0e0 f4e0 e1e3 e1e1 e1e1 e1e1 fde4 e0e0 e0e0 e0e0 e0e0 e1e1 efe1 e0e0 e0e0 e0e0 e0e0 f4e0 e1e3 e1e1 e1e1 e1e1 fde4 e0e0 e0e0 e0e0 e0e0 f0e0 e0ef e0e0 e0e0 e0e0 e0e0 f4e0 e1e3 e1e1 e1e1 e1e1 fde4 f0f0 f0f0 f0f0 f0f0 f0f0 efef efef f0f0 f0f0 f0f0 f4f0 e1e3 e1e1 e1e1 e1e1 e4e4 e4e4 e4e4 e4e4 e4e4 e4e4 e4e4 e4e4 e4e4 e4e4 e4e4 f4e4 e1e1 e1e1 e0e0 e0e0 e1e1 e1e1 e0e1 e0e0 e0e0 e1e1 e1e1 e0e0 e0e0 e1e0 e1e1 e1e1 e0e0 e0e0 e0e0 e0e0 e1e1 e1e1 e0e1 e0e0 e0e0 e1e1 e1e1 e0e0 e0e0 e1e0 e1e1 e1e1 e0e0 e0e0 e0e0 e0e0 e1e1 e1e1 e0e1 e0e0 e0e0 e1e1 e1e1 e0e0 e0e0 e1e0 e1e1 e1e1 e0e0 e0e0 e0e0 e0e0 e1e1 e1e1 e0e1 e0e0 e0e0 e1e1 e1e1 e0e0 e0e0 e1e0 e1e1 e1e1 e0e0 e0e0 e0e0 e0e0 e1e1 e1e1 e0e1 e0e0 e0e0 e1e1 e1e1 e0e0 e0e0 e1e0 e1e1 e1e1 e0e0 e0e0 e0e0 e0e0 e1e1 e1e1 e0e1 e0e0 e0e0 e1e1 e1e1 e0e0 e0e0 e1e0 e1e1 e1e1 e0e0 e0e0 e0e0 e0e0 e1e1 e1e1 e0e1 e0e0 e0e0 e1e1 e1e1 e0e0 e0e0 e1e0 e1e1 e1e1 e0e0 e0e0 e0e0 e0e0 e1e1 e3e3 fde3 fdfd fdfd e3e3 e3e3 fcfc fdfd e3fd e3e3 e1e3 e0e0 e0e0 e1e1 e1e1 f2e2 e2e2 e2e2 e2e2 e2e2 e2e2 e2e2 e2e2 e2e2 e2e2 e2e2 e5e2 e1e1 e1e1 e1e1 e1e1 fdf2 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 ece0 e1e3 e1e1 e1e1 e1e1 fdf2 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e5e0 e1e3 e1e1 e1e1 e1e1 fdf2 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e5e0 e1e3 e1e1 e1e1 e1e1 fdf2 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e5e0 e1e3 e1e1 e0e0 e0e0 fdf2 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e5e0 e0fd e0e0 e0e0 e0e0 fdf2 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e5e0 e0fd e0e0 e0e0 e0e0 fdf2 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e5e0 e0fd e0e0 e0e0 e0e0 fdf2 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e5e0 e0fd e0e0 e0e0 e0e0 fdf2 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e5e0 e0fd e0e0 e1e1 e1e1 fdf2 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e5e0 e1e3 e1e1 e1e1 e1e1 fdf2 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e5e0 e1e3 e1e1 e1e1 e1e1 fdf2 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e5e0 e1e3 e1e1 e1e1 e1e1 fdf2 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e5e0 e1e3 e1e1 e0e0 e0e0 fdf2 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e5e0 e0fd e0e0 e0e0 e0e0 fdf2 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e5e0 e0fd e0e0 e0e0 e0e0 fdf2 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e5e0 e0fd e0e0 e0e0 e0e0 fdf2 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e5e0 e0fd e0e0 e0e0 e0e0 fdf2 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e5e0 e0fd e0e0 e1e1 e1e1 fdf2 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e5e0 e1e3 e1e1 e1e1 e1e1 fde9 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 ece0 e1e3 e1e1 e1e1 e1e1 fde9 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 e0e0 ece0 e1e3 e1e1 e1e1 e1e1 fde9 e7e7 e7e7 e7e7 e7e7 e7e7 e7e7 e7e7 e7e7 e7e7 e7e7 ece7 e1e3 e1e1 e1e1 e1e1 e9e9 e9e9 e9e9 e9e9 e9e9 e9e9 e9e9 e9e9 e9e9 e9e9 e9e9 ece9 e1e1 e1e1 e0e0 e0e0 e1e1 e1e1 e0e1 e0e0 e0e0 e1e1 e1e1 e0e0 e0e0 e1e0 e1e1 e1e1 e0e0 e0e0 e0e0 e0e0 e1e1 e1e1 e0e1 e0e0 e0e0 e1e1 e1e1 e0e0 e0e0 e1e0 e1e1 e1e1 e0e0 e0e0 e0e0 e0e0 e1e1 e1e1 e0e1 e0e0 e0e0 e1e1 e1e1 e0e0 e0e0 e1e0 e1e1 e1e1 e0e0 e0e0 e0e0 e0e0 e1e1 e1e1 e0e1 e0e0 e0e0 e1e1 e1e1 e0e0 e0e0 e1e0 e1e1 e1e1 e0e0 e0e0 </bitmap>
          </tex_image>
       </tex_image_array>
@@ -30,76 +30,76 @@
                      <mtx idx="0"/>
                      <nrm xyz="-1.0 0.0 0.0"/>
                      <tex st="32.0 32.0"/>
-                     <pos_s xyz="-2.0 0.0 2.0"/>
+                     <pos_s xyz="-4.0 -4.0 4.0"/>
                      <nrm xyz="-1.0 0.0 0.0"/>
                      <tex st="32.0 0.0"/>
-                     <pos_yz yz="4.0 2.0"/>
+                     <pos_yz yz="4.0 4.0"/>
                      <nrm xyz="-1.0 0.0 0.0"/>
                      <tex st="0.0 0.0"/>
-                     <pos_yz yz="4.0 -2.0"/>
+                     <pos_yz yz="4.0 -4.0"/>
                      <nrm xyz="-1.0 0.0 0.0"/>
                      <tex st="0.0 32.0"/>
-                     <pos_yz yz="0.0 -2.0"/>
+                     <pos_yz yz="-4.0 -4.0"/>
                      <nrm xyz="0.0 0.0 -1.0"/>
                      <tex st="32.0 32.0"/>
-                     <pos_yz yz="0.0 -2.0"/>
+                     <pos_yz yz="-4.0 -4.0"/>
                      <nrm xyz="0.0 0.0 -1.0"/>
                      <tex st="32.0 0.0"/>
-                     <pos_yz yz="4.0 -2.0"/>
+                     <pos_yz yz="4.0 -4.0"/>
                      <nrm xyz="0.0 0.0 -1.0"/>
                      <tex st="0.0 0.0"/>
-                     <pos_xz xz="2.0 -2.0"/>
+                     <pos_xz xz="4.0 -4.0"/>
                      <nrm xyz="0.0 0.0 -1.0"/>
                      <tex st="0.0 32.0"/>
-                     <pos_yz yz="0.0 -2.0"/>
+                     <pos_yz yz="-4.0 -4.0"/>
                      <nrm xyz="0.998046875 0.0 0.0"/>
                      <tex st="32.0 32.0"/>
-                     <pos_yz yz="0.0 -2.0"/>
+                     <pos_yz yz="-4.0 -4.0"/>
                      <nrm xyz="0.998046875 0.0 0.0"/>
                      <tex st="32.0 0.0"/>
-                     <pos_yz yz="4.0 -2.0"/>
+                     <pos_yz yz="4.0 -4.0"/>
                      <nrm xyz="0.998046875 0.0 0.0"/>
                      <tex st="0.0 0.0"/>
-                     <pos_yz yz="4.0 2.0"/>
+                     <pos_yz yz="4.0 4.0"/>
                      <nrm xyz="0.998046875 0.0 0.0"/>
                      <tex st="0.0 32.0"/>
-                     <pos_yz yz="0.0 2.0"/>
+                     <pos_yz yz="-4.0 4.0"/>
                      <nrm xyz="0.0 0.0 0.998046875"/>
                      <tex st="32.0 32.0"/>
-                     <pos_yz yz="0.0 2.0"/>
+                     <pos_yz yz="-4.0 4.0"/>
                      <nrm xyz="0.0 0.0 0.998046875"/>
                      <tex st="32.0 0.0"/>
-                     <pos_yz yz="4.0 2.0"/>
+                     <pos_yz yz="4.0 4.0"/>
                      <nrm xyz="0.0 0.0 0.998046875"/>
                      <tex st="0.0 0.0"/>
-                     <pos_xz xz="-2.0 2.0"/>
+                     <pos_xz xz="-4.0 4.0"/>
                      <nrm xyz="0.0 0.0 0.998046875"/>
                      <tex st="0.0 32.0"/>
-                     <pos_yz yz="0.0 2.0"/>
-                     <nrm xyz="0.0 -1.0 0.0"/>
-                     <tex st="32.0 64.0"/>
-                     <pos_yz yz="0.0 -2.0"/>
+                     <pos_yz yz="-4.0 4.0"/>
                      <nrm xyz="0.0 -1.0 0.0"/>
                      <tex st="32.0 32.0"/>
-                     <pos_xz xz="2.0 -2.0"/>
+                     <pos_yz yz="-4.0 -4.0"/>
                      <nrm xyz="0.0 -1.0 0.0"/>
                      <tex st="0.0 32.0"/>
-                     <pos_yz yz="0.0 2.0"/>
+                     <pos_xz xz="4.0 -4.0"/>
                      <nrm xyz="0.0 -1.0 0.0"/>
                      <tex st="0.0 64.0"/>
-                     <pos_xz xz="-2.0 2.0"/>
+                     <pos_yz yz="-4.0 4.0"/>
+                     <nrm xyz="0.0 -1.0 0.0"/>
+                     <tex st="32.0 64.0"/>
+                     <pos_xz xz="-4.0 4.0"/>
                      <nrm xyz="0.0 0.998046875 0.0"/>
                      <tex st="0.0 64.0"/>
-                     <pos_s xyz="2.0 4.0 -2.0"/>
+                     <pos_s xyz="4.0 4.0 -4.0"/>
                      <nrm xyz="0.0 0.998046875 0.0"/>
                      <tex st="32.0 64.0"/>
-                     <pos_xz xz="-2.0 -2.0"/>
+                     <pos_xz xz="-4.0 -4.0"/>
                      <nrm xyz="0.0 0.998046875 0.0"/>
                      <tex st="32.0 32.0"/>
-                     <pos_yz yz="4.0 2.0"/>
+                     <pos_yz yz="4.0 4.0"/>
                      <nrm xyz="0.0 0.998046875 0.0"/>
                      <tex st="0.0 32.0"/>
-                     <pos_xz xz="2.0 2.0"/>
+                     <pos_xz xz="4.0 4.0"/>
                   </primitive>
                </primitive_array>
             </mtx_prim>

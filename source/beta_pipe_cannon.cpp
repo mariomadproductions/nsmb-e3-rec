@@ -2,12 +2,35 @@
 
 // =================== PROPERTY CONTROL ===================
 
-void repl_020F8704_ov_0A(PlayerActor* player, EnemyActor* pipe, fx32 force, fx32 angle, fx32 direction, int cannon_mode)
+#include <cstddef>
+void repl_020F8704_ov_0A(PlayerActor* player, EnemyActor* pipe, fx32 force, fx32 angle, fx16 direction, BOOL cannon_mode, BOOL timed, u16 duration)
 {
-	u16 spriteData = pipe->actor.base.spriteData;
-	force = ((spriteData >> 8) & 0xFF) * 0x400;
-	player->actor.base.vtable->virt37(player, pipe, force, angle, direction, cannon_mode);
+	/*u16 spriteData = pipe->actor.base.spriteData;
+	force = ((spriteData >> 8) & 0xFF) * 0x400;*/
+
+	/*force = 0x4200;
+	angle = 0x2080;
+	//direction = 0x4000;
+	cannon_mode = 0;
+	timed = 1;
+	duration = 114;*/
+
+	/*cout << "Force     = " << (int)force << "\n";
+	cout << "Angle     = " << (int)angle << "\n";
+	cout << "Direction = " << (int)direction << "\n";
+	cout << "Warp Can. = " << (int)cannon_mode << "\n";
+	cout << "Timed     = " << (int)timed << "\n";
+	cout << "Duration  = " << (int)duration << "\n";
+
+	player->P.powerupStateOld = 4;
+	player->P.powerupStateCurrent = 4;*/
+
+	cout << ((int)player + offsetof(PlayerActor, actor.position.y)) << "\n";
+
+	player->actor.base.vtable->virt37(player, pipe, force, angle, direction, cannon_mode, timed, duration);
 }
+
+//void repl_0210651C_ov_0A() {}
 
 // =================== PARTICLES ===================
 
@@ -57,7 +80,7 @@ void nsub_020F8230_ov_0A() { asm("B 0x020F823C"); }
 
 	if (player->P.ButtonsPressed & PAD_BUTTON_B)
 	{
-		//*(int*)0x0208B334 = 60;
+		// *(int*)0x0208B334 = 60;
 		player->P.powerupStateCurrent = 4;
 		player->P.powerupStateOld = 4;
 	}

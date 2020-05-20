@@ -57,6 +57,9 @@
     <ClCompile Include="source\nsmb\events.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="source\level_backup_maker.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\nsmb.h">
