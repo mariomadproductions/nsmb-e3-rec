@@ -103,7 +103,7 @@ void ItemBlock_HitBehavior(ItemBlock* block, bool animEnd)
 			spawnPos.y += 192 << 12;
 		}
 
-		int direction = (block->hit_actor->position.x > block->actor.position.x) ? 0x80000000 : 0;
+		int direction = (block->hit_actor->position.x > block->start_pos.x) ? 0x80000000 : 0;
 		spriteData |= direction;
 
 		CreateActor(31, spriteData, &spawnPos, 0, 0, 0);
