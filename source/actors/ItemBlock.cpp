@@ -1,6 +1,7 @@
 #include "ItemBlock.h"
 
 const u32 ModelFileID[] = { 1212 - 131, 1213 - 131, 1214 - 131 };
+const bool ResetRotationBug = true; //Enables a bug that existed in the beta
 
 void ItemBlock_SetExecuteState(ItemBlock* block, void (*exec_func)(ItemBlock*))
 {
@@ -27,6 +28,12 @@ void ItemBlock_SetColor(ItemBlock* block, int color, bool setup = false)
 		void* model_file = nFS_GetPtrToCachedFile(ModelFileID[block->color]);
 		model3d_ctor(&block->model);
 		model3d_setup(&block->model, model_file, 0);
+
+		if (ResetRotationBug && !setup)
+		{
+			block->rot_timer = 0;
+			block->actor.rotation.y = 0;
+		}
 	}
 }
 
@@ -57,17 +64,27 @@ void ItemBlock_RotateExecuteState(ItemBlock* block)
 	}
 }
 
-void ItemBlock_HitBehavior(ItemBlock* block)
+void ItemBlock_HitBehavior(ItemBlock* block, bool animEnd)
 {
 	switch (block->type)
 	{
 	case ItemBlock::ACTIVATE_EVENT:
+		if (!animEnd)
+			break;
+
 		activateEvent(block->info.eventIDs.targetID);
 		break;
 	case ItemBlock::ITEM_SPAWNER:
 	{
-		Vec3 spawnPos = block->actor.position;
+		if (animEnd == (block->item != 3))
+			break;
+
+		Vec3 spawnPos = block->start_pos;
 		int spriteData = block->item;
+		if (block->item == 5)
+		{
+			spriteData |= 0x1000000;
+		}
 		if (block->top_pounded)
 		{
 			if (!block->puffs)
@@ -85,6 +102,10 @@ void ItemBlock_HitBehavior(ItemBlock* block)
 			spriteData |= 0x1000000;
 			spawnPos.y += 192 << 12;
 		}
+
+		int direction = (block->hit_actor->position.x > block->actor.position.x) ? 0x80000000 : 0;
+		spriteData |= direction;
+
 		CreateActor(31, spriteData, &spawnPos, 0, 0, 0);
 		break;
 	}
@@ -92,18 +113,25 @@ void ItemBlock_HitBehavior(ItemBlock* block)
 		break;
 	}
 
-	if (block->single_use)
+	if (animEnd)
 	{
-		if (block->puffs)
+		if (block->single_use)
 		{
-			SpawnParticle(202, &block->actor.position);
-			enemyActor_delete(block, 1);
+			if (block->puffs)
+			{
+				SpawnParticle(202, &block->actor.position);
+				enemyActor_delete(block, 1);
+			}
+			else
+			{
+				block->type = ItemBlock::DOES_NOTHING;
+				ItemBlock_SetColor(block, ItemBlock::GREEN);
+				SetSpriteAtPosUsed(block->init_pos.x, block->init_pos.y, 1);
+			}
 		}
-		else
+		if (!block->puffs)
 		{
-			block->type = ItemBlock::DOES_NOTHING;
-			ItemBlock_SetColor(block, ItemBlock::GREEN);
-			SetSpriteAtPosUsed(block->init_pos.x, block->init_pos.y, 1);
+			ItemBlock_SetExecuteState(block, ItemBlock_RotateExecuteState);
 		}
 	}
 }
@@ -118,30 +146,26 @@ void ItemBlock_HitExecuteState(ItemBlock* block)
 	else if (block->exec_step)
 	{
 		int direction = block->top_pounded ? -1 : 1;
-		if ((block->hit_timer < 10) + (block->puffs))
+		if (block->hit_timer < 10)
 		{
 			block->actor.position.y += 0x1000 * direction;
-			if ((block->hit_timer == 10) && block->puffs)
+			if (block->hit_timer == 9)
 			{
-				goto hit_behavior;
+				ItemBlock_HitBehavior(block, false);
 			}
 		}
 		else
 		{
 			block->actor.position.y -= 0x1000 * direction;
-			if (block->hit_timer == 20)
+			if (block->hit_timer == 19)
 			{
-				goto hit_behavior;
+				ItemBlock_HitBehavior(block, true);
 			}
 		}
 		solidCollisions_setPos(&block->sollid_collision);
 
 		block->hit_timer++;
 		return;
-
-	hit_behavior:
-		ItemBlock_HitBehavior(block);
-		ItemBlock_SetExecuteState(block, ItemBlock_RotateExecuteState);
 	}
 	else
 	{
@@ -161,6 +185,7 @@ void ItemBlock_HitFromTop(ItemBlock* block, PlayerActor* player)
 	if ((player->P.jumpBitfield & GROUNDPOUNDING) && (player->P.currentAnim != 0x15))
 	{
 		block->top_pounded = true;
+		block->hit_actor = &player->actor;
 		ItemBlock_SetExecuteState(block, ItemBlock_HitExecuteState);
 	}
 }
@@ -171,6 +196,7 @@ void ItemBlock_HitFromBottom(ItemBlock* block, PlayerActor* player)
 	if (player->actor.actorType != T_PLAYER || block->being_hit)
 		return;
 
+	block->hit_actor = &player->actor;
 	ItemBlock_SetExecuteState(block, ItemBlock_HitExecuteState);
 }
 
@@ -185,6 +211,7 @@ void ItemBlock_HitFromSide(ItemBlock* block, EnemyActor* collider)
 		(collider->actor.base.classID == 40) ||
 		(collider->activephysics.callback == (u32*)0x02099B6C))
 	{
+		block->hit_actor = &collider->actor;
 		ItemBlock_SetExecuteState(block, ItemBlock_HitExecuteState);
 	}
 }
