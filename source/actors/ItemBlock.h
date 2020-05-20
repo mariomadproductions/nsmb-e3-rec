@@ -52,6 +52,8 @@ struct ItemBlock
 	void (*exec_func)(ItemBlock*);
 	s8 exec_step;
 
+	Actor* hit_actor; //Last actor hitting the block
+
 	Vec3 init_pos; //Used when setting spawn values
 	Vec3 start_pos; //Used when changing states
 
