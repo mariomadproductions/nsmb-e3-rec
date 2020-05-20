@@ -13,6 +13,7 @@
   <ItemGroup>
     <ClCompile Include="source\actors\BackgroundSwapper.cpp" />
     <ClCompile Include="source\actors\ItemBlock.cpp" />
+    <ClCompile Include="source\level_backup_maker.cpp" />
     <ClCompile Include="source\misc.cpp" />
     <ClCompile Include="source\beta_pipe_cannon.cpp" />
     <ClCompile Include="source\nsmb\events.cpp" />

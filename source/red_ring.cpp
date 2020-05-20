@@ -25,13 +25,99 @@ bool repl_0212B338_ov_0B(int playerNo, int lives) //Implement new system
 		return true; //Respawn
 	}
 }
-void repl_021188C4_ov_0A()
+
+extern "C" {
+	void* findNextTreeNode(void* node);
+	void BGActor_animateBrickBlocks(void* level);
+	void BGActor_animateQuestionBlocks(void* level);
+	void BGActor_animateCoins(void* level, int frame);
+}
+void DeleteStageSprites()
 {
+	void* node = *(void**)0x0208FB0C;
+	while (true)
+	{
+		node = findNextTreeNode(node);
+		if (!node)
+		{
+			break;
+		}
+		Actor* node_actor = (Actor*)((u32*)node)[4];
+		if (node_actor->actorType == T_SPRITE)
+		{
+			Base_deleteIt(node_actor);
+		}
+	}
+}
+void repl_021188C4_ov_0A(PlayerActor* player)
+{
+	player->info.direction = D_Right;
 	if (GetPlayerCount() == 1)
 	{
 		u16* block1ptr = *(u16**)0x0208B168;
 		int* timeLeft = (int*)0x020CA8B4;
 		*timeLeft = block1ptr[2] << 12;
+
+		DeleteStageSprites();
+
+		u16* spawnedSprite1 = (u16*)0x020CA3CC;
+		u16* spawnedSprite2 = (u16*)0x020CA64C;
+		u16* spriteRespData = (u16*)0x02129220;
+		MI_CpuClearFast(spawnedSprite1, 0x100);
+		MI_CpuClearFast(spawnedSprite2, 0x200);
+		MI_CpuFillFast(spriteRespData, 0xFFFFFFFF, 0x100);
+
+		u64* activatorBitmask = (u64*)0x0208AF3C;
+		*activatorBitmask = 0;
+
+		void* pLevelActor = *(void**)0x020CAD40;
+		u8* brickBlockFrame = (u8*)0x0212943C;
+		u8* questionBlockFrame = (u8*)0x0212944C;
+		u8* coinFrame = (u8*)0x0212944C;
+		*brickBlockFrame = 0;
+		*questionBlockFrame = 0;
+		*coinFrame = 0;
+		BGActor_animateBrickBlocks(pLevelActor);
+		BGActor_animateQuestionBlocks(pLevelActor);
+		BGActor_animateCoins(pLevelActor, 0);
+
+		//Freeze
+		int* frozenBitmask = (int*)0x020CA850;
+		*frozenBitmask |= 4;
+	}
+}
+//Hook stage tile reset
+void nsub_02118888_ov_0A()
+{
+	asm("BL      GetPlayerCount"); //Get the player count
+	asm("CMP     R0, #1"); //Compare if it is 1
+	asm("LDRNE   R0, =0x2089506"); //(If not) keep replaced instruction
+	asm("BNE     0x0211888C"); //(If not) return to code
+
+	asm("LDRSH   R0, [R0,#0x68]"); //Player->IsRespawning
+	asm("CMP     R0, #0"); //Compare if it is 0
+	asm("MOVNE   R0, #1"); //(If not) R0 = 1
+	asm("LDRNE   R1, =0x020CAC98"); //(If not) R1 = &Level->resetStage
+	asm("STRNEB  R0, [R1]"); //(If not) *R1 = R0
+
+	asm("LDR     R0, =0x2089506"); //Keep replaced instruction
+	asm("B       0x0211888C"); //Return to code
+}
+
+//No fading head transition on single player respawn
+void repl_02118BC4_ov_0A() {}
+int repl_02118BC8_ov_0A() { if (GetPlayerCount() == 1) ((u8*)SCENE_INFO)[1474] = 0; return 0; }
+void hook_02118DBC_ov_0A() { if (GetPlayerCount() == 1) ((u8*)SCENE_INFO)[1474] = 2; }
+
+void repl_02118974_ov_0A() {} //Player doesn't blink on respawn
+void repl_021189B8_ov_0A() {} //Player visible during respawn fade
+
+void hook_0211C580_ov_0A()
+{
+	if (GetPlayerCount() == 1)
+	{
+		int* frozenBitmask = (int*)0x020CA850;
+		*frozenBitmask &= ~4;
 	}
 }
 
@@ -73,14 +159,23 @@ extern "C"
 		u32 entranceId = (ringData >> 8) & 0xFF;
 
 		ringCollected[playerNo] |= (1 << ringId);
-		Entrance* entrance = GetPtrToEntranceById(entranceId, entranceId);
 
 		RedCoinRing_updateColor(ring);
 
-		int x = (entrance->x + 8) << 12;
-		int y = -(entrance->y + 16) << 12;
-		SetRespawnPositionForPlayer(playerNo, x, y);
+		int* respawnEntrance = (int*)0x0208B0B8;
+		respawnEntrance[playerNo] = entranceId;
 	}
+}
+void nsub_0201E558() { asm("B 0x0201E580"); }
+int repl_0201E584(int playerNo)
+{
+	int* respawnEntrance = (int*)0x0208B0B8;
+	int dest = respawnEntrance[playerNo];
+	if (dest == 0)
+	{
+		dest = GetStartEntranceIDForPlayer(playerNo);
+	}
+	return dest;
 }
 
 void hook_0215E478_ov_36() { ringCollected[0] = 0; ringCollected[1] = 0; }

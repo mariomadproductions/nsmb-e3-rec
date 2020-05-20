@@ -593,6 +593,9 @@ extern "C"
 	// Sets the entrance for player
 	void SetEntranceIdForPlayer(u32 entranceId, u32 playerNo);
 
+	// Gets the starting entrance for player
+	u8 GetStartEntranceIDForPlayer(u32 playerNo);
+
 	// Sets the respawning position for player
 	inline void SetRespawnPositionForPlayer(int playerNo, fx32 x, fx32 y) {
 		VecFx32* respawnPos = (VecFx32*)0x0208B0B8;
