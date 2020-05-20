@@ -84,6 +84,9 @@ void repl_021188C4_ov_0A(PlayerActor* player)
 		//Freeze
 		int* frozenBitmask = (int*)0x020CA850;
 		*frozenBitmask |= 4;
+
+		//Change fading transition
+		((u8*)SCENE_INFO)[1474] = 0;
 	}
 }
 //Hook stage tile reset
@@ -104,10 +107,14 @@ void nsub_02118888_ov_0A()
 	asm("B       0x0211888C"); //Return to code
 }
 
-//No fading head transition on single player respawn
-void repl_02118BC4_ov_0A() {}
-int repl_02118BC8_ov_0A() { if (GetPlayerCount() == 1) ((u8*)SCENE_INFO)[1474] = 0; return 0; }
-void hook_02118DBC_ov_0A() { if (GetPlayerCount() == 1) ((u8*)SCENE_INFO)[1474] = 2; }
+//Restore fading head transition on single player respawn
+void hook_02118DBC_ov_0A()
+{
+	if (GetPlayerCount() == 1)
+	{
+		((u8*)SCENE_INFO)[1474] = 2;
+	}
+}
 
 void repl_02118974_ov_0A() {} //Player doesn't blink on respawn
 void repl_021189B8_ov_0A() {} //Player visible during respawn fade
