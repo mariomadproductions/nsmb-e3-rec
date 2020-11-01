@@ -18,6 +18,8 @@
 
 #define SCENE_INFO ((s32*)0x02088F48)
 
+#define NAKED __attribute__((naked))
+
 typedef enum Scene {
 	BOOT_SCENE,
 	CONNECT_SCENE,
