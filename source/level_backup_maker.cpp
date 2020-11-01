@@ -25,8 +25,8 @@ void nsub_020AE534_ov_00(u16* level)
 }
 
 // Allocate backup
-void repl_020B0434_ov_00() { asm("MOV R0, R7"); }
-void nsub_020B043C_ov_00() { asm("B 0x020B04A0"); }
+NAKED void repl_020B0434_ov_00() { asm("MOV R0, R7\nBX LR"); }
+NAKED void nsub_020B043C_ov_00() { asm("B 0x020B04A0"); }
 void repl_020B0438_ov_00(u16* level)
 {
 	u16 chunkCount = level[0x232];
