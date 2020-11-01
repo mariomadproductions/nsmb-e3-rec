@@ -10,7 +10,7 @@
 	nocashPrint1("call: %lr%, anim: %r0%\n", animNo);
 }*/
 
-void repl_02114DFC_ov_0A() { asm("MOV R5, #0xC00"); } //Slow down rotation speed
+NAKED void repl_02114DFC_ov_0A() { asm("MOV R5, #0xC00\nBX LR"); } //Slow down rotation speed
 
 //Walking transition delay
 void repl_0211667C_ov_0A() {}
@@ -44,8 +44,8 @@ void repl_02116698_ov_0A(PlayerActor* player, int animationNo, int startFrame, i
 		}
 	}
 }
-void nsub_02116A14_ov_0A() { asm("CMP R0, #1"); asm("B 0x02116A18"); }
-void repl_02116A2C_ov_0A() { asm("MOV R1, #1"); }
+NAKED void nsub_02116A14_ov_0A() { asm("CMP R0, #1\nB 0x02116A18"); }
+NAKED void repl_02116A2C_ov_0A() { asm("MOV R1, #1\nBX LR"); }
 
 //void nsub_0210B06C() { nocashPrint("%lr%\n"); }
 

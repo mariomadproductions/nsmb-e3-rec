@@ -1,190 +1,135 @@
-#---------------------------------------------------------------------------------
-.SUFFIXES:
-#---------------------------------------------------------------------------------
+# ================================
+#  Compiler Setup
+# ================================
 
-ifeq ($(strip $(DEVKITARM)),)
-$(error "Please set DEVKITARM in your environment. export DEVKITARM=<path to>devkitARM")
+ifeq ($(OS),Windows_NT)
+    ECHO_FLAGS := -e
+else
+    ECHO_FLAGS :=
 endif
 
-#---------------------------------------------------------------------------------
-# canned command sequence for binary data
-#---------------------------------------------------------------------------------
-define bin2o
-	bin2s $< | $(AS) -o $(@)
-	echo "extern const u8" `(echo $(<F) | sed -e 's/^\([0-9]\)/_\1/' | tr . _)`"_end[];" > `(echo $(<F) | tr . _)`.h
-	echo "extern const u8" `(echo $(<F) | sed -e 's/^\([0-9]\)/_\1/' | tr . _)`"[];" >> `(echo $(<F) | tr . _)`.h
-	echo "extern const u32" `(echo $(<F) | sed -e 's/^\([0-9]\)/_\1/' | tr . _)`_size";" >> `(echo $(<F) | tr . _)`.h
-endef
+ifdef DEVKITARM
+    export PATH := $(DEVKITARM)/bin:$(PATH)
+endif
 
+PREFIX := arm-none-eabi-
 
-#---------------------------------------------------------------------------------
-# path to tools
-#---------------------------------------------------------------------------------
-export PORTLIBS	:=	$(DEVKITPRO)/portlibs/arm
-export PATH		:=	$(DEVKITARM)/bin:$(PORTLIBS)/bin:$(PATH)
-LIBNDS	:=	$(DEVKITPRO)/libnds
+export CC      := $(PREFIX)gcc
+export CXX     := $(PREFIX)g++
+export AS      := $(PREFIX)as
+export AR      := $(PREFIX)ar
+export OBJCOPY := $(PREFIX)objcopy
+export OBJDUMP := $(PREFIX)objdump
+export LD      := $(PREFIX)ld
 
-#---------------------------------------------------------------------------------
-# the prefix on the compiler executables
-#---------------------------------------------------------------------------------
-PREFIX		:=	arm-none-eabi-
+# ================================================================================
+#  TARGET is the name of the output
+#  BUILD is the directory where object files & intermediate files will be placed
+#  SOURCE_DIR is the source code directory
+#  INCLUDE_DIR is the include directory
+# ================================================================================
 
-export CC	:=	$(PREFIX)gcc
-export CXX	:=	$(PREFIX)g++
-export AS	:=	$(PREFIX)as
-export AR	:=	$(PREFIX)ar
-export OBJCOPY	:=	$(PREFIX)objcopy
-export OBJDUMP	:=	$(PREFIX)objdump
-export LD	:=	$(PREFIX)ld
+TARGET      := newcode
+BUILD       := build
+SOURCE_DIR  := source
+INCLUDE_DIR := include
 
+# ================================
+#  Code Generation Flags
+# ================================
 
-#---------------------------------------------------------------------------------
-# TARGET is the name of the output
-# BUILD is the directory where object files & intermediate files will be placed
-# SOURCES is a list of directories containing source code
-# INCLUDES is a list of directories containing extra header files
-# DATA is a list of directories containing binary files embedded using bin2o
-# GRAPHICS is a list of directories containing image files to be converted with grit
-#---------------------------------------------------------------------------------
-TARGET		:=	newcode
-BUILD		:=	build
-SOURCES		:=	source libfat_source
-SOURCES     +=  source/nitro
-SOURCES     +=  source/nsmb
-SOURCES     +=  source/actors
-INCLUDES	:=	include
-DATA		:=	data  
-GRAPHICS	:=	gfx  
+ARCH := -march=armv5te -mtune=arm946e-s
 
-#---------------------------------------------------------------------------------
-# options for code generation
-#---------------------------------------------------------------------------------
-ARCH	:=	
+CFLAGS := -g $(ARCH) $(INCLUDE) \
+		-Wall -O2 \
+		-fomit-frame-pointer -ffast-math \
+		-DSDK_GCC -DSDK_CW -DSDK_ARM9 \
+		-nodefaultlibs -I. -fno-builtin -c
 
-CFLAGS	:=	-g -Wall -O2 -Wno-unknown-pragmas\
- 		-march=armv5te -mtune=arm946e-s -fomit-frame-pointer\
-		-ffast-math \
-		$(ARCH)
+CXXFLAGS := $(CFLAGS) -fno-rtti -fno-exceptions
 
-CFLAGS	+=	$(INCLUDE) -DSDK_GCC -DSDK_CW -DSDK_ARM9 -nodefaultlibs -I. -fno-builtin -c
-CXXFLAGS	:= $(CFLAGS) -fno-rtti -fno-exceptions
-
-ASFLAGS	:=	-g -march=armv5te -mtune=arm946e-s
-LDFLAGS	=	-T $(CURDIR)/../symbols.x -T $(CURDIR)/../linker.x -g $(ARCH) -Map newcode.map
+ASFLAGS := -g $(ARCH)
+LDFLAGS := -g -T $(CURDIR)/../symbols.x -T $(CURDIR)/../linker.x -Map newcode.map
 
 ifdef CODEADDR
-  LDFLAGS += -Ttext $(CODEADDR)
+    LDFLAGS += -Ttext $(CODEADDR)
 endif
-
-#---------------------------------------------------------------------------------
-# any extra libraries we wish to link with the project (order is important)
-#---------------------------------------------------------------------------------
-LIBS	:=  -lc -lgcc
- 
- 
-#---------------------------------------------------------------------------------
-# list of directories containing libraries, this must be the top level containing
-# include and lib
-#---------------------------------------------------------------------------------
-LIBDIRS	:=	$(DEVKITARM) $(DEVKITARM)/arm-none-eabi 
 
 #---------------------------------------------------------------------------------
 ifneq ($(BUILD),$(notdir $(CURDIR)))
 #---------------------------------------------------------------------------------
 
-export OUTPUT	:=	$(CURDIR)/$(TARGET)
+SOURCES := $(shell find $(SOURCE_DIR) -type d -name '*')
 
-export VPATH	:=	$(foreach dir,$(SOURCES),$(CURDIR)/$(dir)) \
-					$(foreach dir,$(DATA),$(CURDIR)/$(dir)) \
-					$(foreach dir,$(GRAPHICS),$(CURDIR)/$(dir))
+export OUTPUT  := $(CURDIR)/$(TARGET)
+export DEPSDIR := $(CURDIR)/$(BUILD)
+export VPATH   := $(foreach dir,$(SOURCES),$(CURDIR)/$(dir))
 
-export DEPSDIR	:=	$(CURDIR)/$(BUILD)
+C_FILES   := $(foreach dir,$(SOURCES),$(notdir $(wildcard $(dir)/*.c)))
+CXX_FILES := $(foreach dir,$(SOURCES),$(notdir $(wildcard $(dir)/*.cpp)))
+ASM_FILES := $(foreach dir,$(SOURCES),$(notdir $(wildcard $(dir)/*.s)))
 
-CFILES		:=	$(foreach dir,$(SOURCES),$(notdir $(wildcard $(dir)/*.c)))
-CPPFILES	:=	$(foreach dir,$(SOURCES),$(notdir $(wildcard $(dir)/*.cpp)))
-SFILES		:=	$(foreach dir,$(SOURCES),$(notdir $(wildcard $(dir)/*.s)))
-PNGFILES	:=	$(foreach dir,$(GRAPHICS),$(notdir $(wildcard $(dir)/*.png)))
-BINFILES	:=	$(foreach dir,$(DATA),$(notdir $(wildcard $(dir)/*.*)))
+export OBJECTS := $(CXX_FILES:.cpp=.o) $(C_FILES:.c=.o) $(ASM_FILES:.s=.o)
+export INCLUDE := $(foreach dir,$(INCLUDE_DIR),-iquote $(CURDIR)/$(dir)) -I$(CURDIR)/$(BUILD)
 
-export OFILES	:=	$(addsuffix .o,$(BINFILES)) \
-					$(PNGFILES:.png=.o) \
-					$(CPPFILES:.cpp=.o) $(CFILES:.c=.o) $(SFILES:.s=.o)
- 
-export INCLUDE	:=	$(foreach dir,$(INCLUDES),-iquote $(CURDIR)/$(dir)) \
-					$(foreach dir,$(LIBDIRS),-I$(dir)/include) \
-					-I$(CURDIR)/$(BUILD)
- 
-export LIBPATHS	:=	$(foreach dir,$(LIBDIRS),-L$(dir)/lib) -L$(DEVKITARM)/lib/gcc/arm-none-eabi/10.1.0
-
- 
 .PHONY: $(BUILD) clean
-  
+
 #---------------------------------------------------------------------------------
 $(BUILD):
+	@echo $(ECHO_FLAGS) "\033[0;33m[\033[33;1mInfo\033[0;33m] \033[0;37mBuilding...\033[0m"
 	@[ -d $@ ] || mkdir -p $@
 	@make --no-print-directory -C $(BUILD) -f $(CURDIR)/Makefile
- 
+	@echo $(ECHO_FLAGS) "\033[0;33m[\033[33;1mInfo\033[0;33m] \033[32;1mAll done!\033[0m"
+
 #---------------------------------------------------------------------------------
 clean:
-	@echo clean ...
-	@rm -fr $(BUILD) $(TARGET).elf $(TARGET).bin $(TARGET).sym
+	@echo $(ECHO_FLAGS) "\033[0;33m[\033[33;1mInfo\033[0;33m] \033[0;37mCleaning...\033[0m"
+	@echo $(ECHO_FLAGS) "\033[0;33m[\033[0;31mDeleting\033[0;33m] \033[0;37m$(BUILD)\033[0m"
+	@rm -fr $(BUILD)
+	@echo $(ECHO_FLAGS) "\033[0;33m[\033[0;31mDeleting\033[0;33m] \033[0;37m$(TARGET).elf\033[0m"
+	@rm -fr $(TARGET).elf
+	@echo $(ECHO_FLAGS) "\033[0;33m[\033[0;31mDeleting\033[0;33m] \033[0;37m$(TARGET).bin\033[0m"
+	@rm -fr $(TARGET).bin
+	@echo $(ECHO_FLAGS) "\033[0;33m[\033[0;31mDeleting\033[0;33m] \033[0;37m$(TARGET).sym\033[0m"
+	@rm -fr $(TARGET).sym
 
 #---------------------------------------------------------------------------------
 else
- 
-#---------------------------------------------------------------------------------
-# main targets
-#---------------------------------------------------------------------------------
 
-all: $(OUTPUT).bin $(OUTPUT).sym
+# ================================
+#  Targets
+# ================================
+
+all: $(OUTPUT).bin $(OUTPUT).sym $(OBJECTS)
 
 $(OUTPUT).bin : $(OUTPUT).elf
-	$(OBJCOPY) -O binary $< $@
-	@echo built ... $(notdir $@)
+	@echo $(ECHO_FLAGS) "\033[0;33m[\033[0;36mGenerating Binary\033[0;33m] \033[0;37m$(notdir $@)\033[0m"
+	@$(OBJCOPY) -O binary $< $@
 
 $(OUTPUT).sym : $(OUTPUT).elf
-	$(OBJDUMP) -t $< > $@
-	@echo written the symbol table ... $(notdir $@)
-	
-#---------------------------------------------------------------------------------
-%.elf: $(OFILES)
-	@echo linking $(notdir $@)
-	$(LD)  $(LDFLAGS) $(OFILES) $(LIBPATHS) $(LIBS) -o $@
+	@echo $(ECHO_FLAGS) "\033[0;33m[\033[0;36mDumping Symbol Table\033[0;33m] \033[0;37m$(notdir $@)\033[0m"
+	@$(OBJDUMP) -t $< > $@
 
 #---------------------------------------------------------------------------------
-%.bin.o	:	%.bin
-#---------------------------------------------------------------------------------
-	@echo $(notdir $<)
-	$(bin2o)
-	
+%.elf: $(OBJECTS)
+	@echo $(ECHO_FLAGS) "\033[0;33m[\033[0;36mLinking\033[0;33m] \033[0;37m$(notdir $@)\033[0m"
+	@$(LD)  $(LDFLAGS) $(OBJECTS) -o $@
+
 #---------------------------------------------------------------------------------
 %.o: %.cpp
-	@echo $(notdir $<)
-	$(CXX) -MMD -MP -MF $(DEPSDIR)/$*.d $(CXXFLAGS) -c $< -o $@ $(ERROR_FILTER)
-	
+	@echo $(ECHO_FLAGS) "\033[0;33m[\033[0;31mCompiling\033[0;33m] \033[0;37m$(notdir $<)\033[0m"
+	@$(CXX) -MMD -MP -MF $(DEPSDIR)/$*.d $(CXXFLAGS) -c $< -o $@ $(ERROR_FILTER)
+
 #---------------------------------------------------------------------------------
 %.o: %.c
-	@echo $(notdir $<)
-	$(CC) -MMD -MP -MF $(DEPSDIR)/$*.d $(CFLAGS) -c $< -o $@ $(ERROR_FILTER)
-	
+	@echo $(ECHO_FLAGS) "\033[0;33m[\033[0;31mCompiling\033[0;33m] \033[0;37m$(notdir $<)\033[0m"
+	@$(CC) -MMD -MP -MF $(DEPSDIR)/$*.d $(CFLAGS) -c $< -o $@ $(ERROR_FILTER)
+
 #---------------------------------------------------------------------------------
 %.o: %.s
-	@echo $(notdir $<)
-	$(CC) -MMD -MP -MF $(DEPSDIR)/$*.d -x assembler-with-cpp $(ASFLAGS) -c $< -o $@ $(ERROR_FILTER)
-
-#---------------------------------------------------------------------------------
-# This rule creates assembly source files using grit
-# grit takes an image file and a .grit describing how the file is to be processed
-# add additional rules like this for each image extension
-# you use in the graphics folders
-#---------------------------------------------------------------------------------
-%.s %.h   : %.png %.grit
-#---------------------------------------------------------------------------------
-	grit $< -fts -o$*
+	@echo $(ECHO_FLAGS) "\033[0;33m[\033[0;31mAssembling\033[0;33m] \033[0;37m$(notdir $<)\033[0m"
+	@$(CC) -MMD -MP -MF $(DEPSDIR)/$*.d -x assembler-with-cpp $(ASFLAGS) -c $< -o $@ $(ERROR_FILTER)
 
 -include $(DEPSDIR)/*.d
- 
-#---------------------------------------------------------------------------------------
+
 endif
-#---------------------------------------------------------------------------------------
-	

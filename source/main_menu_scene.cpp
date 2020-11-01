@@ -207,7 +207,7 @@ int nsub_020D339C_ov_09()
 	return 1;
 }
 
-void nsub_020A19D8_ov_00() { asm("MOV R0, #4"); asm("MOV R1, #0"); asm("B 0x020A19E0"); } //Level exits to titlescreen
+NAKED void nsub_020A19D8_ov_00() { asm("MOV R0, #4\nMOV R1, #0\nB 0x020A19E0"); } //Level exits to titlescreen
 int nsub_02152884_ov_36() { return 1; } //Do not draw level intro in the only frame that it shows up
 int repl_0215285C_ov_36() { return 0; } //Make level intro have a duration of 0
 
@@ -234,8 +234,8 @@ int nsub_020CF7BC_ov_09()
 
 // BOOT SCENE
 
-void nsub_020CC730_ov_01() { asm("B 0x020CC738"); } //Boot scene fades out to white
-void nsub_020CCBF0_ov_01() { asm("B 0x020CCD8C"); }
+NAKED void nsub_020CC730_ov_01() { asm("B 0x020CC738"); } //Boot scene fades out to white
+NAKED void nsub_020CCBF0_ov_01() { asm("B 0x020CCD8C"); }
 void repl_020CCD8C_ov_01()
 {
 	WiFi_Init();

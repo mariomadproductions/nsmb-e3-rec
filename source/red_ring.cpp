@@ -6,11 +6,13 @@ int repl_0215395C_ov_36() { return 0x4EE; } //Increase ring allocation size
 
 int repl_0212B2DC_ov_0B() { return 1; } //Do not decrement player lives
 void repl_02119CB8_ov_0A() {} //Do not freeze timer on player death
-void nsub_0212B314_ov_0B() //Take total control of death/respawn check system and set arguments
+NAKED void nsub_0212B314_ov_0B() //Take total control of death/respawn check system and set arguments
 {
-	asm("MOV R0, R6");
-	asm("MOV R1, R4");
-	asm("B 0x0212B338");
+asm(R"(
+	MOV     R0, R6
+	MOV     R1, R4
+	B       0x0212B338
+)");
 }
 bool repl_0212B338_ov_0B(int playerNo, int lives) //Implement new system
 {
@@ -90,21 +92,23 @@ void repl_021188C4_ov_0A(PlayerActor* player)
 	}
 }
 //Hook stage tile reset
-void nsub_02118888_ov_0A()
+NAKED void nsub_02118888_ov_0A()
 {
-	asm("BL      GetPlayerCount"); //Get the player count
-	asm("CMP     R0, #1"); //Compare if it is 1
-	asm("LDRNE   R0, =0x2089506"); //(If not) keep replaced instruction
-	asm("BNE     0x0211888C"); //(If not) return to code
-
-	asm("LDRSH   R0, [R0,#0x68]"); //Player->IsRespawning
-	asm("CMP     R0, #0"); //Compare if it is 0
-	asm("MOVNE   R0, #1"); //(If not) R0 = 1
-	asm("LDRNE   R1, =0x020CAC98"); //(If not) R1 = &Level->resetStage
-	asm("STRNEB  R0, [R1]"); //(If not) *R1 = R0
-
-	asm("LDR     R0, =0x2089506"); //Keep replaced instruction
-	asm("B       0x0211888C"); //Return to code
+asm(R"(
+	BL      GetPlayerCount  @ Get the player count
+	CMP     R0, #1          @ Compare if it is 1
+	LDRNE   R0, =0x2089506  @ (If not) keep replaced instruction
+	BNE     0x0211888C      @ (If not) return to code
+	
+	LDRSH   R0, [R0,#0x68]  @ Player->IsRespawning
+	CMP     R0, #0          @ Compare if it is 0
+	MOVNE   R0, #1          @ (If not) R0 = 1
+	LDRNE   R1, =0x020CAC98 @ (If not) R1 = &Level->resetStage
+	STRNEB  R0, [R1]        @ (If not) *R1 = R0
+	
+	LDR     R0, =0x2089506  @ Keep replaced instruction
+	B       0x0211888C      @ Jump back to code
+)");
 }
 
 //Restore fading head transition on single player respawn
@@ -128,7 +132,7 @@ void hook_0211C580_ov_0A()
 	}
 }
 
-void nsub_0211C470_ov_0A() { asm("B 0x0211C580"); } //No pipe entrance on respawn
+NAKED void nsub_0211C470_ov_0A() { asm("B 0x0211C580"); } //No pipe entrance on respawn
 
 // ============================================= RING RESPAWN =============================================
 
@@ -187,26 +191,30 @@ int repl_0201E584(int playerNo)
 
 void hook_0215E478_ov_36() { ringCollected[0] = 0; ringCollected[1] = 0; }
 
-void nsub_0215365C_ov_36() //Do not allow player to hit ring if already collected
+NAKED void nsub_0215365C_ov_36() //Do not allow player to hit ring if already collected
 {
-	asm("BEQ     0x21537CC"); //If player pointer is null then continue to check next player
-	asm("PUSH    {R0}"); //Save player pointer to stack
-	asm("MOV     R0, R6"); //Pass actor as first argument
-	asm("MOV     R1, R5"); //Pass player number as second argument
-	asm("BL      GetRingCollectedForPlayer"); //Execute the collect check function
-	asm("CMP     R0, #1"); //Compare if ring is collected
-	asm("POP     {R0}"); //Restore player pointer from stack
-	asm("BEQ     0x21537CC"); //If ring is collected then continue to check next player
-	asm("B       0x2153660"); //Return to code in case all matches
+asm(R"(
+	BEQ     0x21537CC                 @ If player pointer is null then continue to check next player
+	PUSH    {R0}                      @ Save player pointer to stack
+	MOV     R0, R6                    @ Pass actor as first argument
+	MOV     R1, R5                    @ Pass player number as second argument
+	BL      GetRingCollectedForPlayer @ Execute the collect check function
+	CMP     R0, #1                    @ Compare if ring is collected
+	POP     {R0}                      @ Restore player pointer from stack
+	BEQ     0x21537CC                 @ If ring is collected then continue to check next player
+	B       0x2153660                 @ Return to code in case all matches
+)");
 }
 
-void nsub_021536A8_ov_36()
+NAKED void nsub_021536A8_ov_36()
 {
-	asm("MOV     R0, R6"); //Pass actor as first argument
-	asm("MOV     R1, R5"); //Pass player number as second argument
-	asm("BL      RedRing_OnCollided"); //Execute my collision function
-	asm("LDR     R0, [R6,#0x60]"); //Keep replaced instruction
-	asm("B       0x021536AC"); //Return to code
+asm(R"(
+	MOV     R0, R6             @ R0 = ring
+	MOV     R1, R5             @ R1 = playerNo
+	BL      RedRing_OnCollided @ RedRing_OnCollided(R0, R1)
+	LDR     R0, [R6,#0x60]     @ Restore replaced instruction
+	B       0x021536AC         @ Jump back to code
+)");
 }
 
 void hook_02153198_ov_36(EnemyActor* ring) //Color on create
@@ -215,11 +223,13 @@ void hook_02153198_ov_36(EnemyActor* ring) //Color on create
 }
 
 void repl_021536B4_ov_36() {} //Ring doesn't get set as not respawn between areas
-void repl_021534E4_ov_36() //Set some ring variables on collected state enter
+NAKED void repl_021534E4_ov_36() //Set some ring variables on collected state enter
 {
-	asm("MOV     R1, #0");
-	asm("STRB    R1, [R0,#0x4EC]"); //ring_frames = 0;
-	asm("MOV     R1, #0"); //Ring doesn't get deleted permanently
+asm(R"(
+	MOV     R1, #0          @ R1 = 0;
+	STRB    R1, [R0,#0x4EC] @ ring->ring_frames = R1;
+	BX      LR              @ Return (Next instruction: ring->enemy.info.permanentDelete = R1;)
+)");
 }
 void repl_021535B4_ov_36(EnemyActor* ring, s16* rotX_inc, s16 rotX_extreme, s16 rotX_dec) //Ring can stop rotation
 {

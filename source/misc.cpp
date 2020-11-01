@@ -18,41 +18,48 @@ void hook_0212FDCC_ov_0C(EnemyActor* pole)
 }
 
 // Move the flag model
-void nsub_0212FE28_ov_0C()
+NAKED void nsub_0212FE28_ov_0C()
 {
-	asm("ADD     R0, R0, #0x2000");
-	asm("B       0x0212FE2C");
+asm(R"(
+	ADD     R0, R0, #0x2000
+	B       0x0212FE2C
+)");
 }
 
 // Rotate the flag model
-void nsub_0212FF30_ov_0C()
+NAKED void nsub_0212FF30_ov_0C()
 {
-	//RotX
-	asm("MOV     R0, #0x8000"); //90º
-	asm("STRH    R0, [R4,#0xA0]");
-	//RotY
-	asm("MOV     R0, #0x4000"); //-0xC000 (-180º)
-	asm("STRH    R0, [R4,#0xA2]");
-	//Return to code
-	asm("B       0x0212FF3C");
+asm(R"(
+	@ X Rotation
+	MOV     R0, #0x8000    @ 90º
+	STRH    R0, [R4,#0xA0]
+
+	@ Y Rotation
+	MOV     R0, #0x4000    @ -0xC000 (-180º)
+	STRH    R0, [R4,#0xA2]
+
+	B       0x0212FF3C     @ Jump back to code
+)");
 }
 
 // BAHP ==================================
 
-void nsub_02012584() { asm("B 0x0201258C"); } //Disable baphs
+NAKED void nsub_02012584() { asm("B 0x0201258C"); } //Disable baphs
 
 // NO SOFT RESET ==================================
 
-void nsub_0201364C_main() { asm("B 0x201368C"); }
+NAKED void nsub_0201364C() { asm("B 0x201368C"); }
 
 // MEGA GOOMBA ===================================
 
 //Instant growth
-/*void nsub_02131468_ov_0E()
+/*NAKED void nsub_02131468_ov_0E()
 {
-	asm("MOV     R1, #1");
-	asm("STRH    R1, [R0,#0xA8]");
-	asm("B       0x213146C");
+asm(R"(
+	MOV     R1, #1
+	STRH    R1, [R0,#0xA8]
+	B       0x213146C
+)");
 }*/
 
 void hook_021315C4_ov_0E()
@@ -77,7 +84,7 @@ void hook_02131604_ov_0E()
 
 // MULTIPLAYER ===================================
 
-void repl_021578F0_ov_34() { asm("MOVEQ R1, #0"); } //Force MvsLMode = 0
+NAKED void repl_021578F0_ov_34() { asm("MOVEQ R1, #0\nBX LR"); } //Force MvsLMode = 0
 void nsub_021535A0_ov_34() { SetPlayerCount(2); } //Change mvsl setup crap
 
 int repl_02157A40_ov_34()
@@ -86,7 +93,7 @@ int repl_02157A40_ov_34()
 	return MAIN_MENU_SCENE;
 }
 
-void repl_020AECA4_ov_00() { asm("MOV R1, #1"); } //Disable background HDMA parallax
+NAKED void repl_020AECA4_ov_00() { asm("MOV R1, #1\nBX LR"); } //Disable background HDMA parallax
 
 int repl_020BD820_ov_00() { return GetPlayerCount(); } //Bottom screen background draw
 int repl_020BDA90_ov_00() { return GetPlayerCount(); } //Bottom screen background execute
@@ -139,19 +146,22 @@ void repl_0215ED54_ov_36() {}
 void repl_0209D86C_ov_00() {}
 
 //Mario doesn't look at enemies
-void nsub_020FD544_ov_0A() { asm("B 0x020FD568"); }
+NAKED void nsub_020FD544_ov_0A() { asm("B 0x020FD568"); }
 
 //Coins keep incrementing until 999
-void repl_020203D0()
+NAKED void repl_020203D0()
 {
-	asm("LDR     R1, =999");
-	asm("CMP     R0, R1");
-	asm("LDR     R1, =0x0208B37C"); //Restore R1
+asm(R"(
+	LDR     R1, =999
+	CMP     R0, R1
+	LDR     R1, =0x0208B37C @ Restore R1
+	BX      LR
+)");
 }
-void nsub_020203E4() { asm("B 0x020203FC"); }
+NAKED void nsub_020203E4() { asm("B 0x020203FC"); }
 
 void repl_0215E850_ov_36() {} //Do not load doors
 int repl_021002F0_ov_0A() { return 1; } //Door doesn't play animation
 
 //Disable shoulder buttons
-void nsub_020BA038_ov_00() { asm("LDMFD SP!, {R4-R8,PC}"); }
+NAKED void nsub_020BA038_ov_00() { asm("LDMFD SP!, {R4-R8,PC}"); }
