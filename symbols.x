@@ -2872,6 +2872,14 @@ sub_2009A30 = 0x02009A30;
 
 Sqrt64 = 0x2046030;
 
+__aeabi_uidiv = 0x0207E344;
+__aeabi_uidivmod = 0x0207E344;
+__aeabi_uldiv = 0x0207DF30;
+__aeabi_uldivmod = 0x0207DF30;
+
+_u32_div_f = 0x0207E344;
+_ull_div = 0x0207DF30;
+
 /*============ VECTORS ============*/
 
 Vec3_OperatorAdd = 0x2045bdc;

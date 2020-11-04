@@ -1,5 +1,4 @@
 #include "nsmb.h"
-#include <cstddef>
 
 // FLAG POLE SHIFT ==================================
 
@@ -31,11 +30,11 @@ NAKED void nsub_0212FF30_ov_0C()
 {
 asm(R"(
 	@ X Rotation
-	MOV     R0, #0x8000    @ 90º
+	MOV     R0, #0x8000    @ 90Â°
 	STRH    R0, [R4,#0xA0]
 
 	@ Y Rotation
-	MOV     R0, #0x4000    @ -0xC000 (-180º)
+	MOV     R0, #0x4000    @ -0xC000 (-180Â°)
 	STRH    R0, [R4,#0xA2]
 
 	B       0x0212FF3C     @ Jump back to code

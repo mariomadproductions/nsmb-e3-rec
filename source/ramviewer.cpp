@@ -48,11 +48,6 @@ void debugScreenRamViewer()
 		nds_printf(font_color, *btm_scrn_ptr + 32 * 3, "TheGameratorT#1850 on Discord.");
 		nds_printf(font_color, *btm_scrn_ptr + 32 * 5, "Provide screenshots and details on how the crash occured.");
 	}
-	
-	if(isDSiMode)
-		nds_printf(font_color, *btm_scrn_ptr + 32 * 22, "DSiMode = true");
-	else
-		nds_printf(font_color, *btm_scrn_ptr + 32 * 22, "DSiMode = false");
 
 	font_color[0] = DEBUG_GREEN;
 	font_color[1] = DEBUG_GREEN;
