@@ -100,10 +100,11 @@ asm(R"(
 	LDRNE   R0, =0x2089506  @ (If not) keep replaced instruction
 	BNE     0x0211888C      @ (If not) return to code
 	
-	LDRSH   R0, [R0,#0x68]  @ Player->IsRespawning
+	ADD     R0, R8, #0xB00  @ &player->isRespawning
+	LDRSH   R0, [R0,#0x68]  @ R0 = *R0
 	CMP     R0, #0          @ Compare if it is 0
 	MOVNE   R0, #1          @ (If not) R0 = 1
-	LDRNE   R1, =0x020CAC98 @ (If not) R1 = &Level->resetStage
+	LDRNE   R1, =0x020CAC98 @ (If not) R1 = &level->resetStage
 	STRNEB  R0, [R1]        @ (If not) *R1 = R0
 	
 	LDR     R0, =0x2089506  @ Keep replaced instruction

@@ -1,4 +1,4 @@
-@ BETA MUSHROOM PLATFORM BY THEGAMERATORT
+@ E3 Beta Mushroom Platform by TheGameratorT
 
 @ Change height
 repl_0217F4D4_ov_5A:
@@ -75,3 +75,5 @@ repl_0217F6D4_ov_5A: @Do not register corner 2
 	BX      LR
 nsub_0217F3E0_ov_5A: @Do not execute corner collision updates
 	B       0x0217F400
+nsub_0217FDB4_ov_5A: @Do not execute corner collision updates (horizontally moving mushroom)
+	B       0x0217FDD4
