@@ -15,10 +15,19 @@ with open(path_overrides_filename, 'r') as path_overrides_file:
 
 #Insert files into ROM
 for path in Path('source_nitrofs').rglob('*.*'):
-    path_formatted = Path(*path.parts[1:]).as_posix()
+    path_formatted_ = Path(*path.parts[1:])
+    path_formatted = path_formatted_.as_posix()
     with open(path, 'rb') as extracted_file:
         if path_formatted in path_overrides:
-            rom.files[path_overrides[path_formatted]] = extracted_file.read()
+            # Get file ID
+            fileID = path_overrides[path_formatted]
+            
+            # Rename file
+            sub_folder = rom.filenames.subfolder(path_formatted_.parent.as_posix())
+            sub_folder.files[fileID - sub_folder.firstID] = path_formatted_.name
+
+            # Set file data
+            rom.files[fileID] = extracted_file.read()
         else:
             rom.setFileByName(path_formatted, extracted_file.read())
         print('Inserted external file ' + path_formatted)
