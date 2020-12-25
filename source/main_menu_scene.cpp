@@ -41,9 +41,6 @@ void MainMenuScene_InitBottomScreen()
 	GX_ResetBankForOBJ();
 	GX_ResetBankForBGExtPltt();
 	GX_ResetBankForOBJExtPltt();
-	GX_ResetBankForTex();
-	GX_ResetBankForTexPltt();
-	GX_ResetBankForClearImage();
 
 	//INIT
 	GX_SetGraphicsMode(GX_DISPMODE_GRAPHICS, GX_BGMODE_0, GX_BG0_AS_2D);

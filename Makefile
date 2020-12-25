@@ -22,6 +22,10 @@ export OBJCOPY := $(PREFIX)objcopy
 export OBJDUMP := $(PREFIX)objdump
 export LD      := $(PREFIX)ld
 
+# Uncomment below for fast compilation
+# command line echo output breaks though
+export MAKEFLAGS="-j 4"
+
 # ================================================================================
 #  TARGET is the name of the output
 #  BUILD is the directory where object files & intermediate files will be placed
@@ -31,7 +35,7 @@ export LD      := $(PREFIX)ld
 
 TARGET      := newcode
 BUILD       := build
-SOURCE_DIR  := source
+SOURCES     := source source/nsmb source/actors
 INCLUDE_DIR := include
 
 # ================================
@@ -58,8 +62,6 @@ endif
 #---------------------------------------------------------------------------------
 ifneq ($(BUILD),$(notdir $(CURDIR)))
 #---------------------------------------------------------------------------------
-
-SOURCES := $(shell find $(SOURCE_DIR) -type d -name '*')
 
 export OUTPUT  := $(CURDIR)/$(TARGET)
 export DEPSDIR := $(CURDIR)/$(BUILD)
