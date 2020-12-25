@@ -61,6 +61,40 @@ asm(R"(
 )");
 }*/
 
+//Custom boss battle end
+void nsub_0214560C_ov_28(EnemyActor* bossKey)
+{
+	u16& frame = *(u16*)((u8*)bossKey + 0x530);
+
+	if(frame == 0xB0)
+		ExitLevel(true);
+
+	frame++;
+}
+
+//Skip boss controller check
+NAKED void nsub_021453D4_ov_28() { asm("B 0x02145420"); }
+
+//Replace key spawn
+NAKED void repl_02130014_ov_0E() { asm("MOV R3, R4\nBX LR"); }
+void repl_02130020_ov_0E(int classID, int spriteData, Vec3 *pos, EnemyActor* mGoomba)
+{
+	fx32 mGoomba_xStartPos = *(fx32*)((u8*)mGoomba + 0x748);
+
+	//Calculate where to place the key
+	Vec3 keyDestPos = *pos;
+	keyDestPos.x -= 0x7800 * 16;
+	keyDestPos.y -= 0x2C000;
+
+	//Prevent the key from getting out of bounds
+	fx32 minPos = mGoomba_xStartPos - 0xC0000;
+	if (keyDestPos.x < minPos)
+		keyDestPos.x = minPos;
+
+	CreateActor(266, 0, &keyDestPos, 0, 0, 0); //Spawn "Boss Key Location"
+	CreateActor(classID, spriteData, pos, 0, 0, 0); //Spawn "Boss Key"
+}
+
 void hook_021315C4_ov_0E()
 {
 	if (!isEventActive(48))

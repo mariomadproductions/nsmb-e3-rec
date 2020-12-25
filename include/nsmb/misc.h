@@ -226,7 +226,13 @@ extern "C" {
 	void UpdatePenTouchPositions();
 
 	// Spawns a particle at a position
-	void SpawnParticle(int particleId, Vec3* pos);
+	void SpawnParticle(u32 particleID, const Vec3 *position);
+
+	// Spawns a particle at a position with a radius
+	void SpawnParticleRadius(u32 particleID, const Vec3 *position, const fx32 *radius);
+
+	// Spawns a particle at a position with an axis
+	void SpawnParticleAxis(u32 particleID, const Vec3* position, const VecFx16* axis);
 
 	// Spawns a particle at a position for a duration
 	void SpawnAndEndParticle(int frames, int particleId, Vec3* pos, int a4, int a5, int a6, int a7);

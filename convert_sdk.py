@@ -65,6 +65,9 @@ for filename in glob.iglob('./include/**/*.h', recursive=True):
             text = text.replace('(*sinit_init)', '*sinit_init')
             text = text.replace('(*sinit_init_end)', '*sinit_init_end')
 
+        elif(unix_filename == './include/nnsys/inline.h'):
+            text = text.replace('E inline', 'E static inline')
+
         for line in text.split('\n'):
 
             # Convert lib header path to local header path

@@ -60,5 +60,14 @@
       <field id="37-40" type="list" name="Behavior" values="0=Activates event, 1=Spawns item, 2=Nothing" notes="" />
       <field id="18-19" type="list" name="Destroy mode" values="0=Default, 1=Single use (turns green), 3=Explodes during animation" notes="" />
     </sprite>
+	<sprite id="255">
+      <name>SM64 Boss Switch</name>
+      <flags known="1" complete="1" />
+      <category id="1" />
+      <notes></notes>
+      <files></files>
+      <field id="1-8" type="value" name="Target ID" values="" notes="" />
+      <field id="48" type="checkbox" name="Is Small" values="" notes="" />
+    </sprite>
   </sprites>
 </database>
