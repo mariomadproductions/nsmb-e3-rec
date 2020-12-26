@@ -15,10 +15,12 @@ _Note: The [devKitPro](https://github.com/devkitPro/installer/releases) "nds-dev
 Steps:
  - Copy the `nitrosdk/include` folder contents into the `nsmb-e3-rec/include` folder.
  - Run `convert_sdk.py`.
- - Place a clean NSMB (US) ROM in the following path `nsmb-e3-rec/rom.nds`, open the command line/terminal in the `nsmb-e3-rec` folder and execute: `py -3 insert_files.py nsmb-e3-rec/rom.nds`.
+ - Place a clean NSMB USA ROM<sup>1</sup> in the following path `nsmb-e3-rec/rom.nds`, open the command line/terminal in the `nsmb-e3-rec` folder and execute: `py -3 insert_files.py nsmb-e3-rec/rom.nds`.
  - Open `nsmb-e3-rec/rom.nds` in NSMB Editor, go to the `Tools/Options` tab and click `Run 'make' and insert`, if you get a error message box just click continue.
  - Close the command line/terminal and NSMB Editor.
  - The ROM should now be ready to use!
+ 
+
 
 ## Playing
 The hack has been tested on:
@@ -39,3 +41,12 @@ The hack has been tested on:
  - **Ed_IT** - Helped with custom sprite code
  - **Doc_Static** (aka Mspeter97) - First-hand demo information (was present at E3 2005)
  - **SiropDeViolette** (aka Simpson55) - First-hand demo information (was present at E3 2005)
+
+
+## Notes
+1\.  
+> Size: 33554432  
+> CRC32: 0197576A  
+> MD5: A2DDBA012E5C3C2096D0BE57CC273BE5  
+> SHA1: A22713711B5CD58DFBAFC9688DADEA66C59888CE  
+> SHA256: 9F67FEF1B4C73E966767F6153431ADA3751DC1B0DA2C70F386C14A5E3017F354
