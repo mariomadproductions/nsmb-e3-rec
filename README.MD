@@ -8,19 +8,20 @@ Pre-requisites:
  - [Python 3](https://www.python.org/downloads/)
  - [ndspy](https://pypi.org/project/ndspy/)
  - [NSMBe 5.3 Beta](https://github.com/TheGameratorT/NSMB-Editor/releases) (currently Windows-only)
- - Nitro SDK v3.0
+ - NitroSDK (tested with NitroSDK-3_0-060125)
 
 _Note: The [devKitPro](https://github.com/devkitPro/installer/releases) "nds-dev" component includes GNU Make and GNU Arm Embedded Toolchain._
 
 Steps:
- - Copy the `nitrosdk/include` folder contents into the `nsmb-e3-rec/include` folder.
+```
+ - Clone the repo.
+ - Go into the repo folder.
+ - Copy the NitroSDK ``include`` folder contents into the repo `include` folder.
  - Run `convert_sdk.py`.
- - Place a clean NSMB USA ROM<sup>1</sup> in the following path `nsmb-e3-rec/rom.nds`, open the command line/terminal in the `nsmb-e3-rec` folder and execute: `py -3 insert_files.py nsmb-e3-rec/rom.nds`.
- - Open `nsmb-e3-rec/rom.nds` in NSMB Editor, go to the `Tools/Options` tab and click `Run 'make' and insert`, if you get a error message box just click continue.
- - Close the command line/terminal and NSMB Editor.
- - The ROM should now be ready to use!
- 
-
+ - Place a clean NSMB USA ROM<sup>1</sup> as ``rom.nds`` in the repo.
+ - Run `py -3 insert_files.py rom.nds`.
+ - Open `rom.nds` in NSMB Editor, if you get a error message box just click continue.
+ - Go to the `Tools/Options` tab and click `Run 'make' and insert`.
 
 ## Playing
 The hack has been tested on:
