@@ -13,13 +13,12 @@ Pre-requisites:
 _Note: The [devKitPro](https://github.com/devkitPro/installer/releases) "nds-dev" component includes GNU Make and GNU Arm Embedded Toolchain._
 
 Steps:
-```
  - Clone the repo.
  - Go into the repo folder.
  - Copy the NitroSDK ``include`` folder contents into the repo `include` folder.
  - Run `convert_sdk.py`.
  - Place a clean NSMB USA ROM<sup>1</sup> as ``rom.nds`` in the repo.
- - Run `py -3 insert_files.py rom.nds`.
+ - Run `insert_files.py rom.nds`.
  - Open `rom.nds` in NSMB Editor, if you get a error message box just click continue.
  - Go to the `Tools/Options` tab and click `Run 'make' and insert`.
 
