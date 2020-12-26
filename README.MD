@@ -19,8 +19,8 @@ Steps:
  - Run `convert_sdk.py`.
  - Place a clean NSMB USA ROM<sup>1</sup> as ``rom.nds`` in the repo.
  - Run `insert_files.py rom.nds`.
- - Open `rom.nds` in NSMB Editor, if you get a error message box just click continue.
- - Go to the `Tools/Options` tab and click `Run 'make' and insert`.
+ - Open `rom.nds` in NSMB Editor/
+ - Go to the `Tools/Options` tab and click `Run 'make' and insert`. If you get a error message box just click continue.
 
 ## Playing
 The hack has been tested on:
