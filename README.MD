@@ -29,6 +29,7 @@ The hack has been tested on:
  - [MelonDS](http://melonds.kuribo64.net/downloads.php)
  - [nds-bootstrap](https://github.com/DS-Homebrew/nds-bootstrap) using the [TWiLight Menu++](https://github.com/DS-Homebrew/TWiLightMenu/releases) frontend
  - R4i-SDHC 3DS RTS flashcard (default firmware)
+ - Acekard 2i (AKAIO)
 
 ## Credits
  - **Hiccup** - Graphics and levels
