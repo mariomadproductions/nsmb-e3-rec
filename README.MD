@@ -32,9 +32,8 @@ The hack has been tested on:
  - Acekard 2i (AKAIO)
 
 ## Credits
- - **Hiccup** - Graphics and levels
+ - **Hiccup** - Research, direction, levels and minor graphics
  - **TheGameratorT** - Coding and minor graphics
- - **MarioFanatic64** - Levels
  - **Alzter** - Graphics
 
 ### Special Thanks
@@ -43,7 +42,7 @@ The hack has been tested on:
  - **Ed_IT** - Helped with custom sprite code
  - **Doc_Static** (aka Mspeter97) - First-hand demo information (was present at E3 2005)
  - **SiropDeViolette** (aka Simpson55) - First-hand demo information (was present at E3 2005)
-
+ - **All contributors to the original "Beta Replica" project**
 
 ## Notes
 1\.  
