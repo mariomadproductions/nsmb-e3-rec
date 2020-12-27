@@ -1,3 +1,4 @@
+
 # nsmb-e3-rec
 This project aims to recreate the New Super Mario Bros. E3 2005 demo.
 
@@ -19,14 +20,14 @@ Steps:
  - Run `convert_sdk.py`.
  - Place a clean NSMB USA ROM<sup>1</sup> as ``rom.nds`` in the repo.
  - Run `insert_files.py rom.nds`.
- - Open `rom.nds` in NSMB Editor/
+ - Open `rom.nds` in NSMB Editor.
  - Go to the `Tools/Options` tab and click `Run 'make' and insert`. If you get a error message box just click continue.
 
 ## Playing
 The hack has been tested on:
  - [DeSmuME](http://desmume.org/download/)
- - [MelonDS](http://melonds.kuribo64.net/downloads.php).
- - [nds-bootstrap](https://github.com/DS-Homebrew/nds-bootstrap) using the [TWiLight Menu++](https://github.com/DS-Homebrew/TWiLightMenu/releases) frontend.
+ - [MelonDS](http://melonds.kuribo64.net/downloads.php)
+ - [nds-bootstrap](https://github.com/DS-Homebrew/nds-bootstrap) using the [TWiLight Menu++](https://github.com/DS-Homebrew/TWiLightMenu/releases) frontend
  - R4i-SDHC 3DS RTS flashcard (default firmware)
 
 ## Credits
