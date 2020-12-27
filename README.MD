@@ -1,5 +1,5 @@
 
-# nsmb-e3-rec
+# New Super Mario Bros. E3 2005 demo recreation
 This project aims to recreate the New Super Mario Bros. E3 2005 demo.
 
 ## Building
