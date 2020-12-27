@@ -95,6 +95,10 @@ void repl_02130020_ov_0E(int classID, int spriteData, Vec3 *pos, EnemyActor* mGo
 	CreateActor(classID, spriteData, pos, 0, 0, 0); //Spawn "Boss Key"
 }
 
+//Fix some desyncs
+NAKED void repl_02132108_ov_0E() { asm("MOV R1, #0\nBX LR"); }
+NAKED void repl_0212FCCC_ov_0E() { asm("MOV R0, #0\nBX LR"); }
+
 void hook_021315C4_ov_0E()
 {
 	if (!isEventActive(48))
@@ -109,13 +113,29 @@ void hook_021315C4_ov_0E()
 }
 void hook_02131604_ov_0E()
 {
+	register EnemyActor* mGoomba asm("r4");
+
 	for (int i = 0; i < GetPlayerCount(); i++)
 	{
-		PlayerActor_freeze(GetPtrToPlayerActorByID(i), true);
+		PlayerActor* player = GetPtrToPlayerActorByID(i);
+		if(mGoomba->info.ViewID == player->info.ViewID)
+		{
+			PlayerActor_freeze(player, true);
+		}
+	}
+}
+void repl_0213137C_ov_0E()
+{
+	for (int i = 0; i < GetPlayerCount(); i++)
+	{
+		PlayerActor* player = GetPtrToPlayerActorByID(i);
+		PlayerActor_unfreeze(player);
 	}
 }
 
 // MULTIPLAYER ===================================
+
+void repl_020FB2E4_ov_0A() {} //Yeet zoom
 
 NAKED void repl_021578F0_ov_34() { asm("MOVEQ R1, #0\nBX LR"); } //Force MvsLMode = 0
 void nsub_021535A0_ov_34() { SetPlayerCount(2); } //Change mvsl setup crap

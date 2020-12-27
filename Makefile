@@ -24,7 +24,7 @@ export LD      := $(PREFIX)ld
 
 # Uncomment below for fast compilation
 # command line echo output breaks though
-export MAKEFLAGS="-j 4"
+# export MAKEFLAGS="-j 4"
 
 # ================================================================================
 #  TARGET is the name of the output
@@ -78,10 +78,10 @@ export INCLUDE := $(foreach dir,$(INCLUDE_DIR),-iquote $(CURDIR)/$(dir)) -I$(CUR
 
 #---------------------------------------------------------------------------------
 $(BUILD):
-	@echo $(ECHO_FLAGS) "\033[0;33m[\033[33;1mInfo\033[0;33m] \033[0;37mBuilding...\033[0m"
+	@echo $(ECHO_FLAGS) "\033[37;1m[\033[0m\033[34;1mInfo\033[0m\033[37;1m]\033[0m Building..."
 	@[ -d $@ ] || mkdir -p $@
 	@make --no-print-directory -C $(BUILD) -f $(CURDIR)/Makefile
-	@echo $(ECHO_FLAGS) "\033[0;33m[\033[33;1mInfo\033[0;33m] \033[32;1mAll done!\033[0m"
+	@echo $(ECHO_FLAGS) "\033[37;1m[\033[0m\033[34;1mInfo\033[0m\033[37;1m]\033[0m Build finished!"
 
 #---------------------------------------------------------------------------------
 clean:
@@ -105,31 +105,31 @@ else
 all: $(OUTPUT).bin $(OUTPUT).sym $(OBJECTS)
 
 $(OUTPUT).bin : $(OUTPUT).elf
-	@echo $(ECHO_FLAGS) "\033[0;33m[\033[0;36mGenerating Binary\033[0;33m] \033[0;37m$(notdir $@)\033[0m"
+	@echo $(ECHO_FLAGS) "\033[37;1m[\033[0m\033[32;1mBuild\033[0m\033[37;1m]\033[0m Making binary \033[33;1m\"$(notdir $<)\"\033[0m -> \033[33;1m\"$(notdir $@)\"\033[0m"
 	@$(OBJCOPY) -O binary $< $@
 
 $(OUTPUT).sym : $(OUTPUT).elf
-	@echo $(ECHO_FLAGS) "\033[0;33m[\033[0;36mDumping Symbol Table\033[0;33m] \033[0;37m$(notdir $@)\033[0m"
+	@echo $(ECHO_FLAGS) "\033[37;1m[\033[0m\033[32;1mBuild\033[0m\033[37;1m]\033[0m Dumping symbols \033[33;1m\"$(notdir $<)\"\033[0m -> \033[33;1m\"$(notdir $@)\"\033[0m"
 	@$(OBJDUMP) -t $< > $@
 
 #---------------------------------------------------------------------------------
 %.elf: $(OBJECTS)
-	@echo $(ECHO_FLAGS) "\033[0;33m[\033[0;36mLinking\033[0;33m] \033[0;37m$(notdir $@)\033[0m"
+	@echo $(ECHO_FLAGS) "\033[37;1m[\033[0m\033[32;1mBuild\033[0m\033[37;1m]\033[0m Linking -> \033[33;1m\"$(notdir $@)\"\033[0m"
 	@$(LD)  $(LDFLAGS) $(OBJECTS) -o $@
 
 #---------------------------------------------------------------------------------
 %.o: %.cpp
-	@echo $(ECHO_FLAGS) "\033[0;33m[\033[0;31mCompiling\033[0;33m] \033[0;37m$(notdir $<)\033[0m"
+	@echo $(ECHO_FLAGS) "\033[37;1m[\033[0m\033[32;1mBuild\033[0m\033[37;1m]\033[0m Building C++ file \033[33;1m\"$(notdir $<)\"\033[0m"
 	@$(CXX) -MMD -MP -MF $(DEPSDIR)/$*.d $(CXXFLAGS) -c $< -o $@ $(ERROR_FILTER)
 
 #---------------------------------------------------------------------------------
 %.o: %.c
-	@echo $(ECHO_FLAGS) "\033[0;33m[\033[0;31mCompiling\033[0;33m] \033[0;37m$(notdir $<)\033[0m"
+	@echo $(ECHO_FLAGS) "\033[37;1m[\033[0m\033[32;1mBuild\033[0m\033[37;1m]\033[0m Building C file \033[33;1m\"$(notdir $<)\"\033[0m"
 	@$(CC) -MMD -MP -MF $(DEPSDIR)/$*.d $(CFLAGS) -c $< -o $@ $(ERROR_FILTER)
 
 #---------------------------------------------------------------------------------
 %.o: %.s
-	@echo $(ECHO_FLAGS) "\033[0;33m[\033[0;31mAssembling\033[0;33m] \033[0;37m$(notdir $<)\033[0m"
+	@echo $(ECHO_FLAGS) "\033[37;1m[\033[0m\033[32;1mBuild\033[0m\033[37;1m]\033[0m Building ASM file \033[33;1m\"$(notdir $<)\"\033[0m"
 	@$(CC) -MMD -MP -MF $(DEPSDIR)/$*.d -x assembler-with-cpp $(ASFLAGS) -c $< -o $@ $(ERROR_FILTER)
 
 -include $(DEPSDIR)/*.d
