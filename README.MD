@@ -1,5 +1,7 @@
 
 # New Super Mario Bros. E3 2005 demo recreation
+NSMBHD thread: https://nsmbhd.net/thread/5516-new-super-mario-bros-e3-2005-demo-recreation/
+
 
 ## Building
 Pre-requisites:
@@ -21,28 +23,7 @@ Steps:
  - Run `insert_files.py rom.nds`.
  - Open `rom.nds` in NSMB Editor.
  - Go to the `Tools/Options` tab and click `Run 'make' and insert`. If you get a error message box just click continue.
-
-## Playing
-The hack has been tested on:
- - [DeSmuME](http://desmume.org/download/)
- - [MelonDS](http://melonds.kuribo64.net/downloads.php)
- - [nds-bootstrap](https://github.com/DS-Homebrew/nds-bootstrap) using the [TWiLight Menu++](https://github.com/DS-Homebrew/TWiLightMenu/releases) frontend
- - R4i-SDHC 3DS RTS flashcard (default firmware)
- - Acekard 2i (AKAIO)
-
-## Credits
- - **Hiccup** - Research, direction, levels and minor graphics
- - **TheGameratorT** - Coding and minor graphics
- - **Alzter** - Graphics
-
-### Special Thanks
- - **KTRMAmbiance** (aka Ambiance69) - Graphics
- - **MeroMero** - No level freeze code (nofreeze.s)
- - **Ed_IT** - Helped with custom sprite code
- - **Doc_Static** (aka Mspeter97) - First-hand demo information (was present at E3 2005)
- - **SiropDeViolette** (aka Simpson55) - First-hand demo information (was present at E3 2005)
- - **All contributors to the original "Beta Replica" project**
-
+    
 ## Notes
 1\.  
 > Size: 33554432  
