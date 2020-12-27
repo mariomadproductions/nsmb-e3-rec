@@ -29,6 +29,10 @@ for path in Path('source_nitrofs').rglob('*.*'):
             # Set file data
             rom.files[fileID] = extracted_file.read()
         else:
-            rom.setFileByName(path_formatted, extracted_file.read())
+            if path_formatted != 'banner.bin':
+                rom.setFileByName(path_formatted, extracted_file.read())
         print('Inserted external file ' + path_formatted)
+
+rom.iconBanner = open('source_nitrofs/banner.bin', 'rb').read() # Install banner
+
 rom.saveToFile(rom_filename)
