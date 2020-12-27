@@ -85,7 +85,7 @@ extern "C"
 				SpawnParticle(203, &self->actor.position);
 				SpawnParticleAxis(203, &self->actor.position, &axis);
 
-				enemyActor_delete(self, 1);
+				Base_deleteIt(self);
 			}
 			self->hitTimer++;
 		}
