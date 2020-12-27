@@ -2,8 +2,6 @@
 # New Super Mario Bros. E3 2005 demo recreation
 This project aims to recreate the New Super Mario Bros. E3 2005 demo.
 
-Press the B button on the main menu to start multiplayer mode.
-
 ## Building
 Pre-requisites:
  - [GNU Arm Embedded Toolchain](https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads)
