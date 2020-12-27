@@ -98,6 +98,7 @@ void repl_02130020_ov_0E(int classID, int spriteData, Vec3 *pos, EnemyActor* mGo
 //Fix some desyncs
 NAKED void repl_02132108_ov_0E() { asm("MOV R1, #0\nBX LR"); }
 NAKED void repl_0212FCCC_ov_0E() { asm("MOV R0, #0\nBX LR"); }
+void repl_020FB2E4_ov_0A() {} //Remove faulty zoom
 
 void hook_021315C4_ov_0E()
 {
@@ -134,8 +135,6 @@ void repl_0213137C_ov_0E()
 }
 
 // MULTIPLAYER ===================================
-
-void repl_020FB2E4_ov_0A() {} //Yeet zoom
 
 NAKED void repl_021578F0_ov_34() { asm("MOVEQ R1, #0\nBX LR"); } //Force MvsLMode = 0
 void nsub_021535A0_ov_34() { SetPlayerCount(2); } //Change mvsl setup crap
