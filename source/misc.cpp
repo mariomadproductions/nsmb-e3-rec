@@ -98,7 +98,6 @@ void repl_02130020_ov_0E(int classID, int spriteData, Vec3 *pos, EnemyActor* mGo
 //Fix some desyncs
 NAKED void repl_02132108_ov_0E() { asm("MOV R1, #0\nBX LR"); }
 NAKED void repl_0212FCCC_ov_0E() { asm("MOV R0, #0\nBX LR"); }
-void repl_020FB2E4_ov_0A() {} //Remove faulty zoom
 
 void hook_021315C4_ov_0E()
 {
@@ -131,6 +130,36 @@ void repl_0213137C_ov_0E()
 	{
 		PlayerActor* player = GetPtrToPlayerActorByID(i);
 		PlayerActor_unfreeze(player);
+	}
+}
+
+// REMOVE DOWNLOAD PLAY ===================================
+
+int repl_021592DC_ov_34()
+{
+	register int* mvslMenu asm("r4");
+
+	mvslMenu[0x004 / 4] = 0x00000003;
+	mvslMenu[0x080 / 4] = 0x00000001;
+	mvslMenu[0x084 / 4] = 0x00000001;
+	mvslMenu[0x094 / 4] = 0x000009A8;
+	mvslMenu[0x0A8 / 4] = 0x00000002;
+	mvslMenu[0x0AC / 4] = 0x00000002;
+	mvslMenu[0x0B0 / 4] = 0x00000200;
+	mvslMenu[0x0D8 / 4] = 0x00000007;
+	mvslMenu[0x100 / 4] = 0x00000107;
+	mvslMenu[0x15C / 4] = 0x0215CA6C;
+	mvslMenu[0x160 / 4] = 0x00000001; //Sub-menu swap timer
+
+	return 1;
+}
+void hook_021587F8_ov_34(int* mvslMenu)
+{
+	//Variable that happens to not be 0 during connection menu
+	if(mvslMenu[0x134 / 4])
+	{
+		ChangeToScene(4, 0);
+		Music_StopSeq(30);
 	}
 }
 
@@ -176,15 +205,9 @@ void repl_020D13B4_ov_0A() {} //Powerups don't despawn
 void nsub_0200E874() {} //No wireless strenght icon bitmap
 void nsub_0200E944() {} //No wireless strenght icon palette
 
-//Fix desyncs on pause menu
-u16* repl_020A20E8_ov_00(u8* stageScene) { asm("MOV R0, R5"); return &((u16*)0x2087648)[stageScene[25640]]; }
-u8 repl_020A21A4_ov_00(u8* stageScene) { asm("MOV R0, R5"); return stageScene[25640]; }
-u8 repl_020A22D8_ov_00(u8* stageScene) { return repl_020A21A4_ov_00(stageScene); }
-//Disable options on pause menu
-void repl_020A2230_ov_00() {
-	if (GetPlayerCount() == 1)
-		asm("BL 0x20C1F14");
-}
+int repl_020A1590_ov_00() { return 1; } //Force MvsL pause menu settings
+int repl_020A1E10_ov_00() { return 1; } //Force MvsL pause menu behaviour
+int repl_0215F1BC_ov_36() { return 4; } //Force MvsL pause menu text
 
 // MISC ===================================
 
