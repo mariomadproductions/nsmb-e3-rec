@@ -41,6 +41,12 @@ asm(R"(
 )");
 }
 
+// CEILING ROPE ==================================
+
+NAKED void repl_0210C1D0_ov_0A() { asm("MOV R1, #0x800\nBX LR"); } //Walk speed
+NAKED void repl_0210C1E8_ov_0A() { asm("MOV R1, #0x800\nBX LR"); } //Animation speed
+NAKED void nsub_0210C18C_ov_0A() { asm("B 0x0210C1C8"); } //No running
+
 // BAHP ==================================
 
 NAKED void nsub_02012584() { asm("B 0x0201258C"); } //Disable baphs
@@ -60,20 +66,6 @@ asm(R"(
 	B       0x213146C
 )");
 }*/
-
-//Custom boss battle end
-void nsub_0214560C_ov_28(EnemyActor* bossKey)
-{
-	u16& frame = *(u16*)((u8*)bossKey + 0x530);
-
-	if(frame == 0xB0)
-		ExitLevel(true);
-
-	frame++;
-}
-
-//Skip boss controller check
-NAKED void nsub_021453D4_ov_28() { asm("B 0x02145420"); }
 
 //Replace key spawn
 NAKED void repl_02130014_ov_0E() { asm("MOV R3, R4\nBX LR"); }
@@ -132,6 +124,32 @@ void repl_0213137C_ov_0E()
 		PlayerActor_unfreeze(player);
 	}
 }
+
+// BOSS KEY ===================================
+
+//Victory freeze
+void repl_0214619C_ov_28()
+{
+	u8 playerNo = *(u8*)0x020CA298;
+	GetPtrToPlayerActorByID(playerNo)->P.physicsStateBitfield |= 0x800000;
+
+	if(GetPlayerCount() == 2)
+		GetPtrToPlayerActorByID(!playerNo)->P.jumpBitfield |= 0x1000000;
+}
+
+//Custom boss battle end
+void nsub_0214560C_ov_28(EnemyActor* bossKey)
+{
+	u16& frame = *(u16*)((u8*)bossKey + 0x530);
+
+	if(frame == 0xB0)
+		ExitLevel(true);
+
+	frame++;
+}
+
+//Skip boss controller check
+NAKED void nsub_021453D4_ov_28() { asm("B 0x02145420"); }
 
 // REMOVE DOWNLOAD PLAY ===================================
 
