@@ -26,3 +26,9 @@ newcode.sym
 
 # VS Code
 /.vscode
+
+# Operating system files
+*.lnk
+
+# Release files
+*.xdelta
