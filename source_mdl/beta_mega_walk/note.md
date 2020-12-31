@@ -1,0 +1,2 @@
+Alzter tried unsuccessfully to convert this to nsbca before
+the second half of the walk cycle flips the whole model instead of making the animation play with the opposite bones because he wasn't sure how to do the latter
