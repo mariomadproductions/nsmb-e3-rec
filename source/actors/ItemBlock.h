@@ -47,7 +47,7 @@ struct ItemBlock
 	// 3F4 -- ItemBlock only
 	Model3d model;
 
-	SolidCollision sollid_collision;
+	SolidCollision solid_collision;
 
 	void (*exec_func)(ItemBlock*);
 	s8 exec_step;

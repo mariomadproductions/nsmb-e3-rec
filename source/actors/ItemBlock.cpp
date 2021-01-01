@@ -26,7 +26,6 @@ void ItemBlock_SetColor(ItemBlock* block, int color, bool setup = false)
 	{
 		block->color = color;
 		void* model_file = nFS_GetPtrToCachedFile(ModelFileID[block->color]);
-		model3d_ctor(&block->model);
 		model3d_setup(&block->model, model_file, 0);
 
 		if (ResetRotationBug && !setup)
@@ -162,10 +161,9 @@ void ItemBlock_HitExecuteState(ItemBlock* block)
 				ItemBlock_HitBehavior(block, true);
 			}
 		}
-		solidCollisions_setPos(&block->sollid_collision);
+		solidCollisions_setPos(&block->solid_collision);
 
 		block->hit_timer++;
-		return;
 	}
 	else
 	{
@@ -276,10 +274,11 @@ extern "C"
 
 		block->start_pos = block->actor.position;
 
+		model3d_ctor(&block->model);
 		ItemBlock_SetColor(block, block->color, true);
 
-		solidCollisions_init(&block->sollid_collision, block, &ItemBlock_solidCollisionInput, 0, 0, &block->actor.scale);
-		solidCollisions_register(&block->sollid_collision);
+		solidCollisions_init(&block->solid_collision, block, &ItemBlock_solidCollisionInput, 0, 0, &block->actor.scale);
+		solidCollisions_register(&block->solid_collision);
 
 		block->being_hit = false;
 		block->rot_timer = 0;
@@ -290,10 +289,7 @@ extern "C"
 
 	int ItemBlock_OnExecute(ItemBlock* block)
 	{
-		if (!block->info.executeThisState)
-		{
-			block->exec_func(block);
-		}
+		block->exec_func(block);
 		enemyActor_deleteIfOutOfRange(block, 0);
 		return 1;
 	}
@@ -306,7 +302,7 @@ extern "C"
 
 	int ItemBlock_OnDelete(ItemBlock* block)
 	{
-		solidCollisions_unregister(&block->sollid_collision);
+		solidCollisions_unregister(&block->solid_collision);
 		return 1;
 	}
 }
