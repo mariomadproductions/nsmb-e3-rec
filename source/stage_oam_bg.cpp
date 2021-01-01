@@ -117,6 +117,67 @@ static OAMEntry oam_touchI[] = {
 	}
 };
 
+static OAMEntry oam_LevelName_FIELD[] = {
+	{
+		OBJ_Y(0) | ATTR0_WIDE | ATTR0_COLOR_256,
+		OBJ_X(0) | ATTR1_SIZE_16,
+		(0x6A * 2)
+	},
+	{
+		OBJ_Y(0) | ATTR0_SQUARE | ATTR0_COLOR_256,
+		OBJ_X(32) | ATTR1_SIZE_8,
+		(0x6E * 2) | ATTR2_DATA_END
+	}
+};
+
+static OAMEntry oam_LevelName_FORTRESS[] = {
+	{
+		OBJ_Y(0) | ATTR0_WIDE | ATTR0_COLOR_256,
+		OBJ_X(0) | ATTR1_SIZE_16,
+		(0x76 * 2)
+	},
+	{
+		OBJ_Y(0) | ATTR0_WIDE | ATTR0_COLOR_256,
+		OBJ_X(32) | ATTR1_SIZE_16,
+		(0x7A * 2)
+	},
+	{
+		OBJ_Y(0) | ATTR0_SQUARE | ATTR0_COLOR_256,
+		OBJ_X(64) | ATTR1_SIZE_8,
+		(0x7E * 2) | ATTR2_DATA_END
+	}
+};
+
+static OAMEntry oam_LevelName_DESERT[] = {
+	{
+		OBJ_Y(0) | ATTR0_WIDE | ATTR0_COLOR_256,
+		OBJ_X(0) | ATTR1_SIZE_16,
+		(0x6F * 2)
+	},
+	{
+		OBJ_Y(0) | ATTR0_WIDE | ATTR0_COLOR_256,
+		OBJ_X(32) | ATTR1_SIZE_8,
+		(0x73 * 2)
+	},
+	{
+		OBJ_Y(0) | ATTR0_SQUARE | ATTR0_COLOR_256,
+		OBJ_X(48) | ATTR1_SIZE_8,
+		(0x75 * 2) | ATTR2_DATA_END
+	}
+};
+
+static OAMEntry* oam_LevelNames[] = {
+	oam_LevelName_FIELD,
+	oam_LevelName_FORTRESS,
+	oam_LevelName_DESERT
+};
+
+static void MyDrawBottomScreenLevelName(int* stageScene)
+{
+	int levelID = *(int*)0x02085A14;
+	OAM_DrawHUDSubFromLoadedBNCL(11 + levelID, oam_LevelNames[levelID], 0, 0, 0, 0, 0, 0, 0, 0, 0);
+}
+
 static void MyDrawBottomScreenPowerups(int* stageScene, int playerNo)
 {
 	for (int i = 0; i < 3; i++)
@@ -344,6 +405,7 @@ NAKED void repl_020BE60C_ov_00() { asm("MOVNE R8, #0\nBX LR"); } //Luigi head OA
 //Sub OAM Draw
 void nsub_020BFE5C_ov_00(int* stageScene, int playerNo)
 {
+	MyDrawBottomScreenLevelName(stageScene);
 	MyDrawBottomScreenPowerups(stageScene, playerNo);
 	MyDrawBottomScreenCounters(playerNo);
 	MvsLDrawBottomScreenProgressPathIcons(
