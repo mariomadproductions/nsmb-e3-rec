@@ -252,6 +252,9 @@ extern "C" {
 	// Sets the sprite respawn argument
 	void SetSpriteAtPosUsed(fx32 x, fx32 y, u16 used);
 
+	// Sets the level zoom
+	void SetLevelZoom(fx32 zoom, int delay, int playerNo, u8 a4);
+
 	// Returns a random number
 	int RNG();
 

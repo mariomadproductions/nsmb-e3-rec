@@ -41,6 +41,27 @@ asm(R"(
 )");
 }
 
+// MEGA MARIO ==================================
+
+//Set zoom when growing to Mega form
+void repl_0212027C_ov_0A(int item, int playerNo)
+{
+	SetLevelZoom(0x1400, 16, playerNo, 0);
+	GiveScoreItemForPlayer(item, playerNo); //Keep replaced instruction
+}
+
+//Set zoom when un-growing from Mega form
+void hook_02120528_ov_0A(PlayerActor* player)
+{
+	int playerNo = player->actor.playerNumber;
+	SetLevelZoom(0x1000, 16, playerNo, 0);
+}
+
+void repl_02120288_ov_0A() { asm("MOV R1, #0x4B0\nBX LR"); }
+
+//Fancier but less accurate alternative for growing:
+//void hook_02120344_ov_0A() { SetLevelZoom(0x1400, 64, 0, 0); }
+
 // CEILING ROPE ==================================
 
 NAKED void repl_0210C1D0_ov_0A() { asm("MOV R1, #0x800\nBX LR"); } //Walk speed
