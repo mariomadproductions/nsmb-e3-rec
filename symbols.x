@@ -2638,6 +2638,7 @@ InitBGDat = 0x020B3924;
 GetStartEntranceIDForPlayer = 0x0201F518;
 SpawnParticleRadius = 0x02022A50;
 SpawnParticleAxis = 0x2022a7c;
+SetLevelZoom = 0x020FACFC;
 
 DrawBottomScreenPowerups = 0x020BE828;
 DrawBottomScreenLevelNumbers = 0x020BEEF0;

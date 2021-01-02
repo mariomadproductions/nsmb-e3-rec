@@ -18,6 +18,7 @@ class ostream
 	inline friend ostream& operator<<(ostream& os, int val) { return os << static_cast<uint32_t>(val); }
 	inline friend ostream& operator<<(ostream& os, unsigned val) { return os << static_cast<uint32_t>(val); }
 	inline friend ostream& operator<<(ostream& os, int64_t val) { return os << static_cast<uint64_t>(val); }
+	inline friend ostream& operator<<(ostream& os, long val) { return os << static_cast<uint32_t>(val); }
 }
 extern cout;
 
