@@ -255,6 +255,9 @@ extern "C" {
 	// Sets the level zoom
 	void SetLevelZoom(fx32 zoom, int delay, int playerNo, u8 a4);
 
+	// Changes a tile
+	void ChangeTile(void* level, s32 x, s32 y, int a4);
+
 	// Returns a random number
 	int RNG();
 

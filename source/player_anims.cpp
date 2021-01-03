@@ -22,7 +22,7 @@ void repl_02116698_ov_0A(PlayerActor* player, int animationNo, int startFrame, i
 
 	if (player->P.currentAnim == 2)
 	{
-		PlayerActor_SetAnimationSpeed(player, updateSpeed);
+		PlayerActor_setAnimationSpeed(player, updateSpeed);
 	}
 	else
 	{
@@ -31,16 +31,16 @@ void repl_02116698_ov_0A(PlayerActor* player, int animationNo, int startFrame, i
 			fx32 xvel = MATH_ABS(player->actor.velocity.x);
 			if (xvel >= 0x1800)
 			{
-				PlayerActor_SetAnimation(player, 2, startFrame, unk1, updateSpeed, unk2);
+				PlayerActor_setAnimation(player, 2, startFrame, unk1, updateSpeed, unk2);
 			}
 			else
 			{
-				PlayerActor_SetAnimationSpeed(player, updateSpeed);
+				PlayerActor_setAnimationSpeed(player, updateSpeed);
 			}
 		}
 		else
 		{
-			PlayerActor_SetAnimation(player, 1, startFrame, unk1, updateSpeed, unk2);
+			PlayerActor_setAnimation(player, 1, startFrame, unk1, updateSpeed, unk2);
 		}
 	}
 }

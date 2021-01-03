@@ -422,7 +422,7 @@ typedef struct PlayerActorOnly
 	u32					unkB98;
 	u8					unkB9C;
 	u8					unkB9D;
-	u8					movementStateStep; 			//Set to 1 when idle, 2 when moving (walking/running, falling, crounching), 3 when landing	
+	s8					movementStateStep; 			//Set to 1 when idle, 2 when moving (walking/running, falling, crounching), 3 when landing	
 	u8					notInPipeCannon;
 	u8					consecutiveJumps;
 	u8					field_0x705;
@@ -476,10 +476,10 @@ extern "C"
 #endif
 
 	// Sets the player animation
-	void PlayerActor_SetAnimation(PlayerActor* player, int animationNo, int startFrame, int unk1, int updateSpeed, int unk2);
+	void PlayerActor_setAnimation(PlayerActor* player, int animationNo, int startFrame, int unk1, int updateSpeed, int unk2);
 
 	// Sets the player animation speed
-	void PlayerActor_SetAnimationSpeed(PlayerActor* player, int updateSpeed);
+	void PlayerActor_setAnimationSpeed(PlayerActor* player, int updateSpeed);
 
 	// Updates the player animation
 	void PlayerActor_updateAnimation(PlayerActor* player);
@@ -513,6 +513,12 @@ extern "C"
 
 	// Stops music to prepare death sequence
 	void PlayerActor_stopMusicOnDeath(PlayerActor* player, int fadeFrame);
+	
+	// Checks if the player is groundpounding, if so, executes it
+	bool PlayerActor_checkGroundPound(PlayerActor *player);
+
+	// Check if the current animation has ended
+	bool PlayerActor_animationEnded(PlayerActor *player);
 
 	// Gets the pointer to the local player.
 	// WARNING: Causes desyncs in multiplayer if used incorrectly!

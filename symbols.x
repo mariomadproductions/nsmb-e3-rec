@@ -2597,7 +2597,7 @@ sub_20990D4 = 0x020990D4;
 sub_20A08A4 = 0x020A08A4;
 CheckCollisionUnder = 0x020A76D4;
 sub_209C590 = 0x0209C590;
-PlayerActor_SetAnimation = 0x02120BB8;
+PlayerActor_setAnimation = 0x02120BB8;
 UpdatePlayerAnimation = 0x02120A24;
 sub_212C648 = 0x0212C648;
 sub_2120A04 = 0x02120A04;
@@ -2639,6 +2639,7 @@ GetStartEntranceIDForPlayer = 0x0201F518;
 SpawnParticleRadius = 0x02022A50;
 SpawnParticleAxis = 0x2022a7c;
 SetLevelZoom = 0x020FACFC;
+ChangeTile = 0x020AF30C;
 
 DrawBottomScreenPowerups = 0x020BE828;
 DrawBottomScreenLevelNumbers = 0x020BEEF0;
@@ -2729,13 +2730,15 @@ PlayerActor_unfreeze = 0x0211F2EC;
 PlayerActor_setHeldActor = 0x212b26c;
 PlayerActor_removeHeldActor = 0x212bde0;
 PlayerActor_removeHeldItem = 0x02104C9C;
-PlayerActor_SetAnimationSpeed = 0x021209E0;
+PlayerActor_setAnimationSpeed = 0x021209E0;
 PlayerActor_SpawnStarmanParticles = 0x020FDAD0;
 PlayerActor_setMovementState = 0x021006AC;
 PlayerActor_setEntranceState = 0x0211EDA0;
 PlayerActor_setRespawnedState = 0x0211EFB0;
 PlayerActor_stopMusicOnDeath = 0x0212B7F0;
 PlayerActor_updateAnimation = 0x02115BC8;
+PlayerActor_checkGroundPound = 0x02113E2C;
+PlayerActor_animationEnded = 0x02120A14;
 
 base_ctor = 0x204d2ac;
 
