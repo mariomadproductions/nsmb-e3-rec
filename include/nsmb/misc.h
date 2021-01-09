@@ -258,6 +258,9 @@ extern "C" {
 	// Changes a tile
 	void ChangeTile(void* level, s32 x, s32 y, int a4);
 
+	// Spawns the particle of a broken tile
+	void SpawnBrokenTileParticle(s32 a1, Vec3* pos, s32 a3, u16 a4, u8 a5, s32 a6);
+
 	// Returns a random number
 	int RNG();
 
