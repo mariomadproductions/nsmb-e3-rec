@@ -219,8 +219,11 @@ extern "C" {
 	// Updates the bottom screen inventory powerup
 	void UpdateInventoryPowerup(int playerNo, u8 powerup);
 
-	// Initializes WiFi
-	void WiFi_Init();
+	// Initializes multiplayer
+	void Multiplayer_init();
+
+	// Ends the current multiplayer connection
+	void Multiplayer_endConnection();
 
 	// Updates the touched position
 	void UpdatePenTouchPositions();
