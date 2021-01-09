@@ -243,7 +243,7 @@ typedef struct PlayerActorOnly
 	u8					virt64switch;
 	u8					unk7AA;
 	u8					powerupStateCurrent;
-	u8					powerup;
+	u8					powerupStateOld;
 	u8					powerupStateStart;
 	u8					unk7AE;
 	u8					unk7AF;
@@ -400,8 +400,7 @@ typedef struct PlayerActorOnly
 	u32					unkB44;
 	u32					unkB48;
 	u32					unkB4C;
-	u16					unkB50;
-	u16					unkB52;
+	u32					unkB50;
 	u32					unkB54;
 	u32					unkB58;
 	u32                    unkB5C;

@@ -27,59 +27,29 @@ NAKED void nsub_020D368C_ov_0A() { asm("B 0x020D3694"); }
 
 // MEGA KICK ===================================
 
-static u8 breakTextures[] = {
-    5, 2, 1, 6
-};
-
 void PlayerActor_doKickDestruction(PlayerActor* player)
 {
-    if(player->P.powerup != 3)
+    if(player->P.powerupStateOld != 3)
         return;
 
-    const int direction = player->info.direction ? -1 : 1;
+    int d = player->info.direction ? -1 : 1;
 
-    const int tileX =  FX_Whole(player->actor.position.x);
-    const int tileY = -FX_Whole(player->actor.position.y);
-
-    // 16 = 1 tile
-    const int rectX = 1 * 16;
-    const int rectY = 6 * 16;
-    const int rectW = 3 * 16;
-    const int rectH = 6 * 16;
-
-    const int xOff = tileX + (rectX * direction);
-    const int yOff = tileY - rectY;
-
-    for(int w = 0; w < rectW; w += 16)
-    {
-        for(int h = 0; h < rectH; h += 16)
+    int xS = FX_Whole(player->actor.position.x) + ((16 * 1) * d);
+    int yS = -FX_Whole(player->actor.position.y) - (16 * 4);
+    for(int yy = 0; yy < (16 * 4); yy += 16) {
+        for(int xx = 0; xx < (16 * 4); xx += 16)
         {
-            const int x = xOff + (w * direction);
-            const int y = yOff + h;
-
-            const int tileB = GetTileBehaviorAtPos(x, y);
-            if(tileB & 0x1C0000)
+            int x = xS + (xx * d);
+            int y = yS + yy;
+            if(GetTileBehaviorAtPos(x, y) & 0x1C0000)
             {
                 ChangeTile(*(void**)0x020CAD40, x, y, 0);
-
-                int breakTex;
-                if ( (tileB & 0x40000) != 0 )
-                    breakTex = 3;
-                else if ( (tileB & 0x100000) != 0 )
-                    breakTex = 0;
-                else
-                    breakTex = breakTextures[0x80003 - tileB];
-                
-                Vec3 pos;
-                pos.x =  x << FX32_SHIFT;
-                pos.y = -y << FX32_SHIFT;
-                SpawnBrokenTileParticle(22, &pos, 0, 0, 3, (breakTex << 8) | 2);
             }
         }
     }
 }
 
-bool PlayerActor_kickState(PlayerActor *player, int arg)
+bool PlayerActor_megaKickState(PlayerActor *player, int arg)
 {
     if (player->P.movementStateStep == -1) //dtor
     {
@@ -87,34 +57,22 @@ bool PlayerActor_kickState(PlayerActor *player, int arg)
     }
     else if (!player->P.movementStateStep) //ctor
     {
-        player->P.movementStateStep++;
-        if ( player->P.powerup == 3 )
-            player->P.miscActionsBitfield |= 0x40000000;
         PlayerActor_setAnimation(player, 83, 0, 0, 0x800, 0);
+        player->P.movementStateStep++;
     }
     else //update
     {
-        if (PlayerActor_animationEnded(player))
+        bool animEnded = PlayerActor_animationEnded(player);
+        if(animEnded || player->collider.isOnGround)
         {
             PlayerActor_setMovementState(player, 0x021135B8, false, 0);
         }
         else
         {
-            bool nearGround = (player->P.miscActionsBitfield & 0x80000000) != 0 || (player->P.collBitfield & 0x8000001) != 0;
-            bool goingDown = player->actor.velocity.y < 0;
-
-            if(nearGround && goingDown) //Speed up animation if player is about to hit the ground
-            {
-                PlayerActor_setAnimationSpeed(player, 0x1000);
-            }
-            else
-            {
-                if(player->P.movementStateStep == 0xA)
-                    PlayerActor_doKickDestruction(player);
-                else if(player->P.movementStateStep == 0x17)
-                    PlayerActor_setAnimationSpeed(player, 0x100); //Kick retraction speed
-            }
-            
+            if(player->P.movementStateStep == 0xA)
+                PlayerActor_doKickDestruction(player);
+            else if(player->P.movementStateStep == 0x17)
+                PlayerActor_setAnimationSpeed(player, 0x100); //Kick retraction speed
             PlayerActor_updateAnimation(player);
             player->P.movementStateStep++;
         }
@@ -122,26 +80,20 @@ bool PlayerActor_kickState(PlayerActor *player, int arg)
     return true;
 }
 
-bool PlayerActor_checkKick(PlayerActor* player)
+bool PlayerActor_checkMegaKick(PlayerActor* player)
 {
     bool rButtonDown = player->P.ButtonsPressed & PAD_BUTTON_R;
-    bool notSmall = player->P.powerup != 0;
-    bool nearGround = (player->P.miscActionsBitfield & 0x80000000) != 0 || (player->P.collBitfield & 0x8000001) != 0;
-    bool goingDown = player->actor.velocity.y < 0;
-
-    // Prevent kick if player is about to hit the ground
-    if (rButtonDown && notSmall && !(nearGround && goingDown))
+    if(rButtonDown)
     {
-        PlayerActor_setMovementState(player, (int)PlayerActor_kickState, false, 0);
+        PlayerActor_setMovementState(player, (int)PlayerActor_megaKickState, false, 0);
         return true;
     }
-
     return false;
 }
 
 bool repl_021136E0_ov_0A(PlayerActor* player)
 {
-	if (PlayerActor_checkKick(player))
+	if(PlayerActor_checkMegaKick(player))
 		return true;
 	return PlayerActor_checkGroundPound(player);
 }
