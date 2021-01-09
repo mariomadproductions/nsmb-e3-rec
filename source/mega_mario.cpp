@@ -63,9 +63,9 @@ void PlayerActor_doKickDestruction(PlayerActor* player)
                 ChangeTile(*(void**)0x020CAD40, x, y, 0);
 
                 int breakTex;
-                if ( (tileB & 0x40000) != 0 )
+                if (tileB & 0x40000)
                     breakTex = 3;
-                else if ( (tileB & 0x100000) != 0 )
+                else if (tileB & 0x100000)
                     breakTex = 0;
                 else
                     breakTex = breakTextures[0x80003 - tileB];
@@ -94,27 +94,18 @@ bool PlayerActor_kickState(PlayerActor *player, int arg)
     }
     else //update
     {
-        if (PlayerActor_animationEnded(player))
+        bool grounded = player->P.collBitfield & 1;
+        if (PlayerActor_animationEnded(player) || grounded)
         {
             PlayerActor_setMovementState(player, 0x021135B8, false, 0);
         }
         else
         {
-            bool nearGround = (player->P.miscActionsBitfield & 0x80000000) != 0 || (player->P.collBitfield & 0x8000001) != 0;
-            bool goingDown = player->actor.velocity.y < 0;
+            if (player->P.movementStateStep == 0xA)
+                PlayerActor_doKickDestruction(player);
+            else if (player->P.movementStateStep == 0x17)
+                PlayerActor_setAnimationSpeed(player, 0x100); //Kick retraction speed
 
-            if(nearGround && goingDown) //Speed up animation if player is about to hit the ground
-            {
-                PlayerActor_setAnimationSpeed(player, 0x1000);
-            }
-            else
-            {
-                if(player->P.movementStateStep == 0xA)
-                    PlayerActor_doKickDestruction(player);
-                else if(player->P.movementStateStep == 0x17)
-                    PlayerActor_setAnimationSpeed(player, 0x100); //Kick retraction speed
-            }
-            
             PlayerActor_updateAnimation(player);
             player->P.movementStateStep++;
         }
@@ -125,12 +116,12 @@ bool PlayerActor_kickState(PlayerActor *player, int arg)
 bool PlayerActor_checkKick(PlayerActor* player)
 {
     bool rButtonDown = player->P.ButtonsPressed & PAD_BUTTON_R;
-    bool notSmall = player->P.powerup != 0;
-    bool nearGround = (player->P.miscActionsBitfield & 0x80000000) != 0 || (player->P.collBitfield & 0x8000001) != 0;
+    bool notSmall = player->P.powerup != 0 && player->P.powerup != 4;
+    bool nearGround = player->P.collBitfield & 0x8000001;
     bool goingDown = player->actor.velocity.y < 0;
+    bool notJumping2 = player->P.consecutiveJumps != 2;
 
-    // Prevent kick if player is about to hit the ground
-    if (rButtonDown && notSmall && !(nearGround && goingDown))
+    if (rButtonDown && notSmall && notJumping2 && !(nearGround && goingDown))
     {
         PlayerActor_setMovementState(player, (int)PlayerActor_kickState, false, 0);
         return true;

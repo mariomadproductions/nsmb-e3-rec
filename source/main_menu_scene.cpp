@@ -198,7 +198,14 @@ int nsub_020D339C_ov_09()
 	if (nkeysDown[0] & PAD_BUTTON_B)
 	{
 		if(GetConsoleCount() == 1)
+		{
 			ChangeToScene(MvsL_MAIN_MENU_SCENE, 0);
+		}
+		else
+		{
+			Multiplayer_endConnection();
+			*(int*)0x02085200 = 1; //Reset console count
+		}
 	}
 
 	return 1;
@@ -235,7 +242,7 @@ NAKED void nsub_020CC730_ov_01() { asm("B 0x020CC738"); } //Boot scene fades out
 NAKED void nsub_020CCBF0_ov_01() { asm("B 0x020CCD8C"); }
 void repl_020CCD8C_ov_01()
 {
-	WiFi_Init();
+	Multiplayer_init();
 
 	GX_SetDispSelect(GX_DISP_SELECT_SUB_MAIN);
 	MainMenuScene_InitTopScreen();

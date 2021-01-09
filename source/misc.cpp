@@ -226,6 +226,7 @@ void nsub_0200E944() {} //No wireless strenght icon palette
 int repl_020A1590_ov_00() { return 1; } //Force MvsL pause menu settings
 int repl_020A1E10_ov_00() { return 1; } //Force MvsL pause menu behaviour
 int repl_0215F1BC_ov_36() { return 4; } //Force MvsL pause menu text
+void nsub_020A2004_ov_00() { asm("B 0x020A2034"); } //Do not end connection on pause menu quit
 
 // MISC ===================================
 
