@@ -2640,6 +2640,7 @@ SpawnParticleRadius = 0x02022A50;
 SpawnParticleAxis = 0x2022a7c;
 SetLevelZoom = 0x020FACFC;
 ChangeTile = 0x020AF30C;
+SpawnBrokenTileParticle = 0x020E653C;
 
 DrawBottomScreenPowerups = 0x020BE828;
 DrawBottomScreenLevelNumbers = 0x020BEEF0;

@@ -93,8 +93,12 @@ typedef struct Actor
 	S16Vec3 rotation;	// 9C -- inited from createSprite_rot
 	S16Vec3 lastRot;		// A8 -- inited from createSprite_rot
 
-	u32 collisionBitfield;
-	u32 unk[5];
+	u32 collisionBitfield; // AC
+	u32 unkB4;
+	u32 unkB8;
+	u32 unkBC;
+	u32 unkC0;
+	u32 unkC4;
 
 	Vec3 velocity;		// CC -- velocity
 	Vec3 accel;			// DC
