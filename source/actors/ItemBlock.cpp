@@ -26,7 +26,7 @@ void ItemBlock_SetColor(ItemBlock* block, int color, bool setup = false)
 	{
 		block->color = color;
 		void* model_file = nFS_GetPtrToCachedFile(ModelFileID[block->color]);
-		model3d_setup(&block->model, model_file, 0, 0);
+		model3d_setup(&block->model, model_file, 0);
 
 		if (ResetRotationBug && !setup)
 		{
