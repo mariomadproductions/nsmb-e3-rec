@@ -13,61 +13,62 @@ nocashPrint1:
 nocashPrint2:
 nocashPrint3:
 nocashPrint4:
-    push {r4-r9}
-    ldr r4, =msgData
-    mov r5, #0
+	PUSH    {R4-R9}
+	LDR     R4, =msgData
+	MOV     R5, #0
 
-  loop:
-        ldrb r6, [r0]
-        cmp r6, #0
-        beq fill
+loop:
+	LDRB    R6, [R0]
+	CMP     R6, #0
+	BEQ     fill
 
-        cmp r5, #120
-        beq printMsg
-        strb r6, [r4]
+	CMP     R5, #120
+	BEQ     printMsg
+	STRB    R6, [R4]
 
-        add r0, r0, #0x1
-        add r4, r4, #0x1
-        add r5, r5, #0x1
-        b loop
+	ADD     R0, R0, #0x1
+	ADD     R4, R4, #0x1
+	ADD     R5, R5, #0x1
+	B       loop
 
-  fill:
-        mov   r6, #0
-        strb  r6, [r4]
-        cmp   r5, #120
-        moveq r5, #0
-        beq   printMsg
-        add   r5, r5, #0x1
-        b     fill
+fill:
+	MOV     R6, #0
+	STRB    R6, [R4]
+	CMP     R5, #120
+	MOVEQ   R5, #0
+	BEQ     printMsg
+	ADD     R5, R5, #0x1
+	B       fill
 
-  printMsg:
-    mov r0, r1
-    mov r1, r2
-    mov r2, r3
+printMsg:
+	MOV     R0, R1
+	MOV     R1, R2
+	MOV     R2, R3
+    
+	MOV     R12,R12
+	B       continue83
+	.word  0x6464
 
-    mov  r12,r12
-    b    continue83
-    .word  0x6464
-  msgData:
-    .fill 120
-    .byte  0                @ending zero (normally not required, see below)
-    .align 4               @align following code (use align 2 in thumb mode)
-  continue83:
+msgData:
+	.fill 120
+	.byte  0  @ Ending zero (normally not required, see below)
+	.align 4  @ Align following code (use align 2 in thumb mode)
 
-    pop {r4-r9}
-bx lr
+continue83:
+	POP     {R4-R9}
+	BX      LR
 
 
 @=================================
 @ Macro for printing stuff from ASM code
 
 .macro print txt
-mov r12,r12
-b 1f
-.word 0x6464
-.ascii "\txt"
-.byte 0
-.align 4
+	MOV r12,r12
+	B 1f
+	.word 0x6464
+	.ascii "\txt"
+	.byte 0
+	.align 4
 1:
 .endm
 
@@ -75,5 +76,5 @@ b 1f
 @ For example the code below will log every time OpenFileFast is called.
 
 @hook_0206A480:
-@   print "OpenFileFast %r0% %r1% %r2%"
-@   bx lr
+@	print   "OpenFileFast %r0% %r1% %r2%"
+@	BX      LR
