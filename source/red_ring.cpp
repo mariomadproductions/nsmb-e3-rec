@@ -34,7 +34,7 @@ extern "C" {
 	void BGActor_animateQuestionBlocks(void* level);
 	void BGActor_animateCoins(void* level, int frame);
 }
-void DeleteStageSprites()
+static void deleteStageSprites()
 {
 	void* node = *(void**)0x0208FB0C;
 	while (true)
@@ -60,7 +60,7 @@ void repl_021188C4_ov_0A(PlayerActor* player)
 		int* timeLeft = (int*)0x020CA8B4;
 		*timeLeft = block1ptr[2] << 12;
 
-		DeleteStageSprites();
+		deleteStageSprites();
 
 		u16* spawnedSprite1 = (u16*)0x020CA3CC;
 		u16* spawnedSprite2 = (u16*)0x020CA64C;

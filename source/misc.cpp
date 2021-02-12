@@ -157,16 +157,7 @@ int repl_021592DC_ov_34()
 {
 	register int* mvslMenu asm("r4");
 
-	mvslMenu[0x004 / 4] = 0x00000003;
-	mvslMenu[0x080 / 4] = 0x00000001;
-	mvslMenu[0x084 / 4] = 0x00000001;
-	mvslMenu[0x094 / 4] = 0x000009A8;
-	mvslMenu[0x0A8 / 4] = 0x00000002;
-	mvslMenu[0x0AC / 4] = 0x00000002;
-	mvslMenu[0x0B0 / 4] = 0x00000200;
-	mvslMenu[0x0D8 / 4] = 0x00000007;
-	mvslMenu[0x100 / 4] = 0x00000107;
-	mvslMenu[0x15C / 4] = 0x0215CA6C;
+	mvslMenu[0x15C / 4] = 0x0215CA6C; //Sub-menu updater
 	mvslMenu[0x160 / 4] = 0x00000001; //Sub-menu swap timer
 
 	return 1;
@@ -174,7 +165,7 @@ int repl_021592DC_ov_34()
 void hook_021587F8_ov_34(int* mvslMenu)
 {
 	//Variable that happens to not be 0 during connection menu
-	if(mvslMenu[0x134 / 4])
+	if (mvslMenu[0x134 / 4])
 	{
 		ChangeToScene(4, 0);
 		Music_StopSeq(30);
