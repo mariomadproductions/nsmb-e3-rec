@@ -1,6 +1,6 @@
 
 # New Super Mario Bros. E3 2005 demo recreation
-NSMBHD thread: https://nsmbhd.net/thread/5516-new-super-mario-bros-e3-2005-demo-recreation/
+NSMBHD thread: https://nsmbhd.net/thread/5516-new-super-mario-bros-e3-2005-demo-recreation/  
 Pull requests are welcome.
 
 
