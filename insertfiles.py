@@ -1,25 +1,10 @@
 #!/usr/bin/env python3
-"""insertfiles.
-
-Usage:
-multisum.py [--type=<type>] <rom>
-
-Options:
-  -h, --help         Show this screen.
-  -v, --version      Show version.
-  -t, --type=<type>  Type of file(s) to insert [default: nitrofs]
-                     Values:
-                     nitrofs
-                     banner
-"""
-from docopt import docopt
 from sys import argv
 from pathlib import Path
 import ndspy.rom
 from subprocess import check_output
 
-arguments = docopt(__doc__, version='multisum.py')
-rom_filename = arguments['<rom>']
+rom_filename = argv[1]
 rom = ndspy.rom.NintendoDSRom.fromFile(rom_filename)
 path_overrides_filename = 'source_nitrofs_path_overrides.txt'
 
@@ -53,18 +38,18 @@ def insert_nitrofs():
 
 def insert_banner():
     rom.iconBanner = open('source_hdr/banner.bin', 'rb').read() # Install banner
+    print('Inserted banner')
 
 def get_git_revision_short_hash():
     return check_output(['git', 'rev-parse', '--short', 'HEAD']).strip()
 
 def insert_buildtime():
     rom.setFileByName('BUILDTIME', get_git_revision_short_hash())
+    print('Inserted buildtime')
     
 def main():
-    if arguments['--type'] == 'nitrofs':
-        insert_nitrofs()
-    elif arguments['--type']  == 'banner':
-        insert_banner()
+    insert_nitrofs()
+    insert_banner()
     insert_buildtime()
     rom.saveToFile(rom_filename)
 
