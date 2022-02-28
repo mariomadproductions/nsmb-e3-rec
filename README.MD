@@ -10,7 +10,7 @@ Pre-requisites:
  - GNU Make
  - Python 3
  - [ndspy](https://pypi.org/project/ndspy/)
- - [NSMBe 5.3 Beta](https://github.com/TheGameratorT/NSMB-Editor/releases) (works on Windows and Wine, with .NET Framework)
+ - [NSMBe 5.3 Beta](https://github.com/TheGameratorT/NSMB-Editor/releases)
  - NitroSDK (tested with NitroSDK-3_0-060125)
 
 _Note: On Windows, you can install msys2 and then use pacman to get GNU Arm Embedded Toolchain, GNU Make etc. Alternatively, you can install the [devkitPro](https://github.com/devkitPro/installer/releases) "nds-dev" component, which includes its own verions of those._
