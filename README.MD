@@ -6,14 +6,14 @@ Pull requests are welcome.
 
 ## Building
 Pre-requisites:
- - [GNU Arm Embedded Toolchain](https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads)
- - [GNU Make](https://www.msys2.org/)
- - [Python 3](https://www.python.org/downloads/)
+ - GNU Arm Embedded Toolchain
+ - GNU Make
+ - Python 3
  - [ndspy](https://pypi.org/project/ndspy/)
- - [NSMBe 5.3 Beta](https://github.com/TheGameratorT/NSMB-Editor/releases) (currently Windows-only)
+ - [NSMBe 5.3 Beta](https://github.com/TheGameratorT/NSMB-Editor/releases) (works on Windows and Wine, with .NET Framework)
  - NitroSDK (tested with NitroSDK-3_0-060125)
 
-_Note: The [devKitPro](https://github.com/devkitPro/installer/releases) "nds-dev" component includes GNU Make and GNU Arm Embedded Toolchain._
+_Note: On Windows, you can install msys2 and then use pacman to get GNU Arm Embedded Toolchain, GNU Make etc. Alternatively, you can install the [devkitPro](https://github.com/devkitPro/installer/releases) "nds-dev" component, which includes its own verions of those._
 
 Steps:
  - Clone the repo.
