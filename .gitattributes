@@ -61,3 +61,6 @@
 #*.PDF   diff=astextplain
 #*.rtf   diff=astextplain
 #*.RTF   diff=astextplain
+
+#Prevent github from falsely detecting symbols.x as an RPC file 
+symbols.x -linguist-detectable
