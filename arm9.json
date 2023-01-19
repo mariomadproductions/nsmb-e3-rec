@@ -1,0 +1,38 @@
+{
+	"$arm_flags": "-march=armv5te -mtune=arm946e-s $${arm_flags}",
+	"$c_flags": "${arm_flags} $${c_flags} -DSDK_ARM9 -Darm9_start=0x021901E0",
+	"$cpp_flags": "${c_flags} $${cpp_flags}",
+	"$asm_flags": "${arm_flags} $${asm_flags}",
+	"$ld_flags": "$${ld_flags}",
+
+	"c_flags": "${c_flags}",
+	"cpp_flags": "${cpp_flags}",
+	"asm_flags": "${asm_flags}",
+	"ld_flags": "${ld_flags}",
+
+	"includes": [
+		["include", false],
+		["source", false]
+	],
+	"regions": [{
+		"dest": "main",
+		"compress": false,
+		"sources": [
+			["source", false],
+			["source/actor", false],
+			["source/scene", false],
+			["source/extra", false],
+			["source/util", false]
+		]
+	}, {
+		"dest": "ov9",
+		"mode": "replace",
+		"compress": false,
+		"sources": [
+			["source/ov9", false]
+		]
+	}],
+
+	"arenaLo": "0x02065F10",
+	"symbols": "symbols9.x"
+}

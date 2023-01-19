@@ -13,3 +13,4 @@ insert_final_newline = false
 [*.{c++,cc,cpp,cxx,h,h++,hh,hpp,hxx,inl,ipp,tlh,tli}]
 indent_style = tab
 indent_size = 4
+insert_final_newline = true
