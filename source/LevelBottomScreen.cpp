@@ -8,17 +8,17 @@
 #include "extra/undocumented.hpp"
 #include "CustomInventory.hpp"
 
-ncp_repl(0x020A3568, 0, "BX LR") //Do not update top screen OAM
-ncp_repl(0x020A3710, 0, "BX LR") //Do not draw top screen OAM
+ncp_repl(0x020A3568, 0, "BX LR") // Do not update top screen OAM
+ncp_repl(0x020A3710, 0, "BX LR") // Do not draw top screen OAM
 
-//Top screen OAM doesn't load extra bottom screen palette
+// Top screen OAM doesn't load extra bottom screen palette
 ncp_call(0x0215E860, 54)
 void repl_0215E860_ov_36(int fileID) { FS::loadExtFile(fileID, (void*)HW_OBJ_PLTT, 0x200); }
 
-ncp_repl(0x0215F1D8, 54, "NOP") //Do not load a sub OAM palette into cache
-ncp_repl(0x020C0530, 0, "NOP") //Do not write a cached sub OAM palette into VRAM
+ncp_repl(0x0215F1D8, 54, "NOP") // Do not load a sub OAM palette into cache
+ncp_repl(0x020C0530, 0, "NOP") // Do not write a cached sub OAM palette into VRAM
 
-//Bottom Background Setup
+// Bottom Background Setup
 ncp_jump(0x020BDAFC, 0)
 void nsub_020BDAFC_ov_00()
 {
@@ -61,10 +61,10 @@ void nsub_020BDAFC_ov_00()
 	BNXX_InitSub(NULL, bncl, bnbl);
 }
 
-//Sub OAM Update (simply skip part of it xD)
+// Sub OAM Update (simply skip part of it xD)
 ncp_repl(0x020C03F4, 0, "B 0x020C04E4")
 
-//OAM entries based on 0x020CA150
+// OAM entries based on 0x020CA150
 static GXOamAttr oam_noItem[] = {
 	OAM::getOBJAttr(0, 0, 0, GX_OAM_MODE_NORMAL, false, GX_OAM_EFFECT_NONE, GX_OAM_SHAPE_32x8, GX_OAM_COLOR_256, 0x63 * 2, 0, 0, 0),
 	OAM::getOBJAttr(32, 0, 0, GX_OAM_MODE_NORMAL, false, GX_OAM_EFFECT_NONE, GX_OAM_SHAPE_16x8, GX_OAM_COLOR_256, 0x67 * 2, 0, 0, 0),
@@ -90,33 +90,33 @@ static GXOamAttr oam_touchI[] = {
 	OAM::getOBJAttr(36, 16, 0, GX_OAM_MODE_NORMAL, false, GX_OAM_EFFECT_NONE, GX_OAM_SHAPE_8x8, GX_OAM_COLOR_256, 0x62 * 2, 0, 0, 0xFFFF)
 };
 
-static GXOamAttr oam_LevelName_FIELD[] = {
+static GXOamAttr oam_levelName_FIELD[] = {
 	OAM::getOBJAttr(0, 0, 0, GX_OAM_MODE_NORMAL, false, GX_OAM_EFFECT_NONE, GX_OAM_SHAPE_32x8, GX_OAM_COLOR_256, 0x6A * 2, 0, 0, 0),
 	OAM::getOBJAttr(32, 0, 0, GX_OAM_MODE_NORMAL, false, GX_OAM_EFFECT_NONE, GX_OAM_SHAPE_8x8, GX_OAM_COLOR_256, 0x6E * 2, 0, 0, 0xFFFF)
 };
 
-static GXOamAttr oam_LevelName_FORTRESS[] = {
+static GXOamAttr oam_levelName_FORTRESS[] = {
 	OAM::getOBJAttr(0, 0, 0, GX_OAM_MODE_NORMAL, false, GX_OAM_EFFECT_NONE, GX_OAM_SHAPE_32x8, GX_OAM_COLOR_256, 0x76 * 2, 0, 0, 0),
 	OAM::getOBJAttr(32, 0, 0, GX_OAM_MODE_NORMAL, false, GX_OAM_EFFECT_NONE, GX_OAM_SHAPE_32x8, GX_OAM_COLOR_256, 0x7A * 2, 0, 0, 0),
 	OAM::getOBJAttr(64, 0, 0, GX_OAM_MODE_NORMAL, false, GX_OAM_EFFECT_NONE, GX_OAM_SHAPE_8x8, GX_OAM_COLOR_256, 0x7E * 2, 0, 0, 0xFFFF)
 };
 
-static GXOamAttr oam_LevelName_DESERT[] = {
+static GXOamAttr oam_levelName_DESERT[] = {
 	OAM::getOBJAttr(0, 0, 0, GX_OAM_MODE_NORMAL, false, GX_OAM_EFFECT_NONE, GX_OAM_SHAPE_32x8, GX_OAM_COLOR_256, 0x6F * 2, 0, 0, 0),
 	OAM::getOBJAttr(32, 0, 0, GX_OAM_MODE_NORMAL, false, GX_OAM_EFFECT_NONE, GX_OAM_SHAPE_16x8, GX_OAM_COLOR_256, 0x73 * 2, 0, 0, 0),
 	OAM::getOBJAttr(48, 0, 0, GX_OAM_MODE_NORMAL, false, GX_OAM_EFFECT_NONE, GX_OAM_SHAPE_8x8, GX_OAM_COLOR_256, 0x75 * 2, 0, 0, 0xFFFF)
 };
 
-static GXOamAttr* oam_LevelNames[] = {
-	oam_LevelName_FIELD,
-	oam_LevelName_FORTRESS,
-	oam_LevelName_DESERT
+static GXOamAttr* oam_levelNames[] = {
+	oam_levelName_FIELD,
+	oam_levelName_FORTRESS,
+	oam_levelName_DESERT
 };
 
 static void MyDrawBottomScreenLevelName(int* stageScene)
 {
 	int levelID = *(int*)0x02085A14;
-	Game::drawBNCLSpriteSub(11 + levelID, oam_LevelNames[levelID], OAM::Flags::None, 0, 0, nullptr, 0, nullptr, OAM::Settings::None, 0, 0);
+	Game::drawBNCLSpriteSub(11 + levelID, oam_levelNames[levelID], OAM::Flags::None, 0, 0, nullptr, 0, nullptr, OAM::Settings::None, 0, 0);
 }
 
 static void MyDrawBottomScreenPowerups(int* stageScene, int playerNo)
@@ -133,13 +133,11 @@ static void MyDrawBottomScreenPowerups(int* stageScene, int playerNo)
 		s16 rotation;
 		int yOffAnim;
 
-		Vec2 scale2 = Vec2(0x1000);
-
 		int dropState = ((int*)0x020CC0E0)[playerNo];
 		bool somePlayerDropStateCondition = (dropState <= 3);
 		if (invItem == 0 || (!somePlayerDropStateCondition && i != CustomInventory::getDroppingSlot(playerNo)))
 		{
-			scale = &scale2;
+			scale = nullptr;
 			rotation = 0;
 			yOffAnim = 0;
 		}
@@ -154,6 +152,9 @@ static void MyDrawBottomScreenPowerups(int* stageScene, int playerNo)
 			yOffAnim = *((int*)0x020CC0D8 + playerNo);
 		}
 
+		if (invItem >= sizeof(oam_invItems) / sizeof(GXOamAttr*))
+			continue;
+
 		if (invItem == 0)
 		{
 			xOff += 7;
@@ -167,6 +168,7 @@ static void MyDrawBottomScreenPowerups(int* stageScene, int playerNo)
 
 		if (yOffAnim > -192)
 		{
+
 			Game::drawBNCLSpriteSub(
 				i,
 				oam_invItems[invItem],

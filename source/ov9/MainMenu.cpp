@@ -50,17 +50,17 @@ s32 MainMenu::onCreate()
 
 s32 MainMenu::onUpdate()
 {
-	//If fading do not run execution process
+	// If fading do not run execution process
 	if (!Game::fader.fadedIn())
 		return 1;
 
 	if (!isFirstExecute)
 	{
-		G2S_SetBlendBrightness(0x3F, 0); //Fix brightness bug where bottom screen is darker than top
+		G2S_SetBlendBrightness(0x3F, 0); // Fix brightness bug where bottom screen is darker than top
 
-		Game::fader.targetBrightness = -16; //Set fade color to black (forces black fade out)
+		Game::fader.targetBrightness = -16; // Set fade color to black (forces black fade out)
 
-		//Restore amount of screens to fade out
+		// Restore amount of screens to fade out
 		Game::fader.fadingTarget[0] = 1 | 2;
 
 		isFirstExecute = true;
@@ -106,7 +106,7 @@ s32 MainMenu::onUpdate()
 		else
 		{
 			Multiplayer::endConnection();
-			*(int*)0x02085200 = 1; //Reset console count
+			*(int*)0x02085200 = 1; // Reset console count
 		}
 	}
 

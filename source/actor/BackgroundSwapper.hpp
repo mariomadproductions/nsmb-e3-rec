@@ -11,6 +11,15 @@ public:
 
 	static ActorProfile profile;
 
+	constexpr static ObjectInfo objectInfo = {
+		0, 0, // position
+		0, 0, // renderSize
+		0, 0, // spawnOffset
+		0, 0, // viewOffset
+		CollisionSwitch::None, // collisionSwitch
+		SpawnSettings::None // spawnSettings
+	};
+
 	s32 onCreate() override;
 	s32 onUpdate() override;
 

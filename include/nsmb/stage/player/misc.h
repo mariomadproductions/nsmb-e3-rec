@@ -1,9 +1,8 @@
 #pragma once
 #include "nitro_if.h"
+#include "nsmb/math/vector.h"
 
 
-class Vec2;
-class Vec3;
 class StageActor;
 
 

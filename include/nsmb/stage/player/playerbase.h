@@ -116,7 +116,7 @@ struct PlayerActionFlag : BitFlag<u32>
 	u32 flag800				: 1;	// 0x00000800
 	u32 flag1000			: 1;	// 0x00001000
 	u32 flagpoleGrab		: 1;	// 0x00002000 triggers the flagpole transition state
-	u32 flagpoleSlide		: 1;	// 0x00004000 
+	u32 flagpoleSlide		: 1;	// 0x00004000
 	u32 flagpoleEnd			: 1;	// 0x00008000 set by the stage/flagpole when the flag reaches the bottom of the pole
 	u32 climbing			: 1;	// 0x00010000
 	u32 pushLeft			: 1;	// 0x00020000
@@ -205,8 +205,8 @@ struct PlayerPhysicsFlag : BitFlag<u32>
 	u32 walkingOnWater				: 1;	// 0x00400000 set when walking on water (mini mushroom)
 	u32 bossDefeated				: 1;	// 0x00800000 triggers the bossVictory transition state
 	u32 groundPoundPreLand			: 1;	// 0x01000000 set before landing from a ground pound
-	u32 standardDoorTransit			: 1;	// 0x02000000 
-	u32 bossDoorTransit				: 1;	// 0x04000000 
+	u32 standardDoorTransit			: 1;	// 0x02000000
+	u32 bossDoorTransit				: 1;	// 0x04000000
 	u32 swimming					: 1;	// 0x08000000 set when swimming
 	u32 slipping					: 1;	// 0x10000000 set when slipping on ice
 	u32 flag20000000				: 1;	// 0x20000000
@@ -218,7 +218,7 @@ NTR_SIZE_GUARD(PlayerPhysicsFlag, 4);
 
 struct PlayerTransitionFlag : BitFlag<u32>
 {
-	
+
 	u32 finalBoss			: 1;	// 0x00000001
 	u32 flag2				: 1;	// 0x00000002
 	u32 flag4				: 1;	// 0x00000004
@@ -261,13 +261,13 @@ struct PlayerCollisionFlag : BitFlag<u32>
 	u32 ground					: 1;	// 0x00000001 set when colliding with a ground
 	u32 ceiling					: 1;	// 0x00000002 set when colliding with a ceiling
 	u32 pushWall				: 1;	// 0x00000004 set when pushing torwards a wall
-	u32 fullWallLeft			: 1;	// 0x00000008 
-	u32 fullWallRight			: 1;	// 0x00000010 
+	u32 fullWallLeft			: 1;	// 0x00000008
+	u32 fullWallRight			: 1;	// 0x00000010
 	u32 water					: 1;	// 0x00000020 set when colliding with water
-	u32 climbableTopLeft		: 1;	// 0x00000040 
-	u32 climbableTopRight		: 1;	// 0x00000080 
-	u32 climbableBottomLeft		: 1;	// 0x00000100 
-	u32 climbableBottomRight	: 1;	// 0x00000200 
+	u32 climbableTopLeft		: 1;	// 0x00000040
+	u32 climbableTopRight		: 1;	// 0x00000080
+	u32 climbableBottomLeft		: 1;	// 0x00000100
+	u32 climbableBottomRight	: 1;	// 0x00000200
 	u32 wallLeft				: 1;	// 0x00000400 set when colliding with a wall on the left side
 	u32 wallRight				: 1;	// 0x00000800 set when colliding with a wall on the right side
 	u32 edgeGrab				: 1;	// 0x00001000 set when colliding with the edge of a ground tile
@@ -296,7 +296,7 @@ NTR_SIZE_GUARD(PlayerCollisionFlag, 4);
 
 struct PlayerEnvironmentFlag : BitFlag<u32>
 {
-	
+
 	u32 slowGround			: 1;	// 0x00000001
 	u32 sensorSubmerged		: 1;	// 0x00000002
 	u32 activatedCeiling	: 1;	// 0x00000004
@@ -482,7 +482,7 @@ public:
 	virtual bool trySwitchPowerupDirect(PowerupState powerup);
 	virtual Vec3 getTopSensorPosition();
 	virtual void onOneUpCollected();
-	
+
 	void spawnSnowParticles() const;
 
 	bool doTallJump(fx32 force, u16 duration, bool playSFX, bool noConsecutive, s8 variation);
