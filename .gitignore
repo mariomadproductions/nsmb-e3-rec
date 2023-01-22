@@ -5,14 +5,10 @@
 *.sav
 
 # Original ROM data
-/bak/
-/bak_safe/
+/backup/
 
 # Built code
 /build/
-newcode.bin
-newcode.elf
-newcode.sym
 
 # Exclude Nitro SDK headers
 /include/nitro/
@@ -31,3 +27,6 @@ newcode.sym
 
 # Release files
 *.xdelta
+
+# Temporary code files
+/source/ObjectTable.gen.cpp

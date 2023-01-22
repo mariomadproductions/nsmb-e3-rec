@@ -2,11 +2,12 @@
 
 #include "nsmb/filesystem/cache.h"
 #include "nsmb/graphics/particle.h"
+#include "nsmb/system/function.h"
 #include "extra/events.hpp"
 #include "extra/undocumented.hpp"
 
 constexpr u32 ModelFileID[] = { 1212 - 131, 1213 - 131, 1214 - 131 };
-constexpr bool ResetRotationBug = true; //Enables a bug that existed in the beta
+constexpr bool ResetRotationBug = true; // Enables a bug that existed in the beta
 
 static ColliderInfo ItemBlock_colliderInfo =
 {
@@ -37,14 +38,16 @@ bool ItemBlock::loadFiles()
 
 s32 ItemBlock::onCreate()
 {
-	ItemBlock::SettingsData* pSettings = reinterpret_cast<ItemBlock::SettingsData*>(&settings);
-	this->type = static_cast<Type>(pSettings->type);
-	this->color = static_cast<Color>(pSettings->color);
-	this->direction = pSettings->direction ? 1 : -1;
-	this->size = pSettings->size;
-	this->item = pSettings->item;
-	this->singleUse = pSettings->singleUse;
-	this->puffs = pSettings->puffs;
+	Settings settings;
+	settings.raw() = this->settings;
+
+	this->type = Type(settings.type);
+	this->color = Color(settings.color);
+	this->direction = settings.direction ? 1 : -1;
+	this->size = settings.size;
+	this->item = settings.item;
+	this->singleUse = settings.singleUse;
+	this->puffs = settings.puffs;
 	this->halfSize = (size * 0x1000) / 2;
 
 	int tileSize = 0x20 * ((this->size + 9) / 16);
@@ -59,11 +62,12 @@ s32 ItemBlock::onCreate()
 	}
 	this->scale = (this->size * 0x1000) / 32;
 
-	this->position.y -= 0x1000 * pSettings->downShift;
-	this->position.x += 0x1000 * pSettings->rightShift;
+	this->position.y -= 0x1000 * settings.downShift;
+	this->position.x += 0x1000 * settings.rightShift;
 
 	this->startPos = this->position;
 
+	alpha = 31;
 	this->setColor(this->color, true);
 
 	this->collider.init(this, ItemBlock_colliderInfo, 0, 0, &this->scale);
@@ -71,14 +75,14 @@ s32 ItemBlock::onCreate()
 
 	this->beingHit = false;
 	this->rotTimer = 0;
-	this->setExecuteState(&ItemBlock::rotateExecuteState);
+	this->switchState(&ItemBlock::rotateState);
 
 	return 1;
 }
 
 s32 ItemBlock::onUpdate()
 {
-	(this->*execFunc)();
+	updateFunc(this);
 	destroyInactive(0);
 	return 1;
 }
@@ -89,20 +93,22 @@ s32 ItemBlock::onDestroy()
 	return 1;
 }
 
-void ItemBlock::setExecuteState(void (ItemBlock::*execFunc)())
+void ItemBlock::switchState(void (ItemBlock::*updateFunc)())
 {
-	if (this->execFunc != execFunc)
+	auto updateFuncRaw = ptmf_cast(updateFunc);
+
+	if (this->updateFunc != updateFuncRaw)
 	{
-		if (this->execFunc)
+		if (this->updateFunc)
 		{
-			this->execStep = -1;
-			(this->*execFunc)();
+			this->updateStep = Func::Exit;
+			this->updateFunc(this);
 		}
 
-		this->execFunc = execFunc;
+		this->updateFunc = updateFuncRaw;
 
-		this->execStep = 0;
-		(this->*execFunc)();
+		this->updateStep = Func::Init;
+		this->updateFunc(this);
 	}
 }
 
@@ -112,7 +118,7 @@ void ItemBlock::setColor(Color color, bool setup)
 	{
 		this->color = color;
 
-		void* modelFile = FS::Cache::getFile(ModelFileID[static_cast<int>(this->color)]);
+		void* modelFile = FS::Cache::getFile(ModelFileID[int(this->color)]);
 		this->model.create(modelFile, 0, 0);
 
 		if (ResetRotationBug && !setup)
@@ -123,31 +129,31 @@ void ItemBlock::setColor(Color color, bool setup)
 	}
 }
 
-void ItemBlock::rotateExecuteState()
+void ItemBlock::rotateState()
 {
-	if (this->execStep)
+	if (this->updateStep == Func::Init)
 	{
-		if (this->execStep != -1)
+		this->updateStep = 1;
+		this->position = this->startPos;
+		return;
+	}
+	if (this->updateStep == Func::Exit)
+	{
+		return;
+	}
+
+	const int sleepTime = 10;
+	const int rotateTime = 28;
+	if (this->rotTimer > sleepTime)
+	{
+		this->rotation.y -= (0x4000 / rotateTime) * this->direction;
+		if (this->rotTimer == rotateTime + sleepTime)
 		{
-			const int sleepTime = 10;
-			const int rotateTime = 28;
-			if (this->rotTimer > sleepTime)
-			{
-				this->rotation.y -= (0x4000 / rotateTime) * this->direction;
-				if (this->rotTimer == rotateTime + sleepTime)
-				{
-					this->rotation.y = 0;
-					this->rotTimer = -1;
-				}
-			}
-			this->rotTimer++;
+			this->rotation.y = 0;
+			this->rotTimer = -1;
 		}
 	}
-	else
-	{
-		this->execStep = 1;
-		this->position = this->startPos;
-	}
+	this->rotTimer++;
 }
 
 void ItemBlock::hitBehavior(bool animEnd)
@@ -166,16 +172,16 @@ void ItemBlock::hitBehavior(bool animEnd)
 			break;
 
 		Vec3 spawnPos = this->startPos;
-		int spriteData = this->item;
+		u32 settings = this->item;
 		if (this->item == 5)
 		{
-			spriteData |= 0x1000000;
+			settings |= 0x1000000;
 		}
 		if (this->topPounded)
 		{
 			if (!this->puffs)
 			{
-				spriteData |= 0x60;
+				settings |= 0x60;
 			}
 			spawnPos.y -= this->halfSize;
 		}
@@ -185,14 +191,14 @@ void ItemBlock::hitBehavior(bool animEnd)
 		}
 		if (this->puffs)
 		{
-			spriteData |= 0x1000000;
+			settings |= 0x1000000;
 			spawnPos.y += 192 << 12;
 		}
 
-		int direction = (this->hitActor->position.x > this->startPos.x) ? 0x80000000 : 0;
-		spriteData |= direction;
+		u32 direction = (this->hitActor->position.x > this->startPos.x) ? 0x80000000 : 0;
+		settings |= direction;
 
-		Actor::spawnActor(31, spriteData, &spawnPos, 0, 0, 0);
+		Actor::spawnActor(31, settings, &spawnPos, 0, 0, 0);
 		break;
 	}
 	default:
@@ -217,91 +223,90 @@ void ItemBlock::hitBehavior(bool animEnd)
 		}
 		if (!this->puffs)
 		{
-			this->setExecuteState(&ItemBlock::rotateExecuteState);
+			this->switchState(&ItemBlock::rotateState);
 		}
 	}
 }
 
-void ItemBlock::hitExecuteState()
+void ItemBlock::hitState()
 {
-	if (this->execStep == -1)
+	if (this->updateStep == Func::Init)
 	{
-		this->beingHit = false;
-		this->topPounded = false;
-	}
-	else if (this->execStep)
-	{
-		int direction = this->topPounded ? -1 : 1;
-		if (this->hitTimer < 10)
-		{
-			this->position.y += 0x1000 * direction;
-			if (this->hitTimer == 9)
-			{
-				this->hitBehavior(false);
-			}
-		}
-		else
-		{
-			this->position.y -= 0x1000 * direction;
-			if (this->hitTimer == 19)
-			{
-				this->hitBehavior(true);
-			}
-		}
-		this->collider.updatePosition();
-
-		this->hitTimer++;
-	}
-	else
-	{
-		this->execStep = 1;
+		this->updateStep = 1;
 		this->beingHit = true;
 		this->hitTimer = 0;
 		this->position = this->startPos;
+		return;
 	}
+	if (this->updateStep == Func::Exit)
+	{
+		this->beingHit = false;
+		this->topPounded = false;
+		return;
+	}
+
+	int direction = this->topPounded ? -1 : 1;
+	if (this->hitTimer < 10)
+	{
+		this->position.y += 0x1000 * direction;
+		if (this->hitTimer == 9)
+		{
+			this->hitBehavior(false);
+		}
+	}
+	else
+	{
+		this->position.y -= 0x1000 * direction;
+		if (this->hitTimer == 19)
+		{
+			this->hitBehavior(true);
+		}
+	}
+	this->collider.updatePosition();
+
+	this->hitTimer++;
 }
 
 void ItemBlock::hitFromTop(StageActor& _self, StageActor& other)
 {
-	ItemBlock& self = reinterpret_cast<ItemBlock&>(_self);
+	ItemBlock& self = scast<ItemBlock&>(_self);
 
 	//If not hit by player
 	if (other.actorType != ActorType::Player || self.beingHit)
 		return;
 
-	Player& player = reinterpret_cast<Player&>(other);
+	Player& player = scast<Player&>(other);
 
 	if (player.actionFlag.groundpounding && (player.animID != 0x15))
 	{
 		self.topPounded = true;
 		self.hitActor = &player;
-		self.setExecuteState(&ItemBlock::hitExecuteState);
+		self.switchState(&ItemBlock::hitState);
 	}
 }
 
 void ItemBlock::hitFromBottom(StageActor& _self, StageActor& other)
 {
-	ItemBlock& self = reinterpret_cast<ItemBlock&>(_self);
+	ItemBlock& self = scast<ItemBlock&>(_self);
 
 	//If not hit by player or if being hit already
 	if (other.actorType != ActorType::Player || self.beingHit)
 		return;
 
 	self.hitActor = &other;
-	self.setExecuteState(&ItemBlock::hitExecuteState);
+	self.switchState(&ItemBlock::hitState);
 }
 
 void ItemBlock::hitFromSide(StageActor& _self, StageActor& other)
 {
-	ItemBlock& self = reinterpret_cast<ItemBlock&>(_self);
+	ItemBlock& self = scast<ItemBlock&>(_self);
 
 	if (self.beingHit)
 		return;
 
-	if ((other.id == 94) || (other.id == 95) || (other.id == 54) || (other.id == 40) ||
-		(other.activeCollider.hitbox.callback == StageEntity::shellCallback))
+	if (bool(other.collisionMgr.sideSensor->flags & CollisionMgr::SensorFlags::ActivateQuestionBlocks))
 	{
 		self.hitActor = &other;
-		self.setExecuteState(&ItemBlock::hitExecuteState);
+		self.switchState(&ItemBlock::hitState);
 	}
 }

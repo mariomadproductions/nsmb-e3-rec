@@ -39,13 +39,13 @@ s32 BetaSwitch::onCreate()
 	void* mdl = FS::Cache::getFile(ModelFileID);
 	void* anim = FS::Cache::getFile(AnimFileID);
 
+	alpha = 31;
 	model.create(mdl, anim, 0, 0, 0);
 	model.init(0, FrameCtrl::Type::Looping, 0, 0);
 
 	hitTimer = 0;
 
 	scale = 0xE00;
-	position.x += 0x8000;
 
 	if (settings & 1)
 	{

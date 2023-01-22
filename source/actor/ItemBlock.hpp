@@ -20,7 +20,8 @@ public:
 		Yellow = 2
 	};
 
-	struct SettingsData {
+	struct Settings : BitFlag<u32>
+	{
 		u32 downShift : 4;
 		u32 rightShift : 4;
 		u32 type : 4;
@@ -36,8 +37,8 @@ public:
 
 	Collider collider;
 
-	void (ItemBlock::*execFunc)();
-	s8 execStep;
+	void (*updateFunc)(ItemBlock*);
+	s8 updateStep;
 
 	Actor* hitActor; // Last actor hitting the block
 
@@ -61,16 +62,25 @@ public:
 
 	static ActorProfile profile;
 
+	constexpr static ObjectInfo objectInfo = {
+		0, 0, // position
+		0, 0, // renderSize
+		0, 0, // spawnOffset
+		0, 0, // viewOffset
+		CollisionSwitch::None, // collisionSwitch
+		SpawnSettings::None // spawnSettings
+	};
+
 	static bool loadFiles();
 	s32 onCreate() override;
 	s32 onUpdate() override;
 	s32 onDestroy() override;
 
-	void setExecuteState(void (ItemBlock::*execFunc)());
+	void switchState(void (ItemBlock::*updateFunc)());
 	void setColor(Color color, bool setup = false);
-	void rotateExecuteState();
+	void rotateState();
 	void hitBehavior(bool animEnd);
-	void hitExecuteState();
+	void hitState();
 	static void hitFromTop(StageActor& self, StageActor& other);
 	static void hitFromBottom(StageActor& self, StageActor& other);
 	static void hitFromSide(StageActor& self, StageActor& other);
