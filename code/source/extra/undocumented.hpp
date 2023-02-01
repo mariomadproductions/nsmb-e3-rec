@@ -4,6 +4,7 @@
 #include "nitro/fx/fx.h"
 #include "nsmb/filesystem/cache.h"
 #include "nsmb/ui/bnbl.h"
+#include "nsmb/stage/player/player.h"
 
 // Contains declarations and symbols from the game that
 // have not yet been added to the NSMB-Code-Reference
@@ -20,6 +21,8 @@ _ZN5Stage9exitLevelEm = 0x020A189C
 _ZN4BNBL7currentE = 0x02085888
 _ZN4BNCL7currentE = 0x0208588C
 _ZN4BNBL10currentSubE = 0x02085890
+Player_checkGroundPound = 0x02113E2C
+ActiveColliderDestroyBlocks = 0x020A70A0
 )");
 
 extern "C" {
@@ -31,6 +34,8 @@ u16 GetSpriteAtPosUsed(fx32 x, fx32 y); // Gets the sprite respawn argument
 void SetSpriteAtPosUsed(fx32 x, fx32 y, u16 used); // Sets the sprite respawn argument
 int GetConsoleCount();
 void UpdatePenTouchPositions();
+bool Player_checkGroundPound(Player* player);
+void ActiveColliderDestroyBlocks(ActiveCollider* collider, u32 unk1, u32 direction, u32 playerID, u32 unk2);
 
 }
 
