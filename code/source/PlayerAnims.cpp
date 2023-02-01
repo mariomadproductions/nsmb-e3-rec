@@ -1,5 +1,9 @@
 #include "nsmb/stage/player/player.h"
 
+// Replace idle animation
+ncp_repl(0x02122750, 10, ".int 0x6E2")
+ncp_repl(0x0212274C, 10, ".int 0x23")
+
 ncp_repl(0x02114DFC, 10, "MOV R5, #0xC00") // Slow down rotation speed
 
 // Walking transition delay

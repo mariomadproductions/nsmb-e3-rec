@@ -16,6 +16,7 @@ SetSpriteAtPosUsed = 0x020CDB80
 GetSpriteAtPosUsed = 0x020CDC4C
 GetConsoleCount = 0x02046C34
 UpdatePenTouchPositions = 0x02021808
+_ZN5Stage9exitLevelEm = 0x020A189C
 _ZN4BNBL7currentE = 0x02085888
 _ZN4BNCL7currentE = 0x0208588C
 _ZN4BNBL10currentSubE = 0x02085890
@@ -37,6 +38,11 @@ namespace Multiplayer
 {
 	void init();
 	void endConnection();
+}
+
+namespace Stage
+{
+	void exitLevel(u32 flags = 0);
 }
 
 namespace BNBL

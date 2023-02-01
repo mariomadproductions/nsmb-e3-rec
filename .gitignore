@@ -5,22 +5,22 @@
 *.sav
 
 # Original ROM data
-/backup/
+/code/backup/
 
 # Built code
-/build/
+/code/build/
 
 # Exclude Nitro SDK headers
-/include/nitro/
-/include/nitro_wl/
-/include/nnsys/
-/include/nitro.h
-/include/nnsys.h
-/include/nitro_sp.h
-/include/nitro_win32.h
+/code/include/nitro/
+/code/include/nitro_wl/
+/code/include/nnsys/
+/code/include/nitro.h
+/code/include/nnsys.h
+/code/include/nitro_sp.h
+/code/include/nitro_win32.h
 
 # VS Code
-/.vscode
+/code/.vscode
 
 # Operating system files
 *.lnk
@@ -29,4 +29,4 @@
 *.xdelta
 
 # Temporary code files
-/source/ObjectTable.gen.cpp
+/code/source/ObjectTable.gen.cpp

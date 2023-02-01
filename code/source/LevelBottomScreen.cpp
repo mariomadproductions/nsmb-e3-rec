@@ -1,9 +1,11 @@
 #include "nitro/gx.h"
 #include "nitro/fx/fx.h"
+#include "nsmb/game.h"
 #include "nsmb/player.h"
 #include "nsmb/system/misc.h"
 #include "nsmb/filesystem/file.h"
 #include "nsmb/filesystem/cache.h"
+#include "nsmb/stage/layout/entrance.h"
 #include "extra/fx.h"
 #include "extra/undocumented.hpp"
 #include "CustomInventory.hpp"
@@ -115,8 +117,7 @@ static GXOamAttr* oam_levelNames[] = {
 
 static void MyDrawBottomScreenLevelName(int* stageScene)
 {
-	int levelID = *(int*)0x02085A14;
-	Game::drawBNCLSpriteSub(11 + levelID, oam_levelNames[levelID], OAM::Flags::None, 0, 0, nullptr, 0, nullptr, OAM::Settings::None, 0, 0);
+	Game::drawBNCLSpriteSub(11 + Game::stageID, oam_levelNames[Game::stageID], OAM::Flags::None, 0, 0, nullptr, 0, nullptr, OAM::Settings::None, 0, 0);
 }
 
 static void MyDrawBottomScreenPowerups(int* stageScene, int playerNo)
@@ -143,8 +144,8 @@ static void MyDrawBottomScreenPowerups(int* stageScene, int playerNo)
 		}
 		else
 		{
-			bool showTouch = !(((u8*)0x0208B098)[playerNo] & 1);
-			if (stageScene[playerNo + 8] && somePlayerDropStateCondition && showTouch)
+			bool transitioning = (bool)(Entrance::transitionFlags[playerNo] & EntranceTransitionFlags::SubScreen);
+			if (stageScene[playerNo + 8] && somePlayerDropStateCondition && !transitioning)
 				Game::drawBNCLSpriteSub(3 + i, oam_touchI, OAM::Flags::None, 0, 0, nullptr, 0, nullptr, OAM::Settings::None, xOff, yOff);
 
 			scale = &((Vec2*)0x020CC14C)[playerNo];

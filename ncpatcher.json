@@ -5,14 +5,14 @@
 	"$asm_flags": "-Os -x assembler-with-cpp -fomit-frame-pointer",
 	"$ld_flags": "-lgcc,-lc,-lstdc++",
 	
-	"backup": "backup",
+	"backup": "code/backup",
 	"filesystem": "__tmp",
 	"toolchain": "arm-none-eabi-",
 	
 	"arm7": {},
 	"arm9": {
-		"target": "arm9.json",
-		"build": "build"
+		"target": "code/arm9.json",
+		"build": "code/build"
 	},
 	
 	"pre-build": [

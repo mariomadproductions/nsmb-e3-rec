@@ -31,25 +31,3 @@ void MainMenu::initTopScreen()
 
 	GXS_SetVisiblePlane(GX_PLANEMASK_BG2);
 }
-
-// Level exits to titlescreen
-ncp_repl(0x020A19D8, 0, R"(
-	MOV R0, #4
-	MOV R1, #0
-)")
-
-// Do not draw level intro in the only frame that it shows up
-ncp_repl(0x02152884, 54, R"(
-	MOV R0, #1
-	BX  LR
-)")
-
-// Make level intro have a duration of 0
-ncp_repl(0x02152840, 54, R"(
-	PUSH {LR}
-	LDR  R1, [R0,#8]
-	MOV  R0, #3
-	BL   _ZN5Scene11switchSceneEtm
-	MOV  R0, #1
-	POP  {PC}
-)")

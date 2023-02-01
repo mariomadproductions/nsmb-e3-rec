@@ -13,7 +13,7 @@
 #define NTR_GEN_SYM 0
 
 // Set to 1 when compiling in Debug mode
-#define NTR_DEBUG 1
+#define NTR_DEBUG 0
 
 
 #if NTR_GEN_SYM

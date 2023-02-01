@@ -1,5 +1,6 @@
 #pragma once
 #include "nitro_if.h"
+#include "nsmb/util.h"
 
 
 enum class PlayerSpawnType : u8;
@@ -34,7 +35,7 @@ enum class EntranceType : u8 {
 
 
 enum class EntranceFlags : u8 {
-	
+
 	SubScreen		= 0x01,
 	LockedPlayer1	= 0x02,
 	LockedPlayer0	= 0x04,

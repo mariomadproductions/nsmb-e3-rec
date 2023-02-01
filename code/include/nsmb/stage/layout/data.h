@@ -1,6 +1,7 @@
 #pragma once
 #include "ntr_assert.h"
 #include "entrance.h"
+#include "stageobject.h"
 
 
 enum class StageBlockID : u32 {
@@ -31,7 +32,7 @@ struct StageBlocks {
 	void* tileset;
 	void* foreground;
 	StageEntrance* entrances;
-	void* stageObjs;
+	StageObject* stageObjs;
 	void* views;
 	void* zones;
 	void* progressPaths;
