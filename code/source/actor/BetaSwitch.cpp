@@ -80,6 +80,7 @@ s32 BetaSwitch::onUpdate()
 		}
 		hitTimer++;
 	}
+	updateAnimation();
 	return 1;
 }
 

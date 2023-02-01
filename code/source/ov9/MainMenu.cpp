@@ -81,7 +81,7 @@ s32 MainMenu::onUpdate()
 
 	if (newSelectedLevel != selectedButton)
 	{
-		SND::playSFX(229);
+		Sound::playSFX(229);
 		selectedButton = newSelectedLevel;
 	}
 

@@ -6,7 +6,8 @@ from subprocess import check_output
 
 rom_filename = argv[1]
 rom = ndspy.rom.NintendoDSRom.fromFile(rom_filename)
-path_overrides_filename = 'source_nitrofs_path_overrides.txt'
+path_overrides_filename = 'nitrofs_overrides.txt'
+newfs_dir = 'nitrofs'
 
 def insert_nitrofs():
     #Generate dictionary from filename overrides file
@@ -17,7 +18,7 @@ def insert_nitrofs():
             path_overrides[line_interpreted[0]] = int(line_interpreted[1])
 
     #Insert files into ROM
-    for path in Path('source_nitrofs').rglob('*.*'):
+    for path in Path(newfs_dir).rglob('*.*'):
         path_formatted_ = Path(*path.parts[1:])
         path_formatted = path_formatted_.as_posix()
         with open(path, 'rb') as extracted_file:
@@ -37,7 +38,7 @@ def insert_nitrofs():
             print('Inserted external file ' + path_formatted)
 
 def insert_banner():
-    rom.iconBanner = open('source_hdr/banner.bin', 'rb').read() # Install banner
+    rom.iconBanner = open(newfs_dir + '/banner.bin', 'rb').read() # Install banner
     print('Inserted banner')
 
 def get_git_revision_short_hash():
