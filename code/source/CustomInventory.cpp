@@ -1,7 +1,7 @@
 #include "nsmb/game.h"
 #include "nsmb/player.h"
+#include "nsmb/sound.h"
 #include "nsmb/stage/entity.h"
-#include "nsmb/sound/sound.h"
 #include "extra/undocumented.hpp"
 
 namespace CustomInventory
@@ -42,14 +42,14 @@ ncp_repl(0x020C0594, 0, R"(
 	B       0x020C05C8
 )")
 
-//Check if the touched powerup slot isn't empty so it can proceed to dropping state
+// Check if the touched powerup slot isn't empty so it can proceed to dropping state
 ncp_call(0x020BE1F0, 0)
 bool repl_020BE1F0_ov_00(int playerNo)
 {
 	return getPowerupOnSlot(playerNo, touchedSlot[playerNo]) != 0;
 }
 
-//Set the dropping state and check something for the powerup being dropped instead
+// Set the dropping state and check something for the powerup being dropped instead
 ncp_call(0x020C06BC, 0)
 int repl_020C06BC_ov_00(int playerNo)
 {
@@ -57,14 +57,14 @@ int repl_020C06BC_ov_00(int playerNo)
 	return getPowerupOnSlot(playerNo, getDroppingSlot(playerNo));
 }
 
-//Clear powerup on drop
+// Clear powerup on drop
 ncp_call(0x020BF59C, 0)
 void repl_020BF59C_ov_00(int playerNo, int zero)
 {
 	setPowerupOnSlot(playerNo, getDroppingSlot(playerNo), zero);
 }
 
-//Change the ReplaceInventoryItem system
+// Change the ReplaceInventoryItem system
 ncp_jump(0x020D4A70, 10)
 void nsub_020D4A70_ov_0A(Player* player, int playerNo, int newPowerup)
 {
@@ -119,7 +119,7 @@ void nsub_020D4A70_ov_0A(Player* player, int playerNo, int newPowerup)
 	if (!replaced)
 	{
 		if (playerNo == Game::localPlayerID)
-			SND::playSFX(0x17D);
+			Sound::playSFX(0x17D);
 		StageEntity::getCollectablePoints(4, playerNo);
 	}
 }
