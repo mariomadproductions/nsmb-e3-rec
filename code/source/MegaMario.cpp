@@ -137,7 +137,7 @@ bool kickState(Player* player, void* arg)
 	{
 		player->mainStateStep = 1;
 		if (player->currentPowerup == PowerupState::Mega)
-			player->actionFlag.flag40000000 = 1;
+			player->subActionFlag.megaJump = 1;
 		player->setAnimation(83, 0, Player::FrameMode::Restart, 0x800, 0);
 
 		createKickColliders(player);
@@ -170,13 +170,14 @@ bool kickState(Player* player, void* arg)
 
 bool checkKick(Player* player)
 {
+	PowerupState powerup = player->currentPowerup;
 	bool rButtonDown = player->keysPressed & Keys::R;
-	bool notSmall = player->currentPowerup != PowerupState::Small && player->currentPowerup != PowerupState::Mini;
-	bool nearGround = player->collisionFlag.ground || player->collisionFlag.predictGround;
+	bool notSmall = powerup != PowerupState::Small && powerup != PowerupState::Mini;
+	bool nearGround = player->collisionFlag.ground;
 	bool goingDown = player->velocity.y < 0;
 	bool notJumping2 = player->consecutiveJumps != 2;
 
-	if (rButtonDown && notSmall && notJumping2 && !(nearGround && goingDown))
+	if (rButtonDown && notSmall && notJumping2 && !nearGround && !goingDown)
 	{
 		player->switchMainState(ptmf_cast(kickState));
 		return true;

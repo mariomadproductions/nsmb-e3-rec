@@ -38,6 +38,53 @@ NTR_NAKED void flagPoleRotateHook() {asm(R"(
 	B       0x0212FF3C     // Jump back to code
 )");}
 
+// FLAG POLE ANIMATION ==================================
+
+ncp_repl(0x0211B9A4, 10, "MOV R1, #0x2000") // Player jumps further in the flag pole
+ncp_repl(0x0211BA84, 10, "MOV R0, #0x600") // Change flag animation zoom
+ncp_repl(0x0211BC20, 10, "NOP") // Do not zoom back when Mario starts walking
+
+ncp_repl(0x0211BA68, 10, "SUB R1, R1, #0x10000") // Shift initial animation camera location X
+
+// Shift initial animation camera location Y
+asm(R"(
+ncp_jump_ov 0x0211BA7C, 10
+	SUB     R1, R1, #0x10000
+	STR     R1, [R0]
+	B       0x0211BA80
+)");
+
+ncp_repl(0x0211BBF8, 10, "MOV R1, #0x2000") // Player walks faster
+
+// Walk animation speed
+ncp_repl(0x02117938, 10, R"(
+	MOV     R12, #0x1800
+	B       0x02117980
+)")
+
+ncp_call(0x0211BC48, 10)
+bool goalMoveCameraHook(Player* player)
+{
+	bool finished = player->transitStepCompleted(); // Keep replaced instruction
+	*rcast<fx32*>(0x020CAD14) += 0x1800; // Camera move speed
+	if (finished)
+		*rcast<u32*>(0x020CA8C0) |= 0x10; // End level
+	return finished;
+}
+
+ncp_repl(0x0211BB50, 10, "NOP") // Disable timer countdown
+
+// Disable toad house special on flag pole
+ncp_repl(0x0211C0A8, 10, R"(
+	PUSH    {LR}
+	MOV     R0, #4
+	BL      _ZN4Game19playTransitionMusicEl
+	MOV     R0, #0
+	POP     {PC}
+)")
+
+ncp_repl(0x0213065C, 12, "B 0x02130698") // No goal score
+
 // CEILING ROPE ==================================
 
 ncp_repl(0x0210C1D0, 10, "MOV R1, #0x800") // Walk speed
