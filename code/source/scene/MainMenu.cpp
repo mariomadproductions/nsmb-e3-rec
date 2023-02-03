@@ -1,6 +1,10 @@
 #include "MainMenu.hpp"
 
-#include "nsmb/filesystem/archive.h"
+#include "nsmb/filesystem/file.h"
+
+constexpr u32 TitleLogo_NCG = 1215;
+constexpr u32 TitleLogo_NCL = 1216;
+constexpr u32 TitleLogo_NSC = 1217;
 
 void MainMenu::initTopScreen()
 {
@@ -14,13 +18,16 @@ void MainMenu::initTopScreen()
 
 	G2S_SetBG2ControlText(GX_BG_SCRSIZE_TEXT_256x256, GX_BG_COLORMODE_256, GX_BG_SCRBASE_0x0000, GX_BG_CHARBASE_0x00000);
 
-	FS::Archive::mountBack(9, nullptr);
-	FS::loadFileLZ77(0xC900, (u8*)G2S_GetBG2CharPtr() + 0x4000);
-	FS::loadFileLZ77(0xC902, G2S_GetBG2ScrPtr());
-	void* pal = FS::loadExtFile(0xC901);
+	u16 fidOffset = FS::fileIDOffset;
+	FS::fileIDOffset = 0;
+
+	FS::loadFileLZ77(TitleLogo_NCG, rcast<u8*>(G2S_GetBG2CharPtr()) + 0x4000);
+	FS::loadFileLZ77(TitleLogo_NSC, G2S_GetBG2ScrPtr());
+	void* pal = FS::loadExtFile(TitleLogo_NCL);
 	GXS_LoadBGPltt(pal, 0, 0x200);
 	FS::unloadFile(pal);
-	FS::Archive::unmount(9);
+
+	FS::fileIDOffset = fidOffset;
 
 	G2S_SetBG1Priority(1);
 	G2S_SetBG2Priority(2);
