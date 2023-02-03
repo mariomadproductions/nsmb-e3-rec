@@ -72,6 +72,7 @@ ncp_jump_ov 0x0217E04C, 90
 	MOV     R0, #0
 	LDR     R1, =StalkTexture
 	STR     R0, [R1]
+	// Return
 	B       0x0217E050
 
 ncp_jump_ov 0x02160BF4, 54

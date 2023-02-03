@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<database timestamp="">
+	<classes>
+		<class id="151">
+			<name>Red Coin Ring</name>
+			<flags known="1" complete="1" />
+			<category id="3" />
+			<notes></notes>
+			<files>/enemy/obj_e3_ring.nsbmd</files>
+			<field id="45-48" type="value" name="Ring ID" values="" notes="" />
+			<field id="37-40" type="value" name="Entrance ID" values="" notes="" />
+			<field id="9-16" type="value" name="Target ID" values="" notes="It can trigger anything, but it's usually used to trigger Red Coins." />
+			<field id="25-28" type="checkbox" name="Disable timer" values="1" notes="" />
+			<field id="41-44" type="checkbox" name="Shift 8 pixels right" values="1" notes="If set, the Red Ring will respawn if you change areas and come back." />
+			<field id="29-32" type="list" name="Switch Tile States" values="0=No,1=Like a P Switch,2=Like a ! Switch,4=Red Blocks only,5=Like a P Switch + Red Blocks,7=All switchable tiles" notes="Switches the state of all two-state tiles; invisible blue coins appear, red coin outlines become collectable, red switch blocks become solid." />
+			<field id="33-36" type="list" name="ID Activation mode" values="0=During timer,2=After timer" notes="Works only if Target ID is not equal to 0 and Disable timer is not set." />
+		</class>
+	</classes>
+</database>

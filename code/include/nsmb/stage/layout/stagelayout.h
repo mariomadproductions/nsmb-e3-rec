@@ -20,6 +20,15 @@ public:
 	// 020afa30
 	void readTileBehavior(u16 tileID);
 
+	// 020B7FE4
+	void animateQuestionBlocks();
+
+	// 020B807C
+	void animateBrickBlocks();
+
+	// 020B8364
+	void animateCoins(u8 frame);
+
 	// 020cac98
 	static bool doLayoutReset;
 
@@ -34,6 +43,15 @@ namespace Stage
 {
 	// 0212f180
 	extern GXOamAttr* anmTilesOamTable[23];
+
+	// 0x0212943C
+	static u8 brickBlockFrame;
+
+	// 0x0212944C
+	static u8 questionBlockFrame;
+
+	// 0x0212944C
+	static u8 coinFrame;
 
 	// 020cad40
 	extern StageLayout* stageLayout;
