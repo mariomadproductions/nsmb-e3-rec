@@ -67,7 +67,7 @@ bool goalMoveCameraHook(Player* player)
 {
 	bool finished = player->transitStepCompleted(); // Keep replaced instruction
 	*rcast<fx32*>(0x020CAD14) += 0x1800; // Camera move speed
-	if (finished)
+	if (player->transitStepTimer == 30)
 		*rcast<u32*>(0x020CA8C0) |= 0x10; // End level
 	return finished;
 }
@@ -84,6 +84,8 @@ ncp_repl(0x0211C0A8, 10, R"(
 )")
 
 ncp_repl(0x0213065C, 12, "B 0x02130698") // No goal score
+
+// TODO: Remove goal score on-screen
 
 // CEILING ROPE ==================================
 

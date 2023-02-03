@@ -3,9 +3,9 @@
 import sys
 import os.path
 
-inputFilePath = "source/ObjectTable.cpp"
-objectFilePath = "build/source/ObjectTable.cpp.o"
-outputFilePath = "source/ObjectTable.gen.cpp"
+inputFilePath = "code/source/ObjectTable.cpp"
+objectFilePath = "code/build/source/ObjectTable.cpp.o"
+outputFilePath = "code/source/ObjectTable.gen.cpp"
 
 def is_uptodate():
     if not os.path.exists(objectFilePath):

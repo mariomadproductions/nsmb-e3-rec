@@ -23,6 +23,7 @@ _ZN4BNCL7currentE = 0x0208588C
 _ZN4BNBL10currentSubE = 0x02085890
 Player_checkGroundPound = 0x02113E2C
 ActiveColliderDestroyBlocks = 0x020A70A0
+GetStartEntranceID = 0x0201F518
 )");
 
 extern "C" {
@@ -36,6 +37,7 @@ int GetConsoleCount();
 void UpdatePenTouchPositions();
 bool Player_checkGroundPound(Player* player);
 void ActiveColliderDestroyBlocks(ActiveCollider* collider, u32 unk1, u32 direction, u32 playerID, u32 unk2);
+u32 GetStartEntranceID(u32 playerID);
 
 }
 
