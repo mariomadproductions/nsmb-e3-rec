@@ -4,6 +4,10 @@ from pathlib import Path
 import ndspy.rom
 from subprocess import check_output
 
+if len(argv) < 2:
+    print("Missing first argument: target rom path")
+    exit(0)
+
 rom_filename = argv[1]
 rom = ndspy.rom.NintendoDSRom.fromFile(rom_filename)
 path_overrides_filename = 'nitrofs_overrides.txt'
@@ -25,7 +29,7 @@ def insert_nitrofs():
             if path_formatted in path_overrides:
                 # Get file ID
                 fileID = path_overrides[path_formatted]
-                
+
                 # Rename file
                 sub_folder = rom.filenames.subfolder(path_formatted_.parent.as_posix())
                 sub_folder.files[fileID - sub_folder.firstID] = path_formatted_.name
@@ -47,7 +51,7 @@ def get_git_revision_short_hash():
 def insert_buildtime():
     rom.setFileByName('BUILDTIME', get_git_revision_short_hash())
     print('Inserted buildtime')
-    
+
 def main():
     insert_nitrofs()
     insert_banner()

@@ -29,4 +29,5 @@
 *.xdelta
 
 # Temporary code files
+/__tmp
 /code/source/ObjectTable.gen.cpp
