@@ -6,6 +6,7 @@ Pull requests are welcome.
 
 ## Building
 Prerequisites:
+ - Git
  - GNU Arm Embedded Toolchain
  - GNU Make
  - Python 3
@@ -14,7 +15,7 @@ Prerequisites:
  - NitroSDK (tested with NitroSDK-3_0-060125<sup>1</sup>)
  - Clean NSMB USA ROM<sup>2</sup> 
 
-_Note: On Windows, you can install msys2 and then use pacman to get GNU Arm Embedded Toolchain, GNU Make etc. Alternatively, you can install the [devkitPro](https://github.com/devkitPro/installer/releases) "nds-dev" component, which includes its own verions of those._
+_Note: On Windows, you can install msys2 and then use pacman to get GNU Arm Embedded Toolchain, GNU Make etc. Alternatively, you can install the [devkitPro](https://github.com/devkitPro/installer/releases) "nds-dev" component, which includes its own versions of those._
 
 Steps:
  - Clone the repo.
