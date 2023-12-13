@@ -8,7 +8,7 @@ See the releases page for the downloads.
 -   [Discord server](https://discord.com/invite/FEP5sgP) (discussion and small previews)
 -   [NSMBHD thread](https://nsmbhd.net/thread/5516-new-super-mario-bros-e3-2005-demo-recreation/) (discussion, plus videos and more screenshots)
 
-![Photo of multiplayer on real hardware](docs/screenshots/nsmb-e3-rec--multiplayer-on-real-hardware.jpg)
+![Photo of multiplayer on real hardware](docs/screenshots/nsmb-e3-rec--multiplayer-on-real-hardware-830px.jpg)
 
 ## FAQ
 **How can I help?**<br>
