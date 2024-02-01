@@ -3,7 +3,7 @@ This is a recreation of the New Super Mario Bros. demo featured at E3 2005 (and 
 
 To enter the multiplayer mode, press B on the menu. Only multi-cart/multi-ROM play works, not download play.
 
-See the releases page for the downloads.
+See [Download and usage](#download-and-usage).
 
 -   [Discord server](https://discord.com/invite/FEP5sgP) (discussion and small previews)
 -   [NSMBHD thread](https://nsmbhd.net/thread/5516-new-super-mario-bros-e3-2005-demo-recreation/) (discussion, plus videos and more screenshots)
@@ -25,12 +25,15 @@ Yes, but this is currently limited by the amount of footage and information we h
 **When will the next update be?**<br>
 The project is still ongoing - there isn't really any reason to discontinue it, except if the real demo was leaked. There is a code refactor branch, which includes some new features, and there are some asset improvements in the `to_implement` folder, but both of those haven't been touched for a while. There isn't a schedule for updates, and it depends on free time and motivation. However the assets are low-hanging fruit if someone wants to make a pull request.
 
-## Patching the ROM
-i.e. How do I use the xdelta file?
+## Download and usage
+Download the patch from [releases](https://github.com/mariomadproductions/nsmb-e3-rec/releases)
 
-Tools for different platforms (in order of ease of use):
+Try the xdelta3 file first - if that doesn't work, try the xdelta2 file.
 
--   https://www.marcrobledo.com/RomPatcher.js/ (web app, only works with xdelta2 files)
+Patching tools for different platforms (in order of ease of use):
+
+-   https://kotcrab.github.io/xdelta-wasm/ (webassembly web app)
+-   https://www.marcrobledo.com/RomPatcher.js/ (javascript web app, only works with xdelta2 files)
 -   https://github.com/btimofeev/UniPatcher (Android)
 -   https://github.com/marco-calautti/DeltaPatcher/releases (Windows)
 -   https://github.com/dan0v/xdelta3-cross-gui/releases (Windows, Mac, Linux)
@@ -38,9 +41,6 @@ Tools for different platforms (in order of ease of use):
 
 
 You should patch a clean NSMB USA ROM[<sup>2</sup>](#notes).
-
-If you can't get the xdelta3 patch to work, try the xdelta2 patch.
-
 
 ## Playing
 At least one version has been successfully tested on the following:
