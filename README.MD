@@ -28,12 +28,12 @@ The project is still ongoing - there isn't really any reason to discontinue it, 
 ## Download and usage
 Download the patch from [releases](https://github.com/mariomadproductions/nsmb-e3-rec/releases)
 
-Try the xdelta3 file first - if that doesn't work, try the xdelta2 file.
+Try the xdelta2 file first - if that doesn't work, try the xdelta3 file.
 
 Patching tools for different platforms (in order of ease of use):
 
--   https://kotcrab.github.io/xdelta-wasm/ (webassembly web app)
 -   https://www.marcrobledo.com/RomPatcher.js/ (javascript web app, only works with xdelta2 files)
+-   https://kotcrab.github.io/xdelta-wasm/ (webassembly web app, only partial xdelta3 support?)
 -   https://github.com/btimofeev/UniPatcher (Android)
 -   https://github.com/marco-calautti/DeltaPatcher/releases (Windows)
 -   https://github.com/dan0v/xdelta3-cross-gui/releases (Windows, Mac, Linux)
