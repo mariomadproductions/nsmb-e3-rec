@@ -105,7 +105,7 @@ In addition to those listed in the build instructions.
 -   Hiccup - Research, direction, levels, sound edits and minor graphics
 -   TheGameratorT - Coding and minor graphics
 -   Alzter - Graphics
--   Zeferrao - Sound edits
+-   Zeferrao/Pengu - Sound edits
 
 ### Special Thanks
 
