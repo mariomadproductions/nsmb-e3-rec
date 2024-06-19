@@ -23,7 +23,7 @@ There is no estimated release date.
 Yes, but this is currently limited by the amount of footage and information we have of/on the demo.
 
 **When will the next update be?**<br>
-The project is still ongoing - there isn't really any reason to discontinue it, except if the real demo was leaked. There is a code refactor branch, which includes some new features, and there are some asset improvements in the `to_implement` folder, but both of those haven't been touched for a while. There isn't a schedule for updates, and it depends on free time and motivation. However the assets are low-hanging fruit if someone wants to make a pull request.
+The project is still ongoing - there isn't really any reason to discontinue it, except if the real demo was leaked. There is a code refactor branch, which includes some new features, and there are some asset improvements in the `to_implement` folder, plus various additions that haven't been added to the repo yet. There isn't a schedule for updates, and it depends on free time and motivation. However the assets in `to_implement` are low-hanging fruit if someone wants to make a pull request.
 
 ## Download and usage
 Download the patch from [releases](https://github.com/mariomadproductions/nsmb-e3-rec/releases)
