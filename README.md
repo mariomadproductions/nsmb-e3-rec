@@ -70,16 +70,22 @@ There are of course many other unimplemented things, that are obviously just not
 
 ## Building
 Prerequisites:
+
+General building tools:
  - Git
  - GNU Arm Embedded Toolchain
  - GNU Make
+
+_Note: You can install these via your package manager. Tested options on Windows are [ARM's official msys2 mingw64 package](https://developer.arm.com/downloads/-/arm-gnu-toolchain-downloads), [devkitPro's msys2 package](https://github.com/devkitPro/installer/releases), and [msys2 mingw's official package](https://www.msys2.org/). _
+
+Scripting:
  - Python 3
+
+Modding specific:
  - [ndspy](https://pypi.org/project/ndspy/)
  - [NSMBe](https://github.com/TheGameratorT/NSMB-Editor/releases) (v5.3 or later)
  - NitroSDK (tested with NitroSDK-3_0-060125[<sup>1</sup>](#notes))
  - Clean NSMB USA ROM[<sup>2</sup>](#notes)
-
-_Note: On Windows, you can install msys2 and then use pacman to get GNU Arm Embedded Toolchain, GNU Make etc. Alternatively, you can install the [devkitPro](https://github.com/devkitPro/installer/releases) "nds-dev" component, which includes its own versions of those._
 
 Steps:
  - Clone the repo.
