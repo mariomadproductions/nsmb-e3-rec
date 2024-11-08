@@ -83,7 +83,7 @@ Scripting:
 
 Modding specific:
  - [ndspy](https://pypi.org/project/ndspy/)
- - [NSMBe](https://github.com/TheGameratorT/NSMB-Editor/releases) (v5.3 or later)
+ - [NSMBe](https://github.com/TheGameratorT/NSMB-Editor/releases) (v5.3 or later) [may only work correctly on Windows]
  - NitroSDK (tested with NitroSDK-3_0-060125[<sup>1</sup>](#notes))
  - Clean NSMB USA ROM[<sup>2</sup>](#notes)
 
