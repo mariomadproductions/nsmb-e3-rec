@@ -76,7 +76,7 @@ General building tools:
  - GNU Arm Embedded Toolchain
  - GNU Make
 
-Note: You can install these via your package manager. Tested options on Windows are [msys2 mingw's official package](https://www.msys2.org/), [devkitPro's msys2 package](https://github.com/devkitPro/installer/releases), and [ARM's official msys2 mingw64 package](https://developer.arm.com/downloads/-/arm-gnu-toolchain-downloads).
+Note: You can install these via your package manager. Tested options on Windows are [msys2 mingw's official distribution](https://www.msys2.org/) (relevant pacman package name: `mingw-w64-x86_64-arm-none-eabi-gcc`), [devkitPro's msys2 distribution](https://github.com/devkitPro/installer/releases), and [ARM's official msys2 mingw64 distribution](https://developer.arm.com/downloads/-/arm-gnu-toolchain-downloads). The mingw 
 
 Scripting:
  - Python 3
