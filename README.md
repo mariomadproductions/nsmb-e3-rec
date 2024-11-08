@@ -72,7 +72,6 @@ There are of course many other unimplemented things, that are obviously just not
 Prerequisites:
 
 General building tools:
- - Git
  - GNU Arm Embedded Toolchain
  - GNU Make
 
