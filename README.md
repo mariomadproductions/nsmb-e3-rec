@@ -76,7 +76,7 @@ General building tools:
  - GNU Arm Embedded Toolchain
  - GNU Make
 
-Note: You can install these via your package manager. Tested options on Windows are [msys2 mingw's official distribution](https://www.msys2.org/) (relevant pacman package name: `mingw-w64-x86_64-arm-none-eabi-gcc`), [devkitPro's msys2 distribution](https://github.com/devkitPro/installer/releases), and [ARM's official msys2 mingw64 distribution](https://developer.arm.com/downloads/-/arm-gnu-toolchain-downloads). The mingw 
+Note: You can install these via your package manager. Tested options on Windows are [msys2 mingw's official distribution](https://www.msys2.org/) (relevant pacman package names: `mingw-w64-x86_64-arm-none-eabi-gcc`, `make`), [devkitPro's msys2 distribution](https://github.com/devkitPro/installer/releases), and [ARM's official msys2 mingw64 distribution](https://developer.arm.com/downloads/-/arm-gnu-toolchain-downloads). The `[MSYS2_INSTALL_DIR]\usr\bin` and `[MSYS2_INSTALL_DIR]\mingw64\bin` directories need to be in your PATH for NSMBe to find the relevant binaries.
 
 Scripting:
  - Python 3
