@@ -1,0 +1,85 @@
+================================================================================================
+Value calculation | Pipe cannon
+================================================================================================
+
+Force:       GameValue / 0x1000                              | The shooting force
+Angle:       GameValue = -(((0x4000 * ANGLE) / 90) - 0x4000) | 90º = VERTICAL, 0º = HORIZONTAL
+Direction:   GameValue < 0 ? LEFT : RIGHT                    | If it goes left or right
+Warp Cannon: GameValue != 0 ? TRUE : FALSE                   | If it's a warp zone pipe cannon
+Timed:       GameValue != 0 ? TRUE : FALSE                   | If the flying is timed
+Duration:    GameValue + 64                                  | Duration in frames + exit angle without the +64?
+
+================================================================================================
+Game output | Pipe cannon
+================================================================================================
+
+Far Right:
+	Force     = 0x00008500 | 8.3125
+	Angle     = 0x00001A00 | 53.4375º
+	Direction = 0x00004000 | RIGHT
+	Warp Can. = 0x00000000 | FALSE
+	Timed     = 0x00000001 | TRUE
+	Duration  = 0x00000006 | 70
+
+Far Left:
+	Force     = 0x00008500           | 8.3125
+	Angle     = 0x00001A00           | 53.4375º
+	Direction = 0xFFFFC000 (-0x4000) | LEFT
+	Warp Can. = 0x00000000           | FALSE
+	Timed     = 0x00000001           | TRUE
+	Duration  = 0x00000006           | 70
+
+Medium Right:
+	Force     = 0x00007200 | 7.125
+	Angle     = 0x00000800 | 78.75º
+	Direction = 0x00004000 | RIGHT
+	Warp Can. = 0x00000000 | FALSE
+	Timed     = 0x00000001 | TRUE
+	Duration  = 0x00000008 | 72
+
+Meduim Left:
+	Force     = 0x00007200           | 7.125
+	Angle     = 0x00000800           | 78.75º
+	Direction = 0xFFFFC000 (-0x4000) | LEFT
+	Warp Can. = 0x00000000           | FALSE
+	Timed     = 0x00000001           | TRUE
+	Duration  = 0x00000008           | 72
+
+Straigth up:
+	Force     = 0x00008000 | 8.0
+	Angle     = 0x00000000 | 90º
+	Direction = 0x00004000 | RIGHT
+	Warp Can. = 0x00000000 | FALSE
+	Timed     = 0x00000001 | TRUE
+	Duration  = 0x00000030 | 112
+
+Very far right:
+	Force     = 0x0000A000 | 10.0
+	Angle     = 0x00002000 | 45º
+	Direction = 0x00004000 | RIGHT
+	Warp Can. = 0x00000000 | FALSE
+	Timed     = 0x00000001 | TRUE
+	Duration  = 0x00000012 | 82
+	
+================================================================================================
+Value calculation | Warp pipe cannon
+================================================================================================
+
+Force:       GameValue / 0x1000                              | The shooting force
+Angle:       GameValue = -(((0x4000 * ANGLE) / 90) - 0x4000) | 90º = VERTICAL, 0º = HORIZONTAL
+Rotation:                                                    | The player rotation on shoot
+UNK 1:
+UNK 2:
+UNK 3:
+
+================================================================================================
+Game output | Warp pipe cannon
+================================================================================================
+
+Default:
+	Force     = 00004000 | 4.0
+	Angle     = 00002000 | 45º
+	Rotation  = FFFFA65C | (-0x59A4)
+	UNK 1     = 021B99E8 | 
+	UNK 2     = 00004000 | 
+	UNK 3     = 00002000 | 
