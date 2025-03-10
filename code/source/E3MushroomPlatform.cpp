@@ -2,21 +2,21 @@
 
 // Change height
 asm(R"(
-ncp_call_ov 0x0217F4D4, 90
+ncp_call(0x0217F4D4, 90)
 	LDRB    R0, [R5,#0x6FD]
 	CMP     R0, #0
 	MOVNE   R0, #0x4000
 	MOVEQ   R0, #0x8000
 	BX      LR
 
-ncp_call_ov 0x0217F518, 90
+ncp_call(0x0217F518, 90)
 	LDRB    R0, [R5,#0x6FD]
 	CMP     R0, #0
 	ADDNE   R0, R9, #0x4000
 	ADDEQ   R0, R9, #0x8000
 	BX      LR
 
-ncp_call_ov 0x0217F608, 90
+ncp_call(0x0217F608, 90)
 	LDRB    R2, [R5,#0x6FD]
 	CMP     R2, #0
 	ADDNE   R2, R9, #0x4000
@@ -29,7 +29,7 @@ ncp_repl(0x0217F504, 90, "ADD R1, R0, #0x20000")
 
 // Mushroom color
 asm(R"(
-ncp_call_ov 0x0217DD94, 90
+ncp_call(0x0217DD94, 90)
 	// Get actor to R0
 	LDR     R0, =0x548
 	SUB     R0, R4, R0
@@ -53,7 +53,7 @@ ncp_call_ov 0x0217DD94, 90
 
 // Mushroom stem
 asm(R"(
-ncp_jump_ov 0x0217E034, 90
+ncp_jump(0x0217E034, 90)
 	// Get actor->settings to R0
 	LDR     R0, [R5,#(0x8 - 0x544)]
 	// Get "Fat Stalk" property
@@ -66,7 +66,7 @@ ncp_jump_ov 0x0217E034, 90
 	MOV     R12, #0
 	B       0x0217E038
 
-ncp_jump_ov 0x0217E04C, 90
+ncp_jump(0x0217E04C, 90)
 	BL      0x0217DE58
 	// Reset property
 	MOV     R0, #0
@@ -75,7 +75,7 @@ ncp_jump_ov 0x0217E04C, 90
 	// Return
 	B       0x0217E050
 
-ncp_jump_ov 0x02160BF4, 54
+ncp_jump(0x02160BF4, 54)
 	// Get property
 	LDR     R3, =StalkTexture
 	LDR     R3, [R3]

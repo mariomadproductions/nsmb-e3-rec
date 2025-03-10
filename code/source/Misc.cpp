@@ -3,6 +3,7 @@
 #include "nsmb/stage/entity.h"
 #include "nsmb/stage/actors/ov14/megagoomba.h"
 #include "nsmb/entity/scene.h"
+#include "nsmb/graphics/fader.h"
 #include "nsmb/system/function.h"
 #include "nsmb/sound.h"
 #include "extra/events.hpp"
@@ -48,7 +49,7 @@ ncp_repl(0x0211BA68, 10, "SUB R1, R1, #0x10000") // Shift initial animation came
 
 // Shift initial animation camera location Y
 asm(R"(
-ncp_jump_ov 0x0211BA7C, 10
+ncp_jump(0x0211BA7C, 10)
 	SUB     R1, R1, #0x10000
 	STR     R1, [R0]
 	B       0x0211BA80
