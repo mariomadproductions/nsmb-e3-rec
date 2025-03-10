@@ -82,4 +82,45 @@ ncp_repl(0x02109D44, 10, R"(
 	B       0x02109D9C
 )")
 
+// ================ JUMP HIT ================
+
+// Mario can not make Luigi fall
+ncp_repl(0x02109B30, 10, "B 0x02109B84")
+
+// Luigi can not make Mario fall
+ncp_repl(0x02109A14, 10, "B 0x02109A68")
+
+asm(R"(
+// Set some animations for Mario and Luigi jump
+ncp_call(0x02109BB0, 10)
+ncp_call(0x02109A94, 10)
+	MOV     R1, #1
+	LDR     R0, =UseJumpOnPlayerAnim
+	STRB    R1, [R0]
+	MOV     R1, #0 // Restore R1
+	BX      LR
+
+// Allow animation to be used
+ncp_call(0x021144C8, 10)
+	LDR     R0, =UseJumpOnPlayerAnim
+	LDRB    R0, [R0]
+	CMP     R0, #0
+	BNE     .JumpedOnPlayer
+	ADD     R0, R5, #0xB00
+	LDRSB   R0, [R0,#0xA1]
+	B       0x21144CC
+.JumpedOnPlayer:
+	MOV     R2, #0
+	LDR     R1, =UseJumpOnPlayerAnim
+	STRB    R2, [R1]
+	MOV     R0, #0x1000 // AnimSpeed
+	MOV     R1, #0x60 // AnimID
+	B       0x21144F4
+
+.data
+.balign 1
+UseJumpOnPlayerAnim:
+	.byte 0x0
+)");
+
 }
