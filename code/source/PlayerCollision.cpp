@@ -1,5 +1,5 @@
-#include "nsmb/game.h"
-#include "nsmb/stage/player/player.h"
+#include <nsmb/game/game.hpp>
+#include <nsmb/game/stage/player/player.hpp>
 
 namespace PlayerExt {
 

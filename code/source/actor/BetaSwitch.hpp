@@ -1,7 +1,7 @@
 #pragma once
 
-#include "nsmb/stage/entity3danm.h"
-#include "nsmb/physics/collider.h"
+#include <nsmb/game/stage/entity3danm.hpp>
+#include <nsmb/game/physics/collider.hpp>
 
 class BetaSwitch : public StageEntity3DAnm
 {

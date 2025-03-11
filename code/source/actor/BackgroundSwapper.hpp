@@ -1,6 +1,6 @@
 #pragma once
 
-#include "nsmb/stage/entity.h"
+#include <nsmb/game/stage/entity.hpp>
 
 class BackgroundSwapper : public StageEntity
 {

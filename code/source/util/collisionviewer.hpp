@@ -1,8 +1,9 @@
 #pragma once
 
-#include "nsmb/stage/entity.h"
-#include "nsmb/physics.h"
-#include "nsmb/game.h"
+#include <nsmb/game/stage/entity.hpp>
+#include <nsmb/game/physics.hpp>
+#include <nsmb/game/game.hpp>
+#include <nsmb/extra/bitmaskenum.hpp>
 
 enum class CollisionViewerFlags : u32 {
 
@@ -35,7 +36,7 @@ enum class CollisionViewerFlags : u32 {
 	EntityBox = ActiveBox | RenderBox
 
 };
-IMPL_ENUMCLASS_OPERATORS(CollisionViewerFlags);
+NTR_CREATE_BITMASK_ENUM(CollisionViewerFlags);
 
 namespace CollisionViewer {
 

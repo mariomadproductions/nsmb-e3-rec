@@ -1,11 +1,12 @@
-#include "nsmb/entity/base.h"
-#include "nsmb/entity/list.h"
-#include "nsmb/stage/misc.h"
-#include "nsmb/stage/entity.h"
-#include "nsmb/stage/animatedtiles.h"
-#include "nsmb/stage/layout/stagelayout.h"
-#include "nsmb/stage/actors/ov54/redcoinring.h"
-#include "nsmb/graphics/fader.h"
+#include <nsmb/game/stage/misc.hpp>
+#include <nsmb/game/stage/entity.hpp>
+#include <nsmb/game/stage/animatedtiles.hpp>
+#include <nsmb/game/stage/layout/stagelayout.hpp>
+#include <nsmb/game/stage/actors/ov54/redcoinring.hpp>
+#include <nsmb/core/entity/base.hpp>
+#include <nsmb/core/entity/list.hpp>
+#include <nsmb/core/graphics/fader.hpp>
+
 #include "extra/undocumented.hpp"
 
 static u32 sRingCollected[2];

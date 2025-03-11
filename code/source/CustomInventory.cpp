@@ -1,7 +1,7 @@
-#include "nsmb/game.h"
-#include "nsmb/player.h"
-#include "nsmb/sound.h"
-#include "nsmb/stage/entity.h"
+#include <nsmb/game/game.hpp>
+#include <nsmb/game/sound.hpp>
+#include <nsmb/game/stage/entity.hpp>
+
 #include "extra/undocumented.hpp"
 
 namespace CustomInventory
@@ -119,7 +119,7 @@ void nsub_020D4A70_ov_0A(Player* player, int playerNo, int newPowerup)
 	if (!replaced)
 	{
 		if (playerNo == Game::localPlayerID)
-			Sound::playSFX(0x17D);
+			SND::playSFX(0x17D);
 		StageEntity::getCollectablePoints(4, playerNo);
 	}
 }

@@ -1,6 +1,6 @@
-#include "nsmb/stage/misc.h"
-#include "nsmb/stage/entity.h"
-#include "nsmb/stage/player/player.h"
+#include <nsmb/game/stage/misc.hpp>
+#include <nsmb/game/stage/entity.hpp>
+#include <nsmb/game/stage/player.hpp>
 
 // Set zoom when growing to Mega form
 ncp_call(0x0212027C, 10)

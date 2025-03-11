@@ -1,7 +1,7 @@
-#include "nsmb/stage/player/player.h"
-#include "nsmb/stage/entity.h"
-#include "nsmb/system/input.h"
-#include "nsmb/system/function.h"
+#include <nsmb/game/stage/entity.hpp>
+#include <nsmb/game/stage/player.hpp>
+#include <nsmb/core/system/input.hpp>
+#include <nsmb/core/system/function.hpp>
 
 namespace PlayerPush {
 

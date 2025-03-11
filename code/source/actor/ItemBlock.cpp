@@ -1,9 +1,10 @@
 #include "ItemBlock.hpp"
 
-#include "nsmb/filesystem/cache.h"
-#include "nsmb/graphics/particle.h"
-#include "nsmb/system/function.h"
-#include "extra/events.hpp"
+#include <nsmb/game/stage/misc.hpp>
+#include <nsmb/core/filesystem/cache.hpp>
+#include <nsmb/core/graphics/particle.hpp>
+#include <nsmb/core/system/function.hpp>
+
 #include "extra/undocumented.hpp"
 
 constexpr u32 ModelFileID[] = { 1212 - 131, 1213 - 131, 1214 - 131 };
@@ -164,7 +165,7 @@ void ItemBlock::hitBehavior(bool animEnd)
 		if (!animEnd)
 			break;
 
-		Event::activate(events[1]);
+		Stage::setEvent(events[1]);
 		break;
 	case Type::ItemSpawner:
 	{

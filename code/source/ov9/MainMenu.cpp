@@ -1,16 +1,19 @@
 #include "scene/MainMenu.hpp"
 
-#include "nitro/gx.h"
-#include "nsmb/game.h"
-#include "nsmb/sound.h"
-#include "nsmb/graphics/fader.h"
-#include "nsmb/graphics/2d/oam.h"
-#include "nsmb/system/input.h"
-#include "nsmb/system/save.h"
-#include "nsmb/system/misc.h"
-#include "nsmb/filesystem/file.h"
-#include "nsmb/filesystem/cache.h"
-#include "nsmb/ui/bnbl.h"
+#include <nsmb_nitro.hpp>
+#include <nsmb/game/game.hpp>
+#include <nsmb/game/sound.hpp>
+#include <nsmb/game/ui.hpp>
+#include <nsmb/core/graphics/fader.hpp>
+#include <nsmb/core/graphics/2d/oam.hpp>
+#include <nsmb/core/system/input.hpp>
+#include <nsmb/core/system/save.hpp>
+#include <nsmb/core/system/misc.hpp>
+#include <nsmb/core/filesystem/file.hpp>
+#include <nsmb/core/filesystem/cache.hpp>
+#include <nsmb/core/net/core.hpp>
+#include <nsmb/core/wifi/wifi.hpp>
+
 #include "extra/undocumented.hpp"
 #include "CustomInventory.hpp"
 
@@ -39,8 +42,8 @@ s32 MainMenu::onCreate()
 	// SND::playBGM(0, false);
 
 	//Load BNBL and BNCL to heap
-	BNBL::current = (BNBL::File*)FS::Cache::loadFile(2083 - 131, false);
-	BNCL::current = (BNCL::File*)FS::Cache::loadFile(2084 - 131, false);
+	UI::bnbl = BNBL::cast(FS::Cache::loadFile(2083 - 131, false));
+	UI::bncl = BNCL::cast(FS::Cache::loadFile(2084 - 131, false));
 
 	if (Scene::previousSceneID == 3)
 		selectedButton = Game::stageID;
@@ -86,7 +89,7 @@ s32 MainMenu::onUpdate()
 	}
 
 	UpdatePenTouchPositions();
-	int rect = BNBL::getTouchedRectangleID(BNBL::current);
+	int rect = UI::bnbl->getBox(TouchedX[0], TouchedY[0]);
 	if (rect != -1)
 	{
 		selectedButton = rect;
@@ -99,13 +102,13 @@ s32 MainMenu::onUpdate()
 	}
 	if (keysPressed & Keys::B)
 	{
-		if (GetConsoleCount() == 1)
+		if (Wifi::getCommunicatingConsoleCount() == 1)
 		{
-			Scene::switchScene(SceneID::MvsLMainMenu, 0);
+			Scene::switchScene(SceneID::VSConnect, 0);
 		}
 		else
 		{
-			Multiplayer::endConnection();
+			Net::stopConnection();
 			*(int*)0x02085200 = 1; // Reset console count
 		}
 	}
@@ -117,16 +120,16 @@ s32 MainMenu::onRender()
 {
 	for (int i = 0; i < 3; i++)
 	{
-		int objID = BNCL::current->objs[i].id;
+		u32 objID = UI::bncl->getObject(i).bncdObjectID;
 
 		static GXOamAttr oamObj = OAM::getOBJAttr(0, 0, 0, GX_OAM_MODE_NORMAL, false, GX_OAM_EFFECT_NONE, GX_OAM_SHAPE_64x64, GX_OAM_COLOR_256, 0, 0, 0, 0xFFFF);
 
 		oamObj.attr2 = objID * 0x80;
-		Game::drawBNCLSprite(i, &oamObj, OAM::Flags::None, objID, 0, 0, 0, 0, OAM::Settings::None, 0, 0);
+		UI::draw(i, &oamObj, OAM::Flags::None, objID, 0, 0, 0, 0, OAM::Settings::None, 0, 0);
 
 		int selPal = (i == selectedButton ? (buttonClicked ? 5 : 4) : 3);
 		oamObj.attr2 = 3 * 0x80;
-		Game::drawBNCLSprite(i, &oamObj, OAM::Flags::None, selPal, 0, 0, 0, 0, OAM::Settings::None, 0, 0);
+		UI::draw(i, &oamObj, OAM::Flags::None, selPal, 0, 0, 0, 0, OAM::Settings::None, 0, 0);
 	}
 	return 1;
 }
@@ -188,7 +191,7 @@ void MainMenu::onButtonClicked()
 		CustomInventory::setPowerupOnSlot(i, 2, 0);
 	}
 
-	int consoleCount = GetConsoleCount();
+	int consoleCount = Wifi::getCommunicatingConsoleCount();
 	int playerNumber = *(int*)0x020887F0;
 	int spawnBitmask = consoleCount == 1 ? 1 : 3;
 	Game::loadLevel(

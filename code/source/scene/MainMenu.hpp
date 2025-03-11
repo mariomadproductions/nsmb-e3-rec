@@ -1,6 +1,6 @@
 #pragma once
 
-#include "nsmb/entity/scene.h"
+#include <nsmb/core/entity/scene.hpp>
 
 class MainMenu : public Scene
 {

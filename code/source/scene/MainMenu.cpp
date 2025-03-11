@@ -1,6 +1,6 @@
 #include "MainMenu.hpp"
 
-#include "nsmb/filesystem/file.h"
+#include <nsmb/core/filesystem/file.hpp>
 
 constexpr u32 TitleLogo_NCG = 1215;
 constexpr u32 TitleLogo_NCL = 1216;

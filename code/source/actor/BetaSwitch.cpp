@@ -1,9 +1,9 @@
 #include "BetaSwitch.hpp"
 
-#include "nsmb/sound/sound.h"
-#include "nsmb/filesystem/cache.h"
-#include "nsmb/graphics/particle.h"
-#include "extra/events.hpp"
+#include <nsmb/game/stage/misc.hpp>
+#include <nsmb/game/sound/sound.hpp>
+#include <nsmb/core/filesystem/cache.hpp>
+#include <nsmb/core/graphics/particle.hpp>
 
 constexpr u32 ModelFileID = { 1441 - 131 };
 constexpr u32 AnimFileID = { 1440 - 131 };
@@ -70,7 +70,7 @@ s32 BetaSwitch::onUpdate()
 		}
 		else if (hitTimerF == 16)
 		{
-			Event::activate(events[1]);
+			Stage::setEvent(events[1]);
 
 			VecFx16 axis = { -0x1000, -0x1000, 0x1000 };
 			Particle::Handler::createParticle(203, position);
