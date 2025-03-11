@@ -1,7 +1,7 @@
 #pragma once
 
-#include "nsmb/stage/entity3d.h"
-#include "nsmb/physics/collider.h"
+#include <nsmb/game/stage/entity3d.hpp>
+#include <nsmb/game/physics/collider.hpp>
 
 class ItemBlock : public StageEntity3D
 {

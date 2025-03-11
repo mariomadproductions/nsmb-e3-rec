@@ -2,8 +2,8 @@
 // https://nsmbhd.net/post/51362/
 // Ported by TheGameratorT
 
-#include "nsmb/graphics/particle.h"
-#include "nsmb/stage/layout/data.h"
+#include <nsmb/game/stage/layout/data.hpp>
+#include <nsmb/core/graphics/particle.hpp>
 
 ncp_over(0x02022D9C)
 static u8 infoForBank[] = {
@@ -33,7 +33,7 @@ BossFileInfo* getBossParticleInfoHook()
 		{
 			StageObject* stageObj = &stageObjs[i];
 			u16 stageObjID = stageObj->id;
-			if (stageObjID == -1) // Array end
+			if (stageObjID == 0xFFFF) // Array end
 				break;
 			if (stageObjID == 58) // Bowser
 				return &table[0];

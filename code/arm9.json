@@ -11,6 +11,7 @@
 	"ld_flags": "${ld_flags}",
 
 	"includes": [
+		["${env:NSMBREF_ROOT}/include", false],
 		["include", false],
 		["source", false]
 	],
@@ -34,5 +35,5 @@
 	}],
 
 	"arenaLo": "0x02065F10",
-	"symbols": "symbols9.x"
+	"symbols": "${env:NSMBREF_ROOT}/symbols9.x"
 }

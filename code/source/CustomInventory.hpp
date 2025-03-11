@@ -1,6 +1,6 @@
 #pragma once
 
-#include "nitro/types.h"
+#include <nsmb_nitro.hpp>
 
 namespace CustomInventory
 {

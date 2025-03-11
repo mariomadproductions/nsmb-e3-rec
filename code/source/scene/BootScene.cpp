@@ -1,9 +1,11 @@
-#include "nitro/gx.h"
-#include "nsmb/entity/scene.h"
-#include "nsmb/graphics/fader.h"
-#include "nsmb/filesystem/file.h"
-#include "nsmb/system/input.h"
-#include "nsmb/system/misc.h"
+#include <nsmb_nitro.hpp>
+#include <nsmb/core/entity/scene.hpp>
+#include <nsmb/core/graphics/fader.hpp>
+#include <nsmb/core/filesystem/file.hpp>
+#include <nsmb/core/system/input.hpp>
+#include <nsmb/core/system/misc.hpp>
+#include <nsmb/core/net/net.hpp>
+
 #include "extra/undocumented.hpp"
 #include "MainMenu.hpp"
 
@@ -12,7 +14,7 @@ ncp_repl(0x020CC730, 1, "B 0x020CCAD4") // Boot scene fades out to white
 ncp_call(0x020CCBF0, 1)
 void repl_020CCBF0_ov_01()
 {
-	Multiplayer::init();
+	Net::setDefaultHandlers();
 
 	GX_SetDispSelect(GX_DISP_SELECT_SUB_MAIN);
 	MainMenu::initTopScreen();
@@ -56,7 +58,7 @@ void repl_020CC720_ov_01()
 	}
 	else if (keysPressed & Keys::B)
 	{
-		Scene::switchScene(SceneID::MvsLMainMenu, 0);
+		Scene::switchScene(SceneID::VSConnect, 0);
 	}
 }
 

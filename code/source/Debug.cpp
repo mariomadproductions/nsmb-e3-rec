@@ -1,8 +1,7 @@
-#include "nitro_if.h"
+#include <nsmb/core/entity/scene.hpp>
+#include <nsmb/core/system/input.hpp>
+#include <nsmb/core/system/function.hpp>
 
-#include "nsmb/entity/scene.h"
-#include "nsmb/system/input.h"
-#include "nsmb/system/function.h"
 #include "util/collisionviewer.hpp"
 #include "util/playerdragger.hpp"
 

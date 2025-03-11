@@ -1,4 +1,4 @@
-#include "nsmb/stage/player/player.h"
+#include <nsmb/game/stage/player/player.hpp>
 
 // Replace idle animation
 ncp_repl(0x02122750, 10, ".int 0x6E2")

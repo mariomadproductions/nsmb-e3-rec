@@ -1,5 +1,4 @@
-#include "nitro_if.h"
-#include "nsmb/stage/layout/stagelayout.h"
+#include <nsmb/game/stage/layout/stagelayout.hpp>
 
 struct Chunk { u8 data[0x200]; };
 

@@ -1,8 +1,9 @@
 #include "BackgroundSwapper.hpp"
 
-#include "nitro/gx.h"
-#include "nitro/mi/memory.h"
-#include "nsmb/filesystem/file.h"
+#include <nsmb_nitro.hpp>
+#include <nsmb/game/stage/player.hpp>
+#include <nsmb/core/math/math.hpp>
+#include <nsmb/core/filesystem/file.hpp>
 
 static u8 LastBG = 0;
 static u8 LastFG = 0;
@@ -189,8 +190,8 @@ void BackgroundSwapper::doSwapping()
 void BackgroundSwapper::checkIfClose()
 {
 	Player* player = Game::getLocalPlayer();
-	int XDistToSprite = MATH_ABS(position.x - player->position.x);
-	int YDistToSprite = MATH_ABS(position.y - player->position.y);
+	fx32 XDistToSprite = Math::abs(position.x - player->position.x);
+	fx32 YDistToSprite = Math::abs(position.y - player->position.y);
 
 	XDistToSprite /= 0x1000;
 	YDistToSprite /= 0x1000;

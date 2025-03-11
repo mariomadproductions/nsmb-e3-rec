@@ -1,12 +1,13 @@
-#include "nitro/gx.h"
-#include "nitro/fx/fx.h"
-#include "nsmb/game.h"
-#include "nsmb/player.h"
-#include "nsmb/system/misc.h"
-#include "nsmb/filesystem/file.h"
-#include "nsmb/filesystem/cache.h"
-#include "nsmb/stage/layout/entrance.h"
-#include "extra/fx.h"
+#include <nsmb_nitro.hpp>
+#include <nsmb/game/game.hpp>
+#include <nsmb/game/stage/player.hpp>
+#include <nsmb/game/stage/layout/data/entrance.hpp>
+#include <nsmb/game/ui.hpp>
+#include <nsmb/core/system/misc.hpp>
+#include <nsmb/core/filesystem/file.hpp>
+#include <nsmb/core/filesystem/cache.hpp>
+
+#include "extra/fx.hpp"
 #include "extra/undocumented.hpp"
 #include "CustomInventory.hpp"
 
@@ -58,9 +59,9 @@ void nsub_020BDAFC_ov_00()
 
 	GXS_SetVisiblePlane(GX_PLANEMASK_BG2 | GX_PLANEMASK_BG3 | GX_PLANEMASK_OBJ);
 
-	void* bnbl = FS::Cache::loadFile(2055 - 131, false);
-	void* bncl = FS::Cache::loadFile(2056 - 131, false);
-	BNXX_InitSub(NULL, bncl, bnbl);
+	BNBL* bnbl = BNBL::cast(FS::Cache::loadFile(2055 - 131, false));
+	BNCL* bncl = BNCL::cast(FS::Cache::loadFile(2056 - 131, false));
+	UI::initSub(nullptr, bncl, bnbl);
 }
 
 // Sub OAM Update (simply skip part of it xD)
@@ -117,7 +118,7 @@ static GXOamAttr* oam_levelNames[] = {
 
 static void MyDrawBottomScreenLevelName(int* stageScene)
 {
-	Game::drawBNCLSpriteSub(11 + Game::stageID, oam_levelNames[Game::stageID], OAM::Flags::None, 0, 0, nullptr, 0, nullptr, OAM::Settings::None, 0, 0);
+	UI::drawSub(11 + Game::stageID, oam_levelNames[Game::stageID], OAM::Flags::None, 0, 0, nullptr, 0, nullptr, OAM::Settings::None, 0, 0);
 }
 
 static void MyDrawBottomScreenPowerups(int* stageScene, int playerNo)
@@ -146,7 +147,7 @@ static void MyDrawBottomScreenPowerups(int* stageScene, int playerNo)
 		{
 			bool transitioning = (bool)(Entrance::transitionFlags[playerNo] & EntranceTransitionFlags::SubScreen);
 			if (stageScene[playerNo + 8] && somePlayerDropStateCondition && !transitioning)
-				Game::drawBNCLSpriteSub(3 + i, oam_touchI, OAM::Flags::None, 0, 0, nullptr, 0, nullptr, OAM::Settings::None, xOff, yOff);
+				UI::drawSub(3 + i, oam_touchI, OAM::Flags::None, 0, 0, nullptr, 0, nullptr, OAM::Settings::None, xOff, yOff);
 
 			scale = &((Vec2*)0x020CC14C)[playerNo];
 			rotation = *((u16*)0x020CC0D0 + playerNo);
@@ -170,7 +171,7 @@ static void MyDrawBottomScreenPowerups(int* stageScene, int playerNo)
 		if (yOffAnim > -192)
 		{
 
-			Game::drawBNCLSpriteSub(
+			UI::drawSub(
 				i,
 				oam_invItems[invItem],
 				OAM::Flags::None,
@@ -209,23 +210,23 @@ static void OAM_DrawInvCounterDigits(int rect, int value)
 	if (value < 10)
 	{
 		digit = OAM_GetNumber16px(value);
-		Game::drawBNCLSpriteSub(rect, digit, OAM::Flags::None, 0, 0, nullptr, 0, nullptr, OAM::Settings::None, 14, 2);
+		UI::drawSub(rect, digit, OAM::Flags::None, 0, 0, nullptr, 0, nullptr, OAM::Settings::None, 14, 2);
 	}
 	else if (value < 100)
 	{
 		digit = OAM_GetNumber16px((value % 10));
-		Game::drawBNCLSpriteSub(rect, digit, OAM::Flags::None, 0, 0, nullptr, 0, nullptr, OAM::Settings::None, 21, 1);
+		UI::drawSub(rect, digit, OAM::Flags::None, 0, 0, nullptr, 0, nullptr, OAM::Settings::None, 21, 1);
 		digit = OAM_GetNumber16px((value / 10));
-		Game::drawBNCLSpriteSub(rect, digit, OAM::Flags::None, 0, 0, nullptr, 0, nullptr, OAM::Settings::None, 7, 3);
+		UI::drawSub(rect, digit, OAM::Flags::None, 0, 0, nullptr, 0, nullptr, OAM::Settings::None, 7, 3);
 	}
 	else
 	{
 		digit = OAM_GetNumber16px((value % 10));
-		Game::drawBNCLSpriteSub(rect, digit, OAM::Flags::None, 0, 0, nullptr, 0, nullptr, OAM::Settings::None, 28, 0);
+		UI::drawSub(rect, digit, OAM::Flags::None, 0, 0, nullptr, 0, nullptr, OAM::Settings::None, 28, 0);
 		digit = OAM_GetNumber16px(((value / 10) % 10));
-		Game::drawBNCLSpriteSub(rect, digit, OAM::Flags::None, 0, 0, nullptr, 0, nullptr, OAM::Settings::None, 14, 2);
+		UI::drawSub(rect, digit, OAM::Flags::None, 0, 0, nullptr, 0, nullptr, OAM::Settings::None, 14, 2);
 		digit = OAM_GetNumber16px((value / 100));
-		Game::drawBNCLSpriteSub(rect, digit, OAM::Flags::None, 0, 0, nullptr, 0, nullptr, OAM::Settings::None, 0, 4);
+		UI::drawSub(rect, digit, OAM::Flags::None, 0, 0, nullptr, 0, nullptr, OAM::Settings::None, 0, 4);
 	}
 }
 
@@ -258,7 +259,7 @@ static void MyDrawBottomScreenCounters(int playerNo)
 	{
 		int modScore = (score / divisior) % 10;
 		GXOamAttr* digit = OAM_GetNumber8px(modScore);
-		Game::drawBNCLSpriteSub(8, digit, OAM::Flags::None, 0, 0, nullptr, 0, nullptr, OAM::Settings::None, x, i);
+		UI::drawSub(8, digit, OAM::Flags::None, 0, 0, nullptr, 0, nullptr, OAM::Settings::None, x, i);
 
 		x -= 8;
 		divisior *= 10;

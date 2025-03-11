@@ -1,7 +1,7 @@
-#include "nsmb/game.h"
-#include "nsmb/player.h"
-#include "nsmb/graphics/2d/oam.h"
-#include "nsmb/filesystem/file.h"
+#include <nsmb/game/game.hpp>
+#include <nsmb/game/stage/player.hpp>
+#include <nsmb/core/graphics/2d/oam.hpp>
+#include <nsmb/core/filesystem/file.hpp>
 
 namespace PlayerStartFX {
 

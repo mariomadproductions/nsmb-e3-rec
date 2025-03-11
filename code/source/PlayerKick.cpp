@@ -1,9 +1,10 @@
-#include "nsmb/stage/misc.h"
-#include "nsmb/stage/entity.h"
-#include "nsmb/stage/player/player.h"
-#include "nsmb/physics/activecollider.h"
-#include "nsmb/system/input.h"
-#include "nsmb/system/function.h"
+#include <nsmb/game/stage/misc.hpp>
+#include <nsmb/game/stage/entity.hpp>
+#include <nsmb/game/stage/player/player.hpp>
+#include <nsmb/game/physics/activecollider.hpp>
+#include <nsmb/core/system/input.hpp>
+#include <nsmb/core/system/function.hpp>
+
 #include "extra/undocumented.hpp"
 
 namespace PlayerKick

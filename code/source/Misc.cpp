@@ -1,12 +1,12 @@
-#include "nsmb/player.h"
-#include "nsmb/game.h"
-#include "nsmb/stage/entity.h"
-#include "nsmb/stage/actors/ov14/megagoomba.h"
-#include "nsmb/entity/scene.h"
-#include "nsmb/graphics/fader.h"
-#include "nsmb/system/function.h"
-#include "nsmb/sound.h"
-#include "extra/events.hpp"
+#include <nsmb/game/player.hpp>
+#include <nsmb/game/game.hpp>
+#include <nsmb/game/stage/entity.hpp>
+#include <nsmb/game/stage/actors/ov14/megagoomba.hpp>
+#include <nsmb/core/entity/scene.hpp>
+#include <nsmb/core/graphics/fader.hpp>
+#include <nsmb/core/system/function.hpp>
+#include <nsmb/game/sound.hpp>
+
 #include "extra/undocumented.hpp"
 
 // FLAG POLE SHIFT ==================================
@@ -144,7 +144,7 @@ ncp_repl(0x0212FCCC, 14, "MOV R0, #0")
 ncp_hook(0x021315C4, 14)
 void MegaGoomba_freezeBarrierHook()
 {
-	if (!Event::isActive(48))
+	if (!Stage::getEvent(48))
 		return;
 
 	for (int i = 0; i < Game::getPlayerCount(); i++)

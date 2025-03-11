@@ -1,6 +1,6 @@
 #pragma once
 
-#include "nsmb/stage/player/player.h"
+#include <nsmb/game/stage/player/player.hpp>
 
 namespace PlayerDragger
 {
