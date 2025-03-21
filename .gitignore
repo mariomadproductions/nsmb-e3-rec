@@ -10,14 +10,8 @@
 # Built code
 /code/build/
 
-# Exclude Nitro SDK headers
-/code/include/nitro/
-/code/include/nitro_wl/
-/code/include/nnsys/
-/code/include/nitro.h
-/code/include/nnsys.h
-/code/include/nitro_sp.h
-/code/include/nitro_win32.h
+# Exclude includes
+/code/include/
 
 # VS Code
 /code/.vscode
@@ -31,3 +25,6 @@
 # Temporary code files
 /__tmp
 /code/source/ObjectTable.gen.cpp
+
+#Python
+/.venv/
