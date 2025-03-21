@@ -69,32 +69,11 @@ Workarounds/unimplemented things that may seem like bugs:
 There are of course many other unimplemented things, that are obviously just not implemented yet.
 
 ## Building
-Prerequisites:
-
-General building tools:
- - GNU Arm Embedded Toolchain
- - GNU Make
-
-Note: You can install these via your package manager. Tested options on Windows are [msys2 mingw's official distribution](https://www.msys2.org/) (relevant pacman package names: `mingw-w64-x86_64-arm-none-eabi-gcc`, `make`), [devkitPro's msys2 distribution](https://github.com/devkitPro/installer/releases), and [ARM's official msys2 mingw64 distribution](https://developer.arm.com/downloads/-/arm-gnu-toolchain-downloads). The `[MSYS2_INSTALL_DIR]\usr\bin` and `[MSYS2_INSTALL_DIR]\mingw64\bin` directories need to be in your PATH for NSMBe to find the relevant binaries.
-
-Scripting:
- - Python 3
-
-Modding specific:
- - [ndspy](https://pypi.org/project/ndspy/)
- - [NSMBe](https://github.com/TheGameratorT/NSMB-Editor/releases) (v5.3 or later) [may only work correctly on Windows]
- - NitroSDK (tested with NitroSDK-3_0-060125[<sup>1</sup>](#notes))
- - Clean NSMB USA ROM[<sup>2</sup>](#notes)
-
-Steps:
  - Clone the repo.
  - Go into the repo folder.
- - Copy the NitroSDK ``include`` folder contents into the repo `include` folder.
- - Run `convert_sdk.py`.
- - Place the ROM as ``rom.nds`` in the repo.
+ - Place the ROM as ``rom.nds``[<sup>2</sup>](#notes) in the repo.
  - Run `insert_files.py rom.nds`.
- - Open `rom.nds` in NSMB Editor.
- - Go to the `Tools/Options` tab and click `Run 'make' and insert`. If you get a error message box just click continue.
+ - Follow the NSMB code template NSMBe instructions https://github.com/MammaMiaTeam/NSMB-Code-Template https://github.com/MammaMiaTeam/NSMB-Code-Template/issues/1
 
 ## Tools used
 In addition to those listed in the build instructions.
@@ -106,14 +85,12 @@ In addition to those listed in the build instructions.
 -   NDS Banner Editor
 
 ## Credits
-
 -   Hiccup - Research, direction, levels, sound edits and minor graphics
 -   TheGameratorT - Coding and minor graphics
 -   Alzter - Graphics
 -   Zeferrao/Pengu - Sound edits
 
 ### Special Thanks
-
 -   KTRMAmbiance (aka Ambiance69) - Graphics
 -   mrrikihino - Graphics
 -   MeroMero - No level freeze code (nofreeze.s)
@@ -130,14 +107,6 @@ In addition to those listed in the build instructions.
 
 ## Notes
 1\.  
-> Common filename: NitroSDK-3_0-060125.zip  
-> Size: 58349333  
-> CRC32: c023d994  
-> MD5: eed72648a1a10a622ee65b7ee5d3e7f4  
-> SHA1: 36b7d2f66b828f5575e96c4c689c2aaa592304f6  
-> SHA256: b791c9e331bc0b2026c58c8cec0ea74a496b0594ea03c272af3f75b726a656cf
-
-2\.  
 > Common filename: New Super Mario Bros (USA).nds  
 > Size: 33554432  
 > CRC32: 0197576a  
