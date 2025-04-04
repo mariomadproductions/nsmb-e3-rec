@@ -100,6 +100,8 @@ In addition to those listed in the build instructions.
 -   SiropDeViolette (aka Simpson55) - First-hand demo
     information (was present at E3 2005)
 -   KingYoshi - Research/translation of Dutch news articles
+-   skewer 2 - Pipe Piranha Plant resize code
+
 -   All contributors to the original
     [Beta Replica project](https://nsmbhd.net/thread/2198-nsmb-beta-replica-2005-demo-replica-v1-released/) (MarioFanatic64,
     Thierry et al)
