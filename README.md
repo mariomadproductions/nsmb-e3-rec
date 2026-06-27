@@ -107,7 +107,7 @@ In addition to those listed in the build instructions.
 
 ## Credits
 
--   Hiccup - Research, direction, levels, sound edits and minor graphics
+-   Hiccup - Research, general direction, level recreations, sound edits and minor graphics
 -   TheGameratorT - Coding and minor graphics
 -   Alzter - Graphics
 -   Zeferrao/Pengu - Sound edits
