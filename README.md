@@ -118,10 +118,9 @@ In addition to those listed in the build instructions.
 -   mrrikihino - Graphics
 -   MeroMero - No level freeze code (nofreeze.s)
 -   Ed_IT - Helped with custom sprite code
--   Doc_Static (aka Mspeter97) - First-hand demo information
-    (was present at E3 2005)
--   SiropDeViolette (aka Simpson55) - First-hand demo
-    information (was present at E3 2005)
+-   Doc_Static (aka Mspeter97) - Demo information
+-   SiropDeViolette (aka Simpson55) - Demo
+    information
 -   KingYoshi - Research/translation of Dutch news articles
 -   All contributors to the original
     [Beta Replica project](https://nsmbhd.net/thread/2198-nsmb-beta-replica-2005-demo-replica-v1-released/) (MarioFanatic64,
