@@ -20,9 +20,19 @@ ActiveColliderDestroyBlocks = 0x020A70A0
 GetStartEntranceID = 0x0201F518
 TouchedX = 0x0208B4E8
 TouchedY = 0x0208B4F4
+debug_printf = 0x02006370
+debug_clear = 0x02005E68
+debug_drawTop = 0x02005EB0
+debug_drawBottom = 0x020061E4
 )");
 
 extern "C" {
+
+void debug_printf(const u16 colors[2], u16* dst, const char* str, ...);
+void debug_clear();
+void debug_drawTop();
+void debug_drawBottom();
+
 
 void MvsLDrawBottomScreenProgressPathIcons(void* stageScene, int xShift, int yShift);
 void UpdateInventoryPowerup(int playerNo, u8 powerup);
