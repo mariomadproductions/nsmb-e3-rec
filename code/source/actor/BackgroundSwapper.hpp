@@ -16,7 +16,7 @@ public:
 		0, 0, // renderSize
 		0, 0, // spawnOffset
 		0, 0, // viewOffset
-		CollisionSwitch::None, // collisionSwitch
+		EntityProperties::None, // properties
 		SpawnSettings::None // spawnSettings
 	};
 

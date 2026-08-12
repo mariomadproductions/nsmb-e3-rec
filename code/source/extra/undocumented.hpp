@@ -15,7 +15,6 @@ UpdateInventoryPowerup = 0x020BFFDC
 SetSpriteAtPosUsed = 0x020CDB80
 GetSpriteAtPosUsed = 0x020CDC4C
 UpdatePenTouchPositions = 0x02021808
-_ZN5Stage9exitLevelEm = 0x020A189C
 Player_checkGroundPound = 0x02113E2C
 ActiveColliderDestroyBlocks = 0x020A70A0
 GetStartEntranceID = 0x0201F518
@@ -38,8 +37,3 @@ u32 GetStartEntranceID(u32 playerID);
 
 extern u8 TouchedX[2];
 extern u8 TouchedY[2];
-
-namespace Stage
-{
-	void exitLevel(u32 flags = 0);
-}
