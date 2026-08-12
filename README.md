@@ -40,7 +40,7 @@ Patching tools for different platforms (in order of ease of use):
 -   https://github.com/jmacd/xdelta-gpl/releases (Windows, Mac, Linux) (command line program)
 
 
-You should patch a clean NSMB USA ROM[<sup>2</sup>](#notes).
+You should patch a clean NSMB USA ROM[^rom].
 
 ## Playing
 At least one version has been successfully tested on the following:
@@ -71,7 +71,7 @@ There are of course many other unimplemented things, that are obviously just not
 ## Building
  - Clone the repo.
  - Go into the repo folder.
- - Place the ROM as ``rom.nds``[<sup>1</sup>](#notes) in the repo.
+ - Place the ROM as ``rom.nds``[^rom] in the repo.
  - Run `insert_files.py rom.nds`.
  - Follow the NSMB code template NSMBe instructions https://github.com/MammaMiaTeam/NSMB-Code-Template
 
@@ -107,11 +107,9 @@ In addition to those listed in the build instructions.
     Thierry et al)
 -   All contributors to the TCRF page
 
-## Notes
-1\.  
-> Common filename: New Super Mario Bros (USA).nds  
-> Size: 33554432  
-> CRC32: 0197576a  
-> MD5: a2ddba012e5c3c2096d0be57cc273be5  
-> SHA1: a22713711b5cd58dfbafc9688dadea66c59888ce  
-> SHA256: 9f67fef1b4c73e966767f6153431ada3751dc1b0da2c70f386c14a5e3017f354
+[^rom]: Common filename: New Super Mario Bros (USA).nds  
+    Size: 33554432  
+    CRC32: 0197576a  
+    MD5: a2ddba012e5c3c2096d0be57cc273be5  
+    SHA1: a22713711b5cd58dfbafc9688dadea66c59888ce  
+    SHA256: 9f67fef1b4c73e966767f6153431ada3751dc1b0da2c70f386c14a5e3017f354
