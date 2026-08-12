@@ -16,7 +16,7 @@
 	},
 	
 	"pre-build": [
-		"py -3 scripts/gen_obj_table.py"
+		"python scripts/gen_obj_table.py"
 	],
 	"post-build": [],
 	
