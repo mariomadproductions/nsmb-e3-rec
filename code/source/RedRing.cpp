@@ -126,7 +126,7 @@ NTR_USED static bool customRespawnCondition() // Implement new system
 	fx32 timeLeft = *rcast<fx32*>(0x020CA8B4);
 	if (timeLeft == 0)
 	{
-		Stage::exitLevel(0);
+		Stage::exitLevel();
 		return false; // Do not respawn
 	}
 	return true; // Respawn

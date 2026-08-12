@@ -29,30 +29,30 @@ void createKickColliders(Player* player)
 {
 	ActiveCollider* p = &sPlayerColilders[player->playerID];
 
-	static ActiveColliderInfo info
+	static AcConfig config
 	{
 		.rect = { 0, 0, 0, 0 },
-		.selfGroup = CollisionGroup::PlayerSpecial,
-		.selfFlag = CollisionFlag::DamageEntity,
-		.checkGroupMask = 0x93,
-		.checkFlagMask = 0xFFDE,
+		.group = AcGroup::PlayerSpecial,
+		.attack = AcAttack::EntityAsWeapon,
+		.detectGroups = 0x93,
+		.detectAttacks = 0xFFDE,
 		.options = 0,
 		.callback = &kickCollisionCallback,
 	};
 
 	if (player->currentPowerup == PowerupState::Mega)
 	{
-		info.rect.halfWidth = 48 * (FX32_ONE >> 1);
-		info.rect.halfHeight = 40 * (FX32_ONE >> 1);
+		config.rect.halfWidth = 48 * (FX32_ONE >> 1);
+		config.rect.halfHeight = 40 * (FX32_ONE >> 1);
 	}
 	else
 	{
-		info.rect.halfWidth = 16 * (FX32_ONE >> 1);
-		info.rect.halfHeight = 12 * (FX32_ONE >> 1);
+		config.rect.halfWidth = 16 * (FX32_ONE >> 1);
+		config.rect.halfHeight = 12 * (FX32_ONE >> 1);
 	}
 
 	*p = ActiveCollider();
-	p->init(player, info);
+	p->init(player, config);
 	p->link();
 }
 
@@ -97,8 +97,8 @@ void updateKickColliders(Player* player)
 
 	//cout << "Foot-Root : " << PRINT_VEC(footToRootOfs) << "\n";
 
-	p->hitbox.rect.x = footOfs.x/* - p->sizeX*/;
-	p->hitbox.rect.y = footOfs.y/* + p->sizeY*/;
+	p->config.rect.x = footOfs.x/* - p->sizeX*/;
+	p->config.rect.y = footOfs.y/* + p->sizeY*/;
 
 	ActiveColliderDestroyBlocks(p, 0x06502800, player->direction, player->playerID, 0);
 }

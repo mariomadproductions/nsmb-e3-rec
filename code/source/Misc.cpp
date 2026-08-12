@@ -271,7 +271,7 @@ void coopTimerFreezeHook(Player* player)
 		*rcast<u8*>(0x020CA898) |= 0x40;
 		*rcast<u8*>(0x020CA880) |= 0x10;
 		player->transitioningFlag = 1;
-		player->activeCollider.collisionResult |= 1;
+		player->activeCollider.collisionState |= ActiveCollider::IgnoreCollision;
 	}
 }
 
