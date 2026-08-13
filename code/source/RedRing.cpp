@@ -175,7 +175,7 @@ void playerRespawnHook(Player* player)
 	if (Game::getPlayerCount() == 1)
 	{
 		int& timeLeft = *rcast<int*>(0x020CA8B4);
-		timeLeft = Stage::getBlock<u16>(1)[2] << 12;
+		timeLeft = Stage::stageBlocks.header->timer << 12;
 
 		destroyStageSprites();
 
