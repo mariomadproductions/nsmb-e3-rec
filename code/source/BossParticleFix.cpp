@@ -6,7 +6,7 @@
 #include <nsmb/core/graphics/particle.hpp>
 
 ncp_over(0x02022D9C)
-static u8 infoForBank[] = {
+static const u8 infoForBank[] = {
 	3, // Mega Goomba
 	4, // Petey Piranha
 	1, // Mummipokey
@@ -20,10 +20,10 @@ BossFileInfo* getBossParticleInfoHook()
 {
 	BossFileInfo* table = rcast<BossFileInfo*>(0x02026C80);
 
-	u8 bossObjBank = Stage::getBlock<u8>(14)[15];
+	u8 bossObjBank = rcast<u8*>(Stage::stageBlocks.objectBanks)[15];
 	StageObject* stageObjs = Stage::stageBlocks.stageObjs;
 
-	if (bossObjBank < 2) // Not a boss
+	if (bossObjBank < 2 || bossObjBank > 8) // Not a boss
 		return nullptr;
 
 	if (bossObjBank == 2) // Bowser
