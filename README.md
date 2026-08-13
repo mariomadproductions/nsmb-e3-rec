@@ -73,6 +73,7 @@ There are of course many other unimplemented things, that are obviously just not
  - Go into the repo folder.
  - Place the ROM as ``rom.nds``[^rom] in the repo.
  - Run `insert_files.py rom.nds`.
+ - Clone the NSMB code reference https://github.com/MammaMiaTeam/NSMB-Code-Reference and check out the commit listed in `docs/nsmb_code_reference_version.txt`, then point the `NSMBREF_ROOT` environment variable at it.
  - Follow the NSMB code template NSMBe instructions https://github.com/MammaMiaTeam/NSMB-Code-Template
 
 ## Tools used
