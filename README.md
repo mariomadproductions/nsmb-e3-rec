@@ -13,8 +13,9 @@ See [Download and usage](#download-and-usage).
 ## FAQ
 **How can I help?**<br>
 What we most need at the moment is more photos and videos of the demo, and more info from people who played the demo. Please tell us if you think you may be able to help, or know somebody who may be able to help.
-Here is a (messy) page containing the info we currently have:
-https://tcrf.net/Prerelease:New_Super_Mario_Bros./2005/Demo
+Here are (messy) pages containing the info we currently have:
+https://tcrf.net/Prerelease:New_Super_Mario_Bros./2005/Demo  
+https://tcrf.net/User:Trash_Bandatcoot/rewrite
 
 **When will the finished recreation be released?**<br>
 There is no estimated release date.
@@ -23,7 +24,7 @@ There is no estimated release date.
 Yes, but this is currently limited by the amount of footage and information we have of/on the demo.
 
 **When will the next update be?**<br>
-The project is still ongoing - there isn't really any reason to discontinue it, except if the real demo was leaked. There is a code refactor branch, which includes some new features, and there are some asset improvements in the `to_implement` folder, plus various additions that haven't been added to the repo yet. There isn't a schedule for updates, and it depends on free time and motivation. However the assets in `to_implement` are low-hanging fruit if someone wants to make a pull request.
+The project is still ongoing - there isn't really any reason to discontinue it, except if the real demo was leaked. There are quite a few changes here in the git repo, which a release hasn't been created for yet, as things still need importing, polishing and testing. There isn't a schedule for updates, and it depends on free time and motivation.
 
 ## Download and usage
 Download the patch from [releases](https://github.com/mariomadproductions/nsmb-e3-rec/releases)
@@ -38,7 +39,6 @@ Patching tools for different platforms (in order of ease of use):
 -   https://github.com/marco-calautti/DeltaPatcher/releases (Windows)
 -   https://github.com/dan0v/xdelta3-cross-gui/releases (Windows, Mac, Linux)
 -   https://github.com/jmacd/xdelta-gpl/releases (Windows, Mac, Linux) (command line program)
-
 
 You should patch a clean NSMB USA ROM[^rom].
 
@@ -73,20 +73,22 @@ There are of course many other unimplemented things, that are obviously just not
  - Go into the repo folder.
  - Place the ROM as ``rom.nds``[^rom] in the repo.
  - Run `insert_files.py rom.nds`.
- - Clone the NSMB code reference https://github.com/MammaMiaTeam/NSMB-Code-Reference and check out the commit listed in `docs/nsmb_code_reference_version.txt`, then point the `NSMBREF_ROOT` environment variable at it.
- - Follow the NSMB code template NSMBe instructions https://github.com/MammaMiaTeam/NSMB-Code-Template
+ - Clone the NSMB code reference [NSMB-Code-Reference](https://github.com/MammaMiaTeam/NSMB-Code-Reference) and check out the commit listed in `docs/nsmb_code_reference_version.txt`, then point the `NSMBREF_ROOT` environment variable at it.
+ - Follow the [NSMB-Code-Template](https://github.com/MammaMiaTeam/NSMB-Code-Template) NSMBe instructions
 
-## Tools used
-In addition to those listed in the build instructions.
+## Tools and resources used
+-   [NSMBe](https://github.com/MammaMiaTeam/NSMB-Editor)
+-   [NSMB-Code-Reference](https://github.com/MammaMiaTeam/NSMB-Code-Reference)
+-   [NSMB-Code-Template](https://github.com/MammaMiaTeam/NSMB-Code-Template)
 -   Paint.NET
 -   GIMP
 -   Nitro Studio 2
 -   Blender
--   Nitro Model Converter GUI
--   NDS Banner Editor
+-   [Nitro Model Converter GUI](https://github.com/TheGameratorT/NitroModel_ConverterGUI)
+-   [NDS Banner Editor](https://github.com/TheGameratorT/NDS_Banner_Editor)
 
 ## Credits
--   Hiccup - Research, direction, levels, sound edits and minor graphics
+-   Hiccup - Research, general direction, level recreation, sound edits and minor graphics
 -   TheGameratorT - Coding and minor graphics
 -   Alzter - Graphics
 -   Zeferrao/Pengu - Sound edits
@@ -96,21 +98,19 @@ In addition to those listed in the build instructions.
 -   mrrikihino - Graphics
 -   MeroMero - No level freeze code (nofreeze.s)
 -   Ed_IT - Helped with custom sprite code
--   Doc_Static (aka Mspeter97) - First-hand demo information
-    (was present at E3 2005)
--   SiropDeViolette (aka Simpson55) - First-hand demo
-    information (was present at E3 2005)
+-   Doc_Static (aka Mspeter97) - Demo information
+-   SiropDeViolette (aka Simpson55) - Demo
+    information
 -   KingYoshi - Research/translation of Dutch news articles
--   skewer 2 - Pipe Piranha Plant resize code
-
 -   All contributors to the original
     [Beta Replica project](https://nsmbhd.net/thread/2198-nsmb-beta-replica-2005-demo-replica-v1-released/) (MarioFanatic64,
     Thierry et al)
--   All contributors to the TCRF page
+-   All contributors to the [TCRF page](https://tcrf.net/New_Super_Mario_Bros.)
 
 [^rom]: Common filename: New Super Mario Bros (USA).nds  
     Size: 33554432  
     CRC32: 0197576a  
     MD5: a2ddba012e5c3c2096d0be57cc273be5  
     SHA1: a22713711b5cd58dfbafc9688dadea66c59888ce  
-    SHA256: 9f67fef1b4c73e966767f6153431ada3751dc1b0da2c70f386c14a5e3017f354
+    SHA256: 9f67fef1b4c73e966767f6153431ada3751dc1b0da2c70f386c14a5e3017f354  
+    Internal serial and version: A2DE v0
