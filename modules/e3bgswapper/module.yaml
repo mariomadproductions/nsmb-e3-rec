@@ -1,0 +1,29 @@
+id: E3BGSwapper
+name: E3 Background Swapper
+description: Swaps the background, foreground and tileset graphics when the player comes near, as the E3 2005 demo's levels do between their sections. Loaded per level as a runtime module.
+
+authors:
+  - TheGameratorT
+
+runtime:
+  e3bgswapper:
+    file: z_new/actor/e3bgswapper/code.ncrt
+
+# The catch-all stays in the binary. It records which graphics the area loaded,
+# and being always applied, it does not depend on whether the area loads them
+# before or after the level's runtime modules are attached.
+targets:
+  - arm9:
+      includes: "include"
+      sources: "source9/*"
+  - arm9(rt:e3bgswapper):
+      sources: "source9/rt/**"
+
+components:
+  - BackgroundSwapper:
+      target: arm9(rt:e3bgswapper)
+      objects:
+        - name: BackgroundSwapper
+          type: actor
+          header: e3bgswapper/BackgroundSwapper.hpp
+          stage: [Default]

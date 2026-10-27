@@ -1,0 +1,10 @@
+# The NSMB code reference this project builds against.
+#
+# Commit this file. `nsmbtool reference sync` materialises the revision
+# below and writes .ncpatcher.env, which NCPatcher reads for NSMBREF_ROOT.
+# Change it with `nsmbtool reference use <branch|tag|commit>`.
+
+version: 1
+reference:
+  repo: https://github.com/MammaMiaTeam/NSMB-Code-Reference
+  rev: ac823910c51fca86145f6cf136728fa1d5ee6bc7

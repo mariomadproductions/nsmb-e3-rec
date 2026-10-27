@@ -1,0 +1,84 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/TheGameratorT/NCPatcher/main/schema/ncpatcher.schema.json
+version: 2
+
+# The clean USA ROM is not named here: each build is given it with --rom.
+rom:
+  output: build/nds/rom.nds
+  backup: backup
+  trim: true
+
+  # Not a NitroFS file: the banner is its own region that the header points at,
+  # so no ROM path names it.
+  banner: modules/e3rec/banner.bin
+
+toolchain: arm-none-eabi-
+
+defines: [SDK_GCC, SDK_FINALROM]
+flags:
+  common: [-masm-syntax-unified, -mno-unaligned-access, -mfloat-abi=soft, -mabi=aapcs, -fno-short-enums]
+  c: [-Os, -fomit-frame-pointer, -ffast-math, -fno-builtin, -nostdlib, -nodefaultlibs, -nostartfiles]
+  cpp: [-Os, -fomit-frame-pointer, -ffast-math, -fno-builtin, -nostdlib, -nodefaultlibs, -nostartfiles, -fno-rtti, -fno-exceptions, -Wno-literal-suffix, -std=c++23]
+  asm: [-Os, -x, assembler-with-cpp, -fomit-frame-pointer]
+  ld: [-lgcc, -lc, -lstdc++, --use-blx]
+
+modules:
+  dir: modules
+  dump: build/generated/modules.json
+  enabled:
+    - e3rec
+    - e3itemblock
+    - e3bgswapper
+    - e3betaswitch
+    - debug
+    - glue
+
+# BUILDTIME is a file the retail ROM already has; the game reads it as a string
+# and the crash screen prints it, so a report says which build crashed.
+files:
+  BUILDTIME: build/generated/BUILDTIME
+
+files-dump: build/generated/files.json
+
+# The game holds arrays of file ids terminated by the id one past the last file
+# retail shipped -- which is the id the first added file would otherwise take.
+# This placeholder takes it instead, and stays empty.
+files-reserve: z_new/01DUMMY
+
+hooks:
+  - name: Stamp the build
+    run: nsmbtool stamp --out build/generated/BUILDTIME
+    when: pre-build
+
+  # post-files, because these headers turn this build's file ids into constants:
+  # it is the one phase that runs after insertion has assigned them and before
+  # anything that includes them is compiled.
+  - name: Generate the module assets
+    run: nsmbtool glue --graph "${ncp.moduleDump}" --manifest "${ncp.fileDump}" --out build/generated
+    when: post-files
+
+  # The patch is for distribution rather than for the ROM, so a build that has
+  # no xdelta3 can drop this hook.
+  - name: Write the xdelta patch
+    run: nsmbtool xdelta --source "${rom.file}" --target "${rom.output}" --out build/xdelta/nsmb-e3-rec.xdelta
+    when: post-build
+
+targets:
+  arm9:
+    build: build/arm9
+    arena-lo: 0x02065F10
+    region-catalog: ${env.NSMBREF_ROOT}/overlays9.yaml
+    includes: ["${env.NSMB_NITRO_ROOT}/include", "${env.NSMBREF_ROOT}/include", build/generated/include]
+    defines: [SDK_ARM9, arm9_start=0x021901E0, NTR_DEBUG]
+    flags:
+      common: [-march=armv5te, -mtune=arm946e-s]
+      c: [-mthumb-interwork]
+      cpp: [-mthumb-interwork]
+    regions:
+      - dest: main
+        sources: "${env.NSMBREF_ROOT}/symbols9.c"
+
+      # The title screen's overlay. The main menu that replaces the title
+      # screen is written over it rather than after it, since none of the
+      # original code is reached any more.
+      - dest: ov9
+        mode: replace

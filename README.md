@@ -69,17 +69,37 @@ Workarounds/unimplemented things that may seem like bugs:
 There are of course many other unimplemented things, that are obviously just not implemented yet.
 
 ## Building
- - Clone the repo.
- - Go into the repo folder.
- - Place the ROM as ``rom.nds``[^rom] in the repo.
- - Run `insert_files.py rom.nds`.
- - Clone the NSMB code reference [NSMB-Code-Reference](https://github.com/MammaMiaTeam/NSMB-Code-Reference) and check out the commit listed in `docs/nsmb_code_reference_version.txt`, then point the `NSMBREF_ROOT` environment variable at it.
- - Follow the [NSMB-Code-Template](https://github.com/MammaMiaTeam/NSMB-Code-Template) NSMBe instructions
+You need:
+
+-   `arm-none-eabi-gcc` and the rest of the ARM toolchain
+-   [NCPatcher](https://github.com/TheGameratorT/NCPatcher) 2.x and nsmbtool, both on your `PATH`
+-   The converted Nitro SDK/Nitro System headers, with `NSMB_NITRO_ROOT` pointing at their root
+-   A clean NSMB USA ROM[^rom], kept wherever you like
+
+Then, from the repo folder:
+
+```bash
+nsmbtool reference sync
+ncpatcher build --rom path/to/clean.nds
+```
+
+`sync` fetches the [NSMB code reference](https://github.com/MammaMiaTeam/NSMB-Code-Reference) commit pinned in `nsmbref.lock` and writes `.ncpatcher.env`, which tells NCPatcher where it is. The patched ROM is written to `build/nds/rom.nds`, and the xdelta patch to `build/xdelta/`.
+
+The project is a set of NCPatcher modules under `modules/`:
+
+| Module | What it is |
+| --- | --- |
+| `e3rec` | The recreation itself: the menu, the bottom screen, the player and level changes, and the demo's files |
+| `e3itemblock` | The rotating item block, loaded only by levels that place one |
+| `e3bgswapper` | The background swapper, loaded only by levels that place one |
+| `e3betaswitch` | The switch, loaded only by levels that place one |
+| `debug` | The collision viewer (Select + X) and player dragging (hold X) |
+| `glue` | Lets modules add actors to levels; shared with other NSMB projects |
+
+The levels are edited with [Big Star Editor](https://github.com/Ndymario/Big-Star-Editor), which reads the actors each module draws from its `bigstar/actors` directory.
 
 ## Tools and resources used
--   [NSMBe](https://github.com/MammaMiaTeam/NSMB-Editor)
 -   [NSMB-Code-Reference](https://github.com/MammaMiaTeam/NSMB-Code-Reference)
--   [NSMB-Code-Template](https://github.com/MammaMiaTeam/NSMB-Code-Template)
 -   Paint.NET
 -   GIMP
 -   Nitro Studio 2

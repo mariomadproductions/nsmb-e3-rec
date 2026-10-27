@@ -1,0 +1,32 @@
+id: E3ItemBlock
+name: E3 Item Block
+description: The rotating item block from the E3 2005 demo, loaded per level as a runtime module.
+
+authors:
+  - TheGameratorT
+
+runtime:
+  e3itemblock:
+    file: z_new/actor/e3itemblock/code.ncrt
+
+targets:
+  - arm9:
+      includes: "include"
+  - arm9(rt:e3itemblock):
+      sources: "source9/**"
+
+nitrofs:
+  dir: nitrofs
+
+components:
+  - ItemBlock:
+      target: arm9(rt:e3itemblock)
+      files:
+        - "z_new/actor/e3itemblock/item_block_b.nsbmd"
+        - "z_new/actor/e3itemblock/item_block_g.nsbmd"
+        - "z_new/actor/e3itemblock/item_block_y.nsbmd"
+      objects:
+        - name: ItemBlock
+          type: actor
+          header: e3itemblock/ItemBlock.hpp
+          stage: [Default]

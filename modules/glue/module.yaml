@@ -1,0 +1,24 @@
+id: Glue
+name: Interoperability Module
+description: Lets modules extend the game's object, scene and level data tables.
+
+authors:
+  - ItzTacos
+  - TheGameratorT
+
+# What the extended stage object IDs a level uses mean. Entry n is the hash of
+# the object that stage object ID 326 + n spawns, so the index is the ID and the
+# array holds no IDs itself.
+#
+# The placements are not here: they are ordinary StageObject entries in the
+# vanilla StageObjs block, which is the only block the game walks. See
+# include/glue/stageobject.hpp.
+#
+# Declared by glue rather than by a game module because glue is what reads it.
+level-data:
+  stageObjects: u32[?]
+
+targets:
+  - arm9:
+      includes: "include"
+      sources: "source9/*"

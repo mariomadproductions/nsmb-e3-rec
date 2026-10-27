@@ -1,0 +1,9 @@
+id: Debug
+name: Debug
+
+authors:
+  - TheGameratorT
+
+targets:
+  - arm9:
+      sources: "source9/*"

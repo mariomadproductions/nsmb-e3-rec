@@ -1,0 +1,25 @@
+id: E3BetaSwitch
+name: E3 Beta Switch
+description: The switch from the E3 2005 demo, which triggers an event when stomped. Loaded per level as a runtime module.
+
+authors:
+  - TheGameratorT
+
+runtime:
+  e3betaswitch:
+    file: z_new/actor/e3betaswitch/code.ncrt
+
+targets:
+  - arm9:
+      includes: "include"
+  - arm9(rt:e3betaswitch):
+      sources: "source9/**"
+
+components:
+  - BetaSwitch:
+      target: arm9(rt:e3betaswitch)
+      objects:
+        - name: BetaSwitch
+          type: actor
+          header: e3betaswitch/BetaSwitch.hpp
+          stage: [Default]

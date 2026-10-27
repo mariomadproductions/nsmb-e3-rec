@@ -1,0 +1,104 @@
+id: E3Rec
+name: NSMB E3 2005 Demo Recreation
+description: Turns New Super Mario Bros. into the demo shown at E3 2005.
+
+authors:
+  - Hiccup
+  - TheGameratorT
+
+repo: https://github.com/mariomadproductions/nsmb-e3-rec
+
+targets:
+  - arm9:
+      includes: "include"
+      sources: "source9/*"
+  - arm9(9):
+      sources: "source9/ov9/*"
+
+# The demo's levels, graphics and sounds, at the paths they replace, and the
+# files the demo adds under z_new/e3rec.
+nitrofs:
+  dir: nitrofs
+
+components:
+  # The title screen, replaced by the demo's three-level menu. Its scene object
+  # keeps the title screen's ID, so everything that goes to the title screen
+  # comes here.
+  - MainMenu:
+      target: arm9(9)
+      requires: CustomInventory
+      sources: "source9/ov9/MainMenu.cpp"
+
+  - BootScene:
+      target: arm9
+      sources:
+        - "source9/BootScene.cpp"
+        - "source9/MainMenuTop.cpp"
+
+  - CustomInventory:
+      target: arm9
+      sources: "source9/CustomInventory.cpp"
+
+  - LevelBottomScreen:
+      target: arm9
+      requires: CustomInventory
+      sources: "source9/LevelBottomScreen.cpp"
+
+  - CrashScreen:
+      target: arm9
+      sources: "source9/CrashScreen.cpp"
+
+  - BossParticleFix:
+      target: arm9
+      sources: "source9/BossParticleFix.cpp"
+
+  - LevelBackup:
+      target: arm9
+      sources: "source9/LevelBackup.cpp"
+
+  # The demo's mushroom platforms: wider, shorter and optionally green, with a
+  # thicker stalk. They are the vanilla object with different settings.
+  - MushroomPlatform:
+      target: arm9
+      sources: "source9/E3MushroomPlatform.cpp"
+
+  # Red rings that remember who collected them, and become respawn points.
+  - RedRing:
+      target: arm9
+      sources: "source9/RedRing.cpp"
+
+  - PipeCannon:
+      target: arm9
+      sources: "source9/PipeCannon.cpp"
+
+  - PipePiranha:
+      target: arm9
+      sources: "source9/PipePiranha.cpp"
+
+  - PlayerAnims:
+      target: arm9
+      sources: "source9/PlayerAnims.cpp"
+
+  - PlayerCollision:
+      target: arm9
+      sources: "source9/PlayerCollision.cpp"
+
+  - PlayerKick:
+      target: arm9
+      sources: "source9/PlayerKick.cpp"
+
+  - PlayerMega:
+      target: arm9
+      sources: "source9/PlayerMega.cpp"
+
+  - PlayerPush:
+      target: arm9
+      sources: "source9/PlayerPush.cpp"
+
+  - PlayerStartFX:
+      target: arm9
+      sources: "source9/PlayerStartFX.cpp"
+
+  - PlayerWalkingSound:
+      target: arm9
+      sources: "source9/PlayerWalkingSound.cpp"
