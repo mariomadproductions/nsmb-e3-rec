@@ -6,6 +6,7 @@
 # Original ROM data and build output
 /backup
 /build
+/virtual-rom
 
 # Written by `nsmbtool reference sync` from nsmbref.lock, and holding an
 # absolute path into this machine's store. The lock is what gets committed.
