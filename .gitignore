@@ -11,9 +11,9 @@
 # absolute path into this machine's store. The lock is what gets committed.
 /.ncpatcher.env
 
-# Big Star Editor's choices for this checkout, including where this machine
-# keeps the clean ROM.
-/.big-star-workspace.json
+# Big Star Editor's files for this checkout: its choices (including where this
+# machine keeps the clean ROM), crash recovery and the backups it takes.
+/.bigstar/
 
 # The converted Nitro SDK headers the old build kept here. NSMB_NITRO_ROOT
 # names them now.
